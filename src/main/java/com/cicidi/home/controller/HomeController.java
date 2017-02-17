@@ -25,6 +25,7 @@ class HomeController {
         model.addAttribute("homeViewObject", homeViewObject);
         System.out.println(request.getRemoteAddr());
         return "home";
+
     }
 
     @GetMapping("properties")
