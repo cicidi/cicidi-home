@@ -1,0 +1,15 @@
+**/target
+**/nbactions.xml
+**/nb-configuration.xml
+
+#Eclipse especified files:
+**/.classpath
+**/.project
+**/.DS_Store
+**/.settings/**
+
+**/.idea/**
+**/*.iml
+**/*.log
+**/*.data
+**/*.redo
