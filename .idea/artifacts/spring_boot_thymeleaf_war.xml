@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="spring-boot-thymeleaf:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="spring-boot-thymeleaf-1.0.war">
-      <element id="artifact" artifact-name="spring-boot-thymeleaf:war exploded" />
-    </root>
-  </artifact>
-</component>
