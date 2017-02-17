@@ -1,4 +1,4 @@
-package pl.codeleak.demos.sbt.home;
+package com.cicidi.home.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

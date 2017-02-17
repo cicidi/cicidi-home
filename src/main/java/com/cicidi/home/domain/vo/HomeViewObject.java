@@ -1,4 +1,4 @@
-package pl.codeleak.demos.sbt.domain;
+package com.cicidi.home.domain.vo;
 
 /**
  * Created by cicidi on 2/16/2017.

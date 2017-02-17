@@ -1,4 +1,4 @@
-package pl.codeleak.demos.sbt;
+package com.cicidi.home;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

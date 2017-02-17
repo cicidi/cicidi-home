@@ -1,4 +1,4 @@
-package pl.codeleak.demos.sbt.home;
+package com.cicidi.home.controller;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
