@@ -38,7 +38,9 @@
     <div id="topbar">
         <div class="line">
             <div class="s-12 m-6 l-6">
-                <p>CONTACT US: <strong>0800 200 200</strong> | <strong>contact@sampledomain.com</strong></p>
+                <p>CONTACT ME: <span
+                        th:text="${homeViewObject.contact.email}"></span>
+                </p>
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
@@ -51,7 +53,9 @@
     <nav>
         <div class="line">
             <div class="s-12 l-2">
-                <p class="logo"><strong>Walter</strong> Chen</p>
+                <p class="logo">
+                    <span style="font-weight:bold" th:text="${homeViewObject.contact.firstName}"></span> <span
+                        th:text="${homeViewObject.contact.lastName}"></span></p>
             </div>
             <div class="top-nav s-12 l-10">
                 <p class="nav-text">Custom menu text</p>
@@ -59,7 +63,7 @@
                     <li class="active-item"><a href="#carousel">Home</a></li>
                     <li><a href="#about-me">About ME</a></li>
                     <li><a href="#features">TECHNOLOGY</a></li>
-                    <li><a href="#our-work">My Experience</a></li>
+                    <li><a href="#my-exp">My Experience</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -71,63 +75,29 @@
     <!-- CAROUSEL -->
     <div id="carousel">
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <div class="item">
-                <img th:src="${homeViewObject.link_1}" alt="">
+            <tr th:each="item:${homeViewObject.owlCarousel.itemList}">
+                <td>
+                    <div class="item">
+                        <img th:src="${item.src}" alt="">
 
-                <div class="line">
-                    <div class="text hide-s">
                         <div class="line">
-                            <div class="prev-arrow hide-s hide-m">
-                                <i class="icon-chevron_left"></i>
-                            </div>
-                            <div class="next-arrow hide-s hide-m">
-                                <i class="icon-chevron_right"></i>
+                            <div class="text hide-s">
+                                <div class="line">
+                                    <div class="prev-arrow hide-s hide-m">
+                                        <i class="icon-chevron_left"></i>
+                                    </div>
+                                    <div class="next-arrow hide-s hide-m">
+                                        <i class="icon-chevron_right"></i>
+                                    </div>
+                                </div>
+                                <h2 th:text="${item.header}"></h2>
+
+                                <p th:text="${item.paragraph}"></p>
                             </div>
                         </div>
-                        <h2>Work in CGI</h2>
-
-                        <p>I worked in CGI as an senior java develop, focus on SOA</p>
                     </div>
-                </div>
-            </div>
-            <div class="item">
-                <img th:src="${homeViewObject.link_2}" alt="">
-
-                <div class="line">
-                    <div class="text hide-s">
-                        <div class="line">
-                            <div class="prev-arrow hide-s hide-m">
-                                <i class="icon-chevron_left"></i>
-                            </div>
-                            <div class="next-arrow hide-s hide-m">
-                                <i class="icon-chevron_right"></i>
-                            </div>
-                        </div>
-                        <h2>Work in HUAWEI</h2>
-
-                        <p>Design Xml config application</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img th:src="${homeViewObject.link_3}" alt="">
-
-                <div class="line">
-                    <div class="text hide-s">
-                        <div class="line">
-                            <div class="prev-arrow hide-s hide-m">
-                                <i class="icon-chevron_left"></i>
-                            </div>
-                            <div class="next-arrow hide-s hide-m">
-                                <i class="icon-chevron_right"></i>
-                            </div>
-                        </div>
-                        <h2>My Apple CARD</h2>
-
-                        <p>Working with most smart guy.</p>
-                    </div>
-                </div>
-            </div>
+                </td>
+            </tr>
         </div>
     </div>
     <!-- FIRST BLOCK -->
@@ -135,72 +105,86 @@
     <div id="about-me">
         <div id="first-block">
             <div class="line">
-                <h1>I LOVE JAVA</h1>
+                <h1 th:text="${homeViewObject.objective.title_1}"></h1>
 
-                <p>I love my job, i am open to any challenge .</p>
+                <p th:text="${homeViewObject.objective.paragraph_1}"></p>
 
-                <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Us</a></div>
+                <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
         <div class="s-12 m-12 l-6 media-container">
-            <img src="img/about.jpg" alt="">
+            <img th:src="${homeViewObject.objective.imgSrc}" alt="">
         </div>
         <article class="s-12 m-12 l-6">
-            <h2>I am <br> Walter Chen<br> Heroes</h2>
+            <h2 th:text="${homeViewObject.objective.title_2}"></h2>
 
-            <p>This is my home, I am using some technolgy create this page, to demostrate I code
-            </p>
+            <p th:text="${homeViewObject.objective.paragraph_2}"></p>
 
-            <div class="about-me-icons">
-                <i class="icon-paperplane_ico"></i> <i class="icon-trophy"></i> <i class="icon-clock"></i>
+            <div class=" about-me-icons">
+                <tr th:each="link:${homeViewObject.objective.links}">
+                    <!--<td><i thclass="icon-paperplane_ico"> </i></td>-->
+                    <td><i th:class="${link.icon}" th:href="${link.url}"> </i></td>
+                </tr>
             </div>
         </article>
+        <!--<i class="icon-paperplane_ico"> </i>-->
+        <!--<i class="icon-trophy"></i>-->
+        <!--<i class="icon-clock"></i>-->
+    </div>
+    </article>
     </div>
     <!-- FEATURES -->
     <div id="features">
         <div class="line">
             <div class="margin">
-                <div class="s-12 m-6 l-3 margin-bottom">
-                    <i class="icon-tablet icon3x"></i>
+                <tr th:each="item:${homeViewObject.feature.itemList}">
+                    <td>
+                        <div class="s-12 m-6 l-3 margin-bottom">
+                            <!--<i class="icon-tablet icon3x"></i>-->
+                            <i th:class="${item.src}"></i>
 
-                    <h2>Fully responsive</h2>
+                            <h2 th:text="${item.header}"></h2>
 
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat.</p>
-                </div>
-                <div class="s-12 m-6 l-3 margin-bottom">
-                    <i class="icon-isight icon3x"></i>
+                            <p th:text="${item.paragraph}"></p>
+                        </div>
+                    </td>
+                </tr>
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-isight icon3x"></i>-->
 
-                    <h2>Clean design</h2>
+                <!--<h2>Clean design</h2>-->
 
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>
-                </div>
-                <div class="s-12 m-6 l-3 margin-bottom">
-                    <i class="icon-star icon3x"></i>
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
+                <!--</div>-->
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-star icon3x"></i>-->
 
-                    <h2>Valid code</h2>
+                <!--<h2>Valid code</h2>-->
 
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna erat volutpat.</p>
-                </div>
-                <div class="s-12 m-6 l-3 margin-bottom">
-                    <i class="icon-heart icon3x"></i>
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna erat volutpat.</p>-->
+                <!--</div>-->
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-heart icon3x"></i>-->
 
-                    <h2>Totally free</h2>
+                <!--<h2>Totally free</h2>-->
 
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
-                </div>
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
     <!-- ABOUT US -->
 
     <!-- OUR WORK -->
-    <div id="our-work">
+    <div id="my-exp">
         <div class="line">
-            <h2 class="section-title">Our Work</h2>
+            <h2 class="section-title">MY EXPERIENCE</h2>
 
             <div class="tabs">
                 <div class="tab-item tab-active">
@@ -208,23 +192,23 @@
 
                     <div class="tab-content">
                         <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por1.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por4.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por6.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por3.jpg" alt=""></a></div>
@@ -236,23 +220,23 @@
 
                     <div class="tab-content">
                         <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por7.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por5.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por1.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por2.jpg" alt=""></a></div>
@@ -264,23 +248,23 @@
 
                     <div class="tab-content">
                         <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por4.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por6.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por3.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por5.jpg" alt=""></a></div>
@@ -292,23 +276,23 @@
 
                     <div class="tab-content">
                         <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por7.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por2.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por5.jpg" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom">
-                                <div class="our-work-text"><h4>Lorem Ipsum Dolor</h4>
+                            <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
+                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por6.jpg" alt=""></a></div>
