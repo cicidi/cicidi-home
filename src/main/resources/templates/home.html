@@ -60,11 +60,12 @@
             <div class="top-nav s-12 l-10">
                 <p class="nav-text">Custom menu text</p>
                 <ul class="right">
-                    <li class="active-item"><a href="#carousel">Home</a></li>
+                    <li class="active-item"><a href="#home">Home</a></li>
+                    <li><a href="#my-exp">Code demo</a></li>
                     <li><a href="#about-me">About ME</a></li>
                     <li><a href="#features">TECHNOLOGY</a></li>
-                    <li><a href="#my-exp">My Experience</a></li>
-                    <li><a href="#services">Services</a></li>
+
+                    <li><a href="#skill-sets">Skill Set</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -73,7 +74,7 @@
 </header>
 <section>
     <!-- CAROUSEL -->
-    <div id="carousel">
+    <div id="home">
         <div id="owl-demo" class="owl-carousel owl-theme">
             <tr th:each="item:${homeViewObject.owlCarousel.itemList}">
                 <td>
@@ -102,86 +103,8 @@
     </div>
     <!-- FIRST BLOCK -->
 
-    <div id="about-me">
-        <div id="first-block">
-            <div class="line">
-                <h1 th:text="${homeViewObject.objective.title_1}"></h1>
 
-                <p th:text="${homeViewObject.objective.paragraph_1}"></p>
-
-                <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
-            </div>
-        </div>
-        <div class="s-12 m-12 l-6 media-container">
-            <img th:src="${homeViewObject.objective.imgSrc}" alt="">
-        </div>
-        <article class="s-12 m-12 l-6">
-            <h2 th:text="${homeViewObject.objective.title_2}"></h2>
-
-            <p th:text="${homeViewObject.objective.paragraph_2}"></p>
-
-            <div class=" about-me-icons">
-                <tr th:each="link:${homeViewObject.objective.links}">
-                    <!--<td><i thclass="icon-paperplane_ico"> </i></td>-->
-                    <td><i th:class="${link.icon}" th:href="${link.url}"> </i></td>
-                </tr>
-            </div>
-        </article>
-        <!--<i class="icon-paperplane_ico"> </i>-->
-        <!--<i class="icon-trophy"></i>-->
-        <!--<i class="icon-clock"></i>-->
-    </div>
-    </article>
-    </div>
-    <!-- FEATURES -->
-    <div id="features">
-        <div class="line">
-            <div class="margin">
-                <tr th:each="item:${homeViewObject.feature.itemList}">
-                    <td>
-                        <div class="s-12 m-6 l-3 margin-bottom">
-                            <!--<i class="icon-tablet icon3x"></i>-->
-                            <i th:class="${item.src}"></i>
-
-                            <h2 th:text="${item.header}"></h2>
-
-                            <p th:text="${item.paragraph}"></p>
-                        </div>
-                    </td>
-                </tr>
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-isight icon3x"></i>-->
-
-                <!--<h2>Clean design</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
-                <!--</div>-->
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-star icon3x"></i>-->
-
-                <!--<h2>Valid code</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna erat volutpat.</p>-->
-                <!--</div>-->
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-heart icon3x"></i>-->
-
-                <!--<h2>Totally free</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
-                <!--</div>-->
-            </div>
-        </div>
-    </div>
-    <!-- ABOUT US -->
-
-    <!-- OUR WORK -->
+    <!-- CODE DEMO -->
     <div id="my-exp">
         <div class="line">
             <h2 class="section-title">MY EXPERIENCE</h2>
@@ -193,7 +116,8 @@
                     <div class="tab-content">
                         <div class="margin">
                             <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
-                                <div class="my-exp-text"><h4>Lorem Ipsum Dolor</h4>
+                                <div class="my-exp-text">
+                                    <h4>Lorem Ipsum Dolor</h4>
 
                                     <p>Laoreet dolore magna aliquam erat volutpat.</p></div>
                                 <img src="img/por1.jpg" alt=""></a></div>
@@ -302,8 +226,87 @@
             </div>
         </div>
     </div>
+
+    <div id="about-me">
+        <div id="first-block">
+            <div class="line">
+                <h1 th:text="${homeViewObject.objective.title_1}"></h1>
+
+                <p th:text="${homeViewObject.objective.paragraph_1}"></p>
+
+                <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
+            </div>
+        </div>
+        <div class="s-12 m-12 l-6 media-container">
+            <img th:src="${homeViewObject.objective.imgSrc}" alt="">
+        </div>
+        <article class="s-12 m-12 l-6">
+            <h2 th:text="${homeViewObject.objective.title_2}"></h2>
+
+            <p th:text="${homeViewObject.objective.paragraph_2}"></p>
+
+            <div class=" about-me-icons">
+                <tr th:each="link:${homeViewObject.objective.links}">
+                    <!--<td><i thclass="icon-paperplane_ico"> </i></td>-->
+                    <td><i th:class="${link.icon}" th:href="${link.url}"> </i></td>
+                </tr>
+            </div>
+        </article>
+        <!--<i class="icon-paperplane_ico"> </i>-->
+        <!--<i class="icon-trophy"></i>-->
+        <!--<i class="icon-clock"></i>-->
+    </div>
+    <!-- FEATURES -->
+    <div id="features">
+        <div class="line">
+            <div class="margin">
+                <tr th:each="item:${homeViewObject.feature.itemList}">
+                    <td>
+                        <div class="s-12 m-6 l-3 margin-bottom">
+                            <!--<i class="icon-tablet icon3x"></i>-->
+                            <i th:class="${item.src}"></i>
+
+                            <h2 th:text="${item.header}"></h2>
+
+                            <p th:text="${item.paragraph}"></p>
+                        </div>
+                    </td>
+                </tr>
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-isight icon3x"></i>-->
+
+                <!--<h2>Clean design</h2>-->
+
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
+                <!--</div>-->
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-star icon3x"></i>-->
+
+                <!--<h2>Valid code</h2>-->
+
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna erat volutpat.</p>-->
+                <!--</div>-->
+                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+                <!--<i class="icon-heart icon3x"></i>-->
+
+                <!--<h2>Totally free</h2>-->
+
+                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+                <!--tincidunt-->
+                <!--ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT US -->
+
+
     <!-- SERVICES -->
-    <div id="services">
+    <div id="skill-sets">
         <div class="line">
             <h2 class="section-title">What we do</h2>
 

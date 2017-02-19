@@ -1,5 +1,7 @@
 package com.cicidi.home.domain.vo;
 
+import java.util.List;
+
 /**
  * Created by cicidi on 2/16/2017.
  */
@@ -44,4 +46,5 @@ public class HomeViewObject {
     public void setObjective(Objective objective) {
         this.objective = objective;
     }
+
 }
