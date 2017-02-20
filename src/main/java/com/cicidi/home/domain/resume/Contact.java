@@ -8,6 +8,8 @@ public class Contact {
     private String phone;
     private Address address;
     private String email;
+    private String github;
+    private String linkedIn;
 
 
     public String getPhone() {
@@ -32,5 +34,21 @@ public class Contact {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+    public String getLinkedIn() {
+        return linkedIn;
+    }
+
+    public void setLinkedIn(String linkedIn) {
+        this.linkedIn = linkedIn;
     }
 }

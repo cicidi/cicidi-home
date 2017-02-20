@@ -89,7 +89,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: cglib:cglib-nodep:2.1_3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-api:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.httpcomponents:httpcore:4.4.5" level="project" />
@@ -106,5 +105,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.netty:netty:3.5.7.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-support:2.53.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.seleniumhq.selenium:selenium-leg-rc:2.53.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

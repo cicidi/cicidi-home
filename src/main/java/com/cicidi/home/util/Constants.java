@@ -10,6 +10,7 @@ public class Constants {
     public static final String link_1 = "img/Amazing_Bike_Stunt_Images_2Yz8z7k.jpg";
     public static final String link_2 = "img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg";
     public static final String link_3 = "img/tree-247122_azLgBTw.jpg";
+    public static final String link_4 = "img/about.jpg";
     public static final String icon_1 = "icon-tablet icon3x";
     public static final String icon_2 = "icon-isight icon3x";
     public static final String icon_3 = "icon-star icon3x";

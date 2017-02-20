@@ -10,6 +10,7 @@ public class Address {
     private String state;
     private String country;
     private String zipCode;
+    private String fullAddress;
 
     public String getNumber() {
         return number;
@@ -57,6 +58,27 @@ public class Address {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getFullAddress() {
+        StringBuilder sb = new StringBuilder();
+        if (number != null) {
+            sb.append(number);
+            sb.append(" ");
+        }
+        if (street != null) {
+            sb.append(street);
+            sb.append(" ");
+        }
+        if (city != null) {
+            sb.append(city);
+            sb.append(" ");
+        }
+        if (state != null) {
+            sb.append(state);
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 }
 

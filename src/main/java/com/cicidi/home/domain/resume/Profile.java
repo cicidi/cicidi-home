@@ -12,6 +12,7 @@ public class Profile {
     private Contact contact;
     private List<Education> educationList;
     private List<WorkExperience> workExperienceList;
+    private Objective objective;
 
     public String getFirstName() {
         return firstName;
@@ -51,5 +52,13 @@ public class Profile {
 
     public void setWorkExperienceList(List<WorkExperience> workExperienceList) {
         this.workExperienceList = workExperienceList;
+    }
+
+    public Objective getObjective() {
+        return objective;
+    }
+
+    public void setObjective(Objective objective) {
+        this.objective = objective;
     }
 }

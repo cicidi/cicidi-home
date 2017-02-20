@@ -1,19 +1,28 @@
 package com.cicidi.home.controller;
 
+import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.*;
+import com.cicidi.home.service.Test;
 import com.cicidi.home.util.Constants;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
 class HomeController {
+
+    @Autowired
+    Test test;
 
     @GetMapping("/")
     String index(Model model) {
@@ -26,6 +35,10 @@ class HomeController {
         HomeViewObject homeViewObject = this.testCase();
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("homeViewObject", homeViewObject);
+        Profile profile = test.createProfile();
+        model.addAttribute("profile", profile);
+        model.addAttribute("objective", test.createObjective());
+        model.addAttribute("webLogList", test.createLog());
         System.out.println(request.getRemoteAddr());
         return "home";
 
@@ -42,7 +55,6 @@ class HomeController {
 
 
         homeViewObject.setOwlCarousel(this.createOwlCarousel());
-        homeViewObject.setContact(this.createaContact());
         homeViewObject.setFeature(createFeature());
         homeViewObject.setObjective(createaObjective());
         return homeViewObject;
@@ -73,14 +85,6 @@ class HomeController {
         return owlCarousel;
     }
 
-    private Contact createaContact() {
-        Contact contact = new Contact();
-        contact.setFirstName("Walter");
-        contact.setLastName("Chen");
-        contact.setLocation("Fremont,California");
-        contact.setPhone("352-281-8555");
-        return contact;
-    }
 
     private Feature createFeature() {
         // owlCarousel
@@ -141,5 +145,12 @@ class HomeController {
         objective.setLinks(links);
         objective.setImgSrc("img/about.jpg");
         return objective;
+    }
+
+    @ModelAttribute("adminMenu")
+    public Collection<String> getAdminMenu(HttpSession session, HttpServletRequest request) {
+        session.setAttribute("adminMenu", "something");
+
+        return null;
     }
 }

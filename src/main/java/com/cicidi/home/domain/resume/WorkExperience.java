@@ -6,18 +6,9 @@ import java.util.List;
  * Created by cicidi on 2/18/17.
  */
 public class WorkExperience extends Organization {
-    private List<Task> taskList;
     private String summary;
     private String role;
-
-
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(List<Task> taskList) {
-        this.taskList = taskList;
-    }
+    private List<Bullet> bulletList;
 
     public String getSummary() {
         return summary;
@@ -35,4 +26,11 @@ public class WorkExperience extends Organization {
         this.role = role;
     }
 
+    public List<Bullet> getBulletList() {
+        return bulletList;
+    }
+
+    public void setBulletList(List<Bullet> bulletList) {
+        this.bulletList = bulletList;
+    }
 }
