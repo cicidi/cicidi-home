@@ -35,6 +35,7 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.springframework.util.ResourceUtils;
 
 /**
  * This class demonstrates the conversion of an XML file to PDF using
@@ -53,14 +54,18 @@ public class ExampleXML2PDF {
             System.out.println("Preparing...");
 
             // Setup directories
-            File baseDir = new File(".");
-            File outDir = new File(baseDir, "/");
+            File baseDir = new File("src/main/resources");
+            File outDir = new File(baseDir, "src/main/resources");
             outDir.mkdirs();
 
+
             // Setup input and output files
-            File xmlfile = new File(baseDir, "resume.xml");
-            File xsltfile = new File(baseDir, "resume-xsl-fo.xsl");
-            File pdffile = new File(baseDir, "ResultXML2PDF.pdf");
+            File xmlfile = new File(baseDir, "resume_config/resume.xml");
+            File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
+            File pdffile = new File(baseDir, "resume_config/ResultXML2PDF.pdf");
+            if (!pdffile.exists()) {
+                pdffile.createNewFile();
+            }
 
             System.out.println("Input: XML (" + xmlfile + ")");
             System.out.println("Stylesheet: " + xsltfile);
@@ -77,7 +82,6 @@ public class ExampleXML2PDF {
             // Setup output
             OutputStream out = new java.io.FileOutputStream(pdffile);
             out = new java.io.BufferedOutputStream(out);
-
             try {
                 // Construct fop with desired output format
                 Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);

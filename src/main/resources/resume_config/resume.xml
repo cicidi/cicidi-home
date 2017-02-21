@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE profile SYSTEM "profile.dtd">
+<profile>
+    <firstName>Walter</firstName>
+    <lastName>Chen</lastName>
+    <faceImg>face.jpg</faceImg>
+    <objective>
+        <title></title>
+        <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
+        <interests>I am interest in any kind of new technolgoy</interests>
+        <whyCreateThisPage></whyCreateThisPage>
+        <illustrator></illustrator>
+    </objective>
+    <contact type="contact">
+        <phone></phone>
+        <address type="address">
+            <number></number>
+            <street></street>
+            <city>Fremont</city>
+            <state>CA</state>
+            <country></country>
+            <zipCode></zipCode>
+        </address>
+        <email>cicidi@gmail.com</email>
+        <website>www.ganshaa.com</website>
+        <github>cicidi.github.com</github>
+        <linkedin>myLinkedInAccount</linkedin>
+    </contact>
+    <educationList type="education">
+        <education>
+            <name>University of Florida</name>
+            <address type="">
+                <number></number>
+                <street></street>
+                <city>Gainesville</city>
+                <state>Florida</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>August 2010</start>
+            <end>April 2012</end>
+            <length>1yrs 8mos</length>
+            <photo></photo>
+            <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
+            <major>Information Systems and Operations Management</major>
+            <degree>Master</degree>
+        </education>
+        <education>
+            <name>Dalian Maritime University</name>
+            <address type="">
+                <number></number>
+                <street></street>
+                <city>Da Lian</city>
+                <state>Liao Ning</state>
+                <country>China</country>
+                <zipCode></zipCode>
+            </address>
+            <start>September 2004</start>
+            <end>June 2008</end>
+            <length>3yrs 9mos</length>
+            <photo></photo>
+            <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
+            <major>Business</major>
+            <degree>Bachelor</degree>
+        </education>
+    </educationList>
+    <workExperienceList>
+        <workExperience type="workExperience">
+            <name>Blackhawk network</name>
+            <address type="address">
+                <number></number>
+                <street></street>
+                <city>Pleasanton</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>October 2015</start>
+            <end>Present</end>
+            <length>1yrs 4mos</length>
+            <photo></photo>
+            <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
+            <summary>I am good</summary>
+            <role>Senior developer</role>
+            <bulletList>
+                <bullet>
+                    <content>task1</content>
+                </bullet>
+                <bullet>
+                    <content>task2</content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience type="workExperience">
+            <name>Apple</name>
+            <address type="address">
+                <number></number>
+                <street></street>
+                <city>Sunnyvale</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>April 2015</start>
+            <end>October 2015</end>
+            <length>6 month</length>
+            <photo></photo>
+            <icon>
+                https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
+            </icon>
+            <summary>I like macbook</summary>
+            <role>Senior developer Apple</role>
+            <bulletList>
+                <bullet>
+                    <content>task1</content>
+                </bullet>
+                <bullet>
+                    <content>task2</content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience type="workExperience">
+            <name>Huawei</name>
+            <address type="address">
+                <number></number>
+                <street></street>
+                <city>Santa Clara</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>May 2014</start>
+            <end>April 2015</end>
+            <length>11 month</length>
+            <photo></photo>
+            <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
+            <summary>I like macbook</summary>
+            <role>Java developer</role>
+            <bulletList>
+                <bullet>
+                    <content>task1</content>
+                </bullet>
+                <bullet>
+                    <content>task2</content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience type="workExperience">
+            <name>CGI</name>
+            <address type="address">
+                <number></number>
+                <street></street>
+                <city>Belton</city>
+                <state>TX</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>May 2013</start>
+            <end>May 2014</end>
+            <length>12 month</length>
+            <photo></photo>
+            <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
+            <summary>I like macbook</summary>
+            <role>Java Developer</role>
+            <bulletList>
+                <bullet>
+                    <content>task1</content>
+                </bullet>
+                <bullet>
+                    <content>task2</content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+    </workExperienceList>
+    <skillSet>
+        <category type="">
+            <name>Spring</name>
+            <technologyList>
+                <technology>Spring MVC</technology>
+                <technology>Spring Boot</technology>
+                <technology>Spring Data</technology>
+            </technologyList>
+        </category>
+        <category type="">
+            <name>Big Data</name>
+            <technologyList>
+                <technology>Hadoop</technology>
+            </technologyList>
+        </category>
+    </skillSet>
+
+</profile>
+
