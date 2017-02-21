@@ -174,10 +174,10 @@ public class Test {
 
     }
 
-    public static void main(String[] args) {
-        Test test = new Test();
-        Profile profile = test.createProfile();
-        System.out.println("Done");
-    }
+//    public static void main(String[] args) {
+//        Test test = new Test();
+//        Profile profile = test.createProfile();
+//        System.out.println("Done");
+//    }
 
 }

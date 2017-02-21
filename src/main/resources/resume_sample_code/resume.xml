@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resume SYSTEM "resume.dtd">
+<resume>
+    <!-- complete content goes here -->
+    <school type="college">
+        <name>Austin Community College</name>
+        <degree>Associates of Applied Science</degree>
+        <year>2013</year>
+        <location>
+            <city>Austin</city>
+            <state>Texas</state>
+        </location>
+    </school>
+    <job type="">
+        <name></name>
+        <degree></degree>
+        <year></year>
+        <location>
+            <city></city>
+            <state></state>
+        </location>
+    </job>
+</resume>
+

@@ -13,6 +13,7 @@ public class Profile {
     private List<Education> educationList;
     private List<WorkExperience> workExperienceList;
     private Objective objective;
+    private List<SkillSet> skillSets;
 
     public String getFirstName() {
         return firstName;

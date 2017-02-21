@@ -1,0 +1,58 @@
+<!ELEMENT profile (firstName,lastName,contact,educationList,workExperienceList)*>
+
+        <!ELEMENT firstName (#PCDATA)>
+        <!ELEMENT lastName (#PCDATA)>
+        <!ELEMENT faceImg (#PCDATA)>
+
+        <!ELEMENT objective (title, personalEstimate, interests, whyCreateThisPage,illustrator)>
+        <!ATTLIST objective type CDATA #IMPLIED>
+                <!ELEMENT title (#PCDATA)>
+                <!ELEMENT personalEstimate (#PCDATA)>
+                <!ELEMENT interests (#PCDATA)>
+                <!ELEMENT whyCreateThisPage (#PCDATA)>
+                <!ELEMENT illustrator (#PCDATA)>
+
+        <!ELEMENT contact (phone, address, email, github,linkedin,website)>
+        <!ATTLIST contact type CDATA #REQUIRED>
+                <!ELEMENT phone (#PCDATA)>
+                <!ELEMENT address (number, street, city, state,country,zipCode)>
+                 <!ATTLIST address type CDATA #REQUIRED>
+                        <!ELEMENT number (#PCDATA)>
+                        <!ELEMENT street (#PCDATA)>
+                        <!ELEMENT city (#PCDATA)>
+                        <!ELEMENT state (#PCDATA)>
+                        <!ELEMENT country (#PCDATA)>
+                        <!ELEMENT zipCode (#PCDATA)>
+                <!ELEMENT email (#PCDATA)>
+                <!ELEMENT github (#PCDATA)>
+                <!ELEMENT linkedin (#PCDATA)>
+                <!ELEMENT website (#PCDATA)>
+
+        <!ELEMENT educationList (education)>
+        <!ATTLIST educationList type CDATA #REQUIRED>
+                <!ELEMENT education (name,address,start,end,length,photo,icon,major,degree)>
+                <!ELEMENT name (#PCDATA)>
+                <!ELEMENT start (#PCDATA)>
+                <!ELEMENT length (#PCDATA)>
+                <!ELEMENT end (#PCDATA)>
+                <!ELEMENT photo (#PCDATA)>
+                <!ELEMENT icon (#PCDATA)>
+                <!ELEMENT major (#PCDATA)>
+                <!ELEMENT degree (#PCDATA)>
+        <!ELEMENT workExperienceList (workExperience)>
+        <!ATTLIST workExperience type CDATA #IMPLIED>
+                <!ELEMENT workExperience (name,address,start,end,length,photo,icon,summary,role,bulletList)>
+                <!ELEMENT summary (#PCDATA)>
+                <!ELEMENT role (#PCDATA)>
+                <!ELEMENT bulletList (bullet)>
+                <!ATTLIST bulletList type CDATA #IMPLIED>
+                        <!ELEMENT bullet (content,bulletList)>
+                            <!ELEMENT content (#PCDATA)>
+        <!ELEMENT skillSet (category)>
+        <!ATTLIST category type CDATA #REQUIRED>
+                <!ELEMENT category (name,technologyList)>
+                        <!ELEMENT technologyList (technology)>
+                                <!ELEMENT technology (#PCDATA)>
+
+
+

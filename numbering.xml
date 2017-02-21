@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:numbering
+        xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:abstractNum w:abstractNumId="1">
+        <w:lvl w:ilvl="0">
+            <w:start w:val="1"/>
+            <w:numFmt w:val="bullet"/>
+            <w:lvlJc w:val="left"/>
+            <!-- IDENTIFICATION CODE SYMBOL SQUARE "&# 9632;" -->
+            <w:lvlText w:val="■"/>
+
+            <w:pPr>
+                <w:ind w:hanging="180"/>
+            </w:pPr>
+
+            <w:rPr>
+                <w:rFonts w:ascii="Wingdings" w:cs="Wingdings" w:hAnsi="Wingdings"
+                          w:hint="default"/>
+                <w:sz w:val="30"/>
+
+            </w:rPr>
+
+        </w:lvl>
+    </w:abstractNum>
+
+</w:numbering>

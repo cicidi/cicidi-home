@@ -1,0 +1,12 @@
+<!ELEMENT resume (school,job)*>
+
+        <!ELEMENT school (name, degree, year, location)>
+        <!ATTLIST school type CDATA #REQUIRED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT degree (#PCDATA)>
+        <!ELEMENT year (#PCDATA)>
+        <!ELEMENT location (city, state)>
+        <!ELEMENT state (#PCDATA)>
+        <!ELEMENT city (#PCDATA)>
+        <!ELEMENT job (name, degree, year, location)>
+        <!ATTLIST job type CDATA #REQUIRED>
