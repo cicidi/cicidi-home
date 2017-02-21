@@ -3,7 +3,9 @@
 <profile>
     <firstName>Walter</firstName>
     <lastName>Chen</lastName>
-    <faceImg>face.jpg</faceImg>
+    <faceImg>
+        https://lh3.googleusercontent.com/6d2fKSmeysdXe-9oGf1vNgBXcleP-Y3xmJGjF5CYQ2dFs0X2PkDuzplkezE9ccKZuG3GN75tNuIqRSAUtCs1NfSktNXc5yD9w1Ry7rwIGLFh5YAtShEtrtljX3vRUIbVDOf60Oj4_Bgi4-j7zjDXKTnHvSEOwk1ssS245BeJvVBLV3r9E99Z7YDJvoXNnxTrZ1Sa1Ir65i-E5REO5iu-LzPNwGENIPyfdZEXcqeD2HH1-qze3QplwCuA-Vc7e9t6zUbO4cWS7xL9ioLjEGOmnmX6IVMpNsvtc_SzrHMfb-ETJa5iV5j4MKLv0wLiCDWGUFd2YuOHHFOym6qV0_UzyCnFYxz7idA-Ltbc6ThBP1Lwt7gDE7GklazLgcFc5U1Lpb8zmhSycI6AIMhPrH-7cpsUFbs-4uLCkR67bcvSzLNXF_aauhpUivu6oC98DadoJDwmvzGc9f2VQz9zZLoY_3rdCnbapGiOm5Zs-WAVLmv_XRhNmDqdu6PxhopqQRsFYWJeOj6oCMwIxGgOYsqb7WJs-nJ59L8vHHGn9DPqhXrvnTeLvizu4wvJZUSBUNljFk_X05u2Wjf4577Rsb6NZYsTjLnlsWVxL6oeGCLQ2p76s25rM_R3=s935-no
+    </faceImg>
     <objective>
         <title></title>
         <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
@@ -41,7 +43,7 @@
             <end>April 2012</end>
             <length>1yrs 8mos</length>
             <photo></photo>
-            <icon>uf.png</icon>
+            <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
             <major>Information Systems and Operations Management</major>
             <degree>Master</degree>
         </education>

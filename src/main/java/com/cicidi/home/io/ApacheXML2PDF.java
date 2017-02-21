@@ -41,7 +41,7 @@ import org.springframework.util.ResourceUtils;
  * This class demonstrates the conversion of an XML file to PDF using
  * JAXP (XSLT) and FOP (XSL-FO).
  */
-public class ExampleXML2PDF {
+public class ApacheXML2PDF {
 
     /**
      * Main method.
@@ -50,7 +50,7 @@ public class ExampleXML2PDF {
      */
     public static void main(String[] args) {
         try {
-            System.out.println("FOP ExampleXML2PDF\n");
+            System.out.println("FOP xml to pdf\n");
             System.out.println("Preparing...");
 
             // Setup directories
