@@ -1,12 +1,16 @@
 package com.cicidi.home.service;
 
 import com.cicidi.home.domain.resume.*;
+import com.cicidi.home.domain.vo.Link;
 import com.cicidi.home.domain.vo.WebLog;
+import com.cicidi.home.io.ApacheXML2PDF;
+import com.cicidi.home.io.XMLReader;
 import com.cicidi.home.util.Constants;
 import org.eclipse.egit.github.core.RepositoryCommit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -29,14 +33,21 @@ public class Test {
         profile.setLastName("Chen");
 
         Contact contact = new Contact();
-        contact.setEmail("cicidi@gmail.com");
+        Link link = new Link();
+        link.setName("Gmail");
+        link.setUrl("cicidi@gmail.com");
+        List<Link> linkList = new ArrayList<>();
+        linkList.add(link);
+        link = new Link();
+        link.setName("Linkedin");
+        link.setUrl("walterchen.linkedin");
+        linkList.add(link);
         contact.setPhone("352-281-8555");
         Address contact_address = new Address();
         contact_address.setCity("Fremont");
         contact_address.setState("California");
         contact_address.setCountry(Locale.US.getDisplayCountry());
         contact.setAddress(contact_address);
-        contact.setGithub("https://github.com/cicidi/HelloCCD");
 //        contact.setLinkedIn("https://www.linkedin.com/feed/");
         profile.setContact(contact);
 
@@ -138,7 +149,7 @@ public class Test {
         objective.setInterests("I am enjoying current job, but I am also looking for new challenge");
         objective.setPersonalEstimate("I AM A BACKEND DEVELOPER");
         objective.setWhyCreateThisPage("I am using this page just for person practice, and also showcase my code skills");
-        objective.setImg(Constants.link_4);
+        objective.setContentImg(Constants.link_4);
         objective.setTitle("I LOVE JAVA");
         return objective;
     }
@@ -174,10 +185,15 @@ public class Test {
 
     }
 
-//    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException {
 //        Test test = new Test();
 //        Profile profile = test.createProfile();
 //        System.out.println("Done");
-//    }
+        XMLReader xmlReader = new XMLReader();
+        ApacheXML2PDF apacheXML2PDF = new ApacheXML2PDF();
+        xmlReader.parseFile();
+        apacheXML2PDF.createPdf();
+
+    }
 
 }

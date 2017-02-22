@@ -6,24 +6,26 @@ import javax.xml.bind.annotation.*;
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlRootElement(name = "book")
+@XmlRootElement(name = "profile")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"firstName", "lastName", "contact", "educationList",
-        "workExperienceList", "objective", "skillSets"})
+@XmlType(propOrder = {"firstName", "lastName", "faceImg", "objective", "contact", "educationList",
+        "workExperienceList", "skillSets"})
 public class Profile {
 
     private String firstName;
     private String lastName;
+    private String faceImg;
     private Contact contact;
+
     @XmlElementWrapper(name = "educationList")
-    @XmlElement(name = "Education")
+    @XmlElement(name = "education")
     private List<Education> educationList;
     @XmlElementWrapper(name = "workExperienceList")
-    @XmlElement(name = "WorkExperience")
+    @XmlElement(name = "workExperience")
     private List<WorkExperience> workExperienceList;
     private Objective objective;
     @XmlElementWrapper(name = "skillSets")
-    @XmlElement(name = "SkillSet")
+    @XmlElement(name = "category")
     private List<SkillSet> skillSets;
 
     public String getFirstName() {
@@ -80,5 +82,13 @@ public class Profile {
 
     public void setSkillSets(List<SkillSet> skillSets) {
         this.skillSets = skillSets;
+    }
+
+    public String getFaceImg() {
+        return faceImg;
+    }
+
+    public void setFaceImg(String faceImg) {
+        this.faceImg = faceImg;
     }
 }

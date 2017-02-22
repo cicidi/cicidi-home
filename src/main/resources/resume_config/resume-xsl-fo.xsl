@@ -46,22 +46,13 @@
                 <xsl:value-of select="lastName"/>
             </fo:block>
             <fo:block text-align-last="center" font-family="sans-serif" font-size="8pt" color="#b3b3b3">
-                <fo:block>
-                    <xsl:text>Email: </xsl:text>
-                    <xsl:value-of select="contact/email"/>
-                </fo:block>
-                <fo:block>
-                    <xsl:text>My site: </xsl:text>
-                    <xsl:value-of select="contact/website"/>
-                </fo:block>
-                <!--<fo:block>-->
-                <!--github :-->
-                <!--<xsl:value-of select="contact/github"/>-->
-                <!--</fo:block>-->
-                <!--<fo:block>-->
-                <!--linkedin :-->
-                <!--<xsl:value-of select="contact/linkedin"/>-->
-                <!--</fo:block>-->
+                <xsl:for-each select="contact/linkList/link">
+                    <fo:block font-family="sans-serif" margin-left="3em">
+                        <xsl:value-of select="name"/>
+                        <xsl:text> : </xsl:text>
+                        <xsl:value-of select="url"/>
+                    </fo:block>
+                </xsl:for-each>
             </fo:block>
             <fo:block text-align-last="center" font-family="Myriad Pro" font-size="12pt">
                 <xsl:text> • </xsl:text>
@@ -184,7 +175,7 @@
                 </fo:block>
 
                 <fo:block>
-                    <xsl:for-each select="skillSet/category">
+                    <xsl:for-each select="skillSets/category">
                         <fo:block font-family="sans-serif" margin-left="30pt" font-size="8pt">
                             <xsl:value-of select="name"/>
                             <xsl:text> : </xsl:text>

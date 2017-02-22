@@ -45,8 +45,18 @@
         <div class="line">
             <div class="s-12 m-6 l-6">
 
-                <p>CONTACT ME: <span
-                        th:text="${profile.contact.email}"></span>
+                <p>CONTACT ME:
+                    <!--<span-->
+                    <!--th:text="${profile.contact.email}"></span>-->
+
+                <span th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                    <span th:if="${#strings.containsIgnoreCase(link.name,'mail')}">
+                        <span
+                                th:text="${link.url}">
+
+                        </span>
+                    </span>
+                </span>
                 </p>
             </div>
             <div class="s-12 m-6 l-6">
@@ -169,7 +179,7 @@
             </div>
         </div>
         <div class="s-12 m-12 l-6 media-container">
-            <img th:src="${objective.img}" alt="">
+            <img th:src="${objective.contentImg}" alt="">
         </div>
         <article class="s-12 m-12 l-6">
             <h2 th:text="${objective.personalEstimate}"></h2>
@@ -177,13 +187,27 @@
             <p th:text="${objective.whyCreateThisPage}"></p>
 
             <div class=" about-me-icons">
-                <div><a th:if="${profile.contact.github!=null}" th:href="${profile.contact.github}" title="git hub"><i
-                        style="margin-right: 0.5em; color: #EEEEEE;"
-                        class="icon-git"></i></a></div>
-                <div><a th:if="${profile.contact.linkedIn!=null}" th:href="${profile.contact.linkedIn}"
-                        title="linkedin"><i
-                        style="margin-right: 0.5em; color: #EEEEEE;"
-                        class="icon-linked_in"></i></a></div>
+
+                <div th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                    <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
+                    <a th:href="${link.url}"
+                       th:title="${link.name}">
+                        <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${link.icon}"></i></a>
+                </div>
+                <!--<div><a th:if="${profile.contact.github!=null}" th:href="${profile.contact.github}" title="git hub"><i-->
+                <!--style="margin-right: 0.5em; color: #EEEEEE;"-->
+                <!--class="icon-git"></i></a></div>-->
+                <!--<div th:each="link,iterationStatus  : ${profile.contact.linkList}">-->
+                <!--<div th:if="${#strings.containsIgnoreCase(link.name,'linkedIn')}">-->
+                <!--<a th:if="${profile.contact.github!=null}" th:href="${profile.contact.github}"-->
+                <!--title="git hub">-->
+                <!--<i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-git"></i></a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div><a th:if="${profile.contact.linkedIn!=null}" th:href="${profile.contact.linkedIn}"-->
+                <!--title="linkedin"><i-->
+                <!--style="margin-right: 0.5em; color: #EEEEEE;"-->
+                <!--class="icon-linked_in"></i></a></div>-->
 
             </div>
         </article>
@@ -467,19 +491,34 @@
 
                         <p>
                             <span style="font-weight:bold">E-mail:</span>
-                            <span th:text="${profile.contact.email}"></span>
+
+                        <span th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                            <span th:if="${#strings.containsIgnoreCase(link.name,'mail')}"><span
+                                    th:text="${link.url}"></span>
+                            </span>
+                        </span>
                         </p>
                     </address>
                     <br/>
 
                     <h3>Social</h3>
 
-                    <p><i class=" icon-git icon"></i> <a
-                            th:href="${profile.contact.github}">Github</a></p>
+                    <!--<p><i class=" icon-git icon"></i> <a-->
+                    <!--th:href="${profile.contact.github}">Github</a></p>-->
 
-                    <p><i class="icon-linked_in icon"></i> <a
-                            th:href="${profile.contact.linkedIn}">Linkedin</a>
-                    </p>
+                    <!--<p><i class="icon-linked_in icon"></i> <a-->
+                    <!--th:href="${profile.contact.linkedIn}">Linkedin</a>-->
+                    <!--</p>-->
+
+                    <span th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                        <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
+                        <!--<a th:href="${link.url}"-->
+                        <!--th:title="${link.name}">-->
+                        <!--<i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${link.icon}"></i></a>-->
+                        <p><i th:class="${link.icon}"></i> <a
+                                th:href="${link.url}" th:text="${link.name}"></a></p>
+
+                    </span>
 
                 </div>
                 <div class="s-12 m-12 l-5">

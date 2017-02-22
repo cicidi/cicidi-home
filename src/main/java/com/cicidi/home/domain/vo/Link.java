@@ -1,8 +1,11 @@
 package com.cicidi.home.domain.vo;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by cicidi on 2/18/2017.
  */
+@XmlType(propOrder = {"name", "url", "pic", "icon"})
 public class Link {
     private String name;
     private String url;

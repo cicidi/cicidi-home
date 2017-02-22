@@ -1,8 +1,11 @@
 package com.cicidi.home.domain.resume;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by cicidi on 2/18/17.
  */
+@XmlType(propOrder = {"number", "street", "city", "state", "country", "zipCode"})
 public class Address {
     private String number;
     private String street;

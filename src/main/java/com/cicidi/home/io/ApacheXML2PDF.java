@@ -48,7 +48,7 @@ public class ApacheXML2PDF {
      *
      * @param args command-line arguments
      */
-    public static void main(String[] args) {
+    public void createPdf() {
         try {
             System.out.println("FOP xml to pdf\n");
             System.out.println("Preparing...");
@@ -60,7 +60,7 @@ public class ApacheXML2PDF {
 
 
             // Setup input and output files
-            File xmlfile = new File(baseDir, "resume_config/resume.xml");
+            File xmlfile = new File(baseDir, "resume_config/resume_copy.xml");
             File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
             File pdffile = new File(baseDir, "resume_config/ResultXML2PDF.pdf");
             if (!pdffile.exists()) {
