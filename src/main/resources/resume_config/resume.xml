@@ -28,7 +28,7 @@
                 <name>GitHub</name>
                 <url>cicidi.github.com</url>
                 <pic></pic>
-                <icon>icon-git</icon>
+                <icon>fa fa-github-alt</icon>
             </link>
             <link>
                 <name>Gmail</name>
@@ -41,7 +41,7 @@
                 <name>Linkedin</name>
                 <url>waltchen.linkedin</url>
                 <pic></pic>
-                <icon>icon-linked_in</icon>
+                <icon>fa fa-linkedin-square</icon>
             </link>
         </linkList>
     </contact>
@@ -180,7 +180,7 @@
             <start>05-2013</start>
             <end>05-2014</end>
             <length></length>
-            <photo></photo>
+            <photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary>I like macbook</summary>
             <role>Java Developer</role>

@@ -39,7 +39,7 @@ a.tab-label:hover,a.tab-label.active-btn {
 .tab-content {
   text-align: left;
 }
-@media screen and (max-width:768px) {    
+@media screen and (max-width:768px) {
   .tab-nav > .tab-label {
     margin: 0.5px 0;
     width: 100%;
@@ -50,9 +50,9 @@ form.customform input, form.customform select, form.customform textarea, form.cu
  font-size:0.9em;
  font-family:inherit;
  margin-bottom:1.25em;
-} 
+}
 form.customform input, form.customform select {height: 2.7em;}
-form.customform input, form.customform textarea, form.customform select { 
+form.customform input, form.customform textarea, form.customform select {
  background: none repeat scroll 0 0 #F5F5F5;
  transition: background 0.20s linear 0s;
  -o-transition: background 0.20s linear 0s;
@@ -97,7 +97,7 @@ form.customform button {
  -ms-transition: background 0.20s linear 0s;
  -moz-transition: background 0.20s linear 0s;
  -webkit-transition: background 0.20s linear 0s;
-}	
+}
 form.customform button:hover {background: none repeat scroll 0 0 #666;}
 /* Icon font - MFG labs */
 @font-face {
@@ -210,8 +210,8 @@ i, .icon {
 .icon-arrow_big_down:before { content: "\21CA"; }
 .icon-arrow_big_up:before { content: "\21C8"; }
 .icon-dribbble_circle:before { content: "\f04f"; }
-.icon-dribbble:before { content: "\f050"; }
 .icon-facebook_circle:before { content: "\f051"; }
+.icon-dribbble:before { content: "\f050"; }
 .icon-facebook:before { content: "\f052"; }
 .icon-git_circle_alt:before { content: "\f053"; }
 .icon-git_circle:before { content: "\f054"; }
