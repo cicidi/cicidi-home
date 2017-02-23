@@ -113,14 +113,17 @@
                             <div class="text hide-s">
                                 <div class="line">
                                     <div class="prev-arrow hide-s hide-m">
-                                        <i class="icon-chevron_left"></i>
+                                        <i class="fa fa-angle-left"></i>
                                     </div>
                                     <div class="next-arrow hide-s hide-m">
-                                        <i class="icon-chevron_right"></i>
+                                        <i class="fa fa-angle-right"></i>
                                     </div>
                                 </div>
 
+                                <!--<h2 th:text="${job.name}+ '&lt;br /&gt;'+ ${job.startName}+'-'${job.endName}"></h2>-->
                                 <h2 th:text="${job.name}"></h2>
+
+                                <h3 th:text=" ${job.startName+'-'+job.endName}"></h3>
                                 <!--I am try to use nest th:each syntax showing bullet.content,
                                  but it is so weird. I keep get null on job object,
                                  but it is not null when use job.name -->

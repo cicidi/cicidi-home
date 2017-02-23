@@ -87,9 +87,9 @@
                         <fo:block margin-left="32pt" color="#666666" font-size="10pt">
                             <!--<fo:leader leader-pattern="space"/>-->
                             <xsl:text>    </xsl:text>
-                            <xsl:value-of select="start"/>
+                            <xsl:value-of select="startName"/>
                             <xsl:text> - </xsl:text>
-                            <xsl:value-of select="end"/>
+                            <xsl:value-of select="endName"/>
                             <xsl:text> • </xsl:text>
                             <xsl:value-of select="length"/>
                             <xsl:text> • </xsl:text>
@@ -179,10 +179,12 @@
                         <fo:block font-family="sans-serif" margin-left="30pt" font-size="8pt">
                             <xsl:value-of select="name"/>
                             <xsl:text> : </xsl:text>
-                            <xsl:for-each select="technologyList/technology">
-                                <xsl:value-of select="."/>
-                                <xsl:text> , </xsl:text>
-                            </xsl:for-each>
+                            <xsl:value-of select="list"/>
+                            <!-- easy for use to do config on xml when use pure string-->
+                            <!--<xsl:for-each select="technologyList/technology">-->
+                            <!--<xsl:value-of select="."/>-->
+                            <!--<xsl:text> , </xsl:text>-->
+                            <!--</xsl:for-each>-->
                         </fo:block>
                         <!--<fo:leader leader-pattern="rule" leader-length="100%" rule-style="solid" color="#D3D3D3"-->
                         <!--rule-thickness="1pt"/>-->

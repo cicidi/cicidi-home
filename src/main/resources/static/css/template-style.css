@@ -151,6 +151,18 @@ p.logo strong {
     width: 100%;
 }
 
+#carousel .text h3 {
+    background: none repeat scroll 0 0 rgba(146, 197, 0, 0.8);
+    color: #fff;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 300;
+    margin: 1px 0;
+    max-width: 600px;
+    padding: 5px 40px;
+    width: 100%;
+}
+
 #carousel .text p {
     background: none repeat scroll 0 0 #00283a;
     color: #fff;

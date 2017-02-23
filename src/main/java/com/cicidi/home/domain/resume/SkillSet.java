@@ -11,6 +11,7 @@ import java.util.List;
 public class SkillSet {
     @XmlElement(name = "name", required = true)
     private String techName;
+    private String list;
     @XmlElementWrapper(name = "technologyList")
     @XmlElement(name = "technology")
     private List<String> technologyList;
@@ -21,5 +22,13 @@ public class SkillSet {
 
     public void setTechName(String techName) {
         this.techName = techName;
+    }
+
+    public String getList() {
+        return list;
+    }
+
+    public void setList(String list) {
+        this.list = list;
     }
 }

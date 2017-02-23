@@ -2,7 +2,10 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.io.DateAdapter;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,12 +17,19 @@ import java.util.Date;
 @XmlTransient
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization {
+    @XmlTransient
+    private String monthNames[] = {"January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"};
     protected String name;
     protected Address address;
     @XmlTransient
     protected Date start;
     @XmlTransient
     protected Date end;
+    @XmlTransient
+    protected String startName;
+    @XmlTransient
+    protected String endName;
     @XmlTransient
     protected String length;
     protected String photo;
@@ -49,6 +59,9 @@ public class Organization {
 
     public void setStart(Date start) {
         this.start = start;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(start);
+        this.startName = monthNames[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.YEAR);
         if (this.end != null) {
             this.calLength();
         }
@@ -62,10 +75,24 @@ public class Organization {
 
     public void setEnd(Date end) {
         this.end = end;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(end);
+        this.endName = monthNames[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.YEAR);
         if (this.start != null) {
             this.calLength();
         }
     }
+
+    @XmlElement(name = "startName", required = true)
+    public String getStartName() {
+        return startName;
+    }
+
+    @XmlElement(name = "endName", required = true)
+    public String getEndName() {
+        return endName;
+    }
+
 
     public String getPhoto() {
         return photo;

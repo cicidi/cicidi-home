@@ -8,7 +8,7 @@ import java.util.List;
  */
 @XmlRootElement(name = "workExperience")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"name", "address", "start", "end", "length", "photo", "icon", "summary", "role", "bulletList"})
+@XmlType(propOrder = {"name", "address", "start", "end", "startName", "endName", "length", "photo", "icon", "summary", "role", "bulletList"})
 public class WorkExperience extends Organization {
     private String summary;
     private String role;

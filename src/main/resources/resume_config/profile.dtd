@@ -30,18 +30,20 @@
                                 <!ELEMENT pic (#PCDATA)>
         <!ELEMENT educationList (education)>
         <!ATTLIST educationList type CDATA #IMPLIED>
-                <!ELEMENT education (name,address,start,end,length,photo,icon,major,degree)>
+                <!ELEMENT education (name,address,start,end,startName,endName,length,photo,icon,major,degree)>
                 <!ELEMENT name (#PCDATA)>
                 <!ELEMENT start (#PCDATA)>
-                <!ELEMENT length (#PCDATA)>
                 <!ELEMENT end (#PCDATA)>
+                <!ELEMENT startName (#PCDATA)>
+                <!ELEMENT endName (#PCDATA)>
+                <!ELEMENT length (#PCDATA)>
                 <!ELEMENT photo (#PCDATA)>
                 <!ELEMENT icon (#PCDATA)>
                 <!ELEMENT major (#PCDATA)>
                 <!ELEMENT degree (#PCDATA)>
         <!ELEMENT workExperienceList (workExperience)>
         <!ATTLIST workExperience type CDATA #IMPLIED>
-                <!ELEMENT workExperience (name,address,start,end,length,photo,icon,summary,role,bulletList)>
+                <!ELEMENT workExperience (name,address,start,end,startName,endName,length,photo,icon,summary,role,bulletList)>
                 <!ELEMENT summary (#PCDATA)>
                 <!ELEMENT role (#PCDATA)>
                 <!ELEMENT bulletList (bullet)>
@@ -50,7 +52,8 @@
                             <!ELEMENT content (#PCDATA)>
         <!ELEMENT skillSets (category)>
         <!ATTLIST category type CDATA #IMPLIED>
-                <!ELEMENT category (name,technologyList)>
+                <!ELEMENT category (name,list,technologyList)>
+                        <!ELEMENT list (#PCDATA)>
                         <!ELEMENT technologyList (technology)>
                                 <!ELEMENT technology (#PCDATA)>
 

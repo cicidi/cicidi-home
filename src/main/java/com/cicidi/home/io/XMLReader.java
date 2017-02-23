@@ -14,17 +14,17 @@ import java.io.File;
  */
 @Component
 public class XMLReader {
-    public static void main(String[] args) throws Exception {
-        JAXBContext jc = JAXBContext.newInstance(Profile.class);
-
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        Profile profile = (Profile) unmarshaller.unmarshal(new File("src/main/resources/resume_config/resume.xml"));
-        File out = new File("src/main/resources/resume_config/resume_copy.xml");
-        Marshaller marshaller = jc.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        marshaller.marshal(profile, out);
-        marshaller.marshal(profile, System.out);
-    }
+//    public static void main(String[] args) throws Exception {
+//        JAXBContext jc = JAXBContext.newInstance(Profile.class);
+//
+//        Unmarshaller unmarshaller = jc.createUnmarshaller();
+//        Profile profile = (Profile) unmarshaller.unmarshal(new File("src/main/resources/resume_config/resume.xml"));
+//        File out = new File("src/main/resources/resume_config/resume_copy.xml");
+//        Marshaller marshaller = jc.createMarshaller();
+//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//        marshaller.marshal(profile, out);
+//        marshaller.marshal(profile, System.out);
+//    }
 
 
     public Profile parseFile() throws JAXBException {

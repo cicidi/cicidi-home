@@ -20,7 +20,7 @@
             <street></street>
             <city>Fremont</city>
             <state>CA</state>
-            <country></country>
+            <country>US</country>
             <zipCode></zipCode>
         </address>
         <linkList>
@@ -58,7 +58,7 @@
             </address>
             <start>08-2010</start>
             <end>04-2012</end>
-            <length></length>
+            <!--<length></length>-->
             <photo></photo>
             <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
             <major>Information Systems and Operations Management</major>
@@ -76,7 +76,7 @@
             </address>
             <start>09-2004</start>
             <end>06-2008</end>
-            <length></length>
+            <!--<length></length>-->
             <photo></photo>
             <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
             <major>Business</major>
@@ -96,17 +96,40 @@
             </address>
             <start>10-2015</start>
             <end>03-2017</end>
-            <length>1yrs 4mos</length>
+            <!--<length>1yrs 4mos</length>-->
             <photo>img/Amazing_Bike_Stunt_Images_2Yz8z7k.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary>I am good</summary>
             <role>Senior developer</role>
             <bulletList>
                 <bullet>
-                    <content>task1</content>
+                    <content>Work on design/implemention multiple service to load, save, pull gift card from inventory
+                        (Mysql,Mongo)
+                    </content>
                 </bullet>
                 <bullet>
-                    <content>task2</content>
+                    <content>Design and create portal to provide user UI to use our service to manipulate gift card
+                        inventory
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Implement sercurity solution including LDAP, data validation, data encryption.</content>
+                </bullet>
+                <bullet>
+                    <content>Create dashboard from scrtch to show our client real time card activation data on Map.
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Implement services for Staples to send gift card via email on request.
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Use aws EC2/SQS/S3/Elasticache in various of application.
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Review, defect, refractory code which has performance issue
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -122,8 +145,11 @@
             </address>
             <start>04-2015</start>
             <end>10-2015</end>
-            <length>6 month</length>
-            <photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>
+            <!--<length>6 month</length>-->
+            <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
+            <photo>
+                https://content-na.drive.amazonaws.com/cdproxy/templink/SPHrzQagp-6SkK-ZYHSyJPBpeckudi4AX_paR3-slrYpX92IB?viewBox=1920%2C961
+            </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
             </icon>
@@ -131,13 +157,17 @@
             <role>Senior developer Apple</role>
             <bulletList>
                 <bullet>
-                    <content>task1</content>
+                    <content>Implment various pipeline to pull data from Solr search engine, HDFS, and Cassandra DB
+                    </content>
                 </bullet>
                 <bullet>
-                    <content>task2</content>
+                    <content>Use Hadoop MapReduce to analyze search query frequency on support.apple.com</content>
                 </bullet>
                 <bullet>
-                    <content>task3</content>
+                    <content>Use Java/Python to create tool parsing daily log into businees report.</content>
+                </bullet>
+                <bullet>
+                    <content>Create tool to validate business data.</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -153,17 +183,31 @@
             </address>
             <start>05-2014</start>
             <end>04-2015</end>
-            <length></length>
-            <photo>img/tree-247122_azLgBTw.jpg</photo>
+            <!--<photo>img/tree-247122_azLgBTw.jpg</photo>-->
+            <photo>
+                https://cnt-01.content-na.drive.amazonaws.com/cdproxy/templink/6na5GEEuP5cZ5prEO5NC2iF31TGLPYZPreKHetFtDvweJxFPc?viewBox=1920%2C936
+            </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
             <summary>I like macbook</summary>
             <role>Java developer</role>
             <bulletList>
                 <bullet>
-                    <content>task1</content>
+                    <content>Develop and implement Eclipse Plugin with open source framework, such as EMF, JFace.
+                    </content>
                 </bullet>
                 <bullet>
-                    <content>task2</content>
+                    <content>Design XML driven application, and the source code is generated by Eclipse plugin
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Design and implement Eclipse plugin runtime using Spring, Hibernate, Mysql, JAXB, JSON.
+                    </content>
+                </bullet>
+                <bullet>
+                    <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
+                </bullet>
+                <bullet>
+                    <content>Use AngularJs, develop POC of Saas tool.</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -179,17 +223,32 @@
             </address>
             <start>05-2013</start>
             <end>05-2014</end>
-            <length></length>
-            <photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>
-            <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
+            <!--<length></length>-->
+            <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
+            <photo>
+                https://content-na.drive.amazonaws.com/cdproxy/templink/y-m8LcL5JngGF2Jqwf6sT6vqOQNZTu5hRx_jVTHGwQMeJxFPc?viewBox=1920%2C960
+            </photo>
+            <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>9
             <summary>I like macbook</summary>
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>task1</content>
+                    <content>Implement full statck Property Management Application.</content>
                 </bullet>
                 <bullet>
-                    <content>task2</content>
+                    <content>Implement Rest and SOAP web service</content>
+                </bullet>
+                <bullet>
+                    <content>Implement DAO layer use JDBC and hibernate.</content>
+                </bullet>
+                <bullet>
+                    <content>Used multi thread to handle multiple request.</content>
+                </bullet>
+                <bullet>
+                    <content>Write Aspect log to handle all Exception and error.</content>
+                </bullet>
+                <bullet>
+                    <content>Implement Unit test and automation test.</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -198,17 +257,29 @@
     <skillSets>
         <category>
             <name>Spring</name>
-            <technologyList>
-                <technology>Spring MVC</technology>
-                <technology>Spring Boot</technology>
-                <technology>Spring Data</technology>
-            </technologyList>
+            <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring Retry, Spring Security, Spring LDAP, Spring
+                Web Flow, Spring Batch
+            </list>
         </category>
         <category>
-            <name>Big Data</name>
-            <technologyList>
-                <technology>Hadoop</technology>
-            </technologyList>
+            <name>J2EE</name>
+            <list>REST, SOAP, JPA, Hibernate, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
+        </category>
+        <category>
+            <name>Front End</name>
+            <list>Thymleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML</list>
+        </category>
+        <category>
+            <name>Database</name>
+            <list>Mysql, Oracle, Mongo</list>
+        </category>
+        <category>
+            <name>BigData</name>
+            <list>Hadoop MapReduce, Hive</list>
+        </category>
+        <category>
+            <name>Other</name>
+            <list>Linux, Unix, AWS, Shell script, python, Jenkins, Git, SVN</list>
         </category>
     </skillSets>
 
