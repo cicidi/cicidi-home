@@ -185,20 +185,20 @@
     <div id="about-me">
         <div id="first-block">
             <div class="line">
-                <h1 th:text="${objective.title}"></h1>
+                <h1 th:text="${profile.objective.title}"></h1>
 
-                <p th:text="${objective.interests}"></p>
+                <p th:text="${profile.objective.interests}"></p>
 
                 <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
         <div class="s-12 m-12 l-6 media-container">
-            <img th:src="${objective.contentImg}" alt="">
+            <img th:src="${profile.objective.contentImg}" alt="">
         </div>
         <article class="s-12 m-12 l-6">
-            <h2 th:text="${objective.personalEstimate}"></h2>
+            <h2 th:text="${profile.objective.personalEstimate}"></h2>
 
-            <p th:text="${objective.whyCreateThisPage}"></p>
+            <p th:text="${profile.objective.whyCreateThisPage}"></p>
 
             <div class=" about-me-icons">
 
