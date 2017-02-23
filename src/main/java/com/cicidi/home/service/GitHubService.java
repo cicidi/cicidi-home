@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,10 +24,13 @@ public class GitHubService {
     public List<RepositoryCommit> getGitCommits() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        String resp = restTemplate.getForObject("https://api.github.com/repos/cicidi/cicidi-home/commits", String.class);
-
-        List<RepositoryCommit> commitList = objectMapper.readValue(resp, new TypeReference<List<RepositoryCommit>>() {
-        });
+        List<RepositoryCommit> commitList = new ArrayList<>();
+        try {
+            String resp = restTemplate.getForObject("https://api.github.com/repos/cicidi/cicidi-home/commits", String.class);
+            commitList = objectMapper.readValue(resp, new TypeReference<List<RepositoryCommit>>() {
+            });
+        } catch (Exception e) {
+        }
         return commitList;
     }
 

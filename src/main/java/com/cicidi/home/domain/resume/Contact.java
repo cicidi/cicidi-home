@@ -1,15 +1,23 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.vo.Link;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
+
 /**
  * Created by cicidi on 2/17/2017.
  */
+@XmlRootElement(name = "contact")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"phone", "address", "linkList"})
 public class Contact {
 
     private String phone;
     private Address address;
-    private String email;
-    private String github;
-    private String linkedIn;
+    @XmlElementWrapper(name = "linkList")
+    @XmlElement(name = "link")
+    private List<Link> linkList;
 
 
     public String getPhone() {
@@ -20,14 +28,6 @@ public class Contact {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Address getAddress() {
         return address;
     }
@@ -36,19 +36,11 @@ public class Contact {
         this.address = address;
     }
 
-    public String getGithub() {
-        return github;
+    public List<Link> getLinkList() {
+        return linkList;
     }
 
-    public void setGithub(String github) {
-        this.github = github;
-    }
-
-    public String getLinkedIn() {
-        return linkedIn;
-    }
-
-    public void setLinkedIn(String linkedIn) {
-        this.linkedIn = linkedIn;
+    public void setLinkList(List<Link> linkList) {
+        this.linkList = linkList;
     }
 }

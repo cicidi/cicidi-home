@@ -1,18 +1,32 @@
 package com.cicidi.home.domain.resume;
 
 import java.util.List;
+import javax.xml.bind.annotation.*;
 
 /**
  * Created by cicidi on 2/18/17.
  */
+@XmlRootElement(name = "profile")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"firstName", "lastName", "faceImg", "objective", "contact", "educationList",
+        "workExperienceList", "skillSets"})
 public class Profile {
 
     private String firstName;
     private String lastName;
+    private String faceImg;
     private Contact contact;
+
+    @XmlElementWrapper(name = "educationList")
+    @XmlElement(name = "education")
     private List<Education> educationList;
+    @XmlElementWrapper(name = "workExperienceList")
+    @XmlElement(name = "workExperience")
     private List<WorkExperience> workExperienceList;
     private Objective objective;
+    @XmlElementWrapper(name = "skillSets")
+    @XmlElement(name = "category")
+    private List<SkillSet> skillSets;
 
     public String getFirstName() {
         return firstName;
@@ -60,5 +74,21 @@ public class Profile {
 
     public void setObjective(Objective objective) {
         this.objective = objective;
+    }
+
+    public List<SkillSet> getSkillSets() {
+        return skillSets;
+    }
+
+    public void setSkillSets(List<SkillSet> skillSets) {
+        this.skillSets = skillSets;
+    }
+
+    public String getFaceImg() {
+        return faceImg;
+    }
+
+    public void setFaceImg(String faceImg) {
+        this.faceImg = faceImg;
     }
 }

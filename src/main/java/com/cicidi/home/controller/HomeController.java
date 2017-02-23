@@ -2,6 +2,7 @@ package com.cicidi.home.controller;
 
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.*;
+import com.cicidi.home.io.XMLReader;
 import com.cicidi.home.service.Test;
 import com.cicidi.home.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,6 +26,9 @@ class HomeController {
     @Autowired
     Test test;
 
+    @Autowired
+    XMLReader xmlReader;
+
     @GetMapping("/")
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
@@ -31,11 +36,26 @@ class HomeController {
     }
 
     @GetMapping("/home")
-    String home(Model model, HttpServletRequest request) {
+    String home(Model model, HttpServletRequest request) throws JAXBException {
         HomeViewObject homeViewObject = this.testCase();
+        Profile profile = xmlReader.parseFile();
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("homeViewObject", homeViewObject);
+        model.addAttribute("profile", profile);
+        model.addAttribute("objective", test.createObjective());
+        model.addAttribute("webLogList", test.createLog());
+        System.out.println(request.getRemoteAddr());
+        return "home";
+
+    }
+
+    @GetMapping("/home2")
+    String home2(Model model, HttpServletRequest request) throws JAXBException {
+        HomeViewObject homeViewObject = this.testCase();
+//        Profile profile = xmlReader.parseFile();
         Profile profile = test.createProfile();
+        model.addAttribute("now", LocalDateTime.now());
+        model.addAttribute("homeViewObject", homeViewObject);
         model.addAttribute("profile", profile);
         model.addAttribute("objective", test.createObjective());
         model.addAttribute("webLogList", test.createLog());

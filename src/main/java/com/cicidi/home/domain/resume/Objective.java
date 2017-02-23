@@ -1,14 +1,18 @@
 package com.cicidi.home.domain.resume;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by cicidi on 2/18/2017.
  */
+@XmlType(propOrder = {"title", "personalEstimate", "interests", "whyCreateThisPage", "contentImg"})
 public class Objective {
     private String title;
     private String personalEstimate;
     private String interests;
+    private String contentImg;
     private String whyCreateThisPage;
-    private String img;
+
 
     public String getPersonalEstimate() {
         return personalEstimate;
@@ -26,14 +30,6 @@ public class Objective {
         this.interests = interests;
     }
 
-    public String getWhyCreateThisPage() {
-        return whyCreateThisPage;
-    }
-
-    public void setWhyCreateThisPage(String whyCreateThisPage) {
-        this.whyCreateThisPage = whyCreateThisPage;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -42,11 +38,19 @@ public class Objective {
         this.title = title;
     }
 
-    public String getImg() {
-        return img;
+    public String getWhyCreateThisPage() {
+        return whyCreateThisPage;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setWhyCreateThisPage(String whyCreateThisPage) {
+        this.whyCreateThisPage = whyCreateThisPage;
+    }
+
+    public String getContentImg() {
+        return contentImg;
+    }
+
+    public void setContentImg(String contentImg) {
+        this.contentImg = contentImg;
     }
 }
