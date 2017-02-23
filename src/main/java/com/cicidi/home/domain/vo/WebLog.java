@@ -61,7 +61,7 @@ public class WebLog {
     public void setCalendar(Calendar calendar) {
         this.year = calendar.get(Calendar.YEAR);
         int i = calendar.get(Calendar.MONTH);
-        this.month = new DateFormatSymbols().getMonths()[i - 1];
+        this.month = new DateFormatSymbols().getMonths()[i];
         this.day = calendar.get(Calendar.DAY_OF_MONTH);
         this.calendar = calendar;
     }
