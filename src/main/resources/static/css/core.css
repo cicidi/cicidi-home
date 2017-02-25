@@ -23,36 +23,39 @@
 }
 
 .popup {
-    position: relative;
+    position: absolute;
     display: inline-block;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: 11;
+    left: 40%;
+    bottom: 40%;
 }
 
 /* The actual popup */
 .popup .popuptext {
     visibility: hidden;
-    width: 160px;
+    width: 400px;
     background-color: #555;
     color: #fff;
-    text-align: center;
+    text-align: left;
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
-    z-index: 1;
+    z-index: 11;
     bottom: 125%;
-    left: 50%;
     /*margin-left: -80px;*/
     margin-right: 80px;
+    white-space: ;
 }
 
 /* Popup arrow */
 .popup .popuptext::after {
     content: "";
-    position: absolute;
+    position: relative;
     top: 100%;
     left: 50%;
     margin-left: 50px;

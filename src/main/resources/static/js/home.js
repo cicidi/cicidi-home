@@ -12,7 +12,16 @@ function initAction() {
         var id = "popUp" + job_index;
         var popup = document.getElementById(id);
         var job_details = $(this).attr("jd-detail-val");
-        $('#' + id).text(job_details);
+        var list = job_details.split("####");
+        //var detail = "";
+        //for (var i = 0; i < job_details.length; i++) {
+        //    detail += job_details[i] + "\n"
+        //}
+        var text = "";
+        for (var i = 0; i < list.length; i++) {
+            text += " - " + list[i] + "\n";
+        }
+        $('#' + id).html(text);
         popup.classList.toggle("show");
     });
 

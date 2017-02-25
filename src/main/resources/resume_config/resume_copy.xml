@@ -109,33 +109,72 @@
             <role>Senior developer</role>
             <bulletList>
                 <bullet>
-                    <content>Work on design/implemention multiple service to load, save, pull gift card from inventory
-                        (Mysql,Mongo)
+                    <content>Design implement gift card inventory
                     </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card
+                                from various external card sources and save the card in database.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement inventory dataload service to manage card load status.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Create protal provide internal user UI to upload gift card data, and manipulte card
+                                load status by calling various web service.Use thymeleaf, js, Spring MVC, Spring
+                                Security.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Design and create portal to provide user UI to use our service to manipulate gift card
-                        inventory
+                    <content>Create dashboard to real time card activation data on Global map
                     </content>
+                    <bulletList>
+                        <bullet>
+                            <content>The application is to show user realtime transaction on Map,and total
+                                account compare with last HOUR/DAY/WEEK/YEAR
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Create postpone logic to cache real data use Google guava.
+                                Use lealet to create map on brower, and use google Map API to get geolocation.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement sercurity solution including LDAP, data validation, data encryption.</content>
+                    <content>Implement EGift Card Service for Staples.</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Create project from scratch.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement EGift card deliver service use AWS SQS, REST, and interal Email Service
+                                API
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Use Apache camel to handle work flow.</content>
+                        </bullet>
+                        <bullet>
+                            <content>
+                                Release all features without any defect to production in 3 month.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create dashboard from scrtch to show our client real time card activation data on Map.
-                    </content>
-                </bullet>
-                <bullet>
-                    <content>Implement services for Staples to send gift card via email on request.
-                    </content>
-                </bullet>
-                <bullet>
-                    <content>Use aws EC2/SQS/S3/Elasticache in various of application.
-                    </content>
-                </bullet>
-                <bullet>
-                    <content>Review, defect, refractory code which has performance issue
-                    </content>
+                    <content>Refratory project</content>
+                    <bulletList>
+                        <bullet>
+                            <content>In case of Jnterval Framework issue,I refratory 4 project by myself Use Spring Boot
+                                + Spring Data + Spring MVC + Mongo + MySQL
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -164,17 +203,48 @@
             <role>Senior developer Apple</role>
             <bulletList>
                 <bullet>
-                    <content>Implment various pipeline to pull data from Solr search engine, HDFS, and Cassandra DB
-                    </content>
+                    <content>Maintain support.apple.com</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Fix defects in Application.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Use Hadoop MapReduce to analyze search query frequency on support.apple.com</content>
+                    <content>Implement data pipeline</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement various tool pull data from Solr search engine, HDFS, and Cassandra DB
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Use Java/Python to create tool parsing daily log into businees report.</content>
+                    <content>Analysis business data</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Use Hadoop MapReduce to analyze the frequency of search query, which in
+                                support.apple.com
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement solution to support multi-line JSON array list, while Hadoop 2.7 only
+                                support single line Json data
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create tool to validate business data.</content>
+                    <content>Data parsing, and formatting</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement solution to validate data.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Use Java/Python to create tool parsing daily log into businees report.</content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -201,19 +271,39 @@
             <role>Java developer</role>
             <bulletList>
                 <bullet>
-                    <content>Develop and implement Eclipse Plugin with open source framework, such as EMF, JFace.
-                    </content>
+                    <content>Develop Eclipse Plugin</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Design XML driven application, and the source code is generated by Eclipse plugin
-                    </content>
+                    <content>Design XML driven application and tool</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The final product of our project is XML driven application/webservice, Which is
+                                configurable and customizable.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Design and implement Eclipse plugin runtime using Spring, Hibernate, Mysql, JAXB, JSON.
-                    </content>
-                </bullet>
-                <bullet>
-                    <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
+                    <content>Implement Eclipse plugin runtime</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The runtime is to use configuration then generate source code and deploy
+                                application automatilly.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Auto-generate Maven pom, and auto-deploy by jenkins job.</content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
                     <content>Use AngularJs, develop POC of Saas tool.</content>
@@ -243,22 +333,40 @@
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Implement full statck Property Management Application.</content>
+                    <content>Work on Property Management Application</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Create webserice use REST,SOAP,Spring web flow.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement DAO layer use JDBC and hibernate,Orcale</content>
+                        </bullet>
+                        <bullet>
+                            <content>Used multi thread to handle multiple request.Write Aspect log to handle all
+                                Exception and error
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement Unit test and automation test.
+                            </content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement Rest and SOAP web service</content>
-                </bullet>
-                <bullet>
-                    <content>Implement DAO layer use JDBC and hibernate.</content>
-                </bullet>
-                <bullet>
-                    <content>Used multi thread to handle multiple request.</content>
-                </bullet>
-                <bullet>
-                    <content>Write Aspect log to handle all Exception and error.</content>
-                </bullet>
-                <bullet>
-                    <content>Implement Unit test and automation test.</content>
+                    <content>Work on Healthcare.gov</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Fix defect in acquiring service
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement integration testing case..</content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
             </bulletList>
         </workExperience>

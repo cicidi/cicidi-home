@@ -16,6 +16,7 @@ public class Bullet {
     @XmlElementWrapper(name = "bulletList")
     @XmlElement(name = "bullet")
     private List<Bullet> bulletList;
+    private String[] bulletListvalue;
 
 
     public String getContent() {
@@ -33,4 +34,16 @@ public class Bullet {
     public void setBulletList(List<Bullet> bulletList) {
         this.bulletList = bulletList;
     }
+
+    public String getBulletListvalue() {
+        String result = "";
+        if (bulletList == null || bulletList.size() == 0) {
+            return null;
+        }
+        for (Bullet bullet : bulletList) {
+            result += bullet.content + "####";
+        }
+        return result.substring(0, result.length() - 4);
+    }
+
 }

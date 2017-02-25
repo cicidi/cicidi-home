@@ -148,7 +148,7 @@
                             <tr style="padding: 0em" th:each="bullet:${job.bulletList}">
                                 <td style="padding: inherit">
                                     <p class="jd" th:text=" ${bullet.content}"
-                                       th:attr="jd-detail-val=${bullet.content}"></p>
+                                       th:attr="jd-detail-val=${bullet.bulletListvalue}"></p>
                                 </td>
                             </tr>
 
@@ -576,7 +576,7 @@
             navigation: false,
             slideSpeed: 300,
             paginationSpeed: 400,
-            autoPlay: 6000,
+            autoPlay: 20000,
             addClassActive: true,
             // transitionStyle: "fade",
             singleItem: true

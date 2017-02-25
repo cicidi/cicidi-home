@@ -125,6 +125,7 @@ p.logo strong {
 }
 
 .item {
+    /*position: absolute;*/
     overflow: hidden;
     width: 100%;
 }

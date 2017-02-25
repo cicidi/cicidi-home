@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://java.sun.com/xml/ns/j2ee">
+                xmlns:fo="http://www.w3.org/1999/XSL/Format">
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
             <fo:layout-master-set>
@@ -104,8 +104,15 @@
                         <xsl:for-each select="bulletList/bullet">
                             <fo:block font-family="sans-serif" margin-left="3em">
                                 <xsl:text>•</xsl:text>
-                                <xsl:text>                    </xsl:text>
+                                <!--<xsl:text>                    </xsl:text>-->
                                 <xsl:value-of select="content"/>
+                                <xsl:for-each select="bulletList/bullet">
+                                    <fo:block font-family="sans-serif" font-size="7pt" margin-left="2em">
+                                        <xsl:text>•</xsl:text>
+                                        <!--<xsl:text></xsl:text>-->
+                                        <xsl:value-of select="content"/>
+                                    </fo:block>
+                                </xsl:for-each>
                             </fo:block>
                         </xsl:for-each>
                     </fo:block>
@@ -150,7 +157,7 @@
                         <xsl:for-each select="bulletList/bullet">
                             <fo:block font-family="sans-serif" margin-left="3em">
                                 <xsl:text>•</xsl:text>
-                                <xsl:text>                    </xsl:text>
+                                <!--<xsl:text></xsl:text>-->
                                 <xsl:value-of select="content"/>
                             </fo:block>
                         </xsl:for-each>
