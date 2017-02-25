@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="owl-carousel/owl.theme.css">
     <!-- CUSTOM STYLE -->
@@ -33,10 +34,11 @@
     <script type="text/javascript" src="js/modernizr.js"></script>
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
-
+    <script type="text/javascript" src="js/jquery.simplemodal.min.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
     <![endif]-->
 </head>
 <body class="size-1140">
@@ -103,102 +105,84 @@
 <section>
     <!-- CAROUSEL -->
     <div id="carousel">
+
+        <!--<div id="errorSpeedbump" class="modalContent">-->
+        <!--<h3>Error Details</h3>-->
+
+        <!--<div class="message">-->
+        <!--<p id="viewError">Error message.</p>-->
+        <!--</div>-->
+        <!--</div>-->
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <tr th:each="job,iterStat :${profile.workExperienceList}">
-                <td>
-                    <div class="item">
+
+            <div th:each="job,iterStat :${profile.workExperienceList}">
+                <div class="item" th:attr="job-index=${iterStat.index}">
+                    <div>
                         <img th:src="${job.photo}" alt="">
 
-                        <div class="line">
-                            <div class="text hide-s">
-                                <div class="line">
-                                    <div class="prev-arrow hide-s hide-m">
-                                        <i class="fa fa-angle-left"></i>
-                                    </div>
-                                    <div class="next-arrow hide-s hide-m">
-                                        <i class="fa fa-angle-right"></i>
-                                    </div>
-                                </div>
+                        <div class="popup">
 
-                                <!--<h2 th:text="${job.name}+ '&lt;br /&gt;'+ ${job.startName}+'-'${job.endName}"></h2>-->
-                                <h2 th:text="${job.name}"></h2>
-
-                                <h3 th:text=" ${job.startName+'-'+job.endName}"></h3>
-                                <!--I am try to use nest th:each syntax showing bullet.content,
-                                 but it is so weird. I keep get null on job object,
-                                 but it is not null when use job.name -->
-
-                                <!--<tr th:each="bullet:${job.bulletList}">-->
-                                <!--<td>-->
-                                <!--<p th:text="${bullet.content}"></p>-->
-                                <!--</td>-->
-                                <!--</tr>-->
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>0}"
-                                   th:text="${job.bulletList[0].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>1}"
-                                   th:text="${job.bulletList[1].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>2}"
-                                   th:text="${job.bulletList[2].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>3}"
-                                   th:text="${job.bulletList[3].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>4}"
-                                   th:text="${job.bulletList[4].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>5}"
-                                   th:text="${job.bulletList[5].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>6}"
-                                   th:text="${job.bulletList[6].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>7}"
-                                   th:text="${job.bulletList[7].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>8}"
-                                   th:text="${job.bulletList[8].content}"></p>
-
-                                <p th:if="${job.bulletList !=null &&
-                                job.bulletList.size()>9}"
-                                   th:text="${job.bulletList[9].content}"></p>
-                            </div>
+                            <P><span class="popuptext" th:id="${'popUp'+iterStat.index}"
+                                     th:text="${job.name}"
+                                     th:attr="jd-index=${iterStat.index}">A Simple Popup!</span>
+                            </P>
                         </div>
                     </div>
-                </td>
-            </tr>
+
+                    <div class="line">
+                        <div class="text hide-s">
+                            <div class="line">
+                                <div class="prev-arrow hide-s hide-m">
+                                    <i class="fa fa-angle-left"></i>
+                                </div>
+                                <div class="next-arrow hide-s hide-m">
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+
+                            <h2 th:text="${job.name}"></h2>
+
+                            <h3 th:text=" ${job.startName+' - '+job.endName+' • '+job.length+' • '+job.address.city+','+job.address.state}"></h3>
+
+
+                            <tr style="padding: 0em" th:each="bullet:${job.bulletList}">
+                                <td style="padding: inherit">
+                                    <p class="jd" th:text=" ${bullet.content}"
+                                       th:attr="jd-detail-val=${bullet.bulletListvalue}"></p>
+                                </td>
+                            </tr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- FIRST BLOCK -->
 
+    <!--<div id="jd-detail-popup" class="modalContent">-->
+    <!--<div class="message">-->
+    <!--<p id="viewError">Error message.</p>-->
+    <!--</div>-->
+    <!--</div>-->
 
     <div id="about-me">
         <div id="first-block">
             <div class="line">
-                <h1 th:text="${objective.title}"></h1>
+                <h1 th:text="${profile.objective.title}"></h1>
 
-                <p th:text="${objective.interests}"></p>
+                <p th:text="${profile.objective.interests}"></p>
 
                 <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
-        <div class="s-12 m-12 l-6 media-container">
-            <img th:src="${objective.contentImg}" alt="">
+        <div class="s-12 m-12 l-3 media-container">
+            <img th:src="${profile.objective.contentImg}" alt="">
         </div>
-        <article class="s-12 m-12 l-6">
-            <h2 th:text="${objective.personalEstimate}"></h2>
+        <article class="s-12 m-9 l-6">
+            <h2 th:text="${profile.objective.personalEstimate}"></h2>
 
-            <p th:text="${objective.whyCreateThisPage}"></p>
+            <p th:text="${profile.objective.whyCreateThisPage}"></p>
 
             <div class=" about-me-icons">
 
@@ -578,6 +562,13 @@
     </div>
 </footer>
 <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript">
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("hidden");
+    }
+</script>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         var theme_slider = $("#owl-demo");
@@ -585,7 +576,7 @@
             navigation: false,
             slideSpeed: 300,
             paginationSpeed: 400,
-            autoPlay: 6000,
+            autoPlay: 20000,
             addClassActive: true,
             // transitionStyle: "fade",
             singleItem: true

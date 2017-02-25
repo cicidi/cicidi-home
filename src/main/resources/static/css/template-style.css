@@ -120,10 +120,12 @@ p.logo strong {
 #carousel .text {
     position: absolute;
     top: 40%;
+    left: 10%;
     z-index: 10;
 }
 
 .item {
+    /*position: absolute;*/
     overflow: hidden;
     width: 100%;
 }
@@ -169,6 +171,14 @@ p.logo strong {
     max-width: 600px;
     padding: 10px 20px;
     width: 100%;
+}
+
+#carousel .text tr {
+
+}
+
+#carousel .text tr td {
+
 }
 
 #carousel .owl-theme .owl-controls {
@@ -265,7 +275,7 @@ p.logo strong {
 }
 
 article h2 {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 900;
     letter-spacing: -2px;
     line-height: 0.9;
@@ -284,8 +294,10 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
     display: block;
     height: 100%;
     max-width: none;
-    min-width: 100%;
+    /*min-width: 100%;*/
     width: auto;
+    margin-left: 50px;
+    margin-bottom: 50px
 }
 
 article p, article li {
