@@ -1,24 +1,29 @@
 package com.cicidi.home.domain.resume;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import com.cicidi.home.io.DateAdapter;
+import com.cicidi.home.io.StringAdapter;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"content", "bulletList"})
 public class Bullet {
+    @XmlTransient
     private String content;
 
     @XmlElementWrapper(name = "bulletList")
     @XmlElement(name = "bullet")
     private List<Bullet> bulletList;
+    @XmlTransient
     private String[] bulletListvalue;
 
-
+    @XmlElement(name = "content", required = false)
+    @XmlJavaTypeAdapter(StringAdapter.class)
     public String getContent() {
         return content;
     }

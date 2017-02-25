@@ -11,7 +11,7 @@
         <interests>I am interest in any kind of new technolgoy</interests>
         <whyCreateThisPage></whyCreateThisPage>
         <contentImg>
-            https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/N1eBVRNX2oA99ORbBHJZ95BvRge6Ja6JkIEL0MsbbeQpX92IB?viewBox=1920%2C2558
+            https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/Q4ZjXms6SzKjqc029MHelVbZEO6r2sx5pVM4t0cT1aopX92IB?viewBox=3840%2C5120
         </contentImg>
     </objective>
     <contact>
@@ -109,38 +109,27 @@
             <role>Senior developer</role>
             <bulletList>
                 <bullet>
-                    <content>Design implement gift card inventory
-                    </content>
+                    <content>Design implement gift card inventory</content>
                     <bulletList>
                         <bullet>
-                            <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card
-                                from various external card sources and save the card in database.
-                            </content>
+                            <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card                                from various external card sources and save the card in database.</content>
                         </bullet>
                         <bullet>
                             <content>Implement inventory dataload service to manage card load status.</content>
                         </bullet>
                         <bullet>
-                            <content>Create protal provide internal user UI to upload gift card data, and manipulte card
-                                load status by calling various web service.Use thymeleaf, js, Spring MVC, Spring
-                                Security.
-                            </content>
+                            <content>Create protal provide internal user UI to upload gift card data, and manipulte card                                load status by calling various web service.Use thymeleaf, js, Spring MVC, Spring                                Security.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create dashboard to real time card activation data on Global map
-                    </content>
+                    <content>Create dashboard to real time card activation data on Global map</content>
                     <bulletList>
                         <bullet>
-                            <content>The application is to show user realtime transaction on Map,and total
-                                account compare with last HOUR/DAY/WEEK/YEAR
-                            </content>
+                            <content>The application is to show user realtime transaction on Map,and total                                account compare with last HOUR/DAY/WEEK/YEAR</content>
                         </bullet>
                         <bullet>
-                            <content>Create postpone logic to cache real data use Google guava.
-                                Use lealet to create map on brower, and use google Map API to get geolocation.
-                            </content>
+                            <content>Create postpone logic to cache real data use Google guava.                                Use lealet to create map on brower, and use google Map API to get geolocation.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -148,21 +137,16 @@
                     <content>Implement EGift Card Service for Staples.</content>
                     <bulletList>
                         <bullet>
-                            <content>Create project from scratch.
-                            </content>
+                            <content>Create project from scratch.</content>
                         </bullet>
                         <bullet>
-                            <content>Implement EGift card deliver service use AWS SQS, REST, and interal Email Service
-                                API
-                            </content>
+                            <content>Implement EGift card deliver service use AWS SQS, REST, and interal Email Service                                API</content>
                         </bullet>
                         <bullet>
                             <content>Use Apache camel to handle work flow.</content>
                         </bullet>
                         <bullet>
-                            <content>
-                                Release all features without any defect to production in 3 month.
-                            </content>
+                            <content>Release all features without any defect to production in 3 month.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -170,9 +154,7 @@
                     <content>Refratory project</content>
                     <bulletList>
                         <bullet>
-                            <content>In case of Jnterval Framework issue,I refratory 4 project by myself Use Spring Boot
-                                + Spring Data + Spring MVC + Mongo + MySQL
-                            </content>
+                            <content>In case of Jnterval Framework issue,I refratory 4 project by myself Use Spring Boot                                + Spring Data + Spring MVC + Mongo + MySQL</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -194,7 +176,7 @@
             <endName>October 2015</endName>
             <length>6mos</length>
             <photo>
-                https://content-na.drive.amazonaws.com/cdproxy/templink/DqoKHeV8MCHItahSIIG__Zy6tat8JR8UBxTHZgInHv4pX92IB?viewBox=1920%2C960
+                https://content-na.drive.amazonaws.com/cdproxy/templink/0dBPKPPZ0YeQ123xacc9zKoHQ_psh8oJMacmpTuAowMpX92IB?viewBox=4800%2C2400
             </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
@@ -206,8 +188,7 @@
                     <content>Maintain support.apple.com</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defects in Application.
-                            </content>
+                            <content>Fix defects in Application.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -215,8 +196,7 @@
                     <content>Implement data pipeline</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement various tool pull data from Solr search engine, HDFS, and Cassandra DB
-                            </content>
+                            <content>Implement various tool pull data from Solr search engine, HDFS, and Cassandra DB</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -224,14 +204,10 @@
                     <content>Analysis business data</content>
                     <bulletList>
                         <bullet>
-                            <content>Use Hadoop MapReduce to analyze the frequency of search query, which in
-                                support.apple.com
-                            </content>
+                            <content>Use Hadoop MapReduce to analyze the frequency of search query, which in                                support.apple.com</content>
                         </bullet>
                         <bullet>
-                            <content>Implement solution to support multi-line JSON array list, while Hadoop 2.7 only
-                                support single line Json data
-                            </content>
+                            <content>Implement solution to support multi-line JSON array list, while Hadoop 2.7 only                                support single line Json data</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -264,7 +240,7 @@
             <endName>April 2015</endName>
             <length>11mos</length>
             <photo>
-                https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/evruY8LMtqJ40cSP01IxbW2q395A4NpWoBK-F5ucNVcpX92IB?viewBox=1920%2C936
+                https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/qE7mlwyTIhhDmRxfVaT70ySVnu4Zkb5z8RqMAMQoVRcpX92IB?viewBox=4923%2C2400
             </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
             <summary>I like macbook</summary>
@@ -274,8 +250,7 @@
                     <content>Develop Eclipse Plugin</content>
                     <bulletList>
                         <bullet>
-                            <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.
-                            </content>
+                            <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -283,9 +258,7 @@
                     <content>Design XML driven application and tool</content>
                     <bulletList>
                         <bullet>
-                            <content>The final product of our project is XML driven application/webservice, Which is
-                                configurable and customizable.
-                            </content>
+                            <content>The final product of our project is XML driven application/webservice, Which is                                configurable and customizable.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -293,9 +266,7 @@
                     <content>Implement Eclipse plugin runtime</content>
                     <bulletList>
                         <bullet>
-                            <content>The runtime is to use configuration then generate source code and deploy
-                                application automatilly.
-                            </content>
+                            <content>The runtime is to use configuration then generate source code and deploy                                application automatilly.</content>
                         </bullet>
                         <bullet>
                             <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
@@ -326,7 +297,7 @@
             <endName>May 2014</endName>
             <length>1yr</length>
             <photo>
-                https://cnt-01.content-na.drive.amazonaws.com/cdproxy/templink/FrQiYICHM6Nh7YS5ug2uynPxXab1jvi1v1TuNSQdetMpX92IB?viewBox=1920%2C960
+                https://cnt-01.content-na.drive.amazonaws.com/cdproxy/templink/YG8g3dIgVJPbfXcLyJut1bMSOovKJJtWGxewg7m3BkQpX92IB?viewBox=4800%2C2400
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary>I like macbook</summary>
@@ -336,8 +307,7 @@
                     <content>Work on Property Management Application</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript
-                            </content>
+                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript</content>
                         </bullet>
                         <bullet>
                             <content>Create webserice use REST,SOAP,Spring web flow.</content>
@@ -346,13 +316,10 @@
                             <content>Implement DAO layer use JDBC and hibernate,Orcale</content>
                         </bullet>
                         <bullet>
-                            <content>Used multi thread to handle multiple request.Write Aspect log to handle all
-                                Exception and error
-                            </content>
+                            <content>Used multi thread to handle multiple request.Write Aspect log to handle all                                Exception and error</content>
                         </bullet>
                         <bullet>
-                            <content>Implement Unit test and automation test.
-                            </content>
+                            <content>Implement Unit test and automation test.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -360,8 +327,7 @@
                     <content>Work on Healthcare.gov</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defect in acquiring service
-                            </content>
+                            <content>Fix defect in acquiring service</content>
                         </bullet>
                         <bullet>
                             <content>Implement integration testing case..</content>

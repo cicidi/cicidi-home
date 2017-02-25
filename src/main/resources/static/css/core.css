@@ -43,13 +43,13 @@
     color: #fff;
     text-align: left;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 8px 0 8px 10px;
     position: absolute;
     z-index: 11;
     bottom: 125%;
-    /*margin-left: -80px;*/
+    margin-left: 30px;
     margin-right: 80px;
-    white-space: ;
+    white-space: pre-line;
 }
 
 /* Popup arrow */

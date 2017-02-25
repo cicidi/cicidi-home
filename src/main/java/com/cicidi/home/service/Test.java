@@ -185,15 +185,15 @@ public class Test {
 
     }
 
-    public static void main(String[] args) throws JAXBException {
-//        Test test = new Test();
-//        Profile profile = test.createProfile();
-//        System.out.println("Done");
-        XMLReader xmlReader = new XMLReader();
-        ApacheXML2PDF apacheXML2PDF = new ApacheXML2PDF();
-        xmlReader.parseFile();
-        apacheXML2PDF.createPdf();
-
-    }
+//    public static void main(String[] args) throws JAXBException {
+////        Test test = new Test();
+////        Profile profile = test.createProfile();
+////        System.out.println("Done");
+//        XMLReader xmlReader = new XMLReader();
+//        ApacheXML2PDF apacheXML2PDF = new ApacheXML2PDF();
+//        xmlReader.parseFile();
+//        apacheXML2PDF.createPdf();
+//
+//    }
 
 }
