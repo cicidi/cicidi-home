@@ -259,6 +259,7 @@ p.logo strong {
 #about-me {
     background: none repeat scroll 0 0 #00283a;
     clear: both;
+    min-height: 850pt;
 }
 
 #about-me:after {
