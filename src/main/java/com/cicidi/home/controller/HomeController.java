@@ -3,8 +3,10 @@ package com.cicidi.home.controller;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.*;
 import com.cicidi.home.io.XMLReader;
+import com.cicidi.home.service.GoogleMapService;
 import com.cicidi.home.service.Test;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,11 @@ class HomeController {
     @Autowired
     XMLReader xmlReader;
 
+    @Autowired
+    GoogleMapService googleMapService;
+
+    ObjectMapper mapper = new ObjectMapper();
+
     @GetMapping("/")
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
@@ -36,7 +43,23 @@ class HomeController {
     }
 
     @GetMapping("/home")
-    String home(Model model, HttpServletRequest request) throws JAXBException {
+    String home(Model model, HttpServletRequest request) throws Exception {
+
+        HomeViewObject homeViewObject = this.testCase();
+        Profile profile = xmlReader.parseFile();
+        model.addAttribute("now", LocalDateTime.now());
+        model.addAttribute("homeViewObject", homeViewObject);
+        model.addAttribute("profile", profile);
+        model.addAttribute("objective", test.createObjective());
+        model.addAttribute("webLogList", test.createLog());
+        model.addAttribute("geoData", mapper.writeValueAsString(googleMapService.getGeoData(profile)));
+        return "home";
+
+    }
+
+    @GetMapping("/addMarker")
+    @ResponseBody
+    String addMarker(Model model, HttpServletRequest request) throws JAXBException {
         HomeViewObject homeViewObject = this.testCase();
         Profile profile = xmlReader.parseFile();
         model.addAttribute("now", LocalDateTime.now());
@@ -49,20 +72,6 @@ class HomeController {
 
     }
 
-    @GetMapping("/home2")
-    String home2(Model model, HttpServletRequest request) throws JAXBException {
-        HomeViewObject homeViewObject = this.testCase();
-//        Profile profile = xmlReader.parseFile();
-        Profile profile = test.createProfile();
-        model.addAttribute("now", LocalDateTime.now());
-        model.addAttribute("homeViewObject", homeViewObject);
-        model.addAttribute("profile", profile);
-        model.addAttribute("objective", test.createObjective());
-        model.addAttribute("webLogList", test.createLog());
-        System.out.println(request.getRemoteAddr());
-        return "home";
-
-    }
 
     @GetMapping("properties")
     @ResponseBody

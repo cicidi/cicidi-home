@@ -14,7 +14,8 @@
 <!--@thymesVar id="homeViewObject" type="com.cicidi.home.domain.vo.HomeViewObject"-->
 <!--@thymesVar id="job" type="com.cicidi.home.domain.resume.WorkExperience"-->
 <!--@thymesVar id="webLogList" type="List<com.cicidi.home.domain.resume.WebLog>"-->
-<!--@thymesVar id="webLog" type="List<com.cicidi.home.domain.vo.WebLog>"-->
+<!--@thymesVar id="webLog" type="com.cicidi.home.domain.vo.WebLog"-->
+<!--@thymesVar id="geoData" type="java.util.Map;"-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
@@ -46,11 +47,7 @@
     <div id="topbar">
         <div class="line">
             <div class="s-12 m-6 l-6">
-
                 <p>CONTACT ME:
-                    <!--<span-->
-                    <!--th:text="${profile.contact.email}"></span>-->
-
                     <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
                         <td th:if="${#strings.containsIgnoreCase(link.name,'mail')}">
                         <span
@@ -63,13 +60,7 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
-                    <!--<a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i-->
-                    <!--class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>-->
                     <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
-                        <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
-                        <!--<a th:href="${link.url}"-->
-                        <!--th:title="${link.name}">-->
-                        <!--<i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${link.icon}"></i></a>-->
                         <td>
                             <a th:href="${link.url}"><i th:class="${link.icon}"></i> </a>
                         </td>
@@ -96,6 +87,7 @@
 
                     <li><a href="#skill-sets">Skill Set</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#map-block">PLACES</a></li>
                 </ul>
             </div>
         </div>
@@ -104,16 +96,7 @@
 <section>
     <!-- CAROUSEL -->
     <div id="carousel">
-
-        <!--<div id="errorSpeedbump" class="modalContent">-->
-        <!--<h3>Error Details</h3>-->
-
-        <!--<div class="message">-->
-        <!--<p id="viewError">Error message.</p>-->
-        <!--</div>-->
-        <!--</div>-->
         <div id="owl-demo" class="owl-carousel owl-theme">
-
             <div th:each="job,iterStat :${profile.workExperienceList}">
                 <div class="item" th:attr="job-index=${iterStat.index}">
                     <div>
@@ -157,13 +140,6 @@
             </div>
         </div>
     </div>
-    <!-- FIRST BLOCK -->
-
-    <!--<div id="jd-detail-popup" class="modalContent">-->
-    <!--<div class="message">-->
-    <!--<p id="viewError">Error message.</p>-->
-    <!--</div>-->
-    <!--</div>-->
 
     <div id="about-me">
         <div id="first-block">
@@ -194,26 +170,9 @@
                         </div>
                     </td>
                 </tr>
-                <!--<div><a th:if="${profile.contact.github!=null}" th:href="${profile.contact.github}" title="git hub"><i-->
-                <!--style="margin-right: 0.5em; color: #EEEEEE;"-->
-                <!--class="icon-git"></i></a></div>-->
-                <!--<div th:each="link,iterationStatus  : ${profile.contact.linkList}">-->
-                <!--<div th:if="${#strings.containsIgnoreCase(link.name,'linkedIn')}">-->
-                <!--<a th:if="${profile.contact.github!=null}" th:href="${profile.contact.github}"-->
-                <!--title="git hub">-->
-                <!--<i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-git"></i></a>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div><a th:if="${profile.contact.linkedIn!=null}" th:href="${profile.contact.linkedIn}"-->
-                <!--title="linkedin"><i-->
-                <!--style="margin-right: 0.5em; color: #EEEEEE;"-->
-                <!--class="icon-linked_in"></i></a></div>-->
 
             </div>
         </article>
-        <!--<i class="icon-paperplane_ico"> </i>-->
-        <!--<i class="icon-trophy"></i>-->
-        <!--<i class="icon-clock"></i>-->
     </div>
 
     <!-- CODE DEMO -->
@@ -355,33 +314,6 @@
                         </div>
                     </td>
                 </tr>
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-isight icon3x"></i>-->
-
-                <!--<h2>Clean design</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
-                <!--</div>-->
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-star icon3x"></i>-->
-
-                <!--<h2>Valid code</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna erat volutpat.</p>-->
-                <!--</div>-->
-                <!--<div class="s-12 m-6 l-3 margin-bottom">-->
-                <!--<i class="icon-heart icon3x"></i>-->
-
-                <!--<h2>Totally free</h2>-->
-
-                <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
-                <!--tincidunt-->
-                <!--ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
-                <!--</div>-->
             </div>
         </div>
     </div>
@@ -505,18 +437,7 @@
 
                     <h3>Social</h3>
 
-                    <!--<p><i class=" icon-git icon"></i> <a-->
-                    <!--th:href="${profile.contact.github}">Github</a></p>-->
-
-                    <!--<p><i class="icon-linked_in icon"></i> <a-->
-                    <!--th:href="${profile.contact.linkedIn}">Linkedin</a>-->
-                    <!--</p>-->
-
                     <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
-                        <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
-                        <!--<a th:href="${link.url}"-->
-                        <!--th:title="${link.name}">-->
-                        <!--<i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${link.icon}"></i></a>-->
                         <td>
                             <p><i th:class="${link.icon}"></i> <a
                                     th:href="${link.url}" th:text="${link.name}"></a></p>
@@ -540,10 +461,11 @@
             </div>
         </div>
     </div>
-    <!-- MAP -->
     <div id="map-block">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1247814.3661917313!2d16.569872019090596!3d48.23131953825178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8cbf758ecb9f%3A0xddeb1d26bce5eccf!2sGallayova+2150%2F19%2C+841+02+D%C3%BAbravka!5e0!3m2!1ssk!2ssk!4v1440344568394"
-                width="100%" height="450" frameborder="0" style="border:0"></iframe>
+        <h2 class="section-title" style="margin:0 0 0 0;background-color: #ffffff">PLACES I STUDY AND WORK BEFORE</h2>
+
+        <div id="googleMap" class="googleMap" th:attr="geo-data=${geoData}">
+        </div>
     </div>
 </section>
 <!-- FOOTER -->
@@ -555,13 +477,14 @@
             <p>All images is purchased from Bigstock. Do not use the images in your website.</p>
         </div>
         <div class="s-12 l-6">
-            <a class="right" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design
-                and coding<br> by Responsee Team</a>
+            <a class="right" href="http://www.ganshaa.com" title="cicidi - lightweight responsive framework">Design
+                and coding<br> Walter Chen</a>
         </div>
     </div>
 </footer>
 <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
 <script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/googleMap.js"></script>
 <script type="text/javascript">
     function myFunction() {
         var popup = document.getElementById("myPopup");
@@ -598,6 +521,9 @@
             theme_slider.trigger('owl.prev');
         })
     });
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2WAbfmvicCd7eOKRzCIPS-_TfM4YUxvE&callback=initMap">
 </script>
 </body>
 </html>
