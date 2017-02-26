@@ -400,10 +400,10 @@
 
             <div class="margin">
                 <div class="s-12 m-12 l-3 hide-m hide-s margin-bottom right-align">
-                    <img src="img/contact.jpg" alt="">
+                    <img th:src="${profile.faceImg}" alt="">
                 </div>
                 <div class="s-12 m-12 l-4 margin-bottom right-align">
-                    <h3>Walter (Jianming) Chen </h3>
+                    <h3 th:text="${profile.firstName+' '+profile.lastName}"></h3>
                     <address>
                         <!--<p th:text="${profile.contact.address.fullAddress}"><strong>Adress:</strong></p>-->
 
