@@ -1,18 +1,25 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.util.Constants;
+
+import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlType(propOrder = {"number", "street", "city", "state", "country", "zipCode"})
-public class Address {
+@Entity
+@XmlType(propOrder = {Constants.number, Constants.street, Constants.city, Constants.state, Constants.country, Constants.zipCode})
+public class Address extends DatabaseEntity {
     private String number;
     private String street;
     private String city;
     private String state;
     private String country;
     private String zipCode;
+    @XmlTransient
     private String fullAddress;
 
     public String getNumber() {

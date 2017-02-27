@@ -1,20 +1,31 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.util.Constants;
+
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlRootElement(name = "category")
+@XmlRootElement(name = Constants.category)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SkillSet {
-    @XmlElement(name = "name", required = true)
+public class SkillSet extends DatabaseEntity {
+    @XmlElement(name = Constants.name, required = true)
     private String techName;
+
     private String list;
-    @XmlElementWrapper(name = "technologyList")
-    @XmlElement(name = "technology")
+
+    @XmlElementWrapper(name = Constants.technologyList)
+    @XmlElement(name = Constants.technology)
     private List<String> technologyList;
+
+    @XmlTransient
+    private Profile profile;
 
     public String getTechName() {
         return techName;
@@ -30,5 +41,15 @@ public class SkillSet {
 
     public void setList(String list) {
         this.list = list;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "entityId", nullable = false)
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

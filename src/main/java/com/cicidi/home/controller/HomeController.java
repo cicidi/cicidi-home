@@ -47,6 +47,7 @@ class HomeController {
 
         HomeViewObject homeViewObject = this.testCase();
         Profile profile = xmlReader.parseFile();
+
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("homeViewObject", homeViewObject);
         model.addAttribute("profile", profile);

@@ -1,22 +1,30 @@
 package com.cicidi.home.domain.resume;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import com.cicidi.home.util.Constants;
+
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.*;
 
 /**
  * Created by cicidi on 2/18/17.
  */
 
 
-@XmlRootElement(name = "education")
+@XmlRootElement(name = Constants.education)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"name", "address", "start", "end", "startName", "endName", "length", "photo", "icon", "major", "degree"})
+@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
+        Constants.length, Constants.photo, Constants.icon, Constants.major, Constants.degree})
 
 public class Education extends Organization {
+
     private String major;
+
     private String degree;
+
+    @XmlTransient
+    private Profile profile;
 
     public String getMajor() {
         return major;
@@ -32,5 +40,16 @@ public class Education extends Organization {
 
     public void setDegree(String degree) {
         this.degree = degree;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "entityId", nullable = false)
+    @XmlTransient
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

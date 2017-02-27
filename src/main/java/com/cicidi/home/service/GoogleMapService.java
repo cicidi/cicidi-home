@@ -6,8 +6,6 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
 import com.google.maps.model.PlacesSearchResponse;
-import org.slf4j.ext.XLogger;
-import org.slf4j.ext.XLoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +14,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//import org.slf4j.ext.XLogger;
+//import org.slf4j.ext.XLoggerFactory;
+
 /**
  * Created by cicidi on 2/26/2017.
  */
 @Component
 public class GoogleMapService {
-    private static XLogger logger = XLoggerFactory.getXLogger(GoogleMapService.class);
+    //    private static XLogger logger = XLoggerFactory.getXLogger(GoogleMapService.class);
     @Autowired
     GeoApiContext context;
 
@@ -49,7 +50,7 @@ public class GoogleMapService {
         TextSearchRequest textSearchRequest = PlacesApi.textSearchQuery(context, query);
         PlacesSearchResponse response = textSearchRequest.await();
         if (response.results.length == 0) {
-            logger.debug("address not found {}", query);
+//            logger.debug("address not found {}", query);
         }
         return response;
     }

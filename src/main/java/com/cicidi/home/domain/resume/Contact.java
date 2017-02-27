@@ -1,6 +1,8 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.domain.vo.Link;
+import com.cicidi.home.util.Constants;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
@@ -8,15 +10,15 @@ import java.util.List;
 /**
  * Created by cicidi on 2/17/2017.
  */
-@XmlRootElement(name = "contact")
+@XmlRootElement(name = Constants.contact)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"phone", "address", "linkList"})
-public class Contact {
+@XmlType(propOrder = {Constants.phone, Constants.address, Constants.linkList})
+public class Contact extends DatabaseEntity {
 
     private String phone;
     private Address address;
-    @XmlElementWrapper(name = "linkList")
-    @XmlElement(name = "link")
+    @XmlElementWrapper(name = Constants.linkList)
+    @XmlElement(name = Constants.link)
     private List<Link> linkList;
 
 

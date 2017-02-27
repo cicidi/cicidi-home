@@ -1,6 +1,8 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.DateAdapter;
+import com.cicidi.home.util.Constants;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,7 +18,7 @@ import java.util.Date;
 
 @XmlTransient
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Organization {
+public class Organization extends DatabaseEntity {
     @XmlTransient
     private String monthNames[] = {"January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"};
@@ -51,7 +53,7 @@ public class Organization {
         this.address = address;
     }
 
-    @XmlElement(name = "start", required = true)
+    @XmlElement(name = Constants.start, required = true)
     @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getStart() {
         return start;
@@ -67,7 +69,7 @@ public class Organization {
         }
     }
 
-    @XmlElement(name = "end", required = true)
+    @XmlElement(name = Constants.end, required = true)
     @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getEnd() {
         return end;
@@ -83,12 +85,12 @@ public class Organization {
         }
     }
 
-    @XmlElement(name = "startName", required = true)
+    @XmlElement(name = Constants.startName, required = true)
     public String getStartName() {
         return startName;
     }
 
-    @XmlElement(name = "endName", required = true)
+    @XmlElement(name = Constants.endName, required = true)
     public String getEndName() {
         return endName;
     }
@@ -110,7 +112,7 @@ public class Organization {
         this.icon = icon;
     }
 
-    @XmlElement(name = "length", required = true)
+    @XmlElement(name = Constants.length, required = true)
     public String getLength() {
         return length;
     }

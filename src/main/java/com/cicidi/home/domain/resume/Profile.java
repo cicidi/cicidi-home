@@ -1,31 +1,42 @@
 package com.cicidi.home.domain.resume;
 
-import java.util.List;
+import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.util.Constants;
+
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlRootElement(name = "profile")
+@XmlRootElement(name = Constants.profile)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"firstName", "lastName", "faceImg", "objective", "contact", "educationList",
-        "workExperienceList", "skillSets"})
-public class Profile {
+@XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
+        Constants.educationList, Constants.workExperienceList, Constants.skillSets})
+public class Profile extends DatabaseEntity {
 
     private String firstName;
     private String lastName;
     private String faceImg;
     private Contact contact;
 
-    @XmlElementWrapper(name = "educationList")
-    @XmlElement(name = "education")
+    @XmlElementWrapper(name = Constants.educationList)
+    @XmlElement(name = Constants.education)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.education)
     private List<Education> educationList;
-    @XmlElementWrapper(name = "workExperienceList")
-    @XmlElement(name = "workExperience")
+
+    @XmlElementWrapper(name = Constants.workExperienceList)
+    @XmlElement(name = Constants.workExperience)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.workExperience)
     private List<WorkExperience> workExperienceList;
+
     private Objective objective;
-    @XmlElementWrapper(name = "skillSets")
-    @XmlElement(name = "category")
+
+    @XmlElementWrapper(name = Constants.skillSets)
+    @XmlElement(name = Constants.category)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.skillSets)
     private List<SkillSet> skillSets;
 
     public String getFirstName() {

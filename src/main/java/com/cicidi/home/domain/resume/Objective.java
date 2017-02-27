@@ -1,12 +1,15 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.util.Constants;
+
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by cicidi on 2/18/2017.
  */
-@XmlType(propOrder = {"title", "personalEstimate", "interests", "whyCreateThisPage", "contentImg"})
-public class Objective {
+@XmlType(propOrder = {Constants.title, Constants.personalEstimate, Constants.interests, Constants.whyCreateThisPage, Constants.contentImg})
+public class Objective extends DatabaseEntity {
     private String title;
     private String personalEstimate;
     private String interests;

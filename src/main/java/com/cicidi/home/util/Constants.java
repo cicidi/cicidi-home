@@ -19,5 +19,52 @@ public class Constants {
     public static final String icon_6 = "icon-trophy";
     public static final String icon_7 = "icon-clock";
 
+    public static final String profile = "profile";
+    public static final String firstName = "firstName";
+    public static final String lastName = "lastName";
+    public static final String faceImg = "faceImg";
+    public static final String objective = "objective";
+    public static final String educationList = "educationList";
+    public static final String education = "education";
+    public static final String workExperienceList = "workExperienceList";
+    public static final String workExperience = "workExperience";
+    public static final String skillSets = "skillSets";
+    public static final String category = "category";
+    public static final String content = "content";
+    public static final String contact = "contact";
+    public static final String linkList = "linkList";
+    public static final String phone = "phone";
+    public static final String address = "address";
+    public static final String link = "link";
+    public static final String name = "name";
+    public static final String end = "end";
+    public static final String start = "start";
+    public static final String startName = "startName";
+    public static final String endName = "endName";
+    public static final String length = "length";
+    public static final String photo = "photo";
+    public static final String icon = "icon";
+    public static final String summary = "summary";
+    public static final String role = "role";
+    public static final String bulletList = "bulletList";
+    public static final String bullet = "bullet";
+    public static final String technologyList = "technologyList";
+    public static final String technology = "technology";
+    public static final String categoryName = "categoryName";
+    public static final String title = "title";
+    public static final String personalEstimate = "personalEstimate";
+    public static final String interests = "interests";
+    public static final String whyCreateThisPage = "whyCreateThisPage";
+    public static final String contentImg = "contentImg";
+    public static final String spliter = "####";
+    public static final String major = "major";
+    public static final String degree = "degree";
+    public static final String number = "number";
+    public static final String street = "street";
+    public static final String city = "city";
+    public static final String state = "state";
+    public static final String country = "country";
+    public static final String zipCode = "zipCode";
 
 }
+
