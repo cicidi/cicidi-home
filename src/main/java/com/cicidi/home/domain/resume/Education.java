@@ -2,7 +2,7 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.*;
@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.*;
  * Created by cicidi on 2/18/17.
  */
 
-
+@Entity
 @XmlRootElement(name = Constants.education)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
@@ -23,6 +23,9 @@ public class Education extends Organization {
 
     private String degree;
 
+    //    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "profile")
     @XmlTransient
     private Profile profile;
 
@@ -42,8 +45,6 @@ public class Education extends Organization {
         this.degree = degree;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entityId", nullable = false)
     @XmlTransient
     public Profile getProfile() {
         return profile;

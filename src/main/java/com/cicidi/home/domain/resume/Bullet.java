@@ -4,10 +4,7 @@ import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.StringAdapter;
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 /**
  * Created by cicidi on 2/18/17.
  */
+@Entity
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.content, Constants.bulletList})
 public class Bullet extends DatabaseEntity {
@@ -23,15 +21,21 @@ public class Bullet extends DatabaseEntity {
 
     @XmlElementWrapper(name = Constants.bulletList)
     @XmlElement(name = Constants.bullet)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.bullet)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.bullet, cascade = CascadeType.ALL)
     private List<Bullet> bulletList;
 
     @XmlTransient
     private String[] bulletListvalue;
 
+    //    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "bullet")
     @XmlTransient
     private Bullet bullet;
 
+    //    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "workExperience")
     @XmlTransient
     private WorkExperience workExperience;
 
@@ -64,8 +68,7 @@ public class Bullet extends DatabaseEntity {
         return result.substring(0, result.length() - 4);
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entityId", nullable = false)
+
     @XmlTransient
     public Bullet getBullet() {
         return bullet;
@@ -75,8 +78,7 @@ public class Bullet extends DatabaseEntity {
         this.bullet = bullet;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entityId", nullable = false)
+
     @XmlTransient
     public WorkExperience getWorkExperience() {
         return workExperience;

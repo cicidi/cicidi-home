@@ -1,5 +1,6 @@
 package com.cicidi.home.controller;
 
+import com.cicidi.home.domain.repository.ProfileRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.*;
 import com.cicidi.home.io.XMLReader;
@@ -36,6 +37,9 @@ class HomeController {
 
     ObjectMapper mapper = new ObjectMapper();
 
+    @Autowired
+    ProfileRepository profileRepository;
+
     @GetMapping("/")
     String index(Model model) {
         model.addAttribute("now", LocalDateTime.now());
@@ -47,7 +51,7 @@ class HomeController {
 
         HomeViewObject homeViewObject = this.testCase();
         Profile profile = xmlReader.parseFile();
-
+        profileRepository.save(profile);
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("homeViewObject", homeViewObject);
         model.addAttribute("profile", profile);

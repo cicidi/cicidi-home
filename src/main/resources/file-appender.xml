@@ -1,0 +1,33 @@
+<included>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level hostIP=%X{hostIP}
+                    correlationId=%X{correlationId} thread=%thread component=%logger message="%msg"%n%ex
+                </pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <appender name="FileAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>cicidiHome.log</file>
+        <append>true</append>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
+        <!--<fileNamePattern>${catalina.home}/logs/InventoryProcessingServiceBoot_%i.log.zip</fileNamePattern>-->
+        <!--<maxIndex>50</maxIndex>-->
+        <!--</rollingPolicy>-->
+
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level hostIP=%X{hostIP}
+                    correlationId=%X{correlationId} thread=%thread component=%logger message="%msg"%n%ex
+                </pattern>
+            </layout>
+        </encoder>
+    </appender>
+</included>

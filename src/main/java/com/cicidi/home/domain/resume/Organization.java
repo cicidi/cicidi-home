@@ -4,6 +4,10 @@ import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.DateAdapter;
 import com.cicidi.home.util.Constants;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,7 +19,7 @@ import java.util.Date;
 /**
  * Created by cicidi on 2/18/17.
  */
-
+@Entity
 @XmlTransient
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization extends DatabaseEntity {
@@ -23,6 +27,8 @@ public class Organization extends DatabaseEntity {
     private String monthNames[] = {"January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"};
     protected String name;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
     protected Address address;
     @XmlTransient
     protected Date start;

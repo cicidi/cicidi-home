@@ -1,8 +1,8 @@
 package com.cicidi.home.domain;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * Created by cicidi on 2/26/2017.
  */
 
-@Entity
+@MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
 public abstract class DatabaseEntity {
 

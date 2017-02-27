@@ -1,6 +1,3 @@
-SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -10,11 +7,544 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v1.4.2.RELEASE)
 
-Feb 26, 2017 6:13:07 PM org.apache.catalina.core.StandardService startInternal
+Feb 26, 2017 9:00:58 PM org.apache.catalina.core.StandardService startInternal
 INFO: Starting service Tomcat
-Feb 26, 2017 6:13:07 PM org.apache.catalina.core.StandardEngine startInternal
+Feb 26, 2017 9:00:58 PM org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet Engine: Apache Tomcat/8.5.6
-Feb 26, 2017 6:13:08 PM org.apache.catalina.core.ApplicationContext log
+Feb 26, 2017 9:00:58 PM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring embedded WebApplicationContext
-Feb 26, 2017 6:13:08 PM org.apache.catalina.core.StandardService stopInternal
-INFO: Stopping service Tomcat
+ WARN [main] (TemplateMode.java:150) - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+Feb 26, 2017 9:01:04 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'dispatcherServlet'
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <firstName>Walter</firstName>
+    <lastName>Chen</lastName>
+    <faceImg>
+        https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/4qpN75xnj-LChnd3LF1USEz6jJaMmmabemR0RtLgVHApX92IB?viewBox=1920%2C1920
+    </faceImg>
+    <objective>
+        <title></title>
+        <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
+        <interests>I am interest in any kind of new technolgoy</interests>
+        <whyCreateThisPage></whyCreateThisPage>
+        <contentImg>
+            https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/Q4ZjXms6SzKjqc029MHelVbZEO6r2sx5pVM4t0cT1aopX92IB?viewBox=3840%2C5120
+        </contentImg>
+    </objective>
+    <contact>
+        <phone></phone>
+        <address>
+            <number></number>
+            <street></street>
+            <city>Fremont</city>
+            <state>CA</state>
+            <country>US</country>
+            <zipCode></zipCode>
+        </address>
+        <linkList>
+            <link>
+                <name>GitHub</name>
+                <url>cicidi.github.com</url>
+                <pic></pic>
+                <icon>fa fa-github-alt</icon>
+            </link>
+            <link>
+                <name>Gmail</name>
+                <url>cicidi@gmail.com</url>
+                <pic></pic>
+                <icon>icon-mail</icon>
+            </link>
+            <link>
+                <name>Linkedin</name>
+                <url>waltchen.linkedin</url>
+                <pic></pic>
+                <icon>fa fa-linkedin-square</icon>
+            </link>
+        </linkList>
+    </contact>
+    <educationList>
+        <education>
+            <name>University of Florida</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Gainesville</city>
+                <state>Florida</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>08-2010</start>
+            <end>04-2012</end>
+            <startName>August 2010</startName>
+            <endName>April 2012</endName>
+            <length>1yr 8mos</length>
+            <photo></photo>
+            <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
+            <major>Information Systems and Operations Management</major>
+            <degree>Master</degree>
+        </education>
+        <education>
+            <name>Dalian Maritime University</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Da Lian</city>
+                <state>Liao Ning</state>
+                <country>China</country>
+                <zipCode></zipCode>
+            </address>
+            <start>09-2004</start>
+            <end>06-2008</end>
+            <startName>September 2004</startName>
+            <endName>June 2008</endName>
+            <length>3yrs 9mos</length>
+            <photo></photo>
+            <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
+            <major>Business</major>
+            <degree>Bachelor</degree>
+        </education>
+    </educationList>
+    <workExperienceList>
+        <workExperience>
+            <name>Blackhawk network</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Pleasanton</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>10-2015</start>
+            <end>03-2017</end>
+            <startName>October 2015</startName>
+            <endName>March 2017</endName>
+            <length>1yr 5mos</length>
+            <photo>img/Amazing_Bike_Stunt_Images_2Yz8z7k.jpg</photo>
+            <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
+            <summary>I am good</summary>
+            <role>Senior developer</role>
+            <bulletList>
+                <bullet>
+                    <content>Design implement gift card inventory</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card                                from various external card sources and save the card in database.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement inventory dataload service to manage card load status.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Create protal provide internal user UI to upload gift card data, and manipulte card                                load status by calling various web service.Use thymeleaf, js, Spring MVC, Spring                                Security.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Create dashboard to real time card activation data on Global map</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The application is to show user realtime transaction on Map,and total                                account compare with last HOUR/DAY/WEEK/YEAR</content>
+                        </bullet>
+                        <bullet>
+                            <content>Create postpone logic to cache real data use Google guava.                                Use lealet to create map on brower, and use google Map API to get geolocation.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Implement EGift Card Service for Staples.</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Create project from scratch.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement EGift card deliver service use AWS SQS, REST, and interal Email Service                                API</content>
+                        </bullet>
+                        <bullet>
+                            <content>Use Apache camel to handle work flow.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Release all features without any defect to production in 3 month.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Refratory project</content>
+                    <bulletList>
+                        <bullet>
+                            <content>In case of Jnterval Framework issue,I refratory 4 project by myself Use Spring Boot                                + Spring Data + Spring MVC + Mongo + MySQL</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
+            <name>Apple</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Sunnyvale</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>04-2015</start>
+            <end>10-2015</end>
+            <startName>April 2015</startName>
+            <endName>October 2015</endName>
+            <length>6mos</length>
+            <photo>
+                https://content-na.drive.amazonaws.com/cdproxy/templink/0dBPKPPZ0YeQ123xacc9zKoHQ_psh8oJMacmpTuAowMpX92IB?viewBox=4800%2C2400
+            </photo>
+            <icon>
+                https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
+            </icon>
+            <summary>I like macbook</summary>
+            <role>Senior developer Apple</role>
+            <bulletList>
+                <bullet>
+                    <content>Maintain support.apple.com</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Fix defects in Application.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Implement data pipeline</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement various tool pull data from Solr search engine, HDFS, and Cassandra DB</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Analysis business data</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Use Hadoop MapReduce to analyze the frequency of search query, which in                                support.apple.com</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement solution to support multi-line JSON array list, while Hadoop 2.7 only                                support single line Json data</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Data parsing, and formatting</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement solution to validate data.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Use Java/Python to create tool parsing daily log into businees report.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
+            <name>Huawei</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Santa Clara</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>05-2014</start>
+            <end>04-2015</end>
+            <startName>May 2014</startName>
+            <endName>April 2015</endName>
+            <length>11mos</length>
+            <photo>
+                https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/qE7mlwyTIhhDmRxfVaT70ySVnu4Zkb5z8RqMAMQoVRcpX92IB?viewBox=4923%2C2400
+            </photo>
+            <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
+            <summary>I like macbook</summary>
+            <role>Java developer</role>
+            <bulletList>
+                <bullet>
+                    <content>Develop Eclipse Plugin</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Design XML driven application and tool</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The final product of our project is XML driven application/webservice, Which is                                configurable and customizable.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Implement Eclipse plugin runtime</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The runtime is to use configuration then generate source code and deploy                                application automatilly.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Auto-generate Maven pom, and auto-deploy by jenkins job.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Use AngularJs, develop POC of Saas tool.</content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
+            <name>CGI</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Belton</city>
+                <state>TX</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>05-2013</start>
+            <end>05-2014</end>
+            <startName>May 2013</startName>
+            <endName>May 2014</endName>
+            <length>1yr</length>
+            <photo>
+                https://cnt-01.content-na.drive.amazonaws.com/cdproxy/templink/YG8g3dIgVJPbfXcLyJut1bMSOovKJJtWGxewg7m3BkQpX92IB?viewBox=4800%2C2400
+            </photo>
+            <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
+            <summary>I like macbook</summary>
+            <role>Java Developer</role>
+            <bulletList>
+                <bullet>
+                    <content>Work on Property Management Application</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript</content>
+                        </bullet>
+                        <bullet>
+                            <content>Create webserice use REST,SOAP,Spring web flow.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement DAO layer use JDBC and hibernate,Orcale</content>
+                        </bullet>
+                        <bullet>
+                            <content>Used multi thread to handle multiple request.Write Aspect log to handle all                                Exception and error</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement Unit test and automation test.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Work on Healthcare.gov</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Fix defect in acquiring service</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement integration testing case..</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+    </workExperienceList>
+    <skillSets>
+        <category>
+            <name>Spring</name>
+            <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring Retry, Spring Security, Spring LDAP, Spring
+                Web Flow, Spring Batch
+            </list>
+        </category>
+        <category>
+            <name>J2EE</name>
+            <list>REST, SOAP, JPA, Hibernate, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
+        </category>
+        <category>
+            <name>Front End</name>
+            <list>Thymleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML</list>
+        </category>
+        <category>
+            <name>Database</name>
+            <list>Mysql, Oracle, Mongo</list>
+        </category>
+        <category>
+            <name>BigData</name>
+            <list>Hadoop MapReduce, Hive</list>
+        </category>
+        <category>
+            <name>Other</name>
+            <list>Linux, Unix, AWS, Shell script, python, Jenkins, Git, SVN</list>
+        </category>
+    </skillSets>
+</profile>
+ WARN [http-nio-8080-exec-1] (SqlExceptionHelper.java:127) - SQL Error: 1048, SQLState: 23000
+ERROR [http-nio-8080-exec-1] (SqlExceptionHelper.java:129) - Column 'profile' cannot be null
+Feb 26, 2017 9:01:05 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'profile' cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389)
+	at com.mysql.jdbc.Util.getInstance(Util.java:372)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3835)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3771)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2145)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2081)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2066)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:204)
+	at org.hibernate.dialect.identity.GetGeneratedKeysDelegate.executeAndExtract(GetGeneratedKeysDelegate.java:57)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:42)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2803)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3374)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:619)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:273)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:254)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:299)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:272)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:178)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:109)
+	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener.saveWithGeneratedId(JpaPersistEventListener.java:67)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:189)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:132)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:765)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:758)
+	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener$1.cascade(JpaPersistEventListener.java:80)
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:398)
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:323)
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:162)
+	at org.hibernate.engine.internal.Cascade.cascadeCollectionElements(Cascade.java:431)
+	at org.hibernate.engine.internal.Cascade.cascadeCollection(Cascade.java:363)
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:326)
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:162)
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:111)
+	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeAfterSave(AbstractSaveEventListener.java:456)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:278)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:178)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:109)
+	at org.hibernate.jpa.event.internal.core.JpaPersistEventListener.saveWithGeneratedId(JpaPersistEventListener.java:67)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:189)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:132)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:347)
+	at com.sun.proxy.$Proxy112.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
+	at com.sun.proxy.$Proxy112.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:506)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:503)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:488)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:460)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy114.save(Unknown Source)
+	at com.cicidi.home.controller.HomeController.home(HomeController.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:220)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:89)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:107)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+

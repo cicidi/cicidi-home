@@ -4,6 +4,8 @@ import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
@@ -19,8 +21,21 @@ public class Address extends DatabaseEntity {
     private String state;
     private String country;
     private String zipCode;
+
     @XmlTransient
     private String fullAddress;
+
+    //    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    @XmlTransient
+    private Organization organization;
+
+    //    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    @XmlTransient
+    private Contact contact;
 
     public String getNumber() {
         return number;
@@ -97,6 +112,22 @@ public class Address extends DatabaseEntity {
             sb.append(" ");
         }
         return sb.toString();
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }
 

@@ -36,7 +36,6 @@ public class XMLReader {
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(profile, out);
-        //TBD print this in the log;
         marshaller.marshal(profile, System.out);
         return profile;
     }

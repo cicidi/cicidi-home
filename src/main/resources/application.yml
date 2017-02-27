@@ -5,7 +5,7 @@ spring:
       ddl-auto: update
       database: MYSQL
       show-sql: true
-    datasource:
+  datasource:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/entityMgt
       username: root

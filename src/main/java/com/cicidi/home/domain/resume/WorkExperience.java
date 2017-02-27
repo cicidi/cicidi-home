@@ -2,16 +2,14 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
+@Entity
 @XmlRootElement(name = Constants.workExperience)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
@@ -25,9 +23,12 @@ public class WorkExperience extends Organization {
     @XmlElementWrapper(name = Constants.bulletList)
     @XmlElement(name = Constants.bullet)
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.bullet)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.workExperience, cascade = CascadeType.ALL)
     private List<Bullet> bulletList;
 
+    //    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "profile")
     @XmlTransient
     private Profile profile;
 
@@ -55,8 +56,6 @@ public class WorkExperience extends Organization {
         this.bulletList = bulletList;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entityId", nullable = false)
     @XmlTransient
     public Profile getProfile() {
         return profile;

@@ -30,25 +30,25 @@
     <!--</dependencies>-->
     <!--</dependencyManagement>-->
 
-    <!--<dependencyManagement>-->
-    <!--<dependencies>-->
-    <!--<dependency>-->
-    <!--<groupId>ch.qos.logback</groupId>-->
-    <!--<artifactId>logback-classic</artifactId>-->
-    <!--<version>1.1.2</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-    <!--<groupId>ch.qos.logback</groupId>-->
-    <!--<artifactId>logback-core</artifactId>-->
-    <!--<version>1.1.2</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-    <!--<groupId>ch.qos.logback</groupId>-->
-    <!--<artifactId>logback-access</artifactId>-->
-    <!--<version>1.1.2</version>-->
-    <!--</dependency>-->
-    <!--</dependencies>-->
-    <!--</dependencyManagement>-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-access</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -96,29 +96,43 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!-- WebJars -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.3.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-        <!-- Test -->
+
+        <!-- Provided (for embedded war support) -->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-core -->
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.53.0</version>
-            <scope>test</scope>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-core</artifactId>
         </dependency>
+
+        <!-- WebJars -->
+        <!--<dependency>-->
+        <!--<groupId>org.webjars</groupId>-->
+        <!--<artifactId>bootstrap</artifactId>-->
+        <!--<version>3.3.6</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.webjars</groupId>-->
+        <!--<artifactId>jquery</artifactId>-->
+        <!--<version>2.2.1</version>-->
+        <!--</dependency>-->
+        <!-- Test -->
+
+        <!--<dependency>-->
+        <!--<groupId>org.seleniumhq.selenium</groupId>-->
+        <!--<artifactId>selenium-java</artifactId>-->
+        <!--<version>2.53.0</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.eclipse.mylyn.github</groupId>
@@ -133,23 +147,23 @@
             <version>1.4</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.15</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.apache.poi</groupId>-->
+        <!--<artifactId>poi</artifactId>-->
+        <!--<version>3.15</version>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.15</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.apache.poi</groupId>-->
+        <!--<artifactId>poi-ooxml</artifactId>-->
+        <!--<version>3.15</version>-->
+        <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml-schemas</artifactId>
-            <version>3.15</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.apache.poi</groupId>-->
+        <!--<artifactId>poi-ooxml-schemas</artifactId>-->
+        <!--<version>3.15</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>fop</artifactId>
@@ -174,11 +188,16 @@
             <version>2.2.11</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-ext -->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-ext</artifactId>-->
-        <!--<version>1.7.24</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.maps/google-maps-services -->
         <dependency>
             <groupId>com.google.maps</groupId>
@@ -187,12 +206,19 @@
         </dependency>
 
 
-        <!-- Provided (for embedded war support) -->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.35</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
     </dependencies>
 
     <!-- Package as an executable jar -->

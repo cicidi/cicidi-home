@@ -26,8 +26,8 @@ public class Test {
     public Profile createProfile() {
         DateFormat dateFormat = new SimpleDateFormat("MM/yyy");
         Profile profile = new Profile();
-        profile.setFirstName("Walter");
-        profile.setLastName("Chen");
+//        profile.setFirstName("Walter");
+//        profile.setLastName("Chen");
 
         Contact contact = new Contact();
         Link link = new Link();

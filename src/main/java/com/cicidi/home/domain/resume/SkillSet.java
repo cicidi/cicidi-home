@@ -3,15 +3,14 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
+@Entity
 @XmlRootElement(name = Constants.category)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillSet extends DatabaseEntity {
@@ -22,8 +21,13 @@ public class SkillSet extends DatabaseEntity {
 
     @XmlElementWrapper(name = Constants.technologyList)
     @XmlElement(name = Constants.technology)
+    @ElementCollection
+    @CollectionTable(name = "technology")
     private List<String> technologyList;
 
+    //    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "profile")
     @XmlTransient
     private Profile profile;
 
@@ -43,8 +47,7 @@ public class SkillSet extends DatabaseEntity {
         this.list = list;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entityId", nullable = false)
+
     public Profile getProfile() {
         return profile;
     }

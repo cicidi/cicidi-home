@@ -3,19 +3,33 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by cicidi on 2/18/2017.
  */
+@Entity
 @XmlType(propOrder = {Constants.title, Constants.personalEstimate, Constants.interests, Constants.whyCreateThisPage, Constants.contentImg})
 public class Objective extends DatabaseEntity {
     private String title;
+
     private String personalEstimate;
+
     private String interests;
+
     private String contentImg;
+
     private String whyCreateThisPage;
 
+    @OneToOne
+//    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    @XmlTransient
+    private Profile profile;
 
     public String getPersonalEstimate() {
         return personalEstimate;
@@ -55,5 +69,13 @@ public class Objective extends DatabaseEntity {
 
     public void setContentImg(String contentImg) {
         this.contentImg = contentImg;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }
