@@ -29,8 +29,8 @@ public class GoogleMapService {
     public Map<String, double[]> getGeoData(Profile profile) throws Exception {
         Map<String, double[]> geoMap = new HashMap<>();
         List<Organization> organizationList = new ArrayList<>();
-        organizationList.addAll(profile.getEducationList());
-        organizationList.addAll(profile.getWorkExperienceList());
+//        organizationList.addAll(profile.getEducationList());
+//        organizationList.addAll(profile.getWorkExperienceList());
 //        for (Organization organization : organizationList) {
 //            Address address = organization.getAddress();
 //            String query = organization.getName() + " " + address.getFullAddress();

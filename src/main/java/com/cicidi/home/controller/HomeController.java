@@ -62,6 +62,15 @@ class HomeController {
 
     }
 
+    @GetMapping("/test")
+    @ResponseBody
+    String test() throws JAXBException {
+        Profile profile = xmlReader.parseFile();
+        profileRepository.save(profile);
+        return "200OK";
+
+    }
+
     @GetMapping("/addMarker")
     @ResponseBody
     String addMarker(Model model, HttpServletRequest request) throws JAXBException {

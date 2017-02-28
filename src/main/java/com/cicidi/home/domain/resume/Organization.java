@@ -56,6 +56,7 @@ public class Organization extends DatabaseEntity {
     }
 
     public void setAddress(Address address) {
+        address.setOrganization(this);
         this.address = address;
     }
 

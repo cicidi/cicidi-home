@@ -2,7 +2,7 @@ spring:
   thymeleaf.cache: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       database: MYSQL
       show-sql: true
   datasource:

@@ -13,24 +13,27 @@ import java.util.List;
  */
 @Entity
 @XmlRootElement(name = Constants.contact)
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.phone, Constants.address, Constants.linkList})
 public class Contact extends DatabaseEntity {
 
+    @XmlTransient
     private String phone;
+
+    @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "contact", cascade = CascadeType.ALL)
     private Address address;
-    @XmlElementWrapper(name = Constants.linkList)
-    @XmlElement(name = Constants.link)
 
+    @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.contact, cascade = CascadeType.ALL)
     private List<Link> linkList;
-    @OneToOne
-//    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+
     @XmlTransient
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
     private Profile profile;
 
+    @XmlElement
     public String getPhone() {
         return phone;
     }
@@ -39,19 +42,34 @@ public class Contact extends DatabaseEntity {
         this.phone = phone;
     }
 
+    @XmlElement
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
+        address.setContact(this);
         this.address = address;
     }
 
+    @XmlElementWrapper(name = Constants.linkList)
+    @XmlElement(name = Constants.link)
     public List<Link> getLinkList() {
         return linkList;
     }
 
     public void setLinkList(List<Link> linkList) {
+        for (Link link : linkList) {
+            link.setContact(this);
+        }
         this.linkList = linkList;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

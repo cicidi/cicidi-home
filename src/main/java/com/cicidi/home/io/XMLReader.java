@@ -32,6 +32,7 @@ public class XMLReader {
 
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         Profile profile = (Profile) unmarshaller.unmarshal(new File("src/main/resources/resume_config/resume.xml"));
+        profile.dualDirecction();
         File out = new File("src/main/resources/resume_config/resume_copy.xml");
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

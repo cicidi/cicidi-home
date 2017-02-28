@@ -5,7 +5,10 @@ import com.cicidi.home.io.StringAdapter;
 import com.cicidi.home.util.Constants;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
 
@@ -13,29 +16,27 @@ import java.util.List;
  * Created by cicidi on 2/18/17.
  */
 @Entity
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.content, Constants.bulletList})
+
 public class Bullet extends DatabaseEntity {
     @XmlTransient
     private String content;
 
-    @XmlElementWrapper(name = Constants.bulletList)
-    @XmlElement(name = Constants.bullet)
+    @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.bullet, cascade = CascadeType.ALL)
     private List<Bullet> bulletList;
 
     @XmlTransient
     private String[] bulletListvalue;
 
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
-    @JoinColumn(name = "bullet")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "bullet_id")
     @XmlTransient
     private Bullet bullet;
 
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
-    @JoinColumn(name = "workExperience")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "workExperience_id")
     @XmlTransient
     private WorkExperience workExperience;
 
@@ -49,11 +50,17 @@ public class Bullet extends DatabaseEntity {
         this.content = content;
     }
 
+    @XmlElementWrapper(name = Constants.bulletList)
+    @XmlElement(name = Constants.bullet)
     public List<Bullet> getBulletList() {
         return bulletList;
     }
 
     public void setBulletList(List<Bullet> bulletList) {
+        if (bulletList != null)
+            for (Bullet bullet : bulletList) {
+                bullet.setBullet(this);
+            }
         this.bulletList = bulletList;
     }
 
@@ -69,7 +76,6 @@ public class Bullet extends DatabaseEntity {
     }
 
 
-    @XmlTransient
     public Bullet getBullet() {
         return bullet;
     }
@@ -78,8 +84,6 @@ public class Bullet extends DatabaseEntity {
         this.bullet = bullet;
     }
 
-
-    @XmlTransient
     public WorkExperience getWorkExperience() {
         return workExperience;
     }

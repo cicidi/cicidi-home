@@ -3,11 +3,14 @@ package com.cicidi.home.service;
 import com.cicidi.home.domain.resume.*;
 import com.cicidi.home.domain.vo.Link;
 import com.cicidi.home.domain.vo.WebLog;
+import com.cicidi.home.io.ApacheXML2PDF;
+import com.cicidi.home.io.XMLReader;
 import com.cicidi.home.util.Constants;
 import org.eclipse.egit.github.core.RepositoryCommit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -46,7 +49,7 @@ public class Test {
         contact_address.setCountry(Locale.US.getDisplayCountry());
         contact.setAddress(contact_address);
 //        contact.setLinkedIn("https://www.linkedin.com/feed/");
-        profile.setContact(contact);
+//        profile.setContact(contact);
 
         List<Education> educationList = new ArrayList<>();
         Education education_uf = new Education();
@@ -68,7 +71,7 @@ public class Test {
         education_dmu.setDegree("Bachelor");
         educationList.add(education_uf);
         educationList.add(education_dmu);
-        profile.setEducationList(educationList);
+//        profile.setEducationList(educationList);
 
         //work experience
         List<WorkExperience> workExperienceList = new ArrayList<>();
@@ -135,7 +138,7 @@ public class Test {
 
         workExperience_2.setBulletList(taskList);
         workExperienceList.add(workExperience_2);
-        profile.setWorkExperienceList(workExperienceList);
+//        profile.setWorkExperienceList(workExperienceList);
 
 
         return profile;
@@ -182,15 +185,15 @@ public class Test {
 
     }
 
-//    public static void main(String[] args) throws JAXBException {
-////        Test test = new Test();
-////        Profile profile = test.createProfile();
-////        System.out.println("Done");
-//        XMLReader xmlReader = new XMLReader();
-//        ApacheXML2PDF apacheXML2PDF = new ApacheXML2PDF();
-//        xmlReader.parseFile();
-//        apacheXML2PDF.createPdf();
-//
-//    }
+    public static void main(String[] args) throws JAXBException {
+//        Test test = new Test();
+//        Profile profile = test.createProfile();
+//        System.out.println("Done");
+        XMLReader xmlReader = new XMLReader();
+        ApacheXML2PDF apacheXML2PDF = new ApacheXML2PDF();
+        xmlReader.parseFile();
+        apacheXML2PDF.createPdf();
+
+    }
 
 }

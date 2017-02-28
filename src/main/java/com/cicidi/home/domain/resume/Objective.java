@@ -3,9 +3,7 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,9 +23,10 @@ public class Objective extends DatabaseEntity {
 
     private String whyCreateThisPage;
 
-    @OneToOne
-//    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
+    //    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
+//    @PrimaryKeyJoinColumn(name = "profile_id")
     @XmlTransient
     private Profile profile;
 

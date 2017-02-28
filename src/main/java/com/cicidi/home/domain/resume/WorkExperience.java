@@ -11,27 +11,27 @@ import java.util.List;
  */
 @Entity
 @XmlRootElement(name = Constants.workExperience)
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
         Constants.endName, Constants.length, Constants.photo, Constants.icon, Constants.summary, Constants.role,
         Constants.bulletList})
 public class WorkExperience extends Organization {
+    @XmlTransient
     private String summary;
 
+    @XmlTransient
     private String role;
 
-    @XmlElementWrapper(name = Constants.bulletList)
-    @XmlElement(name = Constants.bullet)
-
+    @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.workExperience, cascade = CascadeType.ALL)
     private List<Bullet> bulletList;
 
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
-    @JoinColumn(name = "profile")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
     @XmlTransient
     private Profile profile;
 
+    @XmlElement
     public String getSummary() {
         return summary;
     }
@@ -40,6 +40,7 @@ public class WorkExperience extends Organization {
         this.summary = summary;
     }
 
+    @XmlElement
     public String getRole() {
         return role;
     }
@@ -48,11 +49,16 @@ public class WorkExperience extends Organization {
         this.role = role;
     }
 
+    @XmlElementWrapper(name = Constants.bulletList)
+    @XmlElement(name = Constants.bullet)
     public List<Bullet> getBulletList() {
         return bulletList;
     }
 
     public void setBulletList(List<Bullet> bulletList) {
+        for (Bullet bullet : bulletList) {
+            bullet.setWorkExperience(this);
+        }
         this.bulletList = bulletList;
     }
 

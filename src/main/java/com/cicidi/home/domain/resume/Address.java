@@ -3,9 +3,7 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,15 +23,14 @@ public class Address extends DatabaseEntity {
     @XmlTransient
     private String fullAddress;
 
-    //    @OneToOne(fetch = FetchType.LAZY)
-    @OneToOne
-    @PrimaryKeyJoinColumn
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "organization_id")
+
     @XmlTransient
     private Organization organization;
 
-    //    @OneToOne(fetch = FetchType.LAZY)
-    @OneToOne
-    @PrimaryKeyJoinColumn
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id")
     @XmlTransient
     private Contact contact;
 

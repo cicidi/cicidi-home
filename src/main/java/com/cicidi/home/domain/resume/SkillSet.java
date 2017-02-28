@@ -25,9 +25,8 @@ public class SkillSet extends DatabaseEntity {
     @CollectionTable(name = "technology")
     private List<String> technologyList;
 
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
-    @JoinColumn(name = "profile")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
     @XmlTransient
     private Profile profile;
 
@@ -55,4 +54,5 @@ public class SkillSet extends DatabaseEntity {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
 }
