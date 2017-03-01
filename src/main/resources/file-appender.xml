@@ -14,7 +14,6 @@
         <file>cicidiHome.log</file>
         <append>true</append>
         <!--<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">-->
-        <!--<fileNamePattern>${catalina.home}/logs/InventoryProcessingServiceBoot_%i.log.zip</fileNamePattern>-->
         <!--<maxIndex>50</maxIndex>-->
         <!--</rollingPolicy>-->
 

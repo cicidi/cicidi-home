@@ -1,6 +1,7 @@
 package com.cicidi.home.controller;
 
 import com.cicidi.home.domain.repository.ProfileRepository;
+import com.cicidi.home.domain.resume.Link;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.*;
 import com.cicidi.home.io.XMLReader;
@@ -40,17 +41,21 @@ class HomeController {
     @Autowired
     ProfileRepository profileRepository;
 
-    @GetMapping("/")
-    String index(Model model) {
-        model.addAttribute("now", LocalDateTime.now());
-        return "index";
-    }
+//    @GetMapping("/")
+//    String index(Model model) {
+//        model.addAttribute("now", LocalDateTime.now());
+//        return "index";
+//    }
 
     @GetMapping("/home")
     String home(Model model, HttpServletRequest request) throws Exception {
 
         HomeViewObject homeViewObject = this.testCase();
         Profile profile = xmlReader.parseFile();
+//        List<Profile> list = profileRepository.findByLastNameAndFirstNameAllIgnoreCase(profile.getLastName(), profile.getFirstName());
+//        if (list.size() > 0) {
+//            profile.setEntityId(list.get(0).getEntityId());
+//        }
         profileRepository.save(profile);
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("homeViewObject", homeViewObject);

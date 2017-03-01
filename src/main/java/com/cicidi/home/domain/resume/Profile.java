@@ -2,6 +2,7 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -11,12 +12,12 @@ import java.util.List;
  * Created by cicidi on 2/18/17.
  */
 @Entity
-//@Table(name = "profile")
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"firstName", "lastName"})})
 @XmlRootElement(name = Constants.profile)
-//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
+//        Constants.educationList, Constants.workExperienceList, Constants.skillSets})
 @XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
         Constants.educationList, Constants.workExperienceList, Constants.skillSets})
-//@XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact, Constants.skillSets})
 public class Profile extends DatabaseEntity {
     @XmlTransient
     private String firstName;
@@ -29,25 +30,29 @@ public class Profile extends DatabaseEntity {
 
     @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Contact contact;
 
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "profile_education")
     private List<Education> educationList;
-
+    //
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "profile_workExperience")
     private List<WorkExperience> workExperienceList;
 
     @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Objective objective;
-    //
+
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<SkillSet> skillSets;
 
-    //
     @XmlElement
     public String getFirstName() {
         return firstName;

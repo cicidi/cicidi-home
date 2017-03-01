@@ -1,8 +1,9 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
-import com.cicidi.home.domain.vo.Link;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -22,15 +23,18 @@ public class Contact extends DatabaseEntity {
 
     @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "contact", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Address address;
 
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.contact, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Link> linkList;
 
     @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
+    @JsonBackReference
     private Profile profile;
 
     @XmlElement

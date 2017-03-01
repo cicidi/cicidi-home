@@ -7,14 +7,14 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v1.4.2.RELEASE)
 
-Feb 28, 2017 7:01:51 AM org.apache.catalina.core.StandardService startInternal
+Mar 01, 2017 7:48:16 AM org.apache.catalina.core.StandardService startInternal
 INFO: Starting service Tomcat
-Feb 28, 2017 7:01:51 AM org.apache.catalina.core.StandardEngine startInternal
+Mar 01, 2017 7:48:16 AM org.apache.catalina.core.StandardEngine startInternal
 INFO: Starting Servlet Engine: Apache Tomcat/8.5.6
-Feb 28, 2017 7:01:51 AM org.apache.catalina.core.ApplicationContext log
+Mar 01, 2017 7:48:17 AM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring embedded WebApplicationContext
  WARN [main] (TemplateMode.java:150) - [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
-Feb 28, 2017 7:02:04 AM org.apache.catalina.core.ApplicationContext log
+Mar 01, 2017 7:48:31 AM org.apache.catalina.core.ApplicationContext log
 INFO: Initializing Spring FrameworkServlet 'dispatcherServlet'
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profile>

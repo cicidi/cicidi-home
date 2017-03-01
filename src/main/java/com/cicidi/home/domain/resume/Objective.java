@@ -2,6 +2,7 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
@@ -23,11 +24,10 @@ public class Objective extends DatabaseEntity {
 
     private String whyCreateThisPage;
 
-    //    @OneToOne
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
-//    @PrimaryKeyJoinColumn(name = "profile_id")
     @XmlTransient
+    @JsonBackReference
     private Profile profile;
 
     public String getPersonalEstimate() {

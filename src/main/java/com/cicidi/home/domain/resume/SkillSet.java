@@ -2,6 +2,7 @@ package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -28,6 +29,7 @@ public class SkillSet extends DatabaseEntity {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     @XmlTransient
+    @JsonBackReference
     private Profile profile;
 
     public String getTechName() {
@@ -45,7 +47,6 @@ public class SkillSet extends DatabaseEntity {
     public void setList(String list) {
         this.list = list;
     }
-
 
     public Profile getProfile() {
         return profile;

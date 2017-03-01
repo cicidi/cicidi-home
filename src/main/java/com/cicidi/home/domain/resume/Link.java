@@ -1,8 +1,9 @@
-package com.cicidi.home.domain.vo;
+package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.domain.resume.Contact;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -28,6 +29,7 @@ public class Link extends DatabaseEntity {
     @ManyToOne
     @JoinColumn(name = "contact")
     @XmlTransient
+    @JsonBackReference
     private Contact contact;
 
     public String getName() {

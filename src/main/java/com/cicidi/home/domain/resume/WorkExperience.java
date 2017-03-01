@@ -1,6 +1,8 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -10,6 +12,7 @@ import java.util.List;
  * Created by cicidi on 2/18/17.
  */
 @Entity
+@DiscriminatorValue("workExperience")
 @XmlRootElement(name = Constants.workExperience)
 //@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
@@ -24,11 +27,13 @@ public class WorkExperience extends Organization {
 
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.workExperience, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Bullet> bulletList;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     @XmlTransient
+    @JsonBackReference(value = "profile_workExperience")
     private Profile profile;
 
     @XmlElement

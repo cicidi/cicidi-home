@@ -3,6 +3,8 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.StringAdapter;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,6 +27,7 @@ public class Bullet extends DatabaseEntity {
 
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.bullet, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Bullet> bulletList;
 
     @XmlTransient
@@ -33,11 +36,13 @@ public class Bullet extends DatabaseEntity {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "bullet_id")
     @XmlTransient
+    @JsonBackReference
     private Bullet bullet;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "workExperience_id")
     @XmlTransient
+    @JsonBackReference
     private WorkExperience workExperience;
 
     @XmlElement(name = Constants.content, required = false)

@@ -1,6 +1,7 @@
 package com.cicidi.home.domain;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,7 +18,8 @@ public abstract class DatabaseEntity {
 
     @Id
     @XmlTransient
-    @GeneratedValue
+//    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long entityId;
 
     public long getEntityId() {

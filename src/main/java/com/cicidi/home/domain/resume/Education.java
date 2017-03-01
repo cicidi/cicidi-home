@@ -1,6 +1,7 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,8 +14,9 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("education")
 @XmlRootElement(name = Constants.education)
-//@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
         Constants.length, Constants.photo, Constants.icon, Constants.major, Constants.degree})
 
@@ -29,6 +31,7 @@ public class Education extends Organization {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     @XmlTransient
+    @JsonBackReference(value = "profile_education")
     private Profile profile;
 
     @XmlElement
@@ -49,7 +52,7 @@ public class Education extends Organization {
         this.degree = degree;
     }
 
-    @XmlTransient
+    //    @XmlTransient
     public Profile getProfile() {
         return profile;
     }

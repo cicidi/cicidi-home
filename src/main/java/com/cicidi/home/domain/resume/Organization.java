@@ -3,13 +3,9 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.DateAdapter;
 import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -20,16 +16,27 @@ import java.util.Date;
  * Created by cicidi on 2/18/17.
  */
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(
+        name = "orgType",
+        discriminatorType = DiscriminatorType.STRING
+)
+@DiscriminatorValue("organization")
 @XmlTransient
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Organization extends DatabaseEntity {
     @XmlTransient
     private String monthNames[] = {"January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"};
+
+    @XmlTransient
     protected String name;
 
+    @XmlTransient
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    @JsonManagedReference
     protected Address address;
+
     @XmlTransient
     protected Date start;
     @XmlTransient
@@ -40,9 +47,12 @@ public class Organization extends DatabaseEntity {
     protected String endName;
     @XmlTransient
     protected String length;
+    @XmlTransient
     protected String photo;
+    @XmlTransient
     protected String icon;
 
+    @XmlElement
     public String getName() {
         return name;
     }
@@ -51,6 +61,7 @@ public class Organization extends DatabaseEntity {
         this.name = name;
     }
 
+    @XmlElement
     public Address getAddress() {
         return address;
     }
@@ -102,7 +113,7 @@ public class Organization extends DatabaseEntity {
         return endName;
     }
 
-
+    @XmlElement
     public String getPhoto() {
         return photo;
     }
@@ -111,6 +122,7 @@ public class Organization extends DatabaseEntity {
         this.photo = photo;
     }
 
+    @XmlElement
     public String getIcon() {
         return icon;
     }

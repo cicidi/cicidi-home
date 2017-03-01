@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.codeleak.demos.sbt</groupId>
-    <artifactId>spring-boot-thymeleaf</artifactId>
+    <groupId>com.cicidi</groupId>
+    <artifactId>resume</artifactId>
     <version>1.0</version>
-    <name>spring-boot-thymeleaf</name>
+    <name>cicidiResume</name>
     <packaging>war</packaging>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -15,20 +15,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.2.RELEASE</version>
     </parent>
-
-    <!-- Spring IO Platform for dependency management -->
-    <!-- If you are using platform-bom, disable spring-boot-starter-parent -->
-    <!--<dependencyManagement>-->
-    <!--<dependencies>-->
-    <!--<dependency>-->
-    <!--<groupId>io.spring.platform</groupId>-->
-    <!--<artifactId>platform-bom</artifactId>-->
-    <!--<version>2.0.8.RELEASE</version>-->
-    <!--<type>pom</type>-->
-    <!--<scope>import</scope>-->
-    <!--</dependency>-->
-    <!--</dependencies>-->
-    <!--</dependencyManagement>-->
 
     <dependencyManagement>
         <dependencies>
@@ -56,16 +42,14 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <!-- Overriding version of selected dependencies -->
-        <!-- Work when using spring-boot-starter-parent, not platform-bom -->
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
         <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
         <assertj.version>3.5.2</assertj.version>
     </properties>
 
-    <!-- Add typical dependencies for a web application -->
     <dependencies>
+        <!--spring dependency-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -96,98 +80,61 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
-        <!-- Provided (for embedded war support) -->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-core -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-webmvc</artifactId>
+        </dependency>
 
-        <!-- WebJars -->
-        <!--<dependency>-->
-        <!--<groupId>org.webjars</groupId>-->
-        <!--<artifactId>bootstrap</artifactId>-->
-        <!--<version>3.3.6</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.webjars</groupId>-->
-        <!--<artifactId>jquery</artifactId>-->
-        <!--<version>2.2.1</version>-->
-        <!--</dependency>-->
-        <!-- Test -->
+        <!--db-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.35</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.seleniumhq.selenium</groupId>-->
-        <!--<artifactId>selenium-java</artifactId>-->
-        <!--<version>2.53.0</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
+        <!--3rd party sdk-->
         <dependency>
             <groupId>org.eclipse.mylyn.github</groupId>
             <artifactId>org.eclipse.egit.github.core</artifactId>
             <version>2.1.5</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.poi</groupId>-->
-        <!--<artifactId>poi</artifactId>-->
-        <!--<version>3.15</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.poi</groupId>-->
-        <!--<artifactId>poi-ooxml</artifactId>-->
-        <!--<version>3.15</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.poi</groupId>-->
-        <!--<artifactId>poi-ooxml-schemas</artifactId>-->
-        <!--<version>3.15</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>fop</artifactId>
             <version>2.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.google.maps</groupId>
+            <artifactId>google-maps-services</artifactId>
+            <version>0.1.16</version>
+        </dependency>
+        <!--JAXB-->
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>2.2.11</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.2.12</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-core</artifactId>
             <version>2.2.11</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-ext -->
+
+        <!-- log -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -198,30 +145,14 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.5</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.google.maps/google-maps-services -->
-        <dependency>
-            <groupId>com.google.maps</groupId>
-            <artifactId>google-maps-services</artifactId>
-            <version>0.1.16</version>
-        </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
-
     </dependencies>
 
-    <!-- Package as an executable jar -->
     <build>
         <plugins>
             <plugin>
