@@ -3,6 +3,8 @@
  */
 $(document).ready(function () {
     initAction();
+    //initMap();
+
 
 });
 function initAction() {

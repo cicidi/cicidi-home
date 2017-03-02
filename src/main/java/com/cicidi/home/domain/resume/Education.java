@@ -1,23 +1,40 @@
 package com.cicidi.home.domain.resume;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by cicidi on 2/18/17.
  */
 
-
-@XmlRootElement(name = "education")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"name", "address", "start", "end", "startName", "endName", "length", "photo", "icon", "major", "degree"})
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("education")
+@XmlRootElement(name = Constants.education)
+@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
+        Constants.length, Constants.photo, Constants.icon, Constants.major, Constants.degree})
 
 public class Education extends Organization {
+
+    @XmlTransient
     private String major;
+
+    @XmlTransient
     private String degree;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
+    @XmlTransient
+    @JsonBackReference(value = "profile_education")
+    private Profile profile;
+
+    @XmlElement
     public String getMajor() {
         return major;
     }
@@ -26,11 +43,21 @@ public class Education extends Organization {
         this.major = major;
     }
 
+    @XmlElement
     public String getDegree() {
         return degree;
     }
 
     public void setDegree(String degree) {
         this.degree = degree;
+    }
+
+    //    @XmlTransient
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

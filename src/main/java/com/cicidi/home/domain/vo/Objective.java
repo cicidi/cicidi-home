@@ -1,5 +1,7 @@
 package com.cicidi.home.domain.vo;
 
+import com.cicidi.home.domain.resume.Link;
+
 import java.util.List;
 
 /**

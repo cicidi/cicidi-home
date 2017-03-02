@@ -1,19 +1,41 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlType(propOrder = {"number", "street", "city", "state", "country", "zipCode"})
-public class Address {
+@Entity
+@XmlType(propOrder = {Constants.number, Constants.street, Constants.city, Constants.state, Constants.country, Constants.zipCode})
+public class Address extends DatabaseEntity {
     private String number;
     private String street;
     private String city;
     private String state;
     private String country;
     private String zipCode;
+
+    @XmlTransient
     private String fullAddress;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "organization_id")
+
+    @XmlTransient
+    @JsonBackReference
+    private Organization organization;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id")
+    @XmlTransient
+    @JsonBackReference
+    private Contact contact;
 
     public String getNumber() {
         return number;
@@ -81,7 +103,31 @@ public class Address {
             sb.append(state);
             sb.append(" ");
         }
+        if (country != null) {
+            sb.append(country);
+            sb.append(" ");
+        }
+        if (zipCode != null) {
+            sb.append(zipCode);
+            sb.append(" ");
+        }
         return sb.toString();
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }
 

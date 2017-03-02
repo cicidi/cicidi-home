@@ -1,21 +1,42 @@
 package com.cicidi.home.domain.resume;
 
+import com.cicidi.home.util.Constants;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/18/17.
  */
-@XmlRootElement(name = "workExperience")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"name", "address", "start", "end", "startName", "endName", "length", "photo", "icon", "summary", "role", "bulletList"})
+@Entity
+@DiscriminatorValue("workExperience")
+@XmlRootElement(name = Constants.workExperience)
+//@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
+        Constants.endName, Constants.length, Constants.photo, Constants.icon, Constants.summary, Constants.role,
+        Constants.bulletList})
 public class WorkExperience extends Organization {
+    @XmlTransient
     private String summary;
+
+    @XmlTransient
     private String role;
-    @XmlElementWrapper(name = "bulletList")
-    @XmlElement(name = "bullet")
+
+    @XmlTransient
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.workExperience, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Bullet> bulletList;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
+    @XmlTransient
+    @JsonBackReference(value = "profile_workExperience")
+    private Profile profile;
+
+    @XmlElement
     public String getSummary() {
         return summary;
     }
@@ -24,6 +45,7 @@ public class WorkExperience extends Organization {
         this.summary = summary;
     }
 
+    @XmlElement
     public String getRole() {
         return role;
     }
@@ -32,11 +54,25 @@ public class WorkExperience extends Organization {
         this.role = role;
     }
 
+    @XmlElementWrapper(name = Constants.bulletList)
+    @XmlElement(name = Constants.bullet)
     public List<Bullet> getBulletList() {
         return bulletList;
     }
 
     public void setBulletList(List<Bullet> bulletList) {
+        for (Bullet bullet : bulletList) {
+            bullet.setWorkExperience(this);
+        }
         this.bulletList = bulletList;
+    }
+
+    @XmlTransient
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }
