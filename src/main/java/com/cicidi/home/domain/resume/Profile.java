@@ -12,7 +12,7 @@ import java.util.List;
  * Created by cicidi on 2/18/17.
  */
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"firstName", "lastName"})})
+//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"firstName", "lastName"})})
 @XmlRootElement(name = Constants.profile)
 //@XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
 //        Constants.educationList, Constants.workExperienceList, Constants.skillSets})
