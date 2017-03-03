@@ -42,24 +42,18 @@ public class EntityService {
 
     public Profile loadAndUpdate() throws JAXBException {
         Profile profile = this.loadProfileFromUploadFIle("somePath");
-        Profile target = null;
         if (profile == null) {
             //has to be some default one;
             return null;
         }
-        target = this.getProfileFromDB(profile.getLastName(), profile.getFirstName());
-        if (target == null) {
-            profileRepository.save(profile);
-            return profile;
-        } else {
-            target.setContact(profile.getContact());
-            target.setEducationList(profile.getEducationList());
-            target.setFaceImg(profile.getFaceImg());
-            target.setObjective(profile.getObjective());
-            target.setSkillSets(profile.getSkillSets());
-            target.setWorkExperienceList(profile.getWorkExperienceList());
-            profileRepository.save(target);
-            return target;
+        Profile original = this.getProfileFromDB(profile.getLastName(), profile.getFirstName());
+        if (original != null) {
+
+            //TBD write logic to loop all fields and assign the value, so no need to remove the object. just do update
+            //java reflection and Strongly Connected Graph
+            simpleJpaRepository.delete(original);
         }
+        simpleJpaRepository.save(profile);
+        return profile;
     }
 }
