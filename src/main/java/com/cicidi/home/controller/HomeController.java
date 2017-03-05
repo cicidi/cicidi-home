@@ -55,12 +55,25 @@ class HomeController {
 
     }
 
+    @GetMapping("/login")
+    String login(Model model, HttpServletRequest request) throws Exception {
+
+        return "login";
+
+    }
+
+
     @GetMapping("/test")
     @ResponseBody
     Profile test() throws JAXBException {
         Profile profile = entityService.loadAndUpdate();
         return profile;
 
+    }
+
+    @GetMapping("/route")
+    String route(Model model, HttpServletRequest request) throws Exception {
+        return "route";
     }
 
     private HomeViewObject createHomeViewObject() {
