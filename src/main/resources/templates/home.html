@@ -1,43 +1,43 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:social="http://spring.io/springsocial"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout">
-<head>
-    <title>Spring Social Showcase</title>
-</head>
-<body>
-<div id="header">
-    <h1><a th:href="@{/}">Spring Social Showcase</a></h1>
-</div>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--xmlns:social="http://spring.io/springsocial"-->
+<!--xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--layout:decorator="layout">-->
+<!--<head>-->
+<!--<title>Spring Social Showcase</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="header">-->
+<!--<h1><a th:href="@{/}">Spring Social Showcase</a></h1>-->
+<!--</div>-->
 
-<div id="content" layout:fragment="content">
-    <div class="jumbotron">
-        <img th:src="@{/project-icon-large.png}" style="float:right;opacity:0.15;"/>
+<!--<div id="content" layout:fragment="content">-->
+<!--<div class="jumbotron">-->
+<!--<img th:src="@{/project-icon-large.png}" style="float:right;opacity:0.15;"/>-->
 
-        <div class="project-title">
-            Spring Social Samples
-        </div>
+<!--<div class="project-title">-->
+<!--Spring Social Samples-->
+<!--</div>-->
 
-        <h1>Spring Social Showcase</h1>
+<!--<h1>Spring Social Showcase</h1>-->
 
-        <div sec:authorize="!isAuthenticated()"><a th:href="@{/signin}">Sign In</a></div>
-        <div sec:authorize="!isAuthenticated()"><a th:href="@{/signup}">Sign Up</a></div>
-        <form name="fb_signin" id="fb_signin" th:action="@{/signin/linkedin}" method="POST">
-            <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
-            <!--<input type="hidden" name="scope" value="read_stream,user_posts,user_photos"></input>-->
-            <button type="submit"><img th:src="@{/social/linkedin/sign-in-with-linkedin.png}"></img></button>
-        </form>
-        <p>
-            This sample application demonstrates how an application may use Spring Social to connect to and consume data
-            from Facebook and Twitter.
-        </p>
+<!--<div sec:authorize="!isAuthenticated()"><a th:href="@{/signin}">Sign In</a></div>-->
+<!--<div sec:authorize="!isAuthenticated()"><a th:href="@{/signup}">Sign Up</a></div>-->
+<!--<form name="fb_signin" id="fb_signin" th:action="@{/signin/linkedin}" method="POST">-->
+<!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>-->
+<!--&lt;!&ndash;<input type="hidden" name="scope" value="read_stream,user_posts,user_photos"></input>&ndash;&gt;-->
+<!--<button type="submit"><img th:src="@{/social/linkedin/sign-in-with-linkedin.png}"></img></button>-->
+<!--</form>-->
+<!--<p>-->
+<!--This sample application demonstrates how an application may use Spring Social to connect to and consume data-->
+<!--from Facebook and Twitter.-->
+<!--</p>-->
 
-        <p>
-            <a class="btn btn-lg btn-primary" href="http://projects.spring.io/spring-social/" role="button">About Spring
-                Social &raquo;</a>
-        </p>
-    </div>
-</div>
-</body>
-</html>
+<!--<p>-->
+<!--<a class="btn btn-lg btn-primary" href="http://projects.spring.io/spring-social/" role="button">About Spring-->
+<!--Social &raquo;</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

@@ -59,10 +59,10 @@
                             <span id="loginViaBtn">
                                 <!-- <a  href="/login/linkedin" onmouseover="fadeinButton()" onmouseleave="fadeoutButton()"class="smoothScroll btn btn-default">Login via Linkedin</a> -->
                                 <a class="smoothScroll btn btn-default">Login via Linkedin</a>
-                                <span id="loginOnlyBtn">
+                                <span id="loginOnlyBtn" hidden="true">
                                     <a th:href="@{/signin}" class="smoothScroll btn btn-default">Login Only</a>
                                 </span>
-                                <span id="signupBtn">
+                                <span id="signupBtn" hidden="true">
                                     <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignUp as admin</a>
                                 </span>
                             </span>
@@ -80,6 +80,6 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="./js/home.js"></script>
+<script type="text/javascript" src="./js/option.js"></script>
 </body>
 </html>

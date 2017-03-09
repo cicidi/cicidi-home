@@ -33,11 +33,6 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-/**
- * Security Configuration.
- *
- * @author Craig Walls
- */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -79,10 +74,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/signout")
                 .deleteCookies("JSESSIONID")
-                .and()
-                .authorizeRequests()
-                .antMatchers("/", "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin").permitAll()
-                .antMatchers("/**").authenticated()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/", "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin").permitAll()
+//                .antMatchers("/**").authenticated()
                 .and()
                 .rememberMe();
     }

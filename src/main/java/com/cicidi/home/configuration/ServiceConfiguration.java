@@ -1,4 +1,4 @@
-package com.cicidi.home;
+package com.cicidi.home.configuration;
 
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.service.GitHubService;
