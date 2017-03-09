@@ -1,10 +1,22 @@
 /**
  * Created by cicidi on 2/17/2017.
  */
+var btn=false
 $(document).ready(function () {
     initAction();
     //initMap();
+    $("#loginViaBtn, #loginOnlyBtn,#signupBtn").on("mouseenter", function() {
+        if(btn==false){
+            $("#loginOnlyBtn").hide().html("<a href=\"/signin/linkedin\" class=\"smoothScroll btn btn-default\">Login Only</a>").fadeIn("slow");
 
+            $("#signupBtn").hide().html("<a  href=\"/signup/linkedin\" class=\"smoothScroll btn btn-default\">SignUp as admin</a>").delay(100).fadeIn("slow");
+            btn=true
+        }
+    })
+    $("#linkedinBtnContainer").on("mouseleave", function() {
+        $("#loginOnlyBtn,#signupBtn").hide();
+        btn=false;
+    });
 
 });
 function initAction() {
@@ -26,8 +38,7 @@ function initAction() {
                     }
                 }
             }
-            if (!text.isEmpty)
-                $('#' + id).html(text);
+            $('#' + id).html(text);
             popup.classList.toggle("show");
         }
     );

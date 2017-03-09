@@ -1,0 +1,31 @@
+
+/*#linkedinBtnContainer { display:block; margin:0; padding:0; width:400px; height:200px; outline:1px solid #444; }*/
+/*#loginOnlyBtn, #signupBtn { float:left; display:block; margin:0; padding:0; width:100px; height:200px; background:#ccc; }*/
+/*#loginViaBtn { float:left; display:block; margin:0; padding:0; width:200px; height:200px; background:#ddd; }*/
+#loginViaBtn  {
+    position: relative;
+}
+#loginOnlyBtn {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+}
+#signupBtn {
+    position: absolute;
+    top: 85px;
+    right: 0px;
+}
+#btnList{
+    text-align: center;
+}
+#yourProfileBth,#myProfileBth,#linkedinBtnContainer{
+    display: inline;
+}
+.ganshaa_bold{
+    font-weight: bold;
+    letter-spacing:0px;
+}
+.ganshaa{
+    letter-spacing:0px;
+}
+

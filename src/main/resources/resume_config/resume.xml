@@ -4,7 +4,7 @@
     <firstName>Walter</firstName>
     <lastName>Chen</lastName>
     <faceImg>
-        /resources/resume_photo/face.jpg
+        img/resume_photo/face.jpg
     </faceImg>
     <objective>
         <title></title>
@@ -12,7 +12,7 @@
         <interests>I am interest in any kind of new technolgoy</interests>
         <whyCreateThisPage></whyCreateThisPage>
         <contentImg>
-            /resume_photo/plant_2.jpg
+            img/resume_photo/plant_2.jpg
         </contentImg>
     </objective>
     <contact>
@@ -191,7 +191,7 @@
             <!--<length>6 month</length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                /resume_photo/Apple_cut_2.jpg
+                img/resume_photo/Apple_cut_2.jpg
             </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
@@ -259,7 +259,7 @@
             <end>04-2015</end>
             <!--<photo>img/tree-247122_azLgBTw.jpg</photo>-->
             <photo>
-                /resume_photo/huawei_cut_2.jpg
+                img/resume_photo/huawei_cut_2.jpg
             </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
             <summary>I like macbook</summary>
@@ -320,7 +320,7 @@
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                /resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
+                img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary>I like macbook</summary>

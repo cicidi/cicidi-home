@@ -13,6 +13,11 @@ spring:
       url: jdbc:mysql://localhost:3306/entityMgt
       username: root
       password: password
+  data.rest.baseUri: data
+  social:
+      linkedin:
+        app-id: 86ys6tl0fl22nn
+        app-secret: XitDHnd0wMTEmGEn
 javax.xml.accessExternalSchema : all
 
 security:

@@ -132,7 +132,7 @@ hr {
 
 /* home section */
 #home {
-    background: url('../img/home-bg.jpg') 50% 0 repeat-y fixed;
+    background: url('../img/landscape-photos.jpg') 50% 0 repeat-y fixed;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center;
@@ -151,7 +151,7 @@ hr {
 
 #home h1 {
     font-size: 20px;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     font-style: normal;
     padding-top: 10px;
 }
@@ -164,7 +164,7 @@ hr {
     font-weight: bold;
     letter-spacing: 2px;
     padding: 16px 42px;
-    margin-top: 40px;
+    margin-top: 10px;
     transition: all 0.4s ease-in-out;
 }
 
