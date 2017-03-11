@@ -13,13 +13,15 @@ import java.util.stream.Collectors;
 public class AboutMe {
 
     private String header;
-    private String summary;
+    private String subtitle;
+    private String paragraph;
     private String img;
     private List<Link> linkList;
 
     public AboutMe(Profile profile) {
         this.header = profile.getObjective().getPersonalEstimate();
-        this.summary = profile.getObjective().getWhyCreateThisPage();
+        this.subtitle = profile.getObjective().getInterests();
+        this.paragraph = profile.getObjective().getWhyCreateThisPage();
         this.img = profile.getObjective().getContentImg();
         this.linkList = new ArrayList<>();
 
@@ -42,12 +44,20 @@ public class AboutMe {
         this.header = header;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public String getParagraph() {
+        return paragraph;
+    }
+
+    public void setParagraph(String paragraph) {
+        this.paragraph = paragraph;
     }
 
     public String getImg() {
@@ -57,4 +67,6 @@ public class AboutMe {
     public void setImg(String img) {
         this.img = img;
     }
+
+
 }

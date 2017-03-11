@@ -22,6 +22,8 @@ public class Objective extends DatabaseEntity {
 
     private String contentImg;
 
+    @Lob
+    @Column(length = 100000)
     private String whyCreateThisPage;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

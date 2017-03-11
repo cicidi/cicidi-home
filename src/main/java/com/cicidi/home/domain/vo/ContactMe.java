@@ -13,12 +13,14 @@ public class ContactMe {
     private String profileImg;
     private String fullAddress;
     private String country;
+    private String email;
     private List<LinkVo> linkVoList;
 
     public ContactMe(Profile profile) {
         this.profileImg = profile.getFaceImg();
         this.fullAddress = profile.getContact().getAddress().getFullAddress();
         this.country = profile.getContact().getAddress().getCountry();
+        this.email = profile.getContact().getEmail();
         linkVoList = new ArrayList<>();
         linkVoList.addAll(profile.getContact().getLinkList().stream().map(LinkVo::new).collect(Collectors.toList()));
     }
@@ -54,5 +56,13 @@ public class ContactMe {
 
     public void setLinkVoList(List<LinkVo> linkVoList) {
         this.linkVoList = linkVoList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

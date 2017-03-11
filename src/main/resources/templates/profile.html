@@ -41,14 +41,7 @@
         <div class="line">
             <div class="s-12 m-6 l-6">
                 <p>CONTACT ME:
-                    <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
-                        <td th:if="${#strings.containsIgnoreCase(linkVo.name,'mail')}">
-                        <span
-                                th:text="${linkVo.url}">
-
-                        </span>
-                        </td>
-                    </tr>
+                    <span th:text="${profileVo.contactMe.email}"></span>
                 </p>
             </div>
             <div class="s-12 m-6 l-6">
@@ -71,9 +64,9 @@
                         th:text="${profileVo.lastName}"></span></p>
             </div>
             <div class="top-nav s-12 l-10">
-                <p class="nav-text">Custom menu text</p>
+                <p class="nav-text">Menu</p>
                 <ul class="right">
-                    <li class="active-item"><a href="#carousel">carousel</a></li>
+                    <li class="active-item"><a href="#carousel">Experience</a></li>
                     <li><a href="#about-me">About ME</a></li>
                     <li><a href="#my-exp">Code demo</a></li>
                     <!--<li><a href="#features">TECHNOLOGY</a></li>-->
@@ -142,21 +135,22 @@
             <div class="line">
                 <h1 th:text="${profileVo.aboutMe.header}"></h1>
 
-                <p th:text="${profileVo.aboutMe.header}"></p>
+                <p th:text="${profileVo.aboutMe.subtitle}"></p>
 
                 <div class=" s-12 m-4 l-2 center"><a class="color-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
-        <div class="s-12 m-12 l-3 media-container">
-            <img th:src="${profileVo.aboutMe.img}" alt=""/>
-        </div>
+        <!--<div class="s-12 m-12 l-3 media-container">-->
+        <!--<img th:src="${profileVo.aboutMe.img}" alt=""/>-->
+        <!--</div>-->
         <article class="s-12 m-9 l-6">
-            <h2 th:text="${profileVo.aboutMe.summary}"></h2>
+            <h2>Why I create this website</h2>
+            <!--<h2 th:text="${profileVo.aboutMe.header}">Why I create this website</h2>-->
 
-            <p th:text="${profileVo.aboutMe.summary}"></p>
+            <p th:text="${profileVo.aboutMe.paragraph}"></p>
 
             <div class=" about-me-icons">
-
+                <h3>Follow me : </h3>
                 <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                     <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
                     <td>
@@ -419,14 +413,7 @@
 
                         <p>
                             <span style="font-weight:bold">E-mail:</span>
-
-                            <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
-                                <td>
-                                    <span th:if="${#strings.containsIgnoreCase(linkVo.name,'mail')}"><span
-                                            th:text="${linkVo.url}"></span>
-                                     </span>
-                                </td>
-                            </tr>
+                            <span th:text="${profileVo.contactMe.email}"></span>
                         </p>
                     </address>
                     <br/>
@@ -435,8 +422,9 @@
 
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
-                            <p><i th:class="${linkVo.icon}"></i> <a
-                                    th:href="${linkVo.url}" th:text="${linkVo.name}"></a></p>
+                            <span>
+                                   <a th:href="${linkVo.url}">
+                                       <i th:class="${linkVo.icon}" style="background: #504e4e"></i></a></span>
                         </td>
                     </tr>
 
@@ -445,10 +433,14 @@
                     <h3>Send message to me </h3>
 
                     <form class="customform" action="">
-                        <div class="s-12"><input name="" placeholder="Your e-mail" title="Your e-mail" type="text"/>
+                        <div class="s-12"><input name="" placeholder="Your e-mail" title="Your e-mail" type="text"
+                                                 disabled="true"/>
                         </div>
-                        <div class="s-12"><input name="" placeholder="Your name" title="Your name" type="text"/></div>
-                        <div class="s-12"><textarea placeholder="Your massage" name="" rows="5"></textarea></div>
+                        <div class="s-12"><input name="" placeholder="Your name" title="Your name" type="text"
+                                                 disabled="true"/></div>
+                        <div class="s-12"><textarea
+                                placeholder="Email function is not implemented so far, will come soon. if you want connect me, please send email via your Outlook or browser"
+                                name="" rows="5" disabled="true"></textarea></div>
                         <div class="s-12 m-12 l-4">
                             <button class="color-btn" type="submit">Submit Button</button>
                         </div>

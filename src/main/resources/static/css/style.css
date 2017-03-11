@@ -131,7 +131,7 @@ hr {
 }
 
 /* home section */
-#home {
+#home #login-page {
     background: url('../img/landscape-photos.jpg') 50% 0 repeat-y fixed;
     -webkit-background-size: cover;
     background-size: cover;
@@ -148,6 +148,24 @@ hr {
     height: 100vh;
     text-align: center;
 }
+
+/*#login-page {*/
+/*background: url('../img/landscape-photos.jpg') 50% 0 repeat-y fixed;*/
+/*-webkit-background-size: cover;*/
+/*background-size: cover;*/
+/*background-position: center;*/
+/*color: #ffffff;*/
+/*display: -webkit-box;*/
+/*display: -webkit-flex;*/
+/*display: -ms-flexbox;*/
+/*display: flex;*/
+/*-webkit-box-align: center;*/
+/*-webkit-align-items: center;*/
+/*-ms-flex-align: center;*/
+/*align-items: center;*/
+/*height: 100vh;*/
+/*text-align: center;*/
+/*}*/
 
 #home h1 {
     font-size: 20px;

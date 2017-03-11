@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @XmlRootElement(name = Constants.contact)
 //@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {Constants.phone, Constants.address, Constants.linkList})
+@XmlType(propOrder = {Constants.phone, Constants.email,Constants.address, Constants.linkList})
 public class Contact extends DatabaseEntity {
 
     @XmlTransient
@@ -25,6 +25,10 @@ public class Contact extends DatabaseEntity {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "contact", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Address address;
+
+    @XmlTransient
+    private String email;
+
 
     @XmlTransient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.contact, cascade = CascadeType.ALL)
@@ -44,6 +48,15 @@ public class Contact extends DatabaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @XmlElement
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @XmlElement

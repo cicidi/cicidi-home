@@ -9,14 +9,25 @@
     <objective>
         <title></title>
         <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
-        <interests>I am interest in any kind of new technolgoy</interests>
-        <whyCreateThisPage></whyCreateThisPage>
+        <interests>I am interest in any kind of new technology</interests>
+        <whyCreateThisPage>As a developer, I am always asking myself how can I make things different, and better. If an
+            idea comes, don't hesitate to work on it. Instead of wasting time thinking if this
+            a stupid idea, or is this achievable, just open my laptop, and start. There is no cost.
+            When I interview some candidates, I found it is not as simple as running a Linux command line grep
+            "knowledge" someone_resume >/output to figure out is this candidate a good fit?
+            The same problem to my interviewer,how can he/she know and trust I can handle the job.
+            Then there comes an idea, why not create a website post my resume with my knowledge. List all I have done ,
+            and you know what I can do.
+            On the other hand, I will keep updating this website with more features using updated technology. So I can
+            keep practicing, and keep learning.
+        </whyCreateThisPage>
         <contentImg>
             img/resume_photo/plant_2.jpg
         </contentImg>
     </objective>
     <contact>
         <phone></phone>
+        <email>cicidi@gmail.com</email>
         <address>
             <number></number>
             <street></street>
@@ -28,20 +39,14 @@
         <linkList>
             <link>
                 <name>GitHub</name>
-                <url>cicidi.github.com</url>
+                <url>https://github.com/cicidi/cicidi-home</url>
                 <pic></pic>
                 <!--<icon>fa fa-github-alt</icon>-->
-            </link>
-            <link>
-                <name>Email</name>
-                <url>cicidi@gmail.com</url>
-                <pic></pic>
-                <!--<icon>icon-mail</icon>-->
             </link>
 
             <link>
                 <name>Linkedin</name>
-                <url>waltchen.linkedin</url>
+                <url>https://www.linkedin.com/in/walter-chen-0b7558122/</url>
                 <pic></pic>
                 <!--<icon>fa fa-linkedin-square</icon>-->
             </link>
@@ -388,13 +393,7 @@
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Technology training</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Create various application using Spring, Hibernate, Struts ,JSF
-                            </content>
-                        </bullet>
-                    </bulletList>
+                    <content>Create various web application using Spring, Hibernate, Struts ,JSF</content>
                 </bullet>
             </bulletList>
         </workExperience>
