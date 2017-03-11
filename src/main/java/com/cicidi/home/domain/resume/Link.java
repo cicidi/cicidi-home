@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * Created by cicidi on 2/18/2017.
  */
 @Entity
-@XmlType(propOrder = {Constants.name, "url", "pic", Constants.icon})
+@XmlType(propOrder = {Constants.name, Constants.url, Constants.pic, Constants.icon})
 public class Link extends DatabaseEntity {
     private String name;
 
@@ -27,7 +27,7 @@ public class Link extends DatabaseEntity {
 
     //    @ManyToOne(fetch = FetchType.LAZY)
     @ManyToOne
-    @JoinColumn(name = "contact")
+    @JoinColumn(name = Constants.contact)
     @XmlTransient
     @JsonBackReference
     private Contact contact;

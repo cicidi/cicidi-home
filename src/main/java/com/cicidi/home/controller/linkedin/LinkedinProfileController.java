@@ -18,6 +18,7 @@ package com.cicidi.home.controller.linkedin;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +38,9 @@ public class LinkedinProfileController {
         if (connection == null) {
             return "redirect:/connect/linkedin";
         }
-        model.addAttribute("profile", connection.getApi().profileOperations().getUserProfile());
+        String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
+        LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
+        model.addAttribute("profile", linkedInProfileFull);
         return "linkedin/profile";
     }
-
 }

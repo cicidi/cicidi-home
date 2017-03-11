@@ -1,40 +1,41 @@
 package com.cicidi.home.domain.vo;
 
-import com.cicidi.home.domain.resume.Bullet;
+import com.cicidi.home.domain.resume.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by cicidi on 2/17/2017.
  */
 public class Item {
-    private String src;
-    private String header;
-    private String paragraph;
+    private String imgSrc;
+    private String title;
+    private String subTitle;
     private List<Bullet> bulletList;
 
-    public String getSrc() {
-        return src;
+    public String getImgSrc() {
+        return imgSrc;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
-    public String getHeader() {
-        return header;
+    public String getTitle() {
+        return title;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getParagraph() {
-        return paragraph;
+    public String getSubTitle() {
+        return subTitle;
     }
 
-    public void setParagraph(String paragraph) {
-        this.paragraph = paragraph;
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
     }
 
     public List<Bullet> getBulletList() {
@@ -43,5 +44,28 @@ public class Item {
 
     public void setBulletList(List<Bullet> bulletList) {
         this.bulletList = bulletList;
+    }
+
+    public Item(Organization organization) {
+        this.imgSrc = organization.getPhoto();
+        this.title = organization.getName();
+        StringBuffer sb = new StringBuffer();
+        sb.append(organization.getStartName() + " - ");
+        sb.append(organization.getEndName() + " - ");
+        sb.append(organization.getLength() + " - ");
+        if (organization.getAddress().getCity() != null)
+            sb.append(organization.getAddress().getCity() + " - ");
+        sb.append(organization.getAddress().getState() + " - ");
+        this.subTitle = sb.toString();
+        this.bulletList = new ArrayList<>();
+        if (organization instanceof WorkExperience) {
+            bulletList.addAll(((WorkExperience) organization).getBulletList());
+        }
+    }
+
+    public Item() {
+//        this.imgSrc =
+//        this.title =skillSet.getTechName();
+//        this.subTitle=skillSet.get
     }
 }

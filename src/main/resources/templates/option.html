@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"/>
 
-<html xmlns="http://www.w3.org/1999/html"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:social="http://spring.io/springsocial"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8"/>
     <title>Ganshaa</title>
@@ -45,8 +47,10 @@
 
                 <div id="btnList">
 
-                    <div id="yourProfileBth" th:if="${#httpServletRequest.remoteUser != null}">
-                        <a href="/resumeProfile" class="smoothScroll btn btn-default">Your Profile</a>
+                    <div id="yourProfileBth" social:connected="linkedin"
+                         th:if="${#httpServletRequest.remoteUser != null}">
+                        <a th:href="@{/linkedin}" class="smoothScroll btn btn-default">Your Profile</a>
+                        <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
                     </div>
 
 

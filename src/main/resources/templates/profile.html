@@ -1,10 +1,11 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html"
       xmlns:th="http://www.thymeleaf.org">
-<!--@thymesVar id="profile" type="com.cicidi.home.domain.resume.Profile"-->
+<!--@thymesVar id="profileVo" type="com.cicidi.home.domain.vo.ProfileVo"-->
 <!--@thymesVar id="objective" type="com.cicidi.home.domain.resume.Objective"-->
 <!--@thymesVar id="homeViewObject" type="com.cicidi.home.domain.vo.HomeViewObject"-->
-<!--@thymesVar id="job" type="com.cicidi.home.domain.resume.WorkExperience"-->
+<!--@thymesVar id="album" type="com.cicidi.home.domain.vo.Album"-->
+<!--@thymesVar id="item" type="com.cicidi.home.domain.vo.Item"-->
 <!--@thymesVar id="webLogList" type="List<com.cicidi.home.domain.resume.WebLog>"-->
 <!--@thymesVar id="webLog" type="com.cicidi.home.domain.vo.WebLog"-->
 <!--@thymesVar id="geoData" type="java.util.Map;"-->
@@ -13,7 +14,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title>Responsive One Page website template</title>
     <link rel="stylesheet" href="css/components.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="hcss/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/responsee.css"/>
     <link rel="stylesheet" href="css/core.css"/>
     <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
@@ -40,7 +41,7 @@
         <div class="line">
             <div class="s-12 m-6 l-6">
                 <p>CONTACT ME:
-                    <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
                         <td th:if="${#strings.containsIgnoreCase(link.name,'mail')}">
                         <span
                                 th:text="${link.url}">
@@ -52,7 +53,7 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
-                    <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
                         <td>
                             <a th:href="${link.url}"><i th:class="${link.icon}"></i> </a>
                         </td>
@@ -66,8 +67,8 @@
         <div class="line">
             <div class="s-12 l-2">
                 <p class="logo">
-                    <span style="font-weight:bold" th:text="${profile.firstName}"></span> <span
-                        th:text="${profile.lastName}"></span></p>
+                    <span style="font-weight:bold" th:text="${profileVo.firstName}"></span> <span
+                        th:text="${profileVo.lastName}"></span></p>
             </div>
             <div class="top-nav s-12 l-10">
                 <p class="nav-text">Custom menu text</p>
@@ -89,15 +90,15 @@
     <!-- CAROUSEL -->
     <div id="carousel">
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <div th:each="job,iterStat :${profile.workExperienceList}">
+            <div th:each="item,iterStat :${profileVo.album.itemList}">
                 <div class="item" th:attr="job-index=${iterStat.index}">
                     <div>
-                        <img th:src="${job.photo}" alt=""/>
+                        <img th:src="${item.imgSrc}" alt=""/>
 
                         <div class="popup">
 
                             <P><span class="popuptext" th:id="${'popUp'+iterStat.index}"
-                                     th:text="${job.name}"
+                                     th:text="${item.title}"
                                      th:attr="jd-index=${iterStat.index}">A Simple Popup!</span>
                             </P>
                         </div>
@@ -114,12 +115,13 @@
                                 </div>
                             </div>
 
-                            <h2 th:text="${job.name}"></h2>
+                            <h2 th:text="${item.title}"></h2>
 
-                            <h3 th:text=" ${job.startName+' - '+job.endName+' • '+job.length+' • '+job.address.city+','+job.address.state}"></h3>
+                            <!--<h3 th:text=" ${job.startName+' - '+job.endName+' • '+job.length+' • '+job.address.city+','+job.address.state}"></h3>-->
+                            <h3 th:text=" ${item.subTitle}"></h3>
 
 
-                            <tr style="padding: 0em" th:each="bullet:${job.bulletList}">
+                            <tr style="padding: 0em" th:each="bullet:${item.bulletList}">
                                 <td style="padding: inherit">
                                     <p class="jd" th:text=" ${bullet.content}"
                                        th:attr="jd-detail-val=${bullet.bulletListvalue}"></p>
@@ -136,24 +138,24 @@
     <div id="about-me">
         <div id="first-block">
             <div class="line">
-                <h1 th:text="${profile.objective.title}"></h1>
+                <h1 th:text="${profileVo.aboutMe.header}"></h1>
 
-                <p th:text="${profile.objective.interests}"></p>
+                <p th:text="${profileVo.aboutMe.header}"></p>
 
                 <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
         <div class="s-12 m-12 l-3 media-container">
-            <img th:src="${profile.objective.contentImg}" alt=""/>
+            <img th:src="${profileVo.aboutMe.img}" alt=""/>
         </div>
         <article class="s-12 m-9 l-6">
-            <h2 th:text="${profile.objective.personalEstimate}"></h2>
+            <h2 th:text="${profileVo.aboutMe.summary}"></h2>
 
-            <p th:text="${profile.objective.whyCreateThisPage}"></p>
+            <p th:text="${profileVo.aboutMe.summary}"></p>
 
             <div class=" about-me-icons">
 
-                <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
                     <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
                     <td>
                         <div><a th:href="${link.url}"
@@ -294,15 +296,15 @@
     <div id="features">
         <div class="line">
             <div class="margin">
-                <tr th:each="item:${homeViewObject.feature.itemList}">
+                <tr th:each="item:${profileVo.feature.itemList}">
                     <td>
                         <div class="s-12 m-6 l-3 margin-bottom">
                             <!--<i class="icon-tablet icon3x"></i>-->
-                            <i th:class="${item.src}"></i>
+                            <i th:class="${item.imgSrc}"></i>
 
-                            <h2 th:text="${item.header}"></h2>
+                            <h2 th:text="${item.title}"></h2>
 
-                            <p th:text="${item.paragraph}"></p>
+                            <p th:text="${item.subTitle}"></p>
                         </div>
                     </td>
                 </tr>
@@ -357,7 +359,7 @@
             <h2 class="section-title">LATEST GIT CODE</h2>
 
             <div class="margin">
-                <tr th:each="webLog:${webLogList}">
+                <tr th:each="webLog:${profileVo.webLogList}">
                     <td>
                         <div class="s-12 m-6 l-6">
                             <div class="s-12 l-2">
@@ -392,10 +394,10 @@
 
             <div class="margin">
                 <div class="s-12 m-12 l-3 hide-m hide-s margin-bottom right-align">
-                    <img th:src="${profile.faceImg}" alt=""/>
+                    <img th:src="${profileVo.contactMe.profileImg}" alt=""/>
                 </div>
                 <div class="s-12 m-12 l-4 margin-bottom right-align">
-                    <h3 th:text="${profile.firstName+' '+profile.lastName}"></h3>
+                    <h3 th:text="${profileVo.firstName+' '+profileVo.lastName}"></h3>
                     <address>
                         <!--<p th:text="${profile.contact.address.fullAddress}"><strong>Adress:</strong></p>-->
 
@@ -404,19 +406,19 @@
                         <!--<p th:text="${profile.contact.email}"><strong>E-mail:</strong></p>-->
 
                         <p>
-                            <span style="font-weight:bold">Adress:</span>
-                            <span th:text="${profile.contact.address.fullAddress}"></span>
+                            <span style="font-weight:bold">Address:</span>
+                            <span th:text="${profileVo.contactMe.fullAddress}"></span>
                         </p>
 
                         <p>
                             <span style="font-weight:bold">Country:</span>
-                            <span th:text="${profile.contact.address.country}"></span>
+                            <span th:text="${profileVo.contactMe.country}"></span>
                         </p>
 
                         <p>
                             <span style="font-weight:bold">E-mail:</span>
 
-                            <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                            <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
                                 <td>
                                     <span th:if="${#strings.containsIgnoreCase(link.name,'mail')}"><span
                                             th:text="${link.url}"></span>
@@ -429,7 +431,7 @@
 
                     <h3>Social</h3>
 
-                    <tr th:each="link,iterationStatus  : ${profile.contact.linkList}">
+                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
                         <td>
                             <p><i th:class="${link.icon}"></i> <a
                                     th:href="${link.url}" th:text="${link.name}"></a></p>

@@ -18,7 +18,7 @@ import java.util.List;
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
         Constants.endName, Constants.length, Constants.photo, Constants.icon, Constants.summary, Constants.role,
         Constants.bulletList})
-public class WorkExperience extends Organization {
+public class WorkExperience extends Organization implements Comparable<WorkExperience> {
     @XmlTransient
     private String summary;
 
@@ -74,5 +74,11 @@ public class WorkExperience extends Organization {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+
+    @Override
+    public int compareTo(WorkExperience o) {
+        return 0;
     }
 }
