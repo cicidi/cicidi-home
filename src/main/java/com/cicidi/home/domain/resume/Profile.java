@@ -29,7 +29,7 @@ public class Profile extends DatabaseEntity {
     private String faceImg;
 
     @XmlTransient
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
     @JsonManagedReference
     private Contact contact;
 
@@ -44,12 +44,12 @@ public class Profile extends DatabaseEntity {
     private List<WorkExperience> workExperienceList;
 
     @XmlTransient
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
     @JsonManagedReference
     private Objective objective;
 
     @XmlTransient
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profile", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<SkillSet> skillSets;
 

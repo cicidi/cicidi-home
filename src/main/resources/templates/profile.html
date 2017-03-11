@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title>Responsive One Page website template</title>
     <link rel="stylesheet" href="css/components.css"/>
-    <link rel="stylesheet" href="hcss/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/responsee.css"/>
     <link rel="stylesheet" href="css/core.css"/>
     <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
@@ -41,10 +41,10 @@
         <div class="line">
             <div class="s-12 m-6 l-6">
                 <p>CONTACT ME:
-                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
-                        <td th:if="${#strings.containsIgnoreCase(link.name,'mail')}">
+                    <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
+                        <td th:if="${#strings.containsIgnoreCase(linkVo.name,'mail')}">
                         <span
-                                th:text="${link.url}">
+                                th:text="${linkVo.url}">
 
                         </span>
                         </td>
@@ -53,9 +53,9 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
-                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
+                    <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
-                            <a th:href="${link.url}"><i th:class="${link.icon}"></i> </a>
+                            <a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
                         </td>
                     </tr>
                 </div>
@@ -76,9 +76,9 @@
                     <li class="active-item"><a href="#carousel">carousel</a></li>
                     <li><a href="#about-me">About ME</a></li>
                     <li><a href="#my-exp">Code demo</a></li>
-                    <li><a href="#features">TECHNOLOGY</a></li>
+                    <!--<li><a href="#features">TECHNOLOGY</a></li>-->
 
-                    <li><a href="#skill-sets">Skill Set</a></li>
+                    <li><a href="#latest-news">Source Code</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#map-block">PLACES</a></li>
                 </ul>
@@ -120,6 +120,8 @@
                             <!--<h3 th:text=" ${job.startName+' - '+job.endName+' • '+job.length+' • '+job.address.city+','+job.address.state}"></h3>-->
                             <h3 th:text=" ${item.subTitle}"></h3>
 
+                            <h3 th:if=" ${item.subTitle_2!=null}" th:text=" ${item.subTitle_2}"></h3>
+
 
                             <tr style="padding: 0em" th:each="bullet:${item.bulletList}">
                                 <td style="padding: inherit">
@@ -142,7 +144,7 @@
 
                 <p th:text="${profileVo.aboutMe.header}"></p>
 
-                <div class=" s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Me</a></div>
+                <div class=" s-12 m-4 l-2 center"><a class="color-btn" href="#contact">Contact Me</a></div>
             </div>
         </div>
         <div class="s-12 m-12 l-3 media-container">
@@ -155,12 +157,12 @@
 
             <div class=" about-me-icons">
 
-                <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
+                <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                     <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
                     <td>
-                        <div><a th:href="${link.url}"
-                                th:title="${link.name}">
-                            <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${link.icon}"></i></a>
+                        <div><a th:href="${linkVo.url}"
+                                th:title="${linkVo.name}">
+                            <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -293,70 +295,70 @@
     </div>
 
     <!-- FEATURES -->
-    <div id="features">
-        <div class="line">
-            <div class="margin">
-                <tr th:each="item:${profileVo.feature.itemList}">
-                    <td>
-                        <div class="s-12 m-6 l-3 margin-bottom">
-                            <!--<i class="icon-tablet icon3x"></i>-->
-                            <i th:class="${item.imgSrc}"></i>
+    <!--<div id="features">-->
+    <!--<div class="line">-->
+    <!--<div class="margin">-->
+    <!--<tr th:each="item:${profileVo.feature.itemList}">-->
+    <!--<td>-->
+    <!--<div class="s-12 m-6 l-3 margin-bottom">-->
+    <!--&lt;!&ndash;<i class="icon-tablet icon3x"></i>&ndash;&gt;-->
+    <!--<i th:class="${item.imgSrc}"></i>-->
 
-                            <h2 th:text="${item.title}"></h2>
+    <!--<h2 th:text="${item.title}"></h2>-->
 
-                            <p th:text="${item.subTitle}"></p>
-                        </div>
-                    </td>
-                </tr>
-            </div>
-        </div>
-    </div>
+    <!--<p th:text="${item.subTitle}"></p>-->
+    <!--</div>-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!-- ABOUT US -->
 
 
     <!-- SERVICES -->
-    <div id="skill-sets">
-        <div class="line">
-            <h2 class="section-title">What we do</h2>
+    <!--<div id="skill-sets">-->
+    <!--<div class="line">-->
+    <!--<h2 class="section-title">What we do</h2>-->
 
-            <div class="margin">
-                <div class="s-12 m-6 l-4 margin-bottom">
-                    <i class="icon-vector"></i>
+    <!--<div class="margin">-->
+    <!--<div class="s-12 m-6 l-4 margin-bottom">-->
+    <!--<i class="icon-vector"></i>-->
 
-                    <div class="service-text">
-                        <h3>We create</h3>
+    <!--<div class="service-text">-->
+    <!--<h3>We create</h3>-->
 
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                </div>
-                <div class="s-12 m-6 l-4 margin-bottom">
-                    <i class="icon-eye"></i>
+    <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+    <!--tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="s-12 m-6 l-4 margin-bottom">-->
+    <!--<i class="icon-eye"></i>-->
 
-                    <div class="service-text">
-                        <h3>We look to the future</h3>
+    <!--<div class="service-text">-->
+    <!--<h3>We look to the future</h3>-->
 
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                </div>
-                <div class="s-12 m-12 l-4 margin-bottom">
-                    <i class="icon-random"></i>
+    <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+    <!--tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="s-12 m-12 l-4 margin-bottom">-->
+    <!--<i class="icon-random"></i>-->
 
-                    <div class="service-text">
-                        <h3>We find a solution</h3>
+    <!--<div class="service-text">-->
+    <!--<h3>We find a solution</h3>-->
 
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod-->
+    <!--tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!-- LATEST NEWS -->
     <div id="latest-news">
         <div class="line">
-            <h2 class="section-title">LATEST GIT CODE</h2>
+            <h2 class="section-title" style="color: #FFFFFF">Source Code</h2>
 
             <div class="margin">
                 <tr th:each="webLog:${profileVo.webLogList}">
@@ -418,10 +420,10 @@
                         <p>
                             <span style="font-weight:bold">E-mail:</span>
 
-                            <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
+                            <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                                 <td>
-                                    <span th:if="${#strings.containsIgnoreCase(link.name,'mail')}"><span
-                                            th:text="${link.url}"></span>
+                                    <span th:if="${#strings.containsIgnoreCase(linkVo.name,'mail')}"><span
+                                            th:text="${linkVo.url}"></span>
                                      </span>
                                 </td>
                             </tr>
@@ -429,12 +431,12 @@
                     </address>
                     <br/>
 
-                    <h3>Social</h3>
+                    <h3>Links</h3>
 
-                    <tr th:each="link,iterationStatus  : ${profileVo.contactMe.linkList}">
+                    <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
-                            <p><i th:class="${link.icon}"></i> <a
-                                    th:href="${link.url}" th:text="${link.name}"></a></p>
+                            <p><i th:class="${linkVo.icon}"></i> <a
+                                    th:href="${linkVo.url}" th:text="${linkVo.name}"></a></p>
                         </td>
                     </tr>
 
@@ -458,7 +460,7 @@
     <div id="map-block">
         <h2 class="section-title" style="margin:0 0 0 0;background-color: #ffffff">PLACES I STUDY AND WORK BEFORE</h2>
 
-        <div id="googleMap" class="googleMap" th:attr="geo-data=${geoData}">
+        <div id="googleMap" class="googleMap" th:attr="geo-data=${profileVo.places.geoDataJson}">
         </div>
     </div>
 </section>
@@ -466,7 +468,7 @@
 <footer>
     <div class="line">
         <div class="s-12 l-6">
-            <p>UI implement by using framework provided by graphic zoo, backend serivce all by Walter</p>
+            <p>Website create by Walter Chen</p>
 
         </div>
         <div class="s-12 l-6">

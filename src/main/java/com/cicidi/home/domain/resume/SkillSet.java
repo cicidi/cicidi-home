@@ -23,7 +23,7 @@ public class SkillSet extends DatabaseEntity {
     @XmlElementWrapper(name = Constants.technologyList)
     @XmlElement(name = Constants.technology)
     @ElementCollection
-    @CollectionTable(name = "technology")
+    @CollectionTable(name = Constants.technology)
     private List<String> technologyList;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -1,8 +1,7 @@
 package com.cicidi.home.domain.vo;
 
-import com.cicidi.home.domain.resume.Profile;
-import com.cicidi.home.service.GoogleMapService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Map;
 
@@ -22,5 +21,16 @@ public class Places {
 
     public void setGeoData(Map geoData) {
         this.geoData = geoData;
+    }
+
+    public String getGeoDataJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = "{}";
+        try {
+            json = objectMapper.writeValueAsString(this.geoData);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 }

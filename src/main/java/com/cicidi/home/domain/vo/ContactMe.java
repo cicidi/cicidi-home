@@ -1,6 +1,5 @@
 package com.cicidi.home.domain.vo;
 
-import com.cicidi.home.domain.resume.Link;
 import com.cicidi.home.domain.resume.Profile;
 
 import java.util.ArrayList;
@@ -14,14 +13,14 @@ public class ContactMe {
     private String profileImg;
     private String fullAddress;
     private String country;
-    private List<Link> linkList;
+    private List<LinkVo> linkVoList;
 
     public ContactMe(Profile profile) {
         this.profileImg = profile.getFaceImg();
         this.fullAddress = profile.getContact().getAddress().getFullAddress();
         this.country = profile.getContact().getAddress().getCountry();
-        linkList = new ArrayList<>();
-        linkList.addAll(profile.getContact().getLinkList().stream().collect(Collectors.toList()));
+        linkVoList = new ArrayList<>();
+        linkVoList.addAll(profile.getContact().getLinkList().stream().map(LinkVo::new).collect(Collectors.toList()));
     }
 
     public String getProfileImg() {
@@ -49,11 +48,11 @@ public class ContactMe {
         this.country = country;
     }
 
-    public List<Link> getLinkList() {
-        return linkList;
+    public List<LinkVo> getLinkVoList() {
+        return linkVoList;
     }
 
-    public void setLinkList(List<Link> linkList) {
-        this.linkList = linkList;
+    public void setLinkVoList(List<LinkVo> linkVoList) {
+        this.linkVoList = linkVoList;
     }
 }

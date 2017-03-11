@@ -2,14 +2,10 @@ package com.cicidi.home.controller;
 
 import com.cicidi.home.domain.repository.AccountRepository;
 import com.cicidi.home.domain.resume.Profile;
-import com.cicidi.home.domain.vo.Feature;
-import com.cicidi.home.domain.vo.HomeViewObject;
-import com.cicidi.home.domain.vo.Item;
 import com.cicidi.home.domain.vo.ProfileVo;
 import com.cicidi.home.service.EntityService;
 import com.cicidi.home.service.GitHubService;
 import com.cicidi.home.service.GoogleMapService;
-import com.cicidi.home.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -25,9 +21,7 @@ import javax.inject.Provider;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -50,7 +44,7 @@ class HomeController {
 //        model.addAttribute("now", LocalDateTime.now());
 
         ProfileVo profileVo = new ProfileVo(profile);
-        profileVo.setFeature(this.createFeature());
+//        profileVo.setFeature(this.createFeature());
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(profile));
 //        model.addAttribute("homeViewObject", this.createHomeViewObject());
@@ -62,7 +56,7 @@ class HomeController {
 
     }
 
-    @GetMapping(path = {"/", "option"})
+    @GetMapping("/option")
     String option(Model model, HttpServletRequest request, Principal principal) throws Exception {
         String name = null;
         if (principal != null) {
@@ -79,40 +73,40 @@ class HomeController {
     }
 
 
-    private HomeViewObject createHomeViewObject() {
-        HomeViewObject homeViewObject = new HomeViewObject();
-        homeViewObject.setFeature(createFeature());
-        return homeViewObject;
-    }
+//    private HomeViewObject createHomeViewObject() {
+//        HomeViewObject homeViewObject = new HomeViewObject();
+//        homeViewObject.setFeature(createFeature());
+//        return homeViewObject;
+//    }
 
-    private Feature createFeature() {
-        // owlCarousel
-        Feature feature = new Feature();
-        List<Item> itemList = new ArrayList<>();
-        Item item_1 = new Item();
-        item_1.setTitle("hard working");
-        item_1.setSubTitle("refactory N engineer work in  half time");
-        item_1.setImgSrc(Constants.icon_1);
-        Item item_2 = new Item();
-        item_2.setTitle("quick learner");
-        item_2.setSubTitle("learn hadoop and python");
-        item_2.setImgSrc(Constants.icon_2);
-        Item item_3 = new Item();
-        item_3.setTitle("motivate");
-        item_3.setSubTitle("Learning Python and android by myself");
-        item_3.setImgSrc(Constants.icon_3);
-        Item item_4 = new Item();
-        item_4.setTitle("easy going");
-        item_4.setSubTitle("Play soccer / team work");
-        item_4.setImgSrc(Constants.icon_4);
-
-        itemList.add(item_1);
-        itemList.add(item_2);
-        itemList.add(item_3);
-        itemList.add(item_4);
-        feature.setItemList(itemList);
-        return feature;
-    }
+//    private Feature createFeature() {
+//        // owlCarousel
+//        Feature feature = new Feature();
+//        List<Item> itemList = new ArrayList<>();
+//        Item item_1 = new Item();
+//        item_1.setTitle("hard working");
+//        item_1.setSubTitle("refactory N engineer work in  half time");
+//        item_1.setImgSrc(Constants.icon_1);
+//        Item item_2 = new Item();
+//        item_2.setTitle("quick learner");
+//        item_2.setSubTitle("learn hadoop and python");
+//        item_2.setImgSrc(Constants.icon_2);
+//        Item item_3 = new Item();
+//        item_3.setTitle("motivate");
+//        item_3.setSubTitle("Learning Python and android by myself");
+//        item_3.setImgSrc(Constants.icon_3);
+//        Item item_4 = new Item();
+//        item_4.setTitle("easy going");
+//        item_4.setSubTitle("Play soccer / team work");
+//        item_4.setImgSrc(Constants.icon_4);
+//
+//        itemList.add(item_1);
+//        itemList.add(item_2);
+//        itemList.add(item_3);
+//        itemList.add(item_4);
+//        feature.setItemList(itemList);
+//        return feature;
+//    }
 
 
     @ModelAttribute("adminMenu")

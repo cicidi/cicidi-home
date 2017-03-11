@@ -25,7 +25,7 @@
                         <!ELEMENT zipCode (#PCDATA)>
                         <!ELEMENT linkList (link)>
                         <!ATTLIST linkList type CDATA #IMPLIED>
-                        <!ELEMENT link (name,url,pic,icon)>
+                        <!ELEMENT link (name,url,pic)>
                                 <!ELEMENT url (#PCDATA)>
                                 <!ELEMENT pic (#PCDATA)>
         <!ELEMENT educationList (education)>

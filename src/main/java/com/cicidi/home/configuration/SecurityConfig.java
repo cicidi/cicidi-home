@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/img/**", "/js/**", "/font/**", "/css/**", "/owl-carousel/**").permitAll().anyRequest()
                 .authenticated().and()
                 .formLogin()
-                .loginPage("/signin")
+                .loginPage("/option")
                 .loginProcessingUrl("/signin/authenticate")
                 .defaultSuccessUrl("/connect")
                 .failureUrl("/signin?param.error=bad_credentials")

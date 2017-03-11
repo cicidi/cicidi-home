@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("education")
+@DiscriminatorValue(Constants.education)
 @XmlRootElement(name = Constants.education)
 @XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
         Constants.length, Constants.photo, Constants.icon, Constants.major, Constants.degree})

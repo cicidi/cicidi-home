@@ -33,12 +33,36 @@ a.color-btn, form.customform button.color-btn {
 }
 
 a.color-btn:hover, form.customform button.color-btn:hover {
-    border: 1px solid #92c500;
-    color: #92c500;
+    /*border: 1px solid #92c500;*/
+    border: 1px solid #ff4800;
+    /*color: #92c500;*/
+    color: #ff4800;
+}
+
+a.color-btn, form.customform button.color-btn-white {
+    background: none;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    color: #ffffff;
+    display: block;
+    font-size: 0.85em;
+    padding: 0.625em 1.25em;
+    transition: all 0.20s linear 0s;
+    -o-transition: all 0.20s linear 0s;
+    -ms-transition: all 0.20s linear 0s;
+    -moz-transition: all 0.20s linear 0s;
+    -webkit-transition: all 0.20s linear 0s;
+}
+
+a.color-btn:hover, form.customform button.color-btn-white:hover {
+    /*border: 1px solid #92c500;*/
+    border: 1px solid #ff4800;
+    /*color: #92c500;*/
+    color: #ff4800;
 }
 
 #topbar {
-    background: none repeat scroll 0 0 #012232;
+    background: none repeat scroll 0 0 #002b52;
     border-bottom: 1px solid #001925;
     padding: 0.3125em 0;
 }
@@ -67,13 +91,15 @@ a.color-btn:hover, form.customform button.color-btn:hover {
 }
 
 #topbar i:hover {
-    color: #92c500;
+    /*color: #92c500;*/
+    color: #ff4800;
     cursor: pointer;
     opacity: 1;
 }
 
 nav {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
 }
 
 header {
@@ -97,7 +123,8 @@ p.logo strong {
 }
 
 .top-nav li a {
-    border-top: 2px solid #00283a;
+    /*border-top: 2px solid #00283a;*/
+    border-top: 2px solid #003463;
     color: #fff;
     font-size: 0.80em;
     font-weight: 600;
@@ -111,9 +138,12 @@ p.logo strong {
 }
 
 .top-nav li a:hover, .top-nav li.active-item a {
-    background: none repeat scroll 0 0 #00283a;
-    border-top: 2px solid #92c500;
-    color: #92c500;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
+    /*border-top: 2px solid #92c500;*/
+    border-top: 2px solid #ff4800;
+    /*color: #92c500;*/
+    color: #ff4800;
     position: relative;
 }
 
@@ -131,7 +161,8 @@ p.logo strong {
 }
 
 .prev-arrow, .next-arrow {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
     cursor: pointer;
     float: left;
     height: 30px;
@@ -142,9 +173,11 @@ p.logo strong {
 }
 
 #carousel .text h2 {
-    background: none repeat scroll 0 0 rgba(146, 197, 0, 0.8);
+    /*background: none repeat scroll 0 0 rgba(146, 197, 0, 0.8);*/
+    background: none repeat scroll 0 0 #ff4800;
     color: #fff;
     display: inline-block;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
     font-size: 2em;
     font-weight: 300;
     margin: 1px 0;
@@ -154,10 +187,11 @@ p.logo strong {
 }
 
 #carousel .text h3 {
-    background: none repeat scroll 0 0 rgba(146, 197, 0, 0.8);
-    color: #fff;
+    background: none repeat scroll 0 0 #003463;
+    color: #777575;
     display: inline-block;
-    font-size: 1em;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
+    font-size: 13px;
     font-weight: 300;
     margin: 1px 0;
     max-width: 600px;
@@ -166,8 +200,10 @@ p.logo strong {
 }
 
 #carousel .text p {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
     color: #fff;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
     max-width: 600px;
     padding: 10px 20px;
     width: 100%;
@@ -182,7 +218,7 @@ p.logo strong {
 }
 
 #carousel .owl-theme .owl-controls {
-    background: none repeat scroll 0 0 rgba(0, 40, 58, 0.53);
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.53);
     bottom: 0;
     margin: 0;
     padding: 0.625em 0;
@@ -200,11 +236,13 @@ p.logo strong {
 }
 
 .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span {
-    background: none repeat scroll 0 0 #92c500;
+    /*background: none repeat scroll 0 0 #92c500;*/
+    background: none repeat scroll 0 0 #ff4800;
 }
 
 #first-block {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    /*background: none repeat scroll 0 0 #003463;*/
     padding: 3em 2em;
     text-align: center;
 }
@@ -231,7 +269,8 @@ p.logo strong {
 }
 
 #features i {
-    background: none repeat scroll 0 0 #92c500;
+    /*background: none repeat scroll 0 0 #92c500;*/
+    background: none repeat scroll 0 0 #ff4800;
     border-radius: 100px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3) inset;
     color: #fff;
@@ -257,9 +296,16 @@ p.logo strong {
 }
 
 #about-me {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
+    background: url(../img/gators_wall.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     clear: both;
-    min-height: 850pt;
+    min-height: 500pt;
+    /*min-height: 850pt;*/
 }
 
 #about-me:after {
@@ -319,11 +365,13 @@ article ul li {
 }
 
 article ul li:before {
-    background: #00283a none repeat scroll 0 0;
+    /*background: #00283a none repeat scroll 0 0;*/
+    background: #003463 none repeat scroll 0 0;
     color: #fff;
     content: "\f006";
     display: inline-block;
-    font-family: "mfg";
+    /*font-family: "mfg";*/
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
     font-size: 0.8em;
     height: 20px;
     line-height: 20px;
@@ -334,9 +382,11 @@ article ul li:before {
 }
 
 .about-me-icons i {
-    border: 2px solid #92c500;
+    /*border: 2px solid #92c500;*/
+    border: 2px solid #ff4800;
     border-radius: 100px;
-    color: #92c500;
+    /*color: #92c500;*/
+    color: #ff4800;
     display: block;
     float: left;
     font-size: 1.6em;
@@ -353,7 +403,7 @@ article ul li:before {
 }
 
 h2.section-title:after {
-    background: #dedede none repeat scroll 0 0;
+    /*background: #dedede none repeat scroll 0 0;*/
     content: "";
     display: block;
     height: 1px;
@@ -364,7 +414,7 @@ h2.section-title:after {
 
 h2.section-title {
     /*color: #dedede;*/
-    color: #cecece;
+    color: #003463;
     font-size: 3.8em;
     font-weight: 700;
     letter-spacing: -1px;
@@ -394,7 +444,8 @@ h2.section-title {
 }
 
 .my-exp-text {
-    background: #00283a none repeat scroll 0 0;
+    /*background: #00283a none repeat scroll 0 0;*/
+    background: #003463 none repeat scroll 0 0;
     bottom: 0;
     display: block;
     left: 0;
@@ -432,7 +483,8 @@ h2.section-title {
 }
 
 a.tab-label, a.tab-label:link, a.tab-label:visited {
-    background: #00283a none repeat scroll 0 0;
+    /*background: #00283a none repeat scroll 0 0;*/
+    background: #003463 none repeat scroll 0 0;
     color: #fff;
     display: block;
     font-size: 1em;
@@ -445,7 +497,8 @@ a.tab-label, a.tab-label:link, a.tab-label:visited {
 }
 
 a.tab-label:hover, a.tab-label.active-btn {
-    background: #92c500;
+    /*background: #92c500;*/
+    background: #ff4800;
     color: #fff;
 }
 
@@ -496,7 +549,7 @@ a.tab-label:hover, a.tab-label.active-btn {
 }
 
 #latest-news {
-    background: #f3f3f3 none repeat scroll 0 0;
+    background: #003463 none repeat scroll 0 0;
     box-shadow: 0px -10px 9px -11px rgba(0, 0, 0, 0.5);
     padding: 6em 2em;
     position: relative;
@@ -504,7 +557,7 @@ a.tab-label:hover, a.tab-label.active-btn {
 }
 
 .news-date {
-    background: #6f9600 none repeat scroll 0 0;
+    background: #ff4800 none repeat scroll 0 0;
     clear: both;
     color: #fff;
     display: block;
@@ -525,17 +578,21 @@ a.tab-label:hover, a.tab-label.active-btn {
 }
 
 .news-text {
-    background: #fff none repeat scroll 0 0;
-    border-bottom: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0;
-    border-top: 1px solid #e0e0e0;
+    background: #003463 none repeat scroll 0 0;
+    border-bottom: 1px solid #ff4800;
+    border-right: 1px solid #ff4800;
+    border-top: 1px solid #ff4800;
     min-height: 118px;
     padding: 0.625em 1.25em;
 }
 
 .news-text p {
-    color: #777;
+    color: #FFFFFF;
     font-size: 0.85em;
+}
+
+.news-text h4 {
+    color: #FFFFFF;
 }
 
 #contact {
@@ -561,7 +618,8 @@ form.customform button.color-btn {
 }
 
 #contact h3 {
-    color: #92c500;
+    /*color: #92c500;*/
+    color: #ff4800;
     font-size: 1em;
     font-weight: 700;
     margin: 0 0 0.625em;
@@ -597,7 +655,8 @@ form.customform button.color-btn {
 }
 
 footer {
-    background: none repeat scroll 0 0 #00283a;
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
     padding: 3.5em 0;
 }
 
@@ -654,4 +713,8 @@ footer p, footer a:visited, footer a, footer a:hover {
 
 .googleMap {
     height: 500pt;
+}
+
+.git-code-news {
+    background-color: #003463;
 }

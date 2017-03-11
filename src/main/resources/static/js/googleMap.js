@@ -132,7 +132,8 @@ function initMap() {
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
-    var hashMap = JSON.parse($("#googleMap").attr("geo-data"));
+    var jsonStr=$("#googleMap").attr("geo-data");
+    var hashMap = JSON.parse(jsonStr);
     addMarkerList(map, hashMap);
 }
 

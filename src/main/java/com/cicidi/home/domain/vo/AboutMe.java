@@ -20,7 +20,9 @@ public class AboutMe {
     public AboutMe(Profile profile) {
         this.header = profile.getObjective().getPersonalEstimate();
         this.summary = profile.getObjective().getWhyCreateThisPage();
+        this.img = profile.getObjective().getContentImg();
         this.linkList = new ArrayList<>();
+
         linkList.addAll(profile.getContact().getLinkList().stream().collect(Collectors.toList()));
     }
 

@@ -1,6 +1,10 @@
 package com.cicidi.home.domain.vo;
 
-import com.cicidi.home.domain.resume.*;
+import com.cicidi.home.domain.resume.Bullet;
+import com.cicidi.home.domain.resume.Education;
+import com.cicidi.home.domain.resume.Organization;
+import com.cicidi.home.domain.resume.WorkExperience;
+import com.cicidi.home.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +16,45 @@ public class Item {
     private String imgSrc;
     private String title;
     private String subTitle;
+    private String subTitle_2;
     private List<Bullet> bulletList;
+
+    public Item(Organization organization) {
+        this.imgSrc = organization.getPhoto();
+
+
+        if (organization instanceof WorkExperience) {
+            this.title = ((WorkExperience) organization).getRole();
+            this.subTitle = organization.getName();
+            StringBuffer sb = new StringBuffer();
+            sb.append(organization.getStartName() + " - ");
+            sb.append(organization.getEndName() + " &#8226 ");
+            sb.append(organization.getLength() + " &#8226 ");
+            if (organization.getAddress().getCity() != null)
+                sb.append(organization.getAddress().getCity() + " , ");
+            sb.append(organization.getAddress().getState() + " , ");
+            sb.append(organization.getAddress().getCountry());
+            this.subTitle_2 = sb.toString();
+            this.bulletList = new ArrayList<>();
+            bulletList.addAll(((WorkExperience) organization).getBulletList());
+        } else {
+            this.title = organization.getName();
+            StringBuffer sb = new StringBuffer();
+            sb.append(((Education) organization).getDegree());
+            if (((Education) organization).getMajor() != null) {
+                sb.append(",");
+                sb.append(((Education) organization).getMajor());
+            }
+            this.subTitle = sb.toString();
+            if (organization.getStart() != null && organization.getEnd() != null) {
+                sb = new StringBuffer();
+                sb.append(DateUtil.getYear(organization.getStart()) + " - ");
+                sb.append(DateUtil.getYear(organization.getEnd()));
+                this.subTitle_2 = sb.toString();
+            }
+
+        }
+    }
 
     public String getImgSrc() {
         return imgSrc;
@@ -46,26 +88,12 @@ public class Item {
         this.bulletList = bulletList;
     }
 
-    public Item(Organization organization) {
-        this.imgSrc = organization.getPhoto();
-        this.title = organization.getName();
-        StringBuffer sb = new StringBuffer();
-        sb.append(organization.getStartName() + " - ");
-        sb.append(organization.getEndName() + " - ");
-        sb.append(organization.getLength() + " - ");
-        if (organization.getAddress().getCity() != null)
-            sb.append(organization.getAddress().getCity() + " - ");
-        sb.append(organization.getAddress().getState() + " - ");
-        this.subTitle = sb.toString();
-        this.bulletList = new ArrayList<>();
-        if (organization instanceof WorkExperience) {
-            bulletList.addAll(((WorkExperience) organization).getBulletList());
-        }
+
+    public String getSubTitle_2() {
+        return subTitle_2;
     }
 
-    public Item() {
-//        this.imgSrc =
-//        this.title =skillSet.getTechName();
-//        this.subTitle=skillSet.get
+    public void setSubTitle_2(String subTitle_2) {
+        this.subTitle_2 = subTitle_2;
     }
 }

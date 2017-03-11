@@ -169,4 +169,6 @@ public class Organization extends DatabaseEntity {
     public void setLength(String length) {
         //do nothing here
     }
+
+
 }

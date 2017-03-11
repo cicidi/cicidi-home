@@ -30,20 +30,20 @@
                 <name>GitHub</name>
                 <url>cicidi.github.com</url>
                 <pic></pic>
-                <icon>fa fa-github-alt</icon>
+                <!--<icon>fa fa-github-alt</icon>-->
             </link>
             <link>
-                <name>Gmail</name>
+                <name>Email</name>
                 <url>cicidi@gmail.com</url>
                 <pic></pic>
-                <icon>icon-mail</icon>
+                <!--<icon>icon-mail</icon>-->
             </link>
 
             <link>
                 <name>Linkedin</name>
                 <url>waltchen.linkedin</url>
                 <pic></pic>
-                <icon>fa fa-linkedin-square</icon>
+                <!--<icon>fa fa-linkedin-square</icon>-->
             </link>
         </linkList>
     </contact>
@@ -99,7 +99,7 @@
             <start>10-2015</start>
             <end>03-2017</end>
             <!--<length>1yrs 4mos</length>-->
-            <photo>img/Amazing_Bike_Stunt_Images_2Yz8z7k.jpg</photo>
+            <photo>img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary>I am good</summary>
             <role>Senior developer</role>
@@ -359,6 +359,40 @@
                         </bullet>
                         <bullet>
                             <content>Implement integration testing case..</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
+            <name>clinpharma clinical research llc</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Princeton</city>
+                <state>NJ</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>06-2012</start>
+            <end>05-2013</end>
+            <!--<length></length>-->
+            <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
+            <photo>
+                img/resume_photo/clinpharma.jpg
+            </photo>
+            <icon>
+                https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
+            </icon>
+            <summary>I like macbook</summary>
+            <role>Java Developer</role>
+            <bulletList>
+                <bullet>
+                    <content>Technology training</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Create various application using Spring, Hibernate, Struts ,JSF
+                            </content>
                         </bullet>
                     </bulletList>
                 </bullet>
