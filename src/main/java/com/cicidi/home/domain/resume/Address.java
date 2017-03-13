@@ -3,6 +3,8 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.social.linkedin.api.Company;
+import org.springframework.social.linkedin.api.Location;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
@@ -36,6 +38,26 @@ public class Address extends DatabaseEntity {
     @XmlTransient
     @JsonBackReference
     private Contact contact;
+
+
+    public Address() {
+        super();
+    }
+
+    public Address(Location location) {
+        super();
+        this.setCity(location.getName());
+        this.setCountry(location.getCountry());
+    }
+
+    public Address(Company company) {
+        super();
+        if (company.getLocations() != null && company.getLocations().size() > 0) {
+            this.setCity(company.getLocations().get(0).getAddress().getCity());
+            this.setCity(company.getLocations().get(0).getAddress().getStreet1());
+            this.setZipCode(company.getLocations().get(0).getAddress().getPostalCode());
+        }
+    }
 
     public String getNumber() {
         return number;

@@ -1,6 +1,7 @@
 package com.cicidi.home.domain.vo;
 
 import com.cicidi.home.domain.resume.Profile;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,10 @@ public class Album {
         this.itemList = new ArrayList<>();
         itemList.addAll(profile.getWorkExperienceList().stream().map(Item::new).collect(Collectors.toList()));
         itemList.addAll(profile.getEducationList().stream().map(Item::new).collect(Collectors.toList()));
+
+    }
+
+    public Album(LinkedInProfileFull linkedInProfileFull) {
 
     }
 

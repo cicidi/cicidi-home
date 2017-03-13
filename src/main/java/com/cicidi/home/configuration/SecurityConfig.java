@@ -61,14 +61,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests().antMatchers("/route", "/login**", "/option", "/signin/**",
+        http.antMatcher("/**").authorizeRequests().antMatchers("/route", "/login**", "/option",
                 "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin", "/resumeProfile",
                 "/img/**", "/js/**", "/font/**", "/css/**", "/owl-carousel/**").permitAll().anyRequest()
                 .authenticated().and()
                 .formLogin()
                 .loginPage("/option")
                 .loginProcessingUrl("/signin/authenticate")
-                .defaultSuccessUrl("/connect")
+//                .defaultSuccessUrl("/connect")
+                .defaultSuccessUrl("/option")
                 .failureUrl("/signin?param.error=bad_credentials")
                 .and()
                 .logout()

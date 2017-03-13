@@ -8,6 +8,7 @@ import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
 import com.google.maps.model.PlacesSearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -97,6 +98,16 @@ public class GoogleMapService {
         Places places = null;
         try {
             places = new Places(this.getGeoData(profile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return places;
+    }
+
+    public Places getPlaces(LinkedInProfileFull linkedInProfileFull) {
+        Places places = null;
+        try {
+            places = new Places(this.getGeoData(null));
         } catch (Exception e) {
             e.printStackTrace();
         }

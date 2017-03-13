@@ -131,11 +131,10 @@ hr {
 }
 
 /* home section */
-#home #login-page {
-    background: url('../img/landscape-photos.jpg') 50% 0 repeat-y fixed;
+.back-ground {
     -webkit-background-size: cover;
     background-size: cover;
-    background-position: center;
+    background: url('../img/landscape-photos.jpg') repeat-y fixed center;
     color: #ffffff;
     display: -webkit-box;
     display: -webkit-flex;

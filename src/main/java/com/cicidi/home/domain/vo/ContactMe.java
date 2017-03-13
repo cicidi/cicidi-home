@@ -1,6 +1,7 @@
 package com.cicidi.home.domain.vo;
 
 import com.cicidi.home.domain.resume.Profile;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +19,24 @@ public class ContactMe {
 
     public ContactMe(Profile profile) {
         this.profileImg = profile.getFaceImg();
-        this.fullAddress = profile.getContact().getAddress().getFullAddress();
-        this.country = profile.getContact().getAddress().getCountry();
-        this.email = profile.getContact().getEmail();
-        linkVoList = new ArrayList<>();
-        linkVoList.addAll(profile.getContact().getLinkList().stream().map(LinkVo::new).collect(Collectors.toList()));
+        if (profile.getContact() != null) {
+            if (profile.getContact().getAddress() != null) {
+                this.fullAddress = profile.getContact().getAddress().getFullAddress();
+                this.country = profile.getContact().getAddress().getCountry();
+            }
+            this.email = profile.getContact().getEmail();
+            if (profile.getContact().getLinkList() != null) {
+                linkVoList = new ArrayList<>();
+                linkVoList.addAll(profile.getContact().getLinkList().stream().map(LinkVo::new).collect(Collectors.toList()));
+            }
+        }
+    }
+
+    public ContactMe(LinkedInProfileFull linkedInProfileFull) {
+        this.profileImg = linkedInProfileFull.getProfilePictureUrl();
+        this.fullAddress = linkedInProfileFull.getLocation().getName();
+        this.country = linkedInProfileFull.getLocation().getCountry();
+        this.email = linkedInProfileFull.getEmailAddress();
     }
 
     public String getProfileImg() {

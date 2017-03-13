@@ -60,10 +60,8 @@
                 <zipCode></zipCode>
             </address>
             <start>08-2010</start>
-            <end>04-2012</end>
             <startName>August 2010</startName>
             <endName>April 2012</endName>
-            <length>1yr 8mos</length>
             <photo>img/resume_photo/uf_pic.jpg</photo>
             <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
             <major>Information Systems and Operations Management</major>
@@ -80,10 +78,8 @@
                 <zipCode></zipCode>
             </address>
             <start>09-2004</start>
-            <end>06-2008</end>
             <startName>September 2004</startName>
             <endName>June 2008</endName>
-            <length>3yrs 9mos</length>
             <photo>img/resume_photo/DSC_0197.jpg</photo>
             <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
             <major>Business</major>
@@ -102,10 +98,8 @@
                 <zipCode></zipCode>
             </address>
             <start>10-2015</start>
-            <end>03-2017</end>
             <startName>October 2015</startName>
             <endName>March 2017</endName>
-            <length>1yr 5mos</length>
             <photo>img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary>I am good</summary>
@@ -174,10 +168,8 @@
                 <zipCode></zipCode>
             </address>
             <start>04-2015</start>
-            <end>10-2015</end>
             <startName>April 2015</startName>
             <endName>October 2015</endName>
-            <length>6mos</length>
             <photo>
                 img/resume_photo/Apple_cut_2.jpg
             </photo>
@@ -238,10 +230,8 @@
                 <zipCode></zipCode>
             </address>
             <start>05-2014</start>
-            <end>04-2015</end>
             <startName>May 2014</startName>
             <endName>April 2015</endName>
-            <length>11mos</length>
             <photo>
                 img/resume_photo/huawei_cut_2.jpg
             </photo>
@@ -295,10 +285,8 @@
                 <zipCode></zipCode>
             </address>
             <start>05-2013</start>
-            <end>05-2014</end>
             <startName>May 2013</startName>
             <endName>May 2014</endName>
-            <length>1yr</length>
             <photo>
                 img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
             </photo>
@@ -350,10 +338,8 @@
                 <zipCode></zipCode>
             </address>
             <start>06-2012</start>
-            <end>05-2013</end>
             <startName>June 2012</startName>
             <endName>May 2013</endName>
-            <length>11mos</length>
             <photo>
                 img/resume_photo/clinpharma.jpg
             </photo>

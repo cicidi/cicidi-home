@@ -1,8 +1,10 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
+import com.cicidi.home.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.social.linkedin.api.Position;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -35,6 +37,26 @@ public class WorkExperience extends Organization implements Comparable<WorkExper
     @XmlTransient
     @JsonBackReference(value = "profile_workExperience")
     private Profile profile;
+
+    public WorkExperience() {
+        super();
+    }
+
+    public WorkExperience(Position position) {
+        super();
+        this.setSummary(position.getSummary());
+        this.setRole(position.getTitle());
+        this.setName(position.getCompany().getName());
+        this.setIcon(position.getCompany().getLogoUrl());
+        this.setAddress(new Address(position.getCompany()));
+//        position.get
+        if (position.getStartDate() != null) {
+            this.setStart(DateUtil.convert(position.getStartDate()));
+        }
+        if (position.getEndDate() != null) {
+            this.setStart(DateUtil.convert(position.getEndDate()));
+        }
+    }
 
     @XmlElement
     public String getSummary() {

@@ -45,6 +45,16 @@ public class Bullet extends DatabaseEntity {
     @JsonBackReference
     private WorkExperience workExperience;
 
+
+    public Bullet() {
+        super();
+    }
+
+    public Bullet(String summary) {
+        super();
+        this.content = summary;
+    }
+
     @XmlElement(name = Constants.content, required = false)
     @XmlJavaTypeAdapter(StringAdapter.class)
     public String getContent() {

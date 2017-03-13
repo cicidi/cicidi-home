@@ -1,6 +1,7 @@
 package com.cicidi.home.domain.vo;
 
 import com.cicidi.home.domain.resume.Profile;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 
 import java.util.List;
 
@@ -25,6 +26,15 @@ public class ProfileVo {
         this.album = new Album(profile);
         this.aboutMe = new AboutMe(profile);
         this.contactMe = new ContactMe(profile);
+    }
+
+    public ProfileVo(LinkedInProfileFull linkedInProfileFull) {
+//        Profile profile = new Profile(linkedInProfileFull);
+        this.firstName = linkedInProfileFull.getFirstName();
+        this.lastName = linkedInProfileFull.getLastName();
+        this.album = new Album(linkedInProfileFull);
+        this.aboutMe = new AboutMe(linkedInProfileFull);
+        this.contactMe = new ContactMe(linkedInProfileFull);
     }
 
     public String getFirstName() {

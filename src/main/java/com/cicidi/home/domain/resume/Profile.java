@@ -3,9 +3,12 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Position;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,6 +55,10 @@ public class Profile extends DatabaseEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<SkillSet> skillSets;
+
+    @XmlTransient
+    @Transient
+    private LinkedInProfileFull linkedInProfileFull;
 
     @XmlElement
     public String getFirstName() {
@@ -157,5 +164,45 @@ public class Profile extends DatabaseEntity {
             }
         }
         return this;
+    }
+
+
+    public Profile() {
+        super();
+    }
+
+    public Profile(LinkedInProfileFull linkedInProfileFull) {
+        super();
+        this.setLinkedInProfileFull(linkedInProfileFull);
+        this.setFirstName(linkedInProfileFull.getFirstName());
+        this.setLastName(linkedInProfileFull.getLastName());
+        this.setFaceImg(linkedInProfileFull.getProfilePictureUrl());
+        this.setContact(new Contact(linkedInProfileFull));
+        List<Education> educationList = new ArrayList<>();
+        List<org.springframework.social.linkedin.api.Education> educations = linkedInProfileFull.getEducations();
+        if (educations != null)
+            for (org.springframework.social.linkedin.api.Education education : educations) {
+                Education edu = new Education(education);
+                educationList.add(edu);
+            }
+        this.setEducationList(educationList);
+
+        List<WorkExperience> workExperienceList = new ArrayList<>();
+        List<Position> positions = linkedInProfileFull.getPositions();
+        if (positions != null)
+            for (Position position : positions) {
+                WorkExperience workExperience = new WorkExperience(position);
+                workExperienceList.add(workExperience);
+            }
+        this.setWorkExperienceList(workExperienceList);
+
+    }
+
+    public LinkedInProfileFull getLinkedInProfileFull() {
+        return linkedInProfileFull;
+    }
+
+    public void setLinkedInProfileFull(LinkedInProfileFull linkedInProfileFull) {
+        this.linkedInProfileFull = linkedInProfileFull;
     }
 }
