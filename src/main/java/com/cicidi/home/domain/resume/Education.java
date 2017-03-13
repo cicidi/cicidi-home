@@ -1,6 +1,7 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.util.Constants;
+import com.cicidi.home.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Calendar;
 
 /**
  * Created by cicidi on 2/18/17.
@@ -33,6 +35,25 @@ public class Education extends Organization {
     @XmlTransient
     @JsonBackReference(value = "profile_education")
     private Profile profile;
+
+    public Education() {
+        super();
+    }
+
+    public Education(org.springframework.social.linkedin.api.Education education) {
+        super();
+        this.setName(education.getSchoolName());
+        this.setDegree(education.getDegree());
+        Calendar calendar = Calendar.getInstance();
+        if (education.getStartDate() != null) {
+            this.setStart(DateUtil.convert(education.getStartDate()));
+        }
+        if (education.getEndDate() != null) {
+            this.setStart(DateUtil.convert(education.getEndDate()));
+        }
+
+
+    }
 
     @XmlElement
     public String getMajor() {

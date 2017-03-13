@@ -4,6 +4,7 @@ import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @Entity
 @XmlRootElement(name = Constants.contact)
 //@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {Constants.phone, Constants.email,Constants.address, Constants.linkList})
+@XmlType(propOrder = {Constants.phone, Constants.email, Constants.address, Constants.linkList})
 public class Contact extends DatabaseEntity {
 
     @XmlTransient
@@ -40,6 +41,19 @@ public class Contact extends DatabaseEntity {
     @JoinColumn(name = "profile_id")
     @JsonBackReference
     private Profile profile;
+
+    public Contact() {
+        super();
+    }
+
+    public Contact(LinkedInProfileFull linkedInProfileFull) {
+        super();
+        this.setEmail(linkedInProfileFull.getEmailAddress());
+        if (linkedInProfileFull.getPhoneNumbers() != null && linkedInProfileFull.getPhoneNumbers().size() > 0)
+            this.setPhone(linkedInProfileFull.getPhoneNumbers().get(0).getPhoneNumber());
+        if (linkedInProfileFull.getLocation() != null)
+            this.setAddress(new Address(linkedInProfileFull.getLocation()));
+    }
 
     @XmlElement
     public String getPhone() {

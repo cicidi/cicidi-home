@@ -69,7 +69,7 @@ public class SignupController {
         if (account != null) {
             SignInUtils.signin(account.getUsername());
             providerSignInUtils.doPostSignUp(account.getUsername(), request);
-            return "redirect:/";
+            return "redirect:/option";
         }
         return null;
     }

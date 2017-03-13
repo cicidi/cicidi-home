@@ -9,7 +9,10 @@ import com.cicidi.home.service.GoogleMapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.linkedin.api.LinkedIn;
+import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +38,8 @@ class HomeController {
     @Autowired
     EntityService entityService;
 
+    @Autowired
+    ConnectionRepository connectionRepository;
 
     // spring data rest use profile as data profile
     @GetMapping("/resumeProfile")
@@ -52,6 +57,23 @@ class HomeController {
         model.addAttribute("profileVo", profileVo);
 //        model.addAttribute("webLogList", gitHubService.createLog());
 //        model.addAttribute("geoData", mapper.writeValueAsString(googleMapService.getGeoData(profile)));
+        return "profile";
+
+    }
+
+    @GetMapping("/linkedinProfile")
+    String linkedinProfile(Model model, HttpServletRequest request, Principal principal) throws Exception {
+
+        Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);
+        if (connection == null) {
+            return "redirect:/connect/linkedin";
+        }
+        String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
+        LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
+        ProfileVo profileVo = new ProfileVo(linkedInProfileFull);
+        profileVo.setWebLogList(gitHubService.createLog());
+        profileVo.setPlaces(googleMapService.getPlaces(linkedInProfileFull));
+        model.addAttribute("profileVo", profileVo);
         return "profile";
 
     }

@@ -5,9 +5,13 @@ import com.cicidi.home.domain.resume.Education;
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.WorkExperience;
 import com.cicidi.home.util.DateUtil;
+import org.springframework.social.linkedin.api.LinkedInDate;
+import org.springframework.social.linkedin.api.Position;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by cicidi on 2/17/2017.
@@ -21,22 +25,21 @@ public class Item {
 
     public Item(Organization organization) {
         this.imgSrc = organization.getPhoto();
-
-
         if (organization instanceof WorkExperience) {
             this.title = ((WorkExperience) organization).getRole();
             this.subTitle = organization.getName();
             StringBuffer sb = new StringBuffer();
             sb.append(organization.getStartName() + " - ");
-            sb.append(organization.getEndName() + " &#8226 ");
-            sb.append(organization.getLength() + " &#8226 ");
+            sb.append(organization.getEndName() + " . ");
+            sb.append(organization.getLength() + " . ");
             if (organization.getAddress().getCity() != null)
                 sb.append(organization.getAddress().getCity() + " , ");
             sb.append(organization.getAddress().getState() + " , ");
             sb.append(organization.getAddress().getCountry());
             this.subTitle_2 = sb.toString();
             this.bulletList = new ArrayList<>();
-            bulletList.addAll(((WorkExperience) organization).getBulletList());
+            if (((WorkExperience) organization).getBulletList() != null)
+                bulletList.addAll(((WorkExperience) organization).getBulletList());
         } else {
             this.title = organization.getName();
             StringBuffer sb = new StringBuffer();
@@ -54,6 +57,29 @@ public class Item {
             }
 
         }
+    }
+
+    public Item(Position position) {
+        this.title = position.getTitle();
+        this.subTitle = position.getCompany().getName();
+        StringBuffer sb = new StringBuffer();
+        sb.append(DateUtil.convertToString(position.getStartDate()) + " - ");
+        if (position.getStartDate() != null && position.getEndDate() == null) {
+            sb.append("Present" + " . ");
+            Calendar c = Calendar.getInstance();
+            sb.append(DateUtil.calLength(position.getStartDate(), new LinkedInDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH))) + " . ");
+        } else {
+            sb.append(DateUtil.convertToString(position.getEndDate()) + " . ");
+            sb.append(DateUtil.calLength(position.getStartDate(), position.getEndDate()) + " . ");
+        }
+        if (position.getCompany().getLocations() != null && position.getCompany().getLocations().size() > 0) {
+            sb.append(position.getCompany().getLocations().get(0).getAddress().getCity() + " , ");
+        } else {
+            sb.append(((Map) position.getExtraData().get("location")).get("name") + " , ");
+        }
+        this.subTitle_2 = sb.toString();
+        this.bulletList = new ArrayList<>();
+        bulletList.add(new Bullet(position.getSummary()));
     }
 
     public String getImgSrc() {

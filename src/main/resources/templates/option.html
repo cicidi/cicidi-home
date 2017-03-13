@@ -3,8 +3,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:social="http://spring.io/springsocial"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+        >
 <head>
     <meta charset="utf-8"/>
     <title>Ganshaa</title>
@@ -29,7 +28,7 @@
 <!-- home section -->
 
 
-<section id="home" class="parallax-section" background="img/home-bg.jpg">
+<section id="home" class="parallax-section back-ground" background="img/home-bg.jpg">
 
     <div class="container">
         <div class="row">
@@ -49,7 +48,7 @@
 
                     <div id="yourProfileBth" social:connected="linkedin"
                          th:if="${#httpServletRequest.remoteUser != null}">
-                        <a th:href="@{/linkedin}" class="smoothScroll btn btn-default">Your Profile</a>
+                        <a href="/linkedinProfile" class="smoothScroll btn btn-default">Your Profile</a>
                         <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
                     </div>
 
