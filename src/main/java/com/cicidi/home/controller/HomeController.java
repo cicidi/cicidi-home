@@ -74,11 +74,11 @@ class HomeController {
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(linkedInProfileFull));
         model.addAttribute("profileVo", profileVo);
-        return "profile";
+        return "linkedinProfile";
 
     }
 
-    @GetMapping("/option")
+    @GetMapping("/home")
     String option(Model model, HttpServletRequest request, Principal principal) throws Exception {
         String name = null;
         if (principal != null) {
@@ -93,7 +93,6 @@ class HomeController {
         return "option";
 
     }
-
 
 //    private HomeViewObject createHomeViewObject() {
 //        HomeViewObject homeViewObject = new HomeViewObject();

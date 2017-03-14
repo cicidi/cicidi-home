@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/responsee.css"/>
     <link rel="stylesheet" href="css/core.css"/>
+    <link rel="stylesheet" href="css/linkedin-profile.css"/>
     <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
     <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
+
     <!-- CUSTOM STYLE -->
     <link rel="stylesheet" href="css/template-style.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,latin-ext'
@@ -51,6 +53,9 @@
                             <a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
                         </td>
                     </tr>
+                    <form th:action="@{/signout}" method="post" class="btn btn-primary">
+                        <button type="submit" name="signout"><i class="fa fa-sign-out"></i></button>
+                    </form>
                 </div>
 
             </div>
@@ -63,17 +68,18 @@
                     <span style="font-weight:bold" th:text="${profileVo.firstName}"></span> <span
                         th:text="${profileVo.lastName}"></span></p>
             </div>
-            <div class="top-nav s-12 l-10">
+            <div class="top-nav s-12 l-7">
                 <p class="nav-text">Menu</p>
                 <ul class="right">
                     <!--<li class="active-item"><a href="#carousel">Experience</a></li>-->
-                    <li><a href="#about-me">About ME</a></li>
+                    <li><a href="#about-me-linkedinProfile">About ME</a></li>
                     <!--<li><a href="#my-exp">Code demo</a></li>-->
                     <!--<li><a href="#features">TECHNOLOGY</a></li>-->
 
-                    <li><a href="#latest-news">Source Code</a></li>
+                    <!--<li><a href="#latest-news">Source Code</a></li>-->
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#map-block">PLACES</a></li>
+                    <li><a href="home">Back To Home</a></li>
                 </ul>
             </div>
         </div>
@@ -130,7 +136,7 @@
     <!--</div>-->
     <!--</div>-->
 
-    <div id="about-me">
+    <div id="about-me-linkedinProfile">
         <div id="first-block">
             <div class="line">
                 <h1 th:text="${profileVo.aboutMe.header}"></h1>
@@ -143,20 +149,20 @@
         <!--<div class="s-12 m-12 l-3 media-container">-->
         <!--<img th:src="${profileVo.aboutMe.img}" alt=""/>-->
         <!--</div>-->
-        <article class="s-12 m-9 l-6">
+        <article class="9">
             <h2>Experience</h2>
             <!--<h2 th:text="${profileVo.aboutMe.header}">Why I create this website</h2>-->
-            <div th:each="item,iterStat :${profileVo.aboutMe.itemList}">
-                <p th:text="${item.title}"></p>
+            <tr th:each="item,iterStat :${profileVo.aboutMe.itemList}">
+                <td><p class="about-me-title" th:text="${item.title}"/></td>
 
-                <p th:text="${item.subTitle}"></p>
+                <td><p class="about-me-p" th:text="${item.subTitle}"/></td>
 
-                <p th:text="${item.subTitle_2}"></p>
+                <td><p class="about-me-p" th:text="${item.subTitle_2}"/></td>
 
-                <div th:each="bullet,bulletStat:${item.bulletList}">
-                    <p th:text="${bullet.content}"></p>
-                </div>
-            </div>
+            <tr th:each="bullet,bulletStat:${item.bulletList}">
+                <td><p class="about-me-summary" th:text="${bullet.content}"/></td>
+            </tr>
+            </tr>
         </article>
     </div>
 
@@ -345,39 +351,39 @@
     <!--</div>-->
     <!--</div>-->
     <!-- LATEST NEWS -->
-    <div id="latest-news">
-        <div class="line">
-            <h2 class="section-title" style="color: #FFFFFF">Source Code</h2>
+    <!--<div id="latest-news">-->
+    <!--<div class="line">-->
+    <!--<h2 class="section-title" style="color: #FFFFFF">Source Code</h2>-->
 
-            <div class="margin">
-                <tr th:each="webLog:${profileVo.webLogList}">
-                    <td>
-                        <div class="s-12 m-6 l-6">
-                            <div class="s-12 l-2">
-                                <div class="news-date">
-                                    <p th:class="day" th:text="${webLog.day}"></p>
+    <!--<div class="margin">-->
+    <!--<tr th:each="webLog:${profileVo.webLogList}">-->
+    <!--<td>-->
+    <!--<div class="s-12 m-6 l-6">-->
+    <!--<div class="s-12 l-2">-->
+    <!--<div class="news-date">-->
+    <!--<p th:class="day" th:text="${webLog.day}"></p>-->
 
-                                    <p th:class="month" th:text="${webLog.month}"></p>
+    <!--<p th:class="month" th:text="${webLog.month}"></p>-->
 
-                                    <p th:class="year" th:text="${webLog.year}"></p>
-                                </div>
-                            </div>
-                            <div class="s-12 l-10">
-                                <div class="news-text">
-                                    <h4 th:text="${webLog.title}">Git check it</h4>
+    <!--<p th:class="year" th:text="${webLog.year}"></p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="s-12 l-10">-->
+    <!--<div class="news-text">-->
+    <!--<h4 th:text="${webLog.title}">Git check it</h4>-->
 
-                                    <a th:href="${webLog.link}">
-                                        <p th:text="${webLog.message}"></p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <!--<a th:href="${webLog.link}">-->
+    <!--<p th:text="${webLog.message}"></p>-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</td>-->
+    <!--</tr>-->
 
-            </div>
-        </div>
-    </div>
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <!-- CONTACT -->
     <div id="contact">
         <div class="line">
@@ -403,7 +409,7 @@
 
                         <p>
                             <span style="font-weight:bold">Country:</span>
-                            <span th:text="${profileVo.contactMe.country}"></span>
+                            <span th:text="${#strings.toUpperCase(profileVo.contactMe.country)}"></span>
                         </p>
 
                         <p>
@@ -457,10 +463,6 @@
         <div class="s-12 l-6">
             <p>Website create by Walter Chen</p>
 
-        </div>
-        <div class="s-12 l-6">
-            <a class="right" href="http://www.ganshaa.com" title="cicidi - lightweight responsive framework">Design
-                and coding<br/> Walter Chen</a>
         </div>
     </div>
 </footer>
