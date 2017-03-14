@@ -195,7 +195,7 @@ p.logo strong {
     font-weight: 300;
     margin: 1px 0;
     max-width: 600px;
-    padding: 5px 40px;
+    padding: 5px 20px;
     width: 100%;
 }
 
@@ -353,6 +353,8 @@ article p, article li {
     font-size: 0.85em;
     /*opacity: 0.7;*/
     background: rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    line-height: 200%;
 }
 
 article ul {
@@ -693,7 +695,13 @@ footer p, footer a:visited, footer a, footer a:hover {
     }
 
     #about-me article {
-        padding: 4em 2.5em;
+        /*padding: 4em 2.5em;*/
+        padding: 0em 1em;
+    }
+
+    #about-me-linkedinProfile article {
+        /*padding: 4em 2.5em;*/
+        padding: 0em 1em;
     }
 }
 

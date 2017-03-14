@@ -11,7 +11,7 @@ import java.util.List;
  * Created by cicidi on 2/26/2017.
  */
 @Repository
-@RepositoryRestResource(collectionResourceRel = "profile", path = "resumeProfile")
+@RepositoryRestResource(collectionResourceRel = "profile", path = "/api/resume")
 public interface ProfileRepository extends CrudRepository<Profile, Long> {
     List<Profile> findByLastNameAndFirstNameAllIgnoreCase(String lastName, String firstName);
 }

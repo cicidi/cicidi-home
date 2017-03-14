@@ -73,9 +73,9 @@ public class Item {
             sb.append(DateUtil.calLength(position.getStartDate(), position.getEndDate()) + " . ");
         }
         if (position.getCompany().getLocations() != null && position.getCompany().getLocations().size() > 0) {
-            sb.append(position.getCompany().getLocations().get(0).getAddress().getCity() + " , ");
+            sb.append(position.getCompany().getLocations().get(0).getAddress().getCity());
         } else {
-            sb.append(((Map) position.getExtraData().get("location")).get("name") + " , ");
+            sb.append(((Map) position.getExtraData().get("location")).get("name"));
         }
         this.subTitle_2 = sb.toString();
         this.bulletList = new ArrayList<>();
