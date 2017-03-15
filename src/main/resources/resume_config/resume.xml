@@ -4,19 +4,30 @@
     <firstName>Walter</firstName>
     <lastName>Chen</lastName>
     <faceImg>
-        https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/4qpN75xnj-LChnd3LF1USEz6jJaMmmabemR0RtLgVHApX92IB?viewBox=1920%2C1920
+        img/resume_photo/face.jpg
     </faceImg>
     <objective>
         <title></title>
         <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
-        <interests>I am interest in any kind of new technolgoy</interests>
-        <whyCreateThisPage></whyCreateThisPage>
+        <interests>I am interest in any kind of new technology</interests>
+        <whyCreateThisPage>As a developer, I am always asking myself how can I make things different, and better. If an
+            idea comes, don't hesitate to work on it. Instead of wasting time thinking if this
+            a stupid idea, or is this achievable, just open my laptop, and start. There is no cost.
+            When I interview some candidates, I found it is not as simple as running a Linux command line grep
+            "knowledge" someone_resume >/output to figure out is this candidate a good fit?
+            The same problem to my interviewer,how can he/she know and trust I can handle the job.
+            Then there comes an idea, why not create a website post my resume with my knowledge. List all I have done ,
+            and you know what I can do.
+            On the other hand, I will keep updating this website with more features using updated technology. So I can
+            keep practicing, and keep learning.
+        </whyCreateThisPage>
         <contentImg>
-            https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/Q4ZjXms6SzKjqc029MHelVbZEO6r2sx5pVM4t0cT1aopX92IB?viewBox=3840%2C5120
+            img/resume_photo/plant_2.jpg
         </contentImg>
     </objective>
     <contact>
         <phone></phone>
+        <email>cicidi@gmail.com</email>
         <address>
             <number></number>
             <street></street>
@@ -28,22 +39,16 @@
         <linkList>
             <link>
                 <name>GitHub</name>
-                <url>cicidi.github.com</url>
+                <url>https://github.com/cicidi/cicidi-home</url>
                 <pic></pic>
-                <icon>fa fa-github-alt</icon>
-            </link>
-            <link>
-                <name>Gmail</name>
-                <url>cicidi@gmail.com</url>
-                <pic></pic>
-                <icon>icon-mail</icon>
+                <!--<icon>fa fa-github-alt</icon>-->
             </link>
 
             <link>
                 <name>Linkedin</name>
-                <url>waltchen.linkedin</url>
+                <url>https://www.linkedin.com/in/walter-chen-0b7558122/</url>
                 <pic></pic>
-                <icon>fa fa-linkedin-square</icon>
+                <!--<icon>fa fa-linkedin-square</icon>-->
             </link>
         </linkList>
     </contact>
@@ -61,7 +66,7 @@
             <start>08-2010</start>
             <end>04-2012</end>
             <!--<length></length>-->
-            <photo></photo>
+            <photo>img/resume_photo/uf_pic.jpg</photo>
             <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
             <major>Information Systems and Operations Management</major>
             <degree>Master</degree>
@@ -79,7 +84,7 @@
             <start>09-2004</start>
             <end>06-2008</end>
             <!--<length></length>-->
-            <photo></photo>
+            <photo>img/resume_photo/DSC_0197.jpg</photo>
             <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
             <major>Business</major>
             <degree>Bachelor</degree>
@@ -99,7 +104,7 @@
             <start>10-2015</start>
             <end>03-2017</end>
             <!--<length>1yrs 4mos</length>-->
-            <photo>img/Amazing_Bike_Stunt_Images_2Yz8z7k.jpg</photo>
+            <photo>img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary>I am good</summary>
             <role>Senior developer</role>
@@ -191,7 +196,7 @@
             <!--<length>6 month</length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                https://content-na.drive.amazonaws.com/cdproxy/templink/0dBPKPPZ0YeQ123xacc9zKoHQ_psh8oJMacmpTuAowMpX92IB?viewBox=4800%2C2400
+                img/resume_photo/Apple_cut_2.jpg
             </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
@@ -259,7 +264,7 @@
             <end>04-2015</end>
             <!--<photo>img/tree-247122_azLgBTw.jpg</photo>-->
             <photo>
-                https://cnt-00.content-na.drive.amazonaws.com/cdproxy/templink/qE7mlwyTIhhDmRxfVaT70ySVnu4Zkb5z8RqMAMQoVRcpX92IB?viewBox=4923%2C2400
+                img/resume_photo/huawei_cut_2.jpg
             </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
             <summary>I like macbook</summary>
@@ -320,7 +325,7 @@
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                https://cnt-01.content-na.drive.amazonaws.com/cdproxy/templink/YG8g3dIgVJPbfXcLyJut1bMSOovKJJtWGxewg7m3BkQpX92IB?viewBox=4800%2C2400
+                img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary>I like macbook</summary>
@@ -361,6 +366,34 @@
                             <content>Implement integration testing case..</content>
                         </bullet>
                     </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
+            <name>clinpharma clinical research llc</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Princeton</city>
+                <state>NJ</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>06-2012</start>
+            <end>05-2013</end>
+            <!--<length></length>-->
+            <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
+            <photo>
+                img/resume_photo/clinpharma.jpg
+            </photo>
+            <icon>
+                https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
+            </icon>
+            <summary>I like macbook</summary>
+            <role>Java Developer</role>
+            <bulletList>
+                <bullet>
+                    <content>Create various web application using Spring, Hibernate, Struts ,JSF</content>
                 </bullet>
             </bulletList>
         </workExperience>

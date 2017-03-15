@@ -1,7 +1,6 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
-import com.cicidi.home.domain.resume.Contact;
 import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -15,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * Created by cicidi on 2/18/2017.
  */
 @Entity
-@XmlType(propOrder = {Constants.name, "url", "pic", Constants.icon})
+@XmlType(propOrder = {Constants.name, Constants.url, Constants.pic})
 public class Link extends DatabaseEntity {
     private String name;
 
@@ -23,11 +22,11 @@ public class Link extends DatabaseEntity {
 
     private String pic;
 
-    private String icon;
+//    private String icon;
 
     //    @ManyToOne(fetch = FetchType.LAZY)
     @ManyToOne
-    @JoinColumn(name = "contact")
+    @JoinColumn(name = Constants.contact)
     @XmlTransient
     @JsonBackReference
     private Contact contact;
@@ -56,13 +55,13 @@ public class Link extends DatabaseEntity {
         this.pic = pic;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+//    public String getIcon() {
+//        return icon;
+//    }
+//
+//    public void setIcon(String icon) {
+//        this.icon = icon;
+//    }
 
     public Contact getContact() {
         return contact;

@@ -1,7 +1,5 @@
 package com.cicidi.home.domain.vo;
 
-import java.util.List;
-
 /**
  * Created by cicidi on 2/16/2017.
  */
@@ -11,6 +9,7 @@ public class HomeViewObject {
 //    private String link_2 = "https://lh4.googleusercontent.com/vYrWGI0Bay1MQAKeXQvAAeb-l-dvmmPzLwjKmDlfV1HP_ywr_zUzV1p0acosLAPGLqZf58TJbmU9Z7Q=w1920-h984-rw";
 //    private String link_3 = "https://lh6.googleusercontent.com/eUFkzmNbuIfVkBJm22mq0q5i_DKvYk4VGqrIvPRrB9gKaSpqZd9UyvMwN18jfp0y-Ci6V0GdiemrMz4=w1920-h984-rw";
     private OwlCarousel owlCarousel;
+    private AboutMe aboutMe;
     private Feature feature;
     private Objective objective;
 

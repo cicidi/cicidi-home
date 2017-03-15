@@ -65,6 +65,9 @@ public class Constants {
     public static final String state = "state";
     public static final String country = "country";
     public static final String zipCode = "zipCode";
-
+    public static final String url = "url";
+    public static final String pic = "pic";
+    public static final String email = "email";
+    public static final String present = "present";
 }
 

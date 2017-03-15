@@ -1,7 +1,9 @@
-package com.cicidi.home;
+package com.cicidi.home.configuration;
 
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.service.GitHubService;
+import com.cicidi.home.service.GoogleMapService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.maps.GeoApiContext;
 import org.eclipse.egit.github.core.service.CommitService;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,9 +45,19 @@ public class ServiceConfiguration {
     }
 
     @Bean
+    GoogleMapService googleMapService() {
+        return new GoogleMapService();
+    }
+
+    @Bean
     public GeoApiContext getGeoApiContext() {
         return new GeoApiContext().setApiKey(googleApiKey);
     }
+
+//    @Bean
+//    ObjectMapper objectMapper() {
+//        return new ObjectMapper();
+//    }
 
     @PersistenceContext
     private EntityManager em;

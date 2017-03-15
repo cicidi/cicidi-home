@@ -2,6 +2,8 @@ package com.cicidi.home.service;
 
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.domain.vo.Places;
+import com.cicidi.home.domain.vo.ProfileVo;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
@@ -46,6 +48,7 @@ public class GoogleMapService {
         return geoMap;
     }
 
+
     public PlacesSearchResponse googleMapTextSearch(String query) throws Exception {
         TextSearchRequest textSearchRequest = PlacesApi.textSearchQuery(context, query);
         PlacesSearchResponse response = textSearchRequest.await();
@@ -89,5 +92,25 @@ public class GoogleMapService {
         geoMap.put("Huawei", geoData);
         return geoMap;
 
+    }
+
+    public Places getPlaces(Profile profile) {
+        Places places = null;
+        try {
+            places = new Places(this.getGeoData(profile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return places;
+    }
+
+    public Places getPlaces(ProfileVo profileVo) {
+        Places places = null;
+        try {
+            places = new Places(this.getGeoData(null));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return places;
     }
 }

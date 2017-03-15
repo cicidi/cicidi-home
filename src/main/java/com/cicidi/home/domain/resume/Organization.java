@@ -3,6 +3,7 @@ package com.cicidi.home.domain.resume;
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.io.DateAdapter;
 import com.cicidi.home.util.Constants;
+import com.cicidi.home.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -25,9 +26,6 @@ import java.util.Date;
 @XmlTransient
 //@XmlAccessorType(XmlAccessType.FIELD)
 public class Organization extends DatabaseEntity {
-    @XmlTransient
-    private String monthNames[] = {"January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"};
 
     @XmlTransient
     protected String name;
@@ -81,9 +79,9 @@ public class Organization extends DatabaseEntity {
         this.start = start;
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(start);
-        this.startName = monthNames[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.YEAR);
+        this.startName = DateUtil.convertToString(start);
         if (this.end != null) {
-            this.calLength();
+            DateUtil.calLength(this.start, this.end);
         }
     }
 
@@ -94,12 +92,9 @@ public class Organization extends DatabaseEntity {
     }
 
     public void setEnd(Date end) {
-        this.end = end;
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(end);
-        this.endName = monthNames[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.YEAR);
+        this.endName = DateUtil.convertToString(end);
         if (this.start != null) {
-            this.calLength();
+            DateUtil.calLength(this.start, this.end);
         }
     }
 
@@ -136,37 +131,10 @@ public class Organization extends DatabaseEntity {
         return length;
     }
 
-    private void calLength() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(this.start);
-        int year_start = calendar.get(Calendar.YEAR);
-        int month_start = calendar.get(Calendar.MONTH);
-        calendar.setTime(this.end);
-        int year_end = calendar.get(Calendar.YEAR);
-        int month_end = calendar.get(Calendar.MONTH);
-        int i = (year_end - year_start) * 12 + month_end - month_start;
-        int y = i / 12;
-        int m = i % 12;
-        StringBuilder sb = new StringBuilder();
-        if (y > 0) {
-            String yrs = "yrs ";
-            if (y == 1) {
-                yrs = "yr ";
-            }
-            sb.append(y + yrs);
-        }
-        if (m > 0) {
-            String mos = "mos ";
-            if (m == 1) {
-                mos = "mo ";
-            }
-            sb.append(m + mos);
-        }
-        this.length = sb.toString().trim();
-    }
-
 
     public void setLength(String length) {
         //do nothing here
     }
+
+
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"/>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:social="http://spring.io/springsocial"
+        >
+<head>
+    <meta charset="utf-8"/>
+    <title>Ganshaa</title>
+
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/nivo-lightbox.css"/>
+    <link rel="stylesheet" href="css/default.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/option.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'/>
+
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui.min.js"></script>
+</head>
+<body>
+<!-- home section -->
+
+
+<section id="home" class="parallax-section back-ground" background="img/home-bg.jpg">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                        <span th:if="${#httpServletRequest.remoteUser == null}">
+                            <h1>In Chinese,<span class="ganshaa_bold">Ganshaa</span> means</h1>
+
+                            <h2>Hey, what's up.</h2>
+                        </span>
+                        <span th:if="${#httpServletRequest.remoteUser != null}">
+                            <h1><span class="ganshaa">Ganshaa</span></h1>
+
+                            <h2 th:text="${name}"></h2>
+                        </span>
+
+                <div id="btnList">
+
+                    <div id="yourProfileBth" social:connected="linkedin"
+                         th:if="${#httpServletRequest.remoteUser != null}">
+                        <a href="/linkedinProfile" class="smoothScroll btn btn-default">Your Profile</a>
+                        <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
+                    </div>
+
+
+                    <div id="myProfileBth">
+                        <a href="/resumeProfile" class="smoothScroll btn btn-default">My Profile </a>
+                    </div>
+
+
+                    <div id="linkedinBtnContainer" height="300" th:if="${#httpServletRequest.remoteUser == null}">
+                            <span id="loginViaBtn">
+                                <!-- <a  href="/login/linkedin" onmouseover="fadeinButton()" onmouseleave="fadeoutButton()"class="smoothScroll btn btn-default">Login via Linkedin</a> -->
+                                <a class="smoothScroll btn btn-default">Login via Linkedin</a>
+                                <span id="loginOnlyBtn" hidden="true">
+                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">Login Only</a>
+                                </span>
+                                <span id="signupBtn" hidden="true">
+                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignUp as admin</a>
+                                </span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div th:if="${#httpServletRequest.remoteUser != null}">-->
+            <!--&lt;!&ndash;<form action="/logout" th:action="@{/logout}" method="post" class="smoothScroll btn btn-default">Log&ndash;&gt;-->
+            <!--&lt;!&ndash;out&ndash;&gt;-->
+            <!--&lt;!&ndash;</form>&ndash;&gt;-->
+            <!--<a href="/logout" class="smoothScroll btn btn-default">Login out </a>-->
+            <!--</div>-->
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="./js/option.js"></script>
+</body>
+</html>

@@ -20,9 +20,11 @@ public class GitHubService {
 
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    ObjectMapper objectMapper;
 
     public List<RepositoryCommit> getGitCommits() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
+
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         List<RepositoryCommit> commitList = new ArrayList<>();
         try {

@@ -1,0 +1,56 @@
+.about-me-title {
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .85);
+    font-size: 17px;
+    padding: 1% 0 2px 2%
+}
+
+.about-me-p {
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .55);
+    padding: 5px 0 0 2%
+}
+
+.about-me-summary {
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif, Hiragino Kaku Gothic Pro, Meiryo, Hiragino Sans GB W3, Noto Naskh Arabic, Droid Arabic Naskh, Geeza Pro, Simplified Arabic, Noto Sans Thai, Thonburi, Dokchampa, Droid Sans Thai, Droid Sans Fallback, -apple-system, '.SFNSDisplay-Regular', Heiti SC, Microsoft Yahei, Segoe UI;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .55);
+    padding: 10px 0 1% 2%
+}
+
+.about-me-block {
+    min-width: 30%;
+    max-width: 80%;
+}
+
+#about-me-linkedinProfile {
+    /*background: none repeat scroll 0 0 #00283a;*/
+    background: none repeat scroll 0 0 #003463;
+    background: url(../img/golden-bridge.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    clear: both;
+    min-height: 600pt;
+    /*min-height: 850pt;*/
+}
+
+#about-me-linkedinProfile:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+#about-me-linkedinProfile article {
+    padding: 4em;
+}

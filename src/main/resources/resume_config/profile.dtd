@@ -12,9 +12,10 @@
                 <!ELEMENT whyCreateThisPage (#PCDATA)>
                 <!ELEMENT contentImg (#PCDATA)>
 
-        <!ELEMENT contact (phone, address, linkList)>
+        <!ELEMENT contact (phone,email, address, linkList)>
         <!ATTLIST contact type CDATA #IMPLIED>
                 <!ELEMENT phone (#PCDATA)>
+                <!ELEMENT email (#PCDATA)>
                 <!ELEMENT address (number, street, city, state,country,zipCode)>
                 <!ATTLIST address type CDATA #IMPLIED>
                         <!ELEMENT number (#PCDATA)>
@@ -25,7 +26,7 @@
                         <!ELEMENT zipCode (#PCDATA)>
                         <!ELEMENT linkList (link)>
                         <!ATTLIST linkList type CDATA #IMPLIED>
-                        <!ELEMENT link (name,url,pic,icon)>
+                        <!ELEMENT link (name,url,pic)>
                                 <!ELEMENT url (#PCDATA)>
                                 <!ELEMENT pic (#PCDATA)>
         <!ELEMENT educationList (education)>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<title>Sign Up</title>
+<head>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'/>
+
+    <!--<link rel="stylesheet" href="../static/css/login_style.css">-->
+    <link rel="stylesheet" href="css/login_style.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body class="parallax-section back-ground">
+<!--<section id="login" class="parallax-section back-ground" >-->
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in"><a th:href="@{/signin}" for="tab-1" class="tab">Sign
+        In</a></input>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" checked="true">
+        <lable for="tab-2" class="tab">Sign Up</lable>
+        </input>
+        <div class="login-form">
+            <div class="sign-up-htm">
+                <div th:if="${!#strings.isEmpty(message)}"
+                     th:class="${message.type.cssClass}"
+                     th:text="${message.text}">error message text
+                </div>
+                <form name="signup" id="signup" th:action="@{/signup}" method="post" th:object="${signupForm}">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+
+                    <div class="formInfo">
+                        <div class="error" th:if="${#fields.hasErrors('*')}">Unable to sign up. Please fix the errors
+                            below and resubmit.
+                        </div>
+                    </div>
+
+                    <fieldset class="fieldset" ckass="fieldset">
+                        <div class="group">
+                            <label for="firstName" class="label">First Name <span
+                                    th:if="${#fields.hasErrors('firstName')}" class="error"
+                                    th:text="${#fields.errors('firstName')[0]}">Error</span></label>
+                        </div>
+                        <div class="group">
+                            <input type="text" class="input" th:field="*{firstName}"/><br/>
+                            <label for="lastName" class="label">Last Name <span
+                                    th:if="${#fields.hasErrors('lastName')}" class="error"
+                                    th:text="${#fields.errors('lastName')[0]}">Error</span></label>
+                        </div>
+                        <div class="group">
+                            <input type="text" class="input" th:field="*{lastName}"/><br/>
+                            <label for="username" class="label">Username <span
+                                    th:if="${#fields.hasErrors('username')}" class="error"
+                                    th:text="${#fields.errors('username')[0]}">Error</span></label>
+                        </div>
+                        <div class="group">
+                            <input type="text" class="input" th:field="*{username}"/><br/>
+                            <label for="password" class="label">Password<br/><span
+                                    th:if="${#fields.hasErrors('password')}" class="error"
+                                    th:text="${#fields.errors('password')[0]}">Error</span></label>
+                            <input type="password" class="input" th:field="*{password}"/>
+                        </div>
+                        <br/>
+
+                        <div class="group">
+                            <button type="submit" class="sign-up-button" style="margin-left: auto;
+            margin-right: auto;"></button>
+                        </div>
+                    </fieldset>
+
+                </form>
+                <form name="lk_signin" id="lk_signin" th:action="@{/signin/linkedin}" method="POST">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+                    <!--<input type="hidden" name="scope" value="read_stream,user_posts,user_photos"></input>-->
+                    <!-- <button type="submit"><img th:src="@{/social/linkedin/signupwithlinkedin.png}"></img>
+                    </button> -->
+                    <button type="submit" class="linkedin-button"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

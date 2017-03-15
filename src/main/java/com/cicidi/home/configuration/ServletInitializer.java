@@ -1,5 +1,6 @@
-package com.cicidi.home;
+package com.cicidi.home.configuration;
 
+import com.cicidi.home.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
