@@ -75,7 +75,8 @@ public class Item {
         if (position.getCompany().getLocations() != null && position.getCompany().getLocations().size() > 0) {
             sb.append(position.getCompany().getLocations().get(0).getAddress().getCity());
         } else {
-            sb.append(((Map) position.getExtraData().get("location")).get("name"));
+            if (position.getExtraData() != null && position.getExtraData().get("location") != null)
+                sb.append(((Map) position.getExtraData().get("location")).get("name"));
         }
         this.subTitle_2 = sb.toString();
         this.bulletList = new ArrayList<>();

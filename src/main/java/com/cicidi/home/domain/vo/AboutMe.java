@@ -3,6 +3,7 @@ package com.cicidi.home.domain.vo;
 import com.cicidi.home.domain.resume.Link;
 import com.cicidi.home.domain.resume.Profile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,5 +93,12 @@ public class AboutMe {
 
     public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
+    }
+
+    public void addPositions(List<Position> positions) {
+        if (this.itemList == null) {
+            itemList = new ArrayList<>();
+        }
+        itemList.addAll(positions.stream().map(Item::new).collect(Collectors.toList()));
     }
 }

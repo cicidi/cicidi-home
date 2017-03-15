@@ -3,12 +3,12 @@ package com.cicidi.home.service;
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.Places;
+import com.cicidi.home.domain.vo.ProfileVo;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
 import com.google.maps.model.PlacesSearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public class GoogleMapService {
         return places;
     }
 
-    public Places getPlaces(LinkedInProfileFull linkedInProfileFull) {
+    public Places getPlaces(ProfileVo profileVo) {
         Places places = null;
         try {
             places = new Places(this.getGeoData(null));

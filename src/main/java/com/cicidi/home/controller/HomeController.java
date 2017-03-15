@@ -3,6 +3,7 @@ package com.cicidi.home.controller;
 import com.cicidi.home.domain.repository.AccountRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.ProfileVo;
+import com.cicidi.home.service.CrawlerService;
 import com.cicidi.home.service.EntityService;
 import com.cicidi.home.service.GitHubService;
 import com.cicidi.home.service.GoogleMapService;
@@ -35,8 +36,12 @@ class HomeController {
 
     @Autowired
     GitHubService gitHubService;
+
     @Autowired
     EntityService entityService;
+
+    @Autowired
+    CrawlerService crawlerService;
 
     @Autowired
     ConnectionRepository connectionRepository;
@@ -46,17 +51,10 @@ class HomeController {
     String resumeProfile(Model model, HttpServletRequest request, Principal principal) throws Exception {
 
         Profile profile = entityService.loadAndUpdate();
-//        model.addAttribute("now", LocalDateTime.now());
-
         ProfileVo profileVo = new ProfileVo(profile);
-//        profileVo.setFeature(this.createFeature());
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(profile));
-//        model.addAttribute("homeViewObject", this.createHomeViewObject());
-//        model.addAttribute("profile", profile);
         model.addAttribute("profileVo", profileVo);
-//        model.addAttribute("webLogList", gitHubService.createLog());
-//        model.addAttribute("geoData", mapper.writeValueAsString(googleMapService.getGeoData(profile)));
         return "profile";
 
     }
@@ -71,8 +69,9 @@ class HomeController {
         String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
         LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
         ProfileVo profileVo = new ProfileVo(linkedInProfileFull);
+        profileVo.addPositions(crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl()));
         profileVo.setWebLogList(gitHubService.createLog());
-        profileVo.setPlaces(googleMapService.getPlaces(linkedInProfileFull));
+        profileVo.setPlaces(googleMapService.getPlaces(profileVo));
         model.addAttribute("profileVo", profileVo);
         return "linkedinProfile";
 

@@ -62,7 +62,7 @@ public class DateUtil {
         calendar.setTime(end);
         int year_end = calendar.get(Calendar.YEAR);
         int month_end = calendar.get(Calendar.MONTH);
-        int i = (year_end - year_start) * 12 + month_end - month_start;
+        int i = (year_end - year_start) * 12 + month_end - month_start + 1;
         int y = i / 12;
         int m = i % 12;
         StringBuilder sb = new StringBuilder();
@@ -82,5 +82,31 @@ public class DateUtil {
         }
         length = sb.toString().trim();
         return length;
+    }
+
+    public static int getIndex(String month) {
+        for (int i = 0; i < monthNames.length; i++) {
+            if (monthNames[i].equals(month)) {
+                return i + 1;
+            }
+        }
+        return 0;
+    }
+
+    public static LinkedInDate getLinkedInDate(String date) {
+        if (date == null) return null;
+        if (date.equals("present")) {
+            Calendar c = Calendar.getInstance();
+            return getCurrent();
+        }
+        String arr[] = date.split(" ");
+        int m = getIndex(arr[0]);
+        int y = Integer.valueOf(arr[1]);
+        return new LinkedInDate(y, m, 1);
+    }
+
+    public static LinkedInDate getCurrent() {
+        Calendar c = Calendar.getInstance();
+        return new LinkedInDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH));
     }
 }

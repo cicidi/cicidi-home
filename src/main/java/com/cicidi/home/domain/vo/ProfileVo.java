@@ -2,6 +2,7 @@ package com.cicidi.home.domain.vo;
 
 import com.cicidi.home.domain.resume.Profile;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Position;
 
 import java.util.List;
 
@@ -107,5 +108,9 @@ public class ProfileVo {
 
     public void setPlaces(Places places) {
         this.places = places;
+    }
+
+    public void addPositions(List<Position> positions) {
+        this.aboutMe.addPositions(positions);
     }
 }
