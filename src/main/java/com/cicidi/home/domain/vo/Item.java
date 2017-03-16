@@ -5,11 +5,11 @@ import com.cicidi.home.domain.resume.Education;
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.WorkExperience;
 import com.cicidi.home.util.DateUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.Position;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -62,25 +62,41 @@ public class Item {
     public Item(Position position) {
         this.title = position.getTitle();
         this.subTitle = position.getCompany().getName();
+        this.subTitle_2 = this.getSubtitle_2(position);
+        this.bulletList = new ArrayList<>();
+        bulletList.add(new Bullet(position.getSummary()));
+    }
+
+    public String getSubtitle_2(Position position) {
         StringBuffer sb = new StringBuffer();
-        sb.append(DateUtil.convertToString(position.getStartDate()) + " - ");
-        if (position.getStartDate() != null && position.getEndDate() == null) {
-            sb.append("Present" + " . ");
-            Calendar c = Calendar.getInstance();
-            sb.append(DateUtil.calLength(position.getStartDate(), new LinkedInDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH))) + " . ");
-        } else {
-            sb.append(DateUtil.convertToString(position.getEndDate()) + " . ");
-            sb.append(DateUtil.calLength(position.getStartDate(), position.getEndDate()) + " . ");
+
+        LinkedInDate start = position.getStartDate();
+
+        // if check if end should be present.
+        LinkedInDate end = position.getIsCurrent() ? DateUtil.getCurrent() : position.getEndDate();
+
+        if (start != null && end != null) {
+            sb.append(DateUtil.convertToString(start) + " - ");
+            if (position.getIsCurrent()) {
+                sb.append("Present" + " . ");
+            } else {
+                sb.append(DateUtil.convertToString(end) + " . ");
+//            sb.append(DateUtil.calLength(position.getStartDate(), position.getEndDate()) + " . ");
+            }
+            sb.append(DateUtil.calLength(start, end) + " . ");
         }
         if (position.getCompany().getLocations() != null && position.getCompany().getLocations().size() > 0) {
             sb.append(position.getCompany().getLocations().get(0).getAddress().getCity());
         } else {
-            if (position.getExtraData() != null && position.getExtraData().get("location") != null)
-                sb.append(((Map) position.getExtraData().get("location")).get("name"));
+            Map extraData = position.getExtraData();
+            Map location = (extraData != null) ? (Map) extraData.get("location") : null;
+            String name = (location != null) ? (String) location.get("name") : null;
+            if (!StringUtils.isEmpty(name)) {
+                sb.append(name);
+            }
         }
-        this.subTitle_2 = sb.toString();
-        this.bulletList = new ArrayList<>();
-        bulletList.add(new Bullet(position.getSummary()));
+        return sb.toString();
+
     }
 
     public String getImgSrc() {

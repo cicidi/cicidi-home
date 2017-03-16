@@ -153,15 +153,18 @@
             <h2>Experience</h2>
             <!--<h2 th:text="${profileVo.aboutMe.header}">Why I create this website</h2>-->
             <tr th:each="item,iterStat :${profileVo.aboutMe.itemList}">
-                <td><p class="about-me-title" th:text="${item.title}"/></td>
+                <td><p class="about-me-title" th:if="${!#strings.isEmpty(item.title)}" th:text="${item.title}"/></td>
 
-                <td><p class="about-me-p" th:text="${item.subTitle}"/></td>
+                <td><p class="about-me-p" th:if="${!#strings.isEmpty(item.subTitle)}" th:text="${item.subTitle}"/></td>
 
-                <td><p class="about-me-p" th:text="${item.subTitle_2}"/></td>
+                <td><p class="about-me-p" th:if="${!#strings.isEmpty(item.subTitle_2)}" th:text="${item.subTitle_2}"/>
+                </td>
 
-            <tr th:each="bullet,bulletStat:${item.bulletList}">
-                <td><p class="about-me-summary" th:text="${bullet.content}"/></td>
+            <tr th:if="${item.bulletList.size()>0} " th:each="bullet,bulletStat:${item.bulletList}">
+                <td><p class="about-me-summary" th:if="${!#strings.isEmpty(bullet.content)}"
+                       th:text="${bullet.content}"/></td>
             </tr>
+            <br/>
             </tr>
         </article>
     </div>
