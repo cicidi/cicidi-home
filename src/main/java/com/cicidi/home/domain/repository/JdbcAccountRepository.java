@@ -27,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class JdbcAccountRepository implements AccountRepository {
@@ -46,23 +47,44 @@ public class JdbcAccountRepository implements AccountRepository {
         //use current long value as key with change this to uuid in future.
         long id = System.currentTimeMillis();
         try {
-                jdbcTemplate.update(
-                    "insert into Account (entity_id,first_name, last_name, username, password) values (?,?, ?, ?, ?)", id,
+            jdbcTemplate.update(
+                    "insert into Account (entity_id,first_name, last_name, username, password,enabled,role) values (?,?, ?, ?, ?,?,?)", id,
                     user.getFirstName(), user.getLastName(), user.getUsername(),
-                    passwordEncoder.encode(user.getPassword()));
+                    passwordEncoder.encode(user.getPassword()), true, "USER");
         } catch (DuplicateKeyException e) {
             throw new UsernameAlreadyInUseException(user.getUsername());
         }
     }
 
     public Account findAccountByUsername(String username) {
-        return jdbcTemplate.queryForObject("select username, firstName, lastName from Account where username = ?",
+        List<Account> accountList = jdbcTemplate.query("select username, first_name, last_name ,email from Account where username = ?", new Object[]{username},
                 new RowMapper<Account>() {
                     public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        return new Account(rs.getString("username"), null, rs.getString("firstName"), rs
-                                .getString("lastName"));
+                        return new Account(rs.getString("username"), null, rs.getString("first_name"), rs
+                                .getString("last_name"), rs
+                                .getString("email"));
                     }
-                }, username);
+                });
+        if (accountList.size() > 0) {
+            return accountList.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public Account findAccountByEmail(String email) {
+        List<Account> accountList = jdbcTemplate.query("select username, firstName, lastName ,email from Account where email = ?", new Object[]{email},
+                new RowMapper<Account>() {
+                    public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        return new Account(rs.getString("username"), null, rs.getString("first_name"), rs
+                                .getString("last_name"), rs
+                                .getString("email"));
+                    }
+                });
+        if (accountList.size() > 0) {
+            return accountList.get(0);
+        }
+        return null;
     }
 
 }

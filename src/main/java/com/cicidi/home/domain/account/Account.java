@@ -30,12 +30,20 @@ public class Account extends DatabaseEntity {
 
     private final String lastName;
 
-    public Account(String username, String password, String firstName, String lastName) {
+    private final String email;
+
+    private boolean enabled = false;
+
+    private String role;
+
+    public Account(String username, String password, String firstName, String lastName, String email) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
+
 
     public String getUsername() {
         return username;
@@ -51,5 +59,25 @@ public class Account extends DatabaseEntity {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

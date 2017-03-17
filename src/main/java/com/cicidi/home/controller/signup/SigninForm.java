@@ -13,19 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.cicidi.home.domain.repository;
+package com.cicidi.home.controller.signup;
 
-import com.cicidi.home.domain.account.Account;
-import com.cicidi.home.util.UsernameAlreadyInUseException;
-import org.springframework.stereotype.Repository;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.social.connect.UserProfile;
 
-@Repository
-public interface AccountRepository {
+public class SigninForm extends Form{
 
-    void createAccount(Account account) throws UsernameAlreadyInUseException;
+    @NotEmpty
+    private String username;
 
-    Account findAccountByUsername(String username);
 
-    Account findAccountByEmail(String email);
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public static SigninForm fromProviderUser(UserProfile providerUser) {
+        SigninForm form = new SigninForm();
+        form.setUsername(providerUser.getUsername());
+        return form;
+    }
 }

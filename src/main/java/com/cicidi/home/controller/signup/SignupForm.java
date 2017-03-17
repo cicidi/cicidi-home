@@ -22,55 +22,77 @@ import javax.validation.constraints.Size;
 
 public class SignupForm {
 
-	@NotEmpty
-	private String username;
+    @NotEmpty
+    private String username;
 
-	@Size(min = 6, message = "must be at least 6 characters")
-	private String password;
+    @Size(min = 6, message = "must be at least 6 characters")
+    private String password;
 
-	@NotEmpty
-	private String firstName;
+    @NotEmpty
+    private String firstName;
 
-	@NotEmpty
-	private String lastName;
+    @NotEmpty
+    private String lastName;
 
-	public String getUsername() {
-		return username;
-	}
+    private String email;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    private boolean isExist;
 
-	public String getPassword() {
-		return password;
-	}
+    public SignupForm() {
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public static SignupForm fromProviderUser(UserProfile providerUser) {
-		SignupForm form = new SignupForm();
-		form.setFirstName(providerUser.getFirstName());
-		form.setLastName(providerUser.getLastName());
-		form.setUsername(providerUser.getUsername());
-		return form;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public boolean getIsExist() {
+        return isExist;
+    }
+
+    public void setIsExist(boolean isExist) {
+        this.isExist = isExist;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public SignupForm(UserProfile providerUser) {
+        this.setFirstName(providerUser.getFirstName());
+        this.setLastName(providerUser.getLastName());
+        this.setUsername(providerUser.getUsername());
+        this.setEmail(providerUser.getEmail());
+    }
 }
