@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by cicidi on 2/18/17.
@@ -204,5 +205,9 @@ public class Profile extends DatabaseEntity {
 
     public void setLinkedInProfileFull(LinkedInProfileFull linkedInProfileFull) {
         this.linkedInProfileFull = linkedInProfileFull;
+    }
+
+    public void addWorkExperience(List<Position> positions) {
+        this.workExperienceList.addAll(positions.stream().map(WorkExperience::new).collect(Collectors.toList()));
     }
 }

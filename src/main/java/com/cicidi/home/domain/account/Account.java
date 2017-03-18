@@ -36,12 +36,15 @@ public class Account extends DatabaseEntity {
 
     private String role;
 
-    public Account(String username, String password, String firstName, String lastName, String email) {
+    private long profileId;
+
+    public Account(String username, String password, String firstName, String lastName, String email, long profileId) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.profileId = profileId;
     }
 
 
@@ -79,5 +82,13 @@ public class Account extends DatabaseEntity {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public long getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(long profileId) {
+        this.profileId = profileId;
     }
 }

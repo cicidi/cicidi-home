@@ -14,4 +14,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "profile", path = "/api/resume")
 public interface ProfileRepository extends CrudRepository<Profile, Long> {
     List<Profile> findByLastNameAndFirstNameAllIgnoreCase(String lastName, String firstName);
+
+    Profile findByEntityId(long entityId);
 }

@@ -20,12 +20,15 @@ import com.cicidi.home.domain.account.Account;
 import com.cicidi.home.domain.message.Message;
 import com.cicidi.home.domain.message.MessageType;
 import com.cicidi.home.domain.repository.AccountRepository;
+import com.cicidi.home.domain.repository.ProfileRepository;
+import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.service.CrawlerService;
+import com.cicidi.home.service.ProfileService;
 import com.cicidi.home.util.UsernameAlreadyInUseException;
-import org.springframework.social.connect.Connection;
-import org.springframework.social.connect.ConnectionFactoryLocator;
-import org.springframework.social.connect.UserProfile;
-import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.*;
 import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +43,19 @@ public class SignupController {
 
     private final AccountRepository accountRepository;
     private final ProviderSignInUtils providerSignInUtils;
+
+    @Autowired
+    ConnectionRepository connectionRepository;
+
+    @Autowired
+    ProfileRepository profileRepository;
+
+    @Autowired
+    CrawlerService crawlerService;
+
+    @Autowired
+    ProfileService profileService;
+
 
     @Inject
     public SignupController(AccountRepository accountRepository,
@@ -78,7 +94,7 @@ public class SignupController {
             request.setAttribute("message", new Message(MessageType.INFO, "Your user name" + form.getUsername() + " already exist. Please the other one"), WebRequest.SCOPE_REQUEST);
             return "redirect:/signup";
         }
-        account = createAccount(form, formBinding);
+        account = createAccount(form, formBinding, request);
         if (account != null) {
             SignInUtils.signin(account.getUsername());
             providerSignInUtils.doPostSignUp(account.getUsername(), request);
@@ -89,9 +105,11 @@ public class SignupController {
 
     // internal helpers
 
-    private Account createAccount(SignupForm form, BindingResult formBinding) {
+    private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) {
         try {
-            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail());
+            Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
+            Profile profile = profileService.createProfile(connection);
+            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), profile.getEntityId());
             accountRepository.createAccount(account);
             return account;
         } catch (UsernameAlreadyInUseException e) {
