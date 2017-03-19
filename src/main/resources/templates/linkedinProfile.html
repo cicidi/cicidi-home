@@ -13,23 +13,23 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>Responsive One Page website template</title>
-    <link rel="stylesheet" href="css/components.css"/>
+    <link rel="stylesheet" href="/css/components.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/responsee.css"/>
-    <link rel="stylesheet" href="css/core.css"/>
-    <link rel="stylesheet" href="css/linkedin-profile.css"/>
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
+    <link rel="stylesheet" href="/css/responsee.css"/>
+    <link rel="stylesheet" href="/css/core.css"/>
+    <link rel="stylesheet" href="/css/linkedin-profile.css"/>
+    <link rel="stylesheet" href="/owl-carousel/owl.carousel.css"/>
+    <link rel="stylesheet" href="/owl-carousel/owl.theme.css"/>
 
     <!-- CUSTOM STYLE -->
-    <link rel="stylesheet" href="css/template-style.css"/>
+    <link rel="stylesheet" href="/css/template-style.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,latin-ext'
           rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/modernizr.js"></script>
-    <script type="text/javascript" src="js/responsee.js"></script>
-    <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/responsee.js"></script>
+    <script type="text/javascript" src="/js/template-scripts.js"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -48,14 +48,21 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
-                    <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
+                    <tr>
+                        <td><a th:href="@{/home}"><i class="fa fa-home" style="display:inline"></i></a></td>
                         <td>
-                            <a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
+                            <form th:action="@{/signout}" method="post" class="btn btn-primary" style="display:inline">
+                                <button type="submit" name="signout" class="fabutton"><i class="fa fa-sign-out"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
-                    <form th:action="@{/signout}" method="post" class="btn btn-primary">
-                        <button type="submit" name="signout" class="fabutton"><i class="fa fa-sign-out"></i></button>
-                    </form>
+                    <!--<tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">-->
+                    <!--<td>-->
+                    <!--<a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+
                 </div>
 
             </div>
@@ -79,7 +86,6 @@
                     <!--<li><a href="#latest-news">Source Code</a></li>-->
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#map-block">PLACES</a></li>
-                    <li><a href="home">Back To Home</a></li>
                 </ul>
             </div>
         </div>
@@ -153,15 +159,18 @@
             <h2>Experience</h2>
             <!--<h2 th:text="${profileVo.aboutMe.header}">Why I create this website</h2>-->
             <tr th:each="item,iterStat :${profileVo.aboutMe.itemList}">
-                <td><p class="about-me-title" th:text="${item.title}"/></td>
+                <td><p class="about-me-title" th:if="${!#strings.isEmpty(item.title)}" th:text="${item.title}"/></td>
 
-                <td><p class="about-me-p" th:text="${item.subTitle}"/></td>
+                <td><p class="about-me-p" th:if="${!#strings.isEmpty(item.subTitle)}" th:text="${item.subTitle}"/></td>
 
-                <td><p class="about-me-p" th:text="${item.subTitle_2}"/></td>
+                <td><p class="about-me-p" th:if="${!#strings.isEmpty(item.subTitle_2)}" th:text="${item.subTitle_2}"/>
+                </td>
 
-            <tr th:each="bullet,bulletStat:${item.bulletList}">
-                <td><p class="about-me-summary" th:text="${bullet.content}"/></td>
+            <tr th:if="${item.bulletList.size()>0} " th:each="bullet,bulletStat:${item.bulletList}">
+                <td><p class="about-me-summary" th:if="${!#strings.isEmpty(bullet.content)}"
+                       th:text="${bullet.content}"/></td>
             </tr>
+            <br/>
             </tr>
         </article>
     </div>
@@ -466,9 +475,9 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="js/profile.js"></script>
-<script type="text/javascript" src="js/googleMap.js"></script>
+<script type="text/javascript" src="/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="/js/profile.js"></script>
+<script type="text/javascript" src="/js/googleMap.js"></script>
 <!--<script type="text/javascript">-->
 <!--function myFunction() {-->
 <!--var popup = document.getElementById("myPopup");-->

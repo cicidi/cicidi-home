@@ -33,7 +33,7 @@ public class CrawlerService {
 
     public Elements getPositionElements() {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("tmp/input.html").getFile());
+        File file = new File(classLoader.getResource("tmp/input_2.html").getFile());
         Document doc = null;
         try {
             doc = Jsoup.parse(file, "UTF-8");
@@ -44,7 +44,7 @@ public class CrawlerService {
         return elements;
     }
 
-    public Elements getPositionElement(String path) {
+    public Elements getPositionElements(String path) {
         Document doc = null;
         try {
             URL url = new URL(path);
@@ -113,6 +113,7 @@ public class CrawlerService {
     public List<Position> fetchByUrl(String url) {
 
         List<Position> positionList = new ArrayList<>();
+//        Elements elements = this.getPositionElements(url);
         Elements elements = this.getPositionElements();
         // start from 1, does not include latest one.
         for (int i = 1; i < elements.size(); i++) {

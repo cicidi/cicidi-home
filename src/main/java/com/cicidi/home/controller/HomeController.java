@@ -1,12 +1,10 @@
 package com.cicidi.home.controller;
 
-import com.cicidi.home.domain.repository.AccountRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.ProfileVo;
-import com.cicidi.home.service.CrawlerService;
-import com.cicidi.home.service.EntityService;
-import com.cicidi.home.service.GitHubService;
-import com.cicidi.home.service.GoogleMapService;
+import com.cicidi.home.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -17,19 +15,16 @@ import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.Collection;
 import java.util.Map;
 
 @Controller
 class HomeController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     @Autowired
     GoogleMapService googleMapService;
@@ -46,30 +41,47 @@ class HomeController {
     @Autowired
     ConnectionRepository connectionRepository;
 
-    // spring data rest use profile as data profile
-    @GetMapping("/resumeProfile")
-    String resumeProfile(Model model, HttpServletRequest request, Principal principal) throws Exception {
+    @Autowired
+    ProfileService profileService;
 
-        Profile profile = entityService.loadAndUpdate();
+    // spring data rest use profile as data profile
+    @GetMapping("/profile/{username}")
+    String resumeProfile(Model model, @PathVariable String username) throws Exception {
+        Profile profile = profileService.getProfile(username);
         ProfileVo profileVo = new ProfileVo(profile);
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(profile));
         model.addAttribute("profileVo", profileVo);
-        return "profile";
+
+        // redirect to different template;
+        if (username.equals("walter_chen"))
+            return "profile";
+        else {
+            return "linkedinProfile";
+        }
+    }
+
+    @GetMapping("/profiles")
+    String resumeProfile(Model model, HttpServletRequest request) throws Exception {
+        return "redirect:/profile" + "/" + request.getRemoteUser();
 
     }
 
     @GetMapping("/linkedinProfile")
-    String linkedinProfile(Model model, HttpServletRequest request, Principal principal) throws Exception {
-
+    String linkedinProfile(Model model, HttpServletRequest request) throws Exception {
+        ProfileVo profileVo;
         Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);
         if (connection == null) {
-            return "redirect:/connect/linkedin";
+            //if login by username and password,.connection is null
+            Profile profile = profileService.getProfile(request.getRemoteUser());
+            profileVo = profile != null ? new ProfileVo(profile) : null;
+        } else {
+            String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
+            LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
+            profileVo = new ProfileVo(linkedInProfileFull);
+            profileVo.addPositions(crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl()));
         }
-        String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
-        LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
-        ProfileVo profileVo = new ProfileVo(linkedInProfileFull);
-        profileVo.addPositions(crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl()));
+
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(profileVo));
         model.addAttribute("profileVo", profileVo);
@@ -77,85 +89,17 @@ class HomeController {
 
     }
 
-    @GetMapping("/home")
-    String option(Model model, HttpServletRequest request, Principal principal) throws Exception {
+    @GetMapping({"/", "/home"})
+    String option(Model model, Principal principal) throws Exception {
         String name = null;
         if (principal != null) {
             if (principal instanceof UsernamePasswordAuthenticationToken) {
                 name = principal.getName();
             } else {
                 name = (String) ((Map) (((OAuth2Authentication) principal).getUserAuthentication().getDetails())).get("firstName");
-
             }
         }
         model.addAttribute("name", name);
         return "option";
-
-    }
-
-//    private HomeViewObject createHomeViewObject() {
-//        HomeViewObject homeViewObject = new HomeViewObject();
-//        homeViewObject.setFeature(createFeature());
-//        return homeViewObject;
-//    }
-
-//    private Feature createFeature() {
-//        // owlCarousel
-//        Feature feature = new Feature();
-//        List<Item> itemList = new ArrayList<>();
-//        Item item_1 = new Item();
-//        item_1.setTitle("hard working");
-//        item_1.setSubTitle("refactory N engineer work in  half time");
-//        item_1.setImgSrc(Constants.icon_1);
-//        Item item_2 = new Item();
-//        item_2.setTitle("quick learner");
-//        item_2.setSubTitle("learn hadoop and python");
-//        item_2.setImgSrc(Constants.icon_2);
-//        Item item_3 = new Item();
-//        item_3.setTitle("motivate");
-//        item_3.setSubTitle("Learning Python and android by myself");
-//        item_3.setImgSrc(Constants.icon_3);
-//        Item item_4 = new Item();
-//        item_4.setTitle("easy going");
-//        item_4.setSubTitle("Play soccer / team work");
-//        item_4.setImgSrc(Constants.icon_4);
-//
-//        itemList.add(item_1);
-//        itemList.add(item_2);
-//        itemList.add(item_3);
-//        itemList.add(item_4);
-//        feature.setItemList(itemList);
-//        return feature;
-//    }
-
-
-    @ModelAttribute("adminMenu")
-    public Collection<String> getAdminMenu(HttpSession session, HttpServletRequest request) {
-        session.setAttribute("adminMenu", "something");
-        return null;
-    }
-
-
-    private final Provider<ConnectionRepository> connectionRepositoryProvider;
-
-    private final AccountRepository accountRepository;
-
-    @Inject
-    public HomeController(Provider<ConnectionRepository> connectionRepositoryProvider, AccountRepository accountRepository) {
-        this.connectionRepositoryProvider = connectionRepositoryProvider;
-        this.accountRepository = accountRepository;
-    }
-
-    @RequestMapping("/home")
-    public String home(Principal currentUser, Model model) {
-        model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
-        if (currentUser != null) {
-            model.addAttribute(accountRepository.findAccountByUsername(currentUser.getName()));
-        }
-        return "home";
-    }
-
-    private ConnectionRepository getConnectionRepository() {
-        return connectionRepositoryProvider.get();
     }
 }

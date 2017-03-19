@@ -13,18 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.cicidi.home.controller.signin;
+package com.cicidi.home.controller.signup;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.social.connect.UserProfile;
 
-public class SignInUtils {
+public class SigninForm extends Form{
 
-    /**
-     * Programmatically signs in the user with the given the user ID.
-     */
-    public static void signin(String userId) {
-        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userId, null, null));
+    @NotEmpty
+    private String username;
+
+
+
+
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public static SigninForm fromProviderUser(UserProfile providerUser) {
+        SigninForm form = new SigninForm();
+        form.setUsername(providerUser.getUsername());
+        return form;
+    }
 }

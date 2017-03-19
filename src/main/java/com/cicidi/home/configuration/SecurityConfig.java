@@ -24,9 +24,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
@@ -47,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, true from Account where username = ?")
-                .authoritiesByUsernameQuery("select username, 'ROLE_USER' from Account where username = ?")
+                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
+                .authoritiesByUsernameQuery("select username, role from Account where username = ?")
                 .passwordEncoder(passwordEncoder());
     }
 
@@ -62,31 +62,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**").authorizeRequests().antMatchers("/route", "/login**", "/home",
-                "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin", "/resumeProfile",
+                "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin", "/profile/walter_chen",
                 "/img/**", "/js/**", "/font/**", "/css/**", "/owl-carousel/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/home")
                 .loginProcessingUrl("/signin/authenticate")
-//                .defaultSuccessUrl("/connect")
                 .defaultSuccessUrl("/home")
                 .failureUrl("/signin?param.error=bad_credentials")
                 .and()
                 .logout()
                 .logoutUrl("/signout")
                 .deleteCookies("JSESSIONID")
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/", "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin").permitAll()
-//                .antMatchers("/**").authenticated()
                 .and()
                 .rememberMe();
     }
 
+    //    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        PasswordEncoder passwordEncoder = NoOpPasswordEncoder.getInstance();
+//        return passwordEncoder;
+//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder;
     }
 
     @Bean

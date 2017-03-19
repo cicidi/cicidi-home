@@ -17,11 +17,15 @@ package com.cicidi.home.domain.repository;
 
 import com.cicidi.home.domain.account.Account;
 import com.cicidi.home.util.UsernameAlreadyInUseException;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AccountRepository {
 
     void createAccount(Account account) throws UsernameAlreadyInUseException;
 
     Account findAccountByUsername(String username);
+
+    Account findAccountByEmail(String email);
 
 }

@@ -16,6 +16,7 @@ import org.springframework.social.connect.web.SignInAdapter;
 @PropertySource("classpath:application.yml")
 public class Application {
 
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }

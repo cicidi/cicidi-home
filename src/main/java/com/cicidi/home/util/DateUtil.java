@@ -30,7 +30,7 @@ public class DateUtil {
     }
 
     public static Date convert(LinkedInDate linkedInDate) {
-
+        if (linkedInDate == null) return null;
         calendar.set(Calendar.YEAR, linkedInDate.getYear());
         calendar.set(Calendar.MONTH, linkedInDate.getMonth());
         calendar.set(Calendar.DAY_OF_MONTH, linkedInDate.getDay());
@@ -50,6 +50,7 @@ public class DateUtil {
 
 
     public static String calLength(LinkedInDate start, LinkedInDate end) {
+        if (start == null || end == null) return null;
         return calLength(convert(start), convert(end));
     }
 

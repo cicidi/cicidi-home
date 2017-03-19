@@ -17,6 +17,8 @@ package com.cicidi.home.domain.repository;
 
 import com.cicidi.home.domain.account.Account;
 import com.cicidi.home.util.UsernameAlreadyInUseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -27,6 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class JdbcAccountRepository implements AccountRepository {
@@ -34,6 +37,8 @@ public class JdbcAccountRepository implements AccountRepository {
     private final JdbcTemplate jdbcTemplate;
 
     private final PasswordEncoder passwordEncoder;
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
     public JdbcAccountRepository(JdbcTemplate jdbcTemplate, PasswordEncoder passwordEncoder) {
@@ -46,23 +51,56 @@ public class JdbcAccountRepository implements AccountRepository {
         //use current long value as key with change this to uuid in future.
         long id = System.currentTimeMillis();
         try {
-                jdbcTemplate.update(
-                    "insert into Account (entity_id,first_name, last_name, username, password) values (?,?, ?, ?, ?)", id,
+            jdbcTemplate.update(
+                    "insert into Account (entity_id,first_name, last_name, username, password, enabled,role) values (?,?, ?, ?, ?,?,?)", id,
                     user.getFirstName(), user.getLastName(), user.getUsername(),
-                    passwordEncoder.encode(user.getPassword()));
+                    passwordEncoder.encode(user.getPassword()), true, user.getRole());
         } catch (DuplicateKeyException e) {
             throw new UsernameAlreadyInUseException(user.getUsername());
         }
     }
 
     public Account findAccountByUsername(String username) {
-        return jdbcTemplate.queryForObject("select username, firstName, lastName from Account where username = ?",
+        List<Account> accountList = jdbcTemplate.query("select username, first_name, last_name ,email,role from Account where username = ?", new Object[]{username},
                 new RowMapper<Account>() {
                     public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        return new Account(rs.getString("username"), null, rs.getString("firstName"), rs
-                                .getString("lastName"));
+                        return new Account(rs.getString("username"), null, rs.getString("first_name"), rs
+                                .getString("last_name"), rs
+                                .getString("email"), rs.getString("role"));
                     }
-                }, username);
+                });
+        if (accountList.size() > 0) {
+            return accountList.get(0);
+        }
+        return null;
     }
+
+    @Override
+    public Account findAccountByEmail(String email) {
+        List<Account> accountList = jdbcTemplate.query("select username, first_name, last_name ,email,role from Account where email = ?", new Object[]{email},
+                new RowMapper<Account>() {
+                    public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        return new Account(rs.getString("username"), null, rs.getString("first_name"), rs
+                                .getString("last_name"), rs
+                                .getString("email"), rs.getString("role"));
+                    }
+                });
+        if (accountList.size() > 0) {
+            return accountList.get(0);
+        }
+        return null;
+    }
+
+//    @Override
+//    public void update(long accountId, long profileId) {
+//
+//        Object[] params = {profileId, accountId};
+//
+//        int[] types = {Types.VARCHAR, Types.BIGINT};
+//
+//        int rows = jdbcTemplate.update("update account set profile_id=? where entity_id=?", params, types);
+//        logger.info(rows + " row(s) updated");
+//    }
+
 
 }

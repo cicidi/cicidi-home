@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by cicidi on 2/18/17.
@@ -22,6 +23,9 @@ import java.util.List;
 @XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
         Constants.educationList, Constants.workExperienceList, Constants.skillSets})
 public class Profile extends DatabaseEntity {
+
+    @XmlTransient
+    private String username;
     @XmlTransient
     private String firstName;
 
@@ -204,5 +208,17 @@ public class Profile extends DatabaseEntity {
 
     public void setLinkedInProfileFull(LinkedInProfileFull linkedInProfileFull) {
         this.linkedInProfileFull = linkedInProfileFull;
+    }
+
+    public void addWorkExperience(List<Position> positions) {
+        this.workExperienceList.addAll(positions.stream().map(WorkExperience::new).collect(Collectors.toList()));
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

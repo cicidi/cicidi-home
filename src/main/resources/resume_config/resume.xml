@@ -4,7 +4,7 @@
     <firstName>Walter</firstName>
     <lastName>Chen</lastName>
     <faceImg>
-        img/resume_photo/face.jpg
+        /img/resume_photo/face.jpg
     </faceImg>
     <objective>
         <title></title>
@@ -22,7 +22,7 @@
             keep practicing, and keep learning.
         </whyCreateThisPage>
         <contentImg>
-            img/resume_photo/plant_2.jpg
+            /img/resume_photo/plant_2.jpg
         </contentImg>
     </objective>
     <contact>
@@ -66,7 +66,7 @@
             <start>08-2010</start>
             <end>04-2012</end>
             <!--<length></length>-->
-            <photo>img/resume_photo/uf_pic.jpg</photo>
+            <photo>/img/resume_photo/uf_pic.jpg</photo>
             <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
             <major>Information Systems and Operations Management</major>
             <degree>Master</degree>
@@ -84,7 +84,7 @@
             <start>09-2004</start>
             <end>06-2008</end>
             <!--<length></length>-->
-            <photo>img/resume_photo/DSC_0197.jpg</photo>
+            <photo>/img/resume_photo/DSC_0197.jpg</photo>
             <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
             <major>Business</major>
             <degree>Bachelor</degree>
@@ -104,7 +104,7 @@
             <start>10-2015</start>
             <end>03-2017</end>
             <!--<length>1yrs 4mos</length>-->
-            <photo>img/resume_photo/IMG_4785_cut_2.jpg</photo>
+            <photo>/img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary>I am good</summary>
             <role>Senior developer</role>
@@ -196,7 +196,7 @@
             <!--<length>6 month</length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                img/resume_photo/Apple_cut_2.jpg
+                /img/resume_photo/Apple_cut_2.jpg
             </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
@@ -264,7 +264,7 @@
             <end>04-2015</end>
             <!--<photo>img/tree-247122_azLgBTw.jpg</photo>-->
             <photo>
-                img/resume_photo/huawei_cut_2.jpg
+                /img/resume_photo/huawei_cut_2.jpg
             </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
             <summary>I like macbook</summary>
@@ -325,7 +325,7 @@
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
+                /img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary>I like macbook</summary>
@@ -384,7 +384,7 @@
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                img/resume_photo/clinpharma.jpg
+                /img/resume_photo/clinpharma.jpg
             </photo>
             <icon>
                 https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png

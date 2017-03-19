@@ -62,7 +62,7 @@ layout:decorator="layout">
 					th:text="${message.text}">error message text</div>
 					<form name="lk_signin" id="lk_signin" th:action="@{/signin/linkedin}" method="POST">
 						<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
-						<div class="formInfo">
+						<div class="formInfo">z
 							<p font-size="12px" class="error" th:if="${param.error eq 'bad_credentials'}">
 								Your sign in information was incorrect.
 								Please try again or <a th:href="@{/signup}">sign up</a>.
