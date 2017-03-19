@@ -17,6 +17,7 @@ package com.cicidi.home.controller.signup;
 
 import com.cicidi.home.controller.signin.SignInUtils;
 import com.cicidi.home.domain.account.Account;
+import com.cicidi.home.domain.account.ROLE;
 import com.cicidi.home.domain.message.Message;
 import com.cicidi.home.domain.message.MessageType;
 import com.cicidi.home.domain.repository.AccountRepository;
@@ -109,7 +110,7 @@ public class SignupController {
         try {
             Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
             Profile profile = profileService.createProfile(connection);
-            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), profile.getEntityId());
+            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), profile.getEntityId(), ROLE.USER.name());
             accountRepository.createAccount(account);
             return account;
         } catch (UsernameAlreadyInUseException e) {

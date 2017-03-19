@@ -38,13 +38,14 @@ public class Account extends DatabaseEntity {
 
     private long profileId;
 
-    public Account(String username, String password, String firstName, String lastName, String email, long profileId) {
+    public Account(String username, String password, String firstName, String lastName, String email, long profileId, String role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.profileId = profileId;
+        this.role = role;
     }
 
 

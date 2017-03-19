@@ -69,17 +69,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/home")
                 .loginProcessingUrl("/signin/authenticate")
-//                .defaultSuccessUrl("/connect")
                 .defaultSuccessUrl("/home")
                 .failureUrl("/signin?param.error=bad_credentials")
                 .and()
                 .logout()
                 .logoutUrl("/signout")
                 .deleteCookies("JSESSIONID")
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/", "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin").permitAll()
-//                .antMatchers("/**").authenticated()
                 .and()
                 .rememberMe();
     }

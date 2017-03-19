@@ -36,6 +36,10 @@ public class ProfileService {
         return profileRepository.findByEntityId(account.getProfileId());
     }
 
+//    public Profile getProfile(String lastName, String firstName) {
+//        profileRepository.findByLastNameAndFirstNameAllIgnoreCase(lastName, firstName);
+//    }
+
     public Profile createProfile(Connection<LinkedIn> connection) {
 
         if (connection == null) {
@@ -49,5 +53,4 @@ public class ProfileService {
             profile.addWorkExperience(positionList);
         return profileRepository.save(profile);
     }
-
 }

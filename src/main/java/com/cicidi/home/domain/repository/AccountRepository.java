@@ -28,4 +28,6 @@ public interface AccountRepository {
 
     Account findAccountByEmail(String email);
 
+    void update(long accountId, long profileId);
+
 }

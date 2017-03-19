@@ -1,9 +1,9 @@
 body {
-    /*margin: 2%;*/
-    color: #443131;
+    margin: 2%;
+    color: #000000;
     /*background:#c8c8c8;*/
-    /*background: url(../img/landscape-photos.jpg) no-repeat;*/
-    /*background-size: cover;*/
+    background: url(landscape-photos.jpg) no-repeat;
+    background-size: cover;
     font: 600 16px/18px 'Open Sans', sans-serif;
 }
 
@@ -29,11 +29,9 @@ a {
 .login-wrap {
     width: 100%;
     margin: auto;
-    max-width: 500px;
-    min-width: 300px;
-    max-hight: 700px;
-    min-hight: 600px;
-    min-height: 600px;
+    max-width: 40%;
+    max-width: 30%;
+    min-height: 800px;
     position: relative;
     /*background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;*/
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
@@ -71,7 +69,7 @@ a {
 .login-html .tab,
 .login-form .group .label,
 .login-form .group .button {
-    /*text-transform:uppercase;*/
+    text-transform: uppercase;
     margin-left: auto;
     margin-right: auto;
 }
@@ -87,8 +85,8 @@ a {
 
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab {
-    color: #eef8d3;
-    /*border-color: #1161ee;*/
+    color: #fff;
+    border-color: #1161ee;
 }
 
 .login-form {
@@ -133,13 +131,7 @@ a {
 }
 
 .login-form .group .button {
-    /*background: #1161ee;*/
-    background: transparent url('../img/social/linkedin/login-button-png.png');
-    background-size: cover;
-    max-width: 100px;
-    min-width: 50px;
-    max-height: 60px;
-    min-height: 20px;
+    background: #1161ee;
 }
 
 .login-form .group label .icon {
@@ -218,12 +210,11 @@ a {
 .linkedin-button {
     /*background-color: #4CAF50;*/
     /*opacity: 0.1;*/
-    position: absolute;
     max-width: 250px;
     max-height: 80px;
     min-width: 200px;
     min-height: 35px;
-    background: transparent url('../img/social/linkedin/signupwithlinkedin.png');
+    background: transparent url('../../signupwithlinkedin.png');
     background-size: cover;
     border: none;
     color: white;
@@ -234,55 +225,4 @@ a {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-
-}
-
-.sign-up-button {
-    /*background-color: #4CAF50;*/
-    /*opacity: 0.1;*/
-    position: absolute;
-    max-width: 200px;
-    max-height: 80px;
-    min-width: 100px;
-    min-height: 35px;
-    background: transparent url('../img/social/linkedin/sign-up-button.png');
-    background-size: cover;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 600px;
-    cursor: pointer;
-    right: 10%;
-    bottom: 2%;
-}
-
-.sign-in-button {
-    /*background-color: #4CAF50;*/
-    /*opacity: 0.1;*/
-    position: absolute;
-    max-width: 200px;
-    max-height: 80px;
-    min-width: 100px;
-    min-height: 35px;
-    background: transparent url('../img/social/linkedin/login-button-png.png');
-    background-size: cover;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 600px;
-    cursor: pointer;
-    right: 10%;
-    bottom: 2%;
-}
-
-.fieldset {
-    position: relative;
 }
