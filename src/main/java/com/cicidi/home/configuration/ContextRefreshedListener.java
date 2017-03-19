@@ -1,10 +1,8 @@
 package com.cicidi.home.configuration;
 
-import com.cicidi.home.domain.account.Account;
 import com.cicidi.home.domain.repository.AccountRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.service.EntityService;
-import com.cicidi.home.util.UsernameAlreadyInUseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +29,11 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        logger.info("load resume on startup");
+        logger.info("load/fresh resume on startup");
         try {
-            Profile profile = entityService.loadAndUpdate();
-            Account account = accountRepository.findAccountByUsername("walter_chen");
-            if (account == null) {
-                account = new Account("walter_chen", "password", profile.getFirstName(), profile.getLastName(), profile.getContact().getEmail(), profile.getEntityId(), "ADMIN");
-                accountRepository.createAccount(account);
-            } else {
-                accountRepository.update(account.getEntityId(), profile.getEntityId());
-            }
+            Profile profile = entityService.loadAndUpdate("walter_chen");
         } catch (JAXBException e) {
             logger.error("JAXBException while loadAndUpdate resume");
-        } catch (UsernameAlreadyInUseException e) {
         }
         eventHolderBean.setEventFired(true);
     }

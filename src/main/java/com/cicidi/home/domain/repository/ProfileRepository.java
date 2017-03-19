@@ -15,5 +15,7 @@ import java.util.List;
 public interface ProfileRepository extends CrudRepository<Profile, Long> {
     List<Profile> findByLastNameAndFirstNameAllIgnoreCase(String lastName, String firstName);
 
+    Profile findByUsername(String username);
+
     Profile findByEntityId(long entityId);
 }

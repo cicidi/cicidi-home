@@ -52,8 +52,13 @@ class HomeController {
         profileVo.setWebLogList(gitHubService.createLog());
         profileVo.setPlaces(googleMapService.getPlaces(profile));
         model.addAttribute("profileVo", profileVo);
-        return "profile";
 
+        // redirect to different template;
+        if (username.equals("walter_chen"))
+            return "profile";
+        else {
+            return "linkedinProfile";
+        }
     }
 
     @GetMapping("/profiles")
@@ -84,7 +89,7 @@ class HomeController {
 
     }
 
-    @GetMapping("/home")
+    @GetMapping({"/", "/home"})
     String option(Model model, Principal principal) throws Exception {
         String name = null;
         if (principal != null) {

@@ -23,6 +23,9 @@ import java.util.stream.Collectors;
 @XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
         Constants.educationList, Constants.workExperienceList, Constants.skillSets})
 public class Profile extends DatabaseEntity {
+
+    @XmlTransient
+    private String username;
     @XmlTransient
     private String firstName;
 
@@ -209,5 +212,13 @@ public class Profile extends DatabaseEntity {
 
     public void addWorkExperience(List<Position> positions) {
         this.workExperienceList.addAll(positions.stream().map(WorkExperience::new).collect(Collectors.toList()));
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -109,8 +109,8 @@ public class SignupController {
     private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) {
         try {
             Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
-            Profile profile = profileService.createProfile(connection);
-            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), profile.getEntityId(), ROLE.USER.name());
+            Profile profile = profileService.createProfile(connection, form.getUsername());
+            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), ROLE.USER.name());
             accountRepository.createAccount(account);
             return account;
         } catch (UsernameAlreadyInUseException e) {

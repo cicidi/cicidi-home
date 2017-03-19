@@ -46,6 +46,9 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
+                    <tr>
+                        <td><a th:href="@{/home}"><i class="fa fa-home"></i></a></td>
+                    </tr>
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
                             <a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
@@ -74,7 +77,6 @@
                     <li><a href="#latest-news">Source Code</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#map-block">PLACES</a></li>
-                    <li><a href="home">Back To Home</a></li>
                 </ul>
             </div>
         </div>

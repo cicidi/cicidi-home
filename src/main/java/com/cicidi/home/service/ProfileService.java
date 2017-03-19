@@ -28,19 +28,19 @@ public class ProfileService {
     CrawlerService crawlerService;
 
     public Profile getProfile(Account account) {
-        return profileRepository.findByEntityId(account.getProfileId());
+        return profileRepository.findByUsername(account.getUsername());
     }
 
     public Profile getProfile(String username) {
-        Account account = accountRepository.findAccountByUsername(username);
-        return profileRepository.findByEntityId(account.getProfileId());
+        Profile profile = profileRepository.findByUsername(username);
+        return profile;
     }
 
 //    public Profile getProfile(String lastName, String firstName) {
 //        profileRepository.findByLastNameAndFirstNameAllIgnoreCase(lastName, firstName);
 //    }
 
-    public Profile createProfile(Connection<LinkedIn> connection) {
+    public Profile createProfile(Connection<LinkedIn> connection, String username) {
 
         if (connection == null) {
             return null;
@@ -51,6 +51,7 @@ public class ProfileService {
         List<Position> positionList = crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl());
         if (positionList != null && positionList.size() > 0)
             profile.addWorkExperience(positionList);
+        profile.setUsername(username);
         return profileRepository.save(profile);
     }
 }
