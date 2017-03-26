@@ -17,7 +17,7 @@ import java.util.List;
 @DiscriminatorValue("workExperience")
 @XmlRootElement(name = Constants.workExperience)
 //@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName,
+@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.present, Constants.startName,
         Constants.endName, Constants.length, Constants.photo, Constants.icon, Constants.summary, Constants.role,
         Constants.bulletList})
 public class WorkExperience extends Organization implements Comparable<WorkExperience> {
@@ -49,6 +49,7 @@ public class WorkExperience extends Organization implements Comparable<WorkExper
         this.setName(position.getCompany().getName());
         this.setIcon(position.getCompany().getLogoUrl());
         this.setAddress(new Address(position.getCompany()));
+        this.present = position.getIsCurrent();
 //        position.get
         if (position.getStartDate() != null) {
             this.setStart(DateUtil.convert(position.getStartDate()));

@@ -10,7 +10,6 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -49,6 +48,12 @@ public class Organization extends DatabaseEntity {
     protected String photo;
     @XmlTransient
     protected String icon;
+    // I got java.sql.SQLException: Field "is_present" doesn't have a default value
+    // even change present to false; the problem sovled by recreate a database, this field probably some
+    //where in any of table.
+
+    @XmlTransient
+    protected boolean present = false;
 
     @XmlElement
     public String getName() {
@@ -77,12 +82,8 @@ public class Organization extends DatabaseEntity {
 
     public void setStart(Date start) {
         this.start = start;
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(start);
-        this.startName = DateUtil.convertToString(start);
-        if (this.end != null) {
-            DateUtil.calLength(this.start, this.end);
-        }
+
+
     }
 
     @XmlElement(name = Constants.end, required = true)
@@ -92,20 +93,25 @@ public class Organization extends DatabaseEntity {
     }
 
     public void setEnd(Date end) {
-        this.endName = DateUtil.convertToString(end);
-        if (this.start != null) {
-            DateUtil.calLength(this.start, this.end);
-        }
+        this.end = end;
     }
 
     @XmlElement(name = Constants.startName, required = true)
     public String getStartName() {
-        return startName;
+        return DateUtil.convertToString(this.start);
     }
 
     @XmlElement(name = Constants.endName, required = true)
     public String getEndName() {
-        return endName;
+        if (present) return Constants.present;
+        else {
+            //TBD   if end null and not present should be reject by validator.
+            if (this.end == null) {
+                return Constants.present;
+            }
+        }
+        return DateUtil.convertToString(end);
+
     }
 
     @XmlElement
@@ -128,13 +134,35 @@ public class Organization extends DatabaseEntity {
 
     @XmlElement(name = Constants.length, required = true)
     public String getLength() {
-        return length;
+        String len = null;
+
+        if (present) {
+            len = DateUtil.calLength(this.start, new Date());
+        } else {
+            if (this.end != null) {
+                len = DateUtil.calLength(this.start, this.end);
+            } else {
+                String message = "end time can not be null when present is false";
+                //throw new ServiceException("409", message);
+                //should have a validator
+                len = DateUtil.calLength(this.start, new Date());
+
+            }
+        }
+        return len;
     }
 
 
     public void setLength(String length) {
-        //do nothing here
+        this.length = length;
     }
 
+    @XmlElement(name = Constants.present)
+    public boolean getPresent() {
+        return present;
+    }
 
+    public void setPresent(boolean present) {
+        this.present = present;
+    }
 }

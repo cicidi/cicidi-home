@@ -31,10 +31,11 @@
                                 <!ELEMENT pic (#PCDATA)>
         <!ELEMENT educationList (education)>
         <!ATTLIST educationList type CDATA #IMPLIED>
-                <!ELEMENT education (name,address,start,end,startName,endName,length,photo,icon,major,degree)>
+                <!ELEMENT education (name,address,start,end,present,startName,endName,length,photo,icon,major,degree)>
                 <!ELEMENT name (#PCDATA)>
                 <!ELEMENT start (#PCDATA)>
                 <!ELEMENT end (#PCDATA)>
+                <!ELEMENT present (#PCDATA)>
                 <!ELEMENT startName (#PCDATA)>
                 <!ELEMENT endName (#PCDATA)>
                 <!ELEMENT length (#PCDATA)>
@@ -44,7 +45,7 @@
                 <!ELEMENT degree (#PCDATA)>
         <!ELEMENT workExperienceList (workExperience)>
         <!ATTLIST workExperience type CDATA #IMPLIED>
-                <!ELEMENT workExperience (name,address,start,end,startName,endName,length,photo,icon,summary,role,bulletList)>
+                <!ELEMENT workExperience (name,address,start,end,present,startName,endName,length,photo,icon,summary,role,bulletList)>
                 <!ELEMENT summary (#PCDATA)>
                 <!ELEMENT role (#PCDATA)>
                 <!ELEMENT bulletList (bullet)>

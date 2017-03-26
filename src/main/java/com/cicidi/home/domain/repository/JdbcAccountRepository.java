@@ -102,5 +102,6 @@ public class JdbcAccountRepository implements AccountRepository {
 //        logger.info(rows + " row(s) updated");
 //    }
 
+    //TBD  need an endpoint to delete user
 
 }

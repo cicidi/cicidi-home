@@ -30,12 +30,19 @@ public class Item {
             this.subTitle = organization.getName();
             StringBuffer sb = new StringBuffer();
             sb.append(organization.getStartName() + " - ");
-            sb.append(organization.getEndName() + " . ");
+            String endName = organization.getEndName();
+            sb.append(endName + " . ");
             sb.append(organization.getLength() + " . ");
-            if (organization.getAddress().getCity() != null)
-                sb.append(organization.getAddress().getCity() + " , ");
-            sb.append(organization.getAddress().getState() + " , ");
-            sb.append(organization.getAddress().getCountry());
+            // append location
+            String city = organization.getAddress().getCity();
+            String state = organization.getAddress().getState();
+            String country = organization.getAddress().getCountry();
+            if (city != null)
+                sb.append(city);
+            if (state != null)
+                sb.append("," + state);
+            if (country != null)
+                sb.append("," + country);
             this.subTitle_2 = sb.toString();
             this.bulletList = new ArrayList<>();
             if (((WorkExperience) organization).getBulletList() != null)

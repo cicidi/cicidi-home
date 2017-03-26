@@ -38,11 +38,13 @@ public class DateUtil {
     }
 
     public static String convertToString(LinkedInDate linkedInDate) {
+        if (linkedInDate == null) return null;
         String value = convertToString(convert(linkedInDate));
         return value;
     }
 
     public static String convertToString(Date date) {
+        if (date == null) return null;
         calendar.setTime(date);
         String value = monthNames[calendar.get(Calendar.MONTH)] + " " + calendar.get(Calendar.YEAR);
         return value;
@@ -96,7 +98,7 @@ public class DateUtil {
 
     public static LinkedInDate getLinkedInDate(String date) {
         if (date == null) return null;
-        if (date.equals("present")) {
+        if (date.equals(Constants.present)) {
             Calendar c = Calendar.getInstance();
             return getCurrent();
         }
