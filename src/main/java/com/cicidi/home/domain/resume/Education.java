@@ -19,7 +19,7 @@ import java.util.Calendar;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue(Constants.education)
 @XmlRootElement(name = Constants.education)
-@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.startName, Constants.endName,
+@XmlType(propOrder = {Constants.name, Constants.address, Constants.start, Constants.end, Constants.present, Constants.startName, Constants.endName,
         Constants.length, Constants.photo, Constants.icon, Constants.major, Constants.degree})
 
 public class Education extends Organization {

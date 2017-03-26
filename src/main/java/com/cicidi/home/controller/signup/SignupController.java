@@ -26,6 +26,8 @@ import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.service.CrawlerService;
 import com.cicidi.home.service.ProfileService;
 import com.cicidi.home.util.UsernameAlreadyInUseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.*;
 import org.springframework.social.connect.web.ProviderSignInUtils;
@@ -42,7 +44,10 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final AccountRepository accountRepository;
+
     private final ProviderSignInUtils providerSignInUtils;
 
     @Autowired
@@ -93,6 +98,7 @@ public class SignupController {
         Account account = accountRepository.findAccountByUsername(form.getUsername());
         if (account != null) {
             request.setAttribute("message", new Message(MessageType.INFO, "Your user name" + form.getUsername() + " already exist. Please the other one"), WebRequest.SCOPE_REQUEST);
+            logger.error("403", "account already exist");
             return "redirect:/signup";
         }
         account = createAccount(form, formBinding, request);

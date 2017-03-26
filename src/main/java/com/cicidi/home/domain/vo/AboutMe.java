@@ -1,7 +1,9 @@
 package com.cicidi.home.domain.vo;
 
+import com.cicidi.home.domain.resume.Education;
 import com.cicidi.home.domain.resume.Link;
 import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.domain.resume.WorkExperience;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Position;
 
@@ -32,7 +34,20 @@ public class AboutMe {
             this.linkList = new ArrayList<>();
             linkList.addAll(profile.getContact().getLinkList().stream().collect(Collectors.toList()));
         }
+        List<WorkExperience> workExperienceList = profile.getWorkExperienceList();
+
+        if (workExperienceList != null) {
+            this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
+            this.itemList.addAll(workExperienceList.stream().map(Item::new).collect(Collectors.toList()));
+        }
+
+        List<Education> educationList = profile.getEducationList();
+        if (educationList != null) {
+            this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
+            this.itemList.addAll(educationList.stream().map(Item::new).collect(Collectors.toList()));
+        }
     }
+
 
     public AboutMe(LinkedInProfileFull linkedInProfileFull) {
 
