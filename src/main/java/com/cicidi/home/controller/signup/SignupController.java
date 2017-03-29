@@ -77,12 +77,11 @@ public class SignupController {
         if (connection != null) {
             UserProfile userProfile = connection.fetchUserProfile();
             String email = userProfile.getEmail();
-            Account account = email == null ? accountRepository.findAccountByEmail(userProfile.getEmail()) : null;
+            Account account = email == null ? accountRepository.findAccountByEmail(email) : null;
             SignupForm signupForm = new SignupForm(userProfile);
             if (account != null) {
                 request.setAttribute("message", new Message(MessageType.INFO, "Your " + email + " account already exist. Please sign in"), WebRequest.SCOPE_REQUEST);
                 signupForm.setIsExist(true);
-            } else {
             }
             return signupForm;
         } else {
@@ -95,13 +94,13 @@ public class SignupController {
         if (formBinding.hasErrors()) {
             return null;
         }
-        Account account = accountRepository.findAccountByUsername(form.getUsername());
-        if (account != null) {
+        Account account;
+        try {
+            account = createAccount(form, formBinding, request);
+        } catch (UsernameAlreadyInUseException e) {
             request.setAttribute("message", new Message(MessageType.INFO, "Your user name" + form.getUsername() + " already exist. Please the other one"), WebRequest.SCOPE_REQUEST);
-            logger.error("403", "account already exist");
             return "redirect:/signup";
         }
-        account = createAccount(form, formBinding, request);
         if (account != null) {
             SignInUtils.signin(account.getUsername());
             providerSignInUtils.doPostSignUp(account.getUsername(), request);
@@ -112,17 +111,17 @@ public class SignupController {
 
     // internal helpers
 
-    private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) {
-        try {
-            Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
-            Profile profile = profileService.createProfile(connection, form.getUsername());
-            Account account = new Account(form.getUsername(), form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), ROLE.USER.name());
-            accountRepository.createAccount(account);
-            return account;
-        } catch (UsernameAlreadyInUseException e) {
-            formBinding.rejectValue("username", "user.duplicateUsername", "already in use");
-            return null;
+    private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) throws UsernameAlreadyInUseException {
+        Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
+        Profile profile = profileService.createProfile(connection, form.getUsername());
+        String username = form.getUsername();
+        if (accountRepository.findAccountByUsername(username) != null) {
+            logger.info("username: {} already exist", username);
+            throw new UsernameAlreadyInUseException(username);
         }
+        Account account = new Account(username, form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), ROLE.USER.name());
+        accountRepository.save(account);
+        return account;
     }
 
 }

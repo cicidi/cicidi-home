@@ -7,6 +7,7 @@ import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
 
 /**
  * Created by cicidi on 2/26/2017.
@@ -14,7 +15,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class DatabaseEntity {
+public abstract class DatabaseEntity implements Serializable {
 
     @Id
     @XmlTransient
