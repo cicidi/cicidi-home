@@ -25,7 +25,7 @@ import javax.persistence.Entity;
 public class Account extends DatabaseEntity {
 
     private String username;
-    
+
     @Convert(converter = SensitiveAttributeConverter.class)
     private String password;
 
@@ -50,6 +50,7 @@ public class Account extends DatabaseEntity {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
+        this.enabled = true;
     }
 
 

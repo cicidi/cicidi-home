@@ -28,7 +28,7 @@ public class ProfileService {
     CrawlerService crawlerService;
 
     public Profile getProfile(Account account) {
-        return profileRepository.findByUsername(account.getUsername());
+        return this.getProfile(account.getUsername());
     }
 
     public Profile getProfile(String username) {

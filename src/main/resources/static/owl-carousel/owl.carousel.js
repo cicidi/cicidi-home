@@ -1427,7 +1427,7 @@ if (typeof Object.create !== "function") {
         rewindSpeed: 1000,
 
         autoPlay: false,
-        stopOnHover: false,
+        stopOnHover: true,
 
         navigation: false,
         navigationText: ["prev", "next"],
