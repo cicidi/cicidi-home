@@ -48,6 +48,8 @@
                                     th:text="${#fields.errors('lastName')[0]}">Error</span></label>
                         </div>
                         <div class="group">
+                            <input type="hidden" th:field="*{email}"/>
+                            <input type="hidden" th:field="*{isExist}"/>
                             <input type="text" class="input" th:field="*{lastName}"/><br/>
                             <label for="username" class="label">Username <span
                                     th:if="${#fields.hasErrors('username')}" class="error"

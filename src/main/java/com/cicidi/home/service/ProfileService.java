@@ -11,6 +11,7 @@ import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -36,18 +37,23 @@ public class ProfileService {
         return profile;
     }
 
-//    public Profile getProfile(String lastName, String firstName) {
+    //    public Profile getProfile(String lastName, String firstName) {
 //        profileRepository.findByLastNameAndFirstNameAllIgnoreCase(lastName, firstName);
 //    }
-
+    @Transactional
     public Profile createProfile(Connection<LinkedIn> connection, String username) {
 
         if (connection == null) {
             return null;
         }
+
         String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
         LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
-        Profile profile = new Profile(linkedInProfileFull);
+        Profile profile = profileRepository.findByEmail(linkedInProfileFull.getEmailAddress());
+        if (profile != null) {
+            profileRepository.delete(profile);
+        }
+        profile = new Profile(linkedInProfileFull);
         List<Position> positionList = crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl());
         if (positionList != null && positionList.size() > 0)
             profile.addWorkExperience(positionList);

@@ -1,10 +1,14 @@
 package com.cicidi.home.domain.repository;
 
 import com.cicidi.home.domain.resume.Profile;
+import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.LockModeType;
 import java.util.List;
 
 /**
@@ -18,4 +22,8 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
     Profile findByUsername(String username);
 
     Profile findByEntityId(long entityId);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query(value = "SELECT p from Profile p where p.contact.email=:email")
+    Profile findByEmail(@Param("email") String email);
 }
