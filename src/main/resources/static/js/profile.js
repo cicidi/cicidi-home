@@ -4,7 +4,9 @@
 
 var btn = false
 $(document).ready(function () {
+    initOwl();
     initAction();
+
     //initMap();
     //$("#loginViaBtn, #loginOnlyBtn,#signupBtn").on("mouseenter", function () {
     //    if (btn == false) {
@@ -50,20 +52,33 @@ function initAction() {
         var popup = document.getElementById(id);
         popup.classList.toggle("show");
     });
-
-//$("#owl-demo").on("mouseover", ".jd", function () {
-//    var error = $(this).attr("data-error"); // Grab the error text from the clicked icon
-//    $("#viewError").text(error); // Put the error text into the modal popup
-//    $("#errorSpeedbump").modal({ // display the modal
-//        minHeight: 200,
-//        minWidth: 350,
-//        maxHeight: 400,
-//        maxWidth: 500,
-//        opacity: 30
-//    });
-//});
 }
-//function myFunction() {
-//    var popup = document.getElementById("myPopup");
-//    popup.classList.toggle("show");
-//}
+function initOwl() {
+    var theme_slider = $("#owl-demo");
+    $("#owl-demo").owlCarousel({
+        navigation: false,
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        autoPlay: 20000,
+        stopOnHover: true,
+        addClassActive: true,
+        // transitionStyle: "fade",
+        singleItem: true
+    });
+    //$("#owl-demo2").owlCarousel({
+    //    slideSpeed: 300,
+    //    autoPlay: true,
+    //    navigation: true,
+    //    navigationText: ["&#xf007;", "&#xf006;"],
+    //    pagination: false,
+    //    singleItem: true
+    //});
+
+    // Custom Navigation Events
+    $(".next-arrow").click(function () {
+        theme_slider.trigger('owl.next');
+    })
+    $(".prev-arrow").click(function () {
+        theme_slider.trigger('owl.prev');
+    })
+}

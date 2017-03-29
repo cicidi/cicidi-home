@@ -16,25 +16,32 @@
 package com.cicidi.home.domain.account;
 
 import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.domain.repository.util.SensitiveAttributeConverter;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 
 @Entity
 public class Account extends DatabaseEntity {
 
-    private final String username;
+    private String username;
 
-    private final String password;
+    @Convert(converter = SensitiveAttributeConverter.class)
+    private String password;
 
-    private final String firstName;
+    private String firstName;
 
-    private final String lastName;
+    private String lastName;
 
-    private final String email;
+    private String email;
 
     private boolean enabled = false;
 
     private String role;
+
+    public Account() {
+        super();
+    }
 
     public Account(String username, String password, String firstName, String lastName, String email, String role) {
         this.username = username;
@@ -43,6 +50,7 @@ public class Account extends DatabaseEntity {
         this.lastName = lastName;
         this.email = email;
         this.role = role;
+        this.enabled = true;
     }
 
 

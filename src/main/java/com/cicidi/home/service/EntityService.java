@@ -4,7 +4,6 @@ import com.cicidi.home.domain.repository.ProfileRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.io.XMLReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
@@ -18,9 +17,6 @@ import javax.xml.bind.JAXBException;
 public class EntityService {
     @Autowired
     ProfileRepository profileRepository;
-
-    @Autowired
-    SimpleJpaRepository<Profile, Long> simpleJpaRepository;
 
     @Autowired
     XMLReader xmlReader;
@@ -44,10 +40,10 @@ public class EntityService {
         // file name by profile and lastname
         Profile original = this.getProfileFromDB(username);
         if (original != null) {
-            simpleJpaRepository.delete(original);
+            profileRepository.delete(original.getEntityId());
         }
         profile.setUsername(username);
-        simpleJpaRepository.save(profile);
+        profileRepository.save(profile);
         return profile;
     }
 }

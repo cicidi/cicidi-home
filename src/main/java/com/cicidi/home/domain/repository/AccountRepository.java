@@ -16,13 +16,11 @@
 package com.cicidi.home.domain.repository;
 
 import com.cicidi.home.domain.account.Account;
-import com.cicidi.home.util.UsernameAlreadyInUseException;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AccountRepository {
-
-    void createAccount(Account account) throws UsernameAlreadyInUseException;
+public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Account findAccountByUsername(String username);
 
