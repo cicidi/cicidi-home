@@ -16,6 +16,7 @@
 package com.cicidi.home.domain.account;
 
 import com.cicidi.home.domain.DatabaseEntity;
+import com.cicidi.home.domain.repository.util.SensitiveAttributeConverter;
 
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -24,7 +25,8 @@ import javax.persistence.Entity;
 public class Account extends DatabaseEntity {
 
     private String username;
-@Convert
+    
+    @Convert(converter = SensitiveAttributeConverter.class)
     private String password;
 
     private String firstName;
