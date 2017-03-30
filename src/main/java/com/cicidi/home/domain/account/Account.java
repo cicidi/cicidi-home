@@ -1,28 +1,17 @@
-/*
- * Copyright 2014 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.cicidi.home.domain.account;
 
 import com.cicidi.home.domain.DatabaseEntity;
 import com.cicidi.home.domain.repository.util.SensitiveAttributeConverter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Convert;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class Account extends DatabaseEntity {
+public class Account extends DatabaseEntity implements UserDetails {
 
     private String username;
 
@@ -35,27 +24,54 @@ public class Account extends DatabaseEntity {
 
     private String email;
 
-    private boolean enabled = false;
+    private boolean enabled = true;
 
-    private String role;
+    private boolean nonLocked = true;
+
+    private boolean accountNonExpired = true;
+
+    private boolean credentialsNonExpired = true;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    private Set<UserAuthority> authorities;
+
 
     public Account() {
         super();
     }
 
-    public Account(String username, String password, String firstName, String lastName, String email, String role) {
+    public Account(String username, String password, String firstName, String lastName, String email) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.role = role;
         this.enabled = true;
     }
 
 
     public String getUsername() {
         return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return nonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
     }
 
     public String getPassword() {
@@ -74,14 +90,6 @@ public class Account extends DatabaseEntity {
         return email;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public boolean isEnabled() {
         return enabled;
     }
@@ -90,4 +98,10 @@ public class Account extends DatabaseEntity {
         this.enabled = enabled;
     }
 
+    public void grantRole(ROLE role) {
+        if (authorities == null) {
+            authorities = new HashSet<UserAuthority>();
+        }
+        authorities.add(role.asAuthorityFor(this));
+    }
 }

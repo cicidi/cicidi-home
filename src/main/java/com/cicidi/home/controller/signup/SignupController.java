@@ -21,7 +21,6 @@ import com.cicidi.home.domain.account.ROLE;
 import com.cicidi.home.domain.message.Message;
 import com.cicidi.home.domain.message.MessageType;
 import com.cicidi.home.domain.repository.AccountRepository;
-import com.cicidi.home.domain.repository.ProfileRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.service.CrawlerService;
 import com.cicidi.home.service.ProfileService;
@@ -54,9 +53,6 @@ public class SignupController {
     ConnectionRepository connectionRepository;
 
     @Autowired
-    ProfileRepository profileRepository;
-
-    @Autowired
     CrawlerService crawlerService;
 
     @Autowired
@@ -74,10 +70,25 @@ public class SignupController {
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public SignupForm signupForm(WebRequest request) {
         Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
-        if (connection != null) {
-            UserProfile userProfile = connection.fetchUserProfile();
+        UserProfile userProfile = connection != null ? connection.fetchUserProfile() : null;
+        Object errorMessage = request.getAttribute("message", request.SCOPE_SESSION);
+        if (errorMessage != null) {
+            logger.debug("message signupForm.Method.Get {}", errorMessage);
+            request.setAttribute("message", errorMessage, WebRequest.SCOPE_REQUEST);
+
+            if (userProfile != null) {
+                SignupForm signupForm = new SignupForm(userProfile);
+                signupForm.setIsExist(true);
+                return signupForm;
+            } else {
+                SignupForm signupForm = new SignupForm();
+                signupForm.setIsExist(true);
+                return signupForm;
+            }
+        }
+        if (userProfile != null) {
             String email = userProfile.getEmail();
-            Account account = email == null ? accountRepository.findAccountByEmail(email) : null;
+            Account account = email != null ? accountRepository.findAccountByEmail(email) : null;
             SignupForm signupForm = new SignupForm(userProfile);
             if (account != null) {
                 request.setAttribute("message", new Message(MessageType.INFO, "Your " + email + " account already exist. Please sign in"), WebRequest.SCOPE_REQUEST);
@@ -98,7 +109,7 @@ public class SignupController {
         try {
             account = createAccount(form, formBinding, request);
         } catch (UsernameAlreadyInUseException e) {
-            request.setAttribute("message", new Message(MessageType.INFO, "Your user name" + form.getUsername() + " already exist. Please the other one"), WebRequest.SCOPE_REQUEST);
+            request.setAttribute("message", new Message(MessageType.INFO, "user name " + form.getUsername() + " already exist"), WebRequest.SCOPE_SESSION);
             return "redirect:/signup";
         }
         if (account != null) {
@@ -113,13 +124,15 @@ public class SignupController {
 
     private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) throws UsernameAlreadyInUseException {
         Connection<LinkedIn> connection = (Connection<LinkedIn>) providerSignInUtils.getConnectionFromSession(request);
-        Profile profile = profileService.createProfile(connection, form.getUsername());
         String username = form.getUsername();
         if (accountRepository.findAccountByUsername(username) != null) {
             logger.info("username: {} already exist", username);
             throw new UsernameAlreadyInUseException(username);
         }
-        Account account = new Account(username, form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), ROLE.USER.name());
+        Profile profile = profileService.createProfile(connection, form.getUsername());
+        ROLE role = connection != null ? ROLE.LINKEDINUSER : ROLE.USER;
+        Account account = new Account(username, form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail());
+        account.grantRole(role);
         accountRepository.save(account);
         return account;
     }

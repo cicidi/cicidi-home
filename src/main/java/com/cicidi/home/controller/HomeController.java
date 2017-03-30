@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
-import java.util.Map;
 
 @Controller
 class HomeController {
@@ -44,6 +42,11 @@ class HomeController {
     @Autowired
     ProfileService profileService;
 
+    @Autowired
+    AccountService accountService;
+
+
+    public
     // spring data rest use profile as data profile
     @GetMapping("/profile/{username}")
     String resumeProfile(Model model, @PathVariable String username) throws Exception {
@@ -91,15 +94,37 @@ class HomeController {
 
     @GetMapping({"/", "/home"})
     String option(Model model, Principal principal) throws Exception {
-        String name = null;
+
+
+        String username = null;
         if (principal != null) {
             if (principal instanceof UsernamePasswordAuthenticationToken) {
-                name = principal.getName();
-            } else {
-                name = (String) ((Map) (((OAuth2Authentication) principal).getUserAuthentication().getDetails())).get("firstName");
+                username = principal.getName();
             }
         }
-        model.addAttribute("name", name);
+        Profile profile = profileService.getProfile(username);
+        model.addAttribute("username", username);
+        if (profile != null) {
+            model.addAttribute("firstName", profile.getFirstName());
+            model.addAttribute("linkedInUser", true);
+        } else {
+            model.addAttribute("linkedInUser", false);
+        }
         return "option";
     }
+
+    //only use for test purpose
+//    @GetMapping("/deleteProfile/{username}")
+//    @ResponseBody
+//    String delelteProfile(@PathVariable String username) {
+//        profileService.delete(username);
+//        return "200";
+//    }
+//
+//    @GetMapping("/deleteAccount/{username}")
+//    @ResponseBody
+//    String deletepAccount(@PathVariable String username) {
+//        accountService.deleteAccount(username);
+//        return "200";
+//    }
 }

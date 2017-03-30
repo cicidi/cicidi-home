@@ -51,7 +51,11 @@
                     </tr>
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
-                            <a th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
+                            <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
+                               sec:authorize="hasAuthority('LINKEDINUSER')"
+                               th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
+                            <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
+                               th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
                         </td>
                     </tr>
                 </div>
@@ -157,9 +161,15 @@
                 <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                     <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
                     <td>
-                        <div><a th:href="${linkVo.url}"
+                        <div><a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
+                                sec:authorize="hasAuthority('LINKEDINUSER')"
+                                th:href=" ${linkVo.url}"
                                 th:title="${linkVo.name}">
-                            <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
+                            <i style="margin-right: 0.8em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
+                            <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
+                               th:href=" ${linkVo.url}"
+                               th:title="${linkVo.name}">
+                                <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -373,8 +383,8 @@
                             <div class="s-12 l-10">
                                 <div class="news-text">
                                     <h4 th:text="${webLog.title}">Git check it</h4>
-
-                                    <a th:href="${webLog.link}">
+                                    <!-- only LINKEDINUSER can see my source code-->
+                                    <a sec:authorize="hasAuthority('LINKEDINUSER')" th:href="${webLog.link}">
                                         <p th:text="${webLog.message}"></p>
                                     </a>
                                 </div>
