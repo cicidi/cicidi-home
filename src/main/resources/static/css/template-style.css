@@ -355,6 +355,7 @@ article p, article li {
     background: rgba(0, 0, 0, 0.5);
     padding: 2%;
     line-height: 200%;
+    max-width: 700px;
 }
 
 article ul {

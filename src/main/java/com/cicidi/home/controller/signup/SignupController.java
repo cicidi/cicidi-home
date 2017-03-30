@@ -130,7 +130,9 @@ public class SignupController {
             throw new UsernameAlreadyInUseException(username);
         }
         Profile profile = profileService.createProfile(connection, form.getUsername());
-        Account account = new Account(username, form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail(), ROLE.USER.name());
+        ROLE role = connection != null ? ROLE.LINKEDINUSER : ROLE.USER;
+        Account account = new Account(username, form.getPassword(), form.getFirstName(), form.getLastName(), form.getEmail());
+        account.grantRole(role);
         accountRepository.save(account);
         return account;
     }

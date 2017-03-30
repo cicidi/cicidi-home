@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"/>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml"/>
 
 <html xmlns:th="http://www.thymeleaf.org"
         >
@@ -47,7 +47,8 @@
 
                 <div id="btnList">
 
-                    <div id="yourProfileBth" th:if="${linkedInUser}">
+                    <!--<div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">-->
+                    <div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">
                         <!--<div id="yourProfileBth" social:connected="linkedin"-->
                         <a href="/profiles" class="smoothScroll btn btn-default">Your Profile</a>
                         <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->

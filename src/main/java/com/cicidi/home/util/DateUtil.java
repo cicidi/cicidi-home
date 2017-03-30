@@ -57,6 +57,7 @@ public class DateUtil {
     }
 
     public static String calLength(Date start, Date end) {
+        if (start == null || end == null) return null;
         String length;
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(start);

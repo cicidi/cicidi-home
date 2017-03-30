@@ -60,4 +60,9 @@ public class ProfileService {
         profile.setUsername(username);
         return profileRepository.save(profile);
     }
+
+    @Transactional
+    public void delete(String username) {
+        profileRepository.deleteByUsername(username);
+    }
 }

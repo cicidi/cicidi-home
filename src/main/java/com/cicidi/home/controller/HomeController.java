@@ -42,6 +42,9 @@ class HomeController {
     @Autowired
     ProfileService profileService;
 
+    @Autowired
+    AccountService accountService;
+
 
     public
     // spring data rest use profile as data profile
@@ -109,4 +112,19 @@ class HomeController {
         }
         return "option";
     }
+
+    //only use for test purpose
+//    @GetMapping("/deleteProfile/{username}")
+//    @ResponseBody
+//    String delelteProfile(@PathVariable String username) {
+//        profileService.delete(username);
+//        return "200";
+//    }
+//
+//    @GetMapping("/deleteAccount/{username}")
+//    @ResponseBody
+//    String deletepAccount(@PathVariable String username) {
+//        accountService.deleteAccount(username);
+//        return "200";
+//    }
 }

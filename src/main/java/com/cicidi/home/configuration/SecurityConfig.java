@@ -15,6 +15,7 @@
  */
 package com.cicidi.home.configuration;
 
+import com.cicidi.home.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -43,13 +44,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Inject
     private DataSource dataSource;
 
+    //if no this method, page will redirect to home after login by linkedin
+//    @Autowired
+//    public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
+//                .authoritiesByUsernameQuery("select username from Account where username = ?")
+//                .passwordEncoder(passwordEncoder());
+//    }
+
     @Autowired
-    public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+    private UserDetailsService userDetailsService;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
-                .authoritiesByUsernameQuery("select username, role from Account where username = ?")
-                .passwordEncoder(passwordEncoder());
+                .authoritiesByUsernameQuery("select username from Account where username = ?");
+//                .passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    protected UserDetailsService userDetailsService() {
+        return userDetailsService;
     }
 
     @Override
@@ -61,7 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests().antMatchers("/route", "/login**", "/home",
+        http.antMatcher("/**").authorizeRequests().antMatchers("/route", "/login**", "/home", "/deleteAccount/**",
                 "/webjars/**", "/admin/**", "/favicon.ico", "/resources/**", "/auth/**", "/signin/**", "/signup/**", "/disconnect/linkedin", "/profile/walter_chen",
                 "/img/**", "/js/**", "/font/**", "/css/**", "/owl-carousel/**").permitAll()
                 .anyRequest().authenticated()

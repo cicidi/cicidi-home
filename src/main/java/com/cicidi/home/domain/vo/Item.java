@@ -28,11 +28,26 @@ public class Item {
         if (organization instanceof WorkExperience) {
             this.title = ((WorkExperience) organization).getRole();
             this.subTitle = organization.getName();
-            StringBuffer sb = new StringBuffer();
-            sb.append(organization.getStartName() + " - ");
-            String endName = organization.getEndName();
-            sb.append(endName + " . ");
-            sb.append(organization.getLength() + " . ");
+            this.subTitle_2 = this.getSubtitle_2(organization);
+            this.bulletList = new ArrayList<>();
+            if (((WorkExperience) organization).getBulletList() != null)
+                bulletList.addAll(((WorkExperience) organization).getBulletList());
+        } else {
+            this.title = organization.getName();
+            this.subTitle_2 = this.getSubtitle_2(organization);
+
+        }
+    }
+
+    private String getSubtitle_2(Organization organization) {
+        StringBuffer sb = new StringBuffer();
+        if (organization instanceof WorkExperience) {
+            if (!StringUtils.isEmpty(organization.getStartName()) && !StringUtils.isEmpty(organization.getEndName())) {
+                sb.append(organization.getStartName() + " - ");
+                String endName = organization.getEndName();
+                sb.append(endName + " . ");
+                sb.append(organization.getLength() + " . ");
+            }
             // append location
             String city = organization.getAddress().getCity();
             String state = organization.getAddress().getState();
@@ -44,12 +59,7 @@ public class Item {
             if (country != null)
                 sb.append("," + country);
             this.subTitle_2 = sb.toString();
-            this.bulletList = new ArrayList<>();
-            if (((WorkExperience) organization).getBulletList() != null)
-                bulletList.addAll(((WorkExperience) organization).getBulletList());
         } else {
-            this.title = organization.getName();
-            StringBuffer sb = new StringBuffer();
             sb.append(((Education) organization).getDegree());
             if (((Education) organization).getMajor() != null) {
                 sb.append(",");
@@ -62,8 +72,8 @@ public class Item {
                 sb.append(DateUtil.getYear(organization.getEnd()));
                 this.subTitle_2 = sb.toString();
             }
-
         }
+        return sb.toString();
     }
 
     public Item(Position position) {

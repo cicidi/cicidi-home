@@ -26,4 +26,6 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query(value = "SELECT p from Profile p where p.contact.email=:email")
     Profile findByEmail(@Param("email") String email);
+
+    long deleteByUsername(String username);
 }
