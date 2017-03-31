@@ -7,6 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.LinkedInDate;
 import org.springframework.social.linkedin.api.Position;
@@ -30,6 +31,8 @@ public class CrawlerService {
 //        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
 //    }
 
+    @Value("${spring.profile}")
+    String profile;
 
     public Elements getPositionElements() {
         ClassLoader classLoader = getClass().getClassLoader();
@@ -113,8 +116,12 @@ public class CrawlerService {
     public List<Position> fetchByUrl(String url) {
 
         List<Position> positionList = new ArrayList<>();
-//        Elements elements = this.getPositionElements(url);
-        Elements elements = this.getPositionElements();
+        Elements elements;
+        if (profile.equals("dev")) {
+            elements = this.getPositionElements();
+        } else {
+            elements = this.getPositionElements(url);
+        }
         // start from 1, does not include latest one.
         for (int i = 1; i < elements.size(); i++) {
             Element element = elements.get(i);

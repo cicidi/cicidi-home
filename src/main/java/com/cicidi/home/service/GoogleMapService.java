@@ -1,5 +1,8 @@
 package com.cicidi.home.service;
 
+import com.cicidi.home.domain.repository.GeoDataRepository;
+import com.cicidi.home.domain.resume.Address;
+import com.cicidi.home.domain.resume.GeoData;
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.Places;
@@ -7,8 +10,12 @@ import com.cicidi.home.domain.vo.ProfileVo;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
+import com.google.maps.model.Geometry;
 import com.google.maps.model.PlacesSearchResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,30 +31,73 @@ import java.util.Map;
  */
 @Component
 public class GoogleMapService {
-    //    private static XLogger logger = XLoggerFactory.getXLogger(GoogleMapService.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     GeoApiContext context;
 
-    public Map<String, double[]> getGeoData(Profile profile) throws Exception {
-        Map<String, double[]> geoMap = new HashMap<>();
+    @Autowired
+    GeoDataRepository geoDataRepository;
+
+    public Map<String, Geometry> getGeoData(Profile profile) {
+
+        Map<String, Geometry> geoMap = new HashMap<>();
         List<Organization> organizationList = new ArrayList<>();
-//        organizationList.addAll(profile.getEducationList());
-//        organizationList.addAll(profile.getWorkExperienceList());
-//        for (Organization organization : organizationList) {
-//            Address address = organization.getAddress();
-//            String query = organization.getName() + " " + address.getFullAddress();
-//            PlacesSearchResponse placesSearchResponse = googleMapTextSearch(query);
-//            if (placesSearchResponse.results.length > 0) {
-//                double[] geo = new double[2];
-//                geo[0] = placesSearchResponse.results[0].geometry.location.lat;
-//                geo[1] = placesSearchResponse.results[0].geometry.location.lng;
-//                geoMap.put(organization.getName(), geo);
-//            }
-//        }
-        geoMap = geoData();
+        organizationList.addAll(profile.getEducationList());
+        organizationList.addAll(profile.getWorkExperienceList());
+        for (Organization organization : organizationList) {
+            GeoData geoData = geoDataRepository.findByCompany(organization.getName(),
+                    organization.getAddress().getCity(), organization.getAddress().getState(),
+                    organization.getAddress().getCountry());
+            if (geoData != null) {
+                geoDataRepository.save(geoData);
+                geoMap.put(organization.getName(), geoData.getGeometry());
+                continue;
+            } else {
+                Address address = organization.getAddress();
+                String query = organization.getName() + " " + address.getFullAddress();
+                PlacesSearchResponse placesSearchResponse = null;
+                try {
+                    placesSearchResponse = googleMapTextSearch(query);
+                } catch (Exception e) {
+                    logger.error("error while google place : {}", query);
+                }
+                if (placesSearchResponse.results.length > 0) {
+                    geoMap.put(organization.getName(), placesSearchResponse.results[0].geometry);
+                }
+            }
+        }
+//        geoMap = geoData();
         return geoMap;
     }
 
+    private Map getGeoData(ProfileVo profileVo) {
+        Map<String, Geometry> geoMap = new HashMap<>();
+        for (Position position : profileVo.getAboutMe().getPositionList()) {
+            Map extraData = position.getExtraData();
+            Map location = (extraData != null) ? (Map) extraData.get("location") : null;
+            String city = (location != null) ? (String) location.get("name") : null;
+            String company = position.getCompany().getName();
+            GeoData geoData = geoDataRepository.findByCompany(company, city,
+                    null, null);
+            if (geoData != null) {
+                geoDataRepository.save(geoData);
+                geoMap.put(position.getCompany().getName(), geoData.getGeometry());
+                continue;
+            } else {
+                String query = company + " " + city;
+                PlacesSearchResponse placesSearchResponse = null;
+                try {
+                    placesSearchResponse = googleMapTextSearch(query);
+                } catch (Exception e) {
+                    logger.error("error while google place : {}", query);
+                }
+                if (placesSearchResponse.results.length > 0) {
+                    geoMap.put(company, placesSearchResponse.results[0].geometry);
+                }
+            }
+        }
+        return geoMap;
+    }
 
     public PlacesSearchResponse googleMapTextSearch(String query) throws Exception {
         TextSearchRequest textSearchRequest = PlacesApi.textSearchQuery(context, query);
@@ -105,12 +155,15 @@ public class GoogleMapService {
     }
 
     public Places getPlaces(ProfileVo profileVo) {
+
         Places places = null;
         try {
-            places = new Places(this.getGeoData(null));
+            places = new Places(this.getGeoData(profileVo));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return places;
     }
+
+
 }

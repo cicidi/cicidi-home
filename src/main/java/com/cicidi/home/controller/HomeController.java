@@ -11,6 +11,7 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
+import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 class HomeController {
@@ -44,6 +46,9 @@ class HomeController {
 
     @Autowired
     AccountService accountService;
+
+    @Autowired
+    private com.google.common.cache.LoadingCache<String, List<Position>> linkInProfilePositionByUrl;
 
 
     public
@@ -82,7 +87,7 @@ class HomeController {
             String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
             LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
             profileVo = new ProfileVo(linkedInProfileFull);
-            profileVo.addPositions(crawlerService.fetchByUrl(linkedInProfileFull.getPublicProfileUrl()));
+            profileVo.addPositions(linkInProfilePositionByUrl.get(url));
         }
 
         profileVo.setWebLogList(gitHubService.createLog());

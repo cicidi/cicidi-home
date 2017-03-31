@@ -23,6 +23,9 @@ public class AboutMe {
     private List<Link> linkList;
     private List<Item> itemList;
 
+
+    private List<Position> positionList;
+
     public AboutMe(Profile profile) {
         if (profile.getObjective() != null) {
             this.header = profile.getObjective().getPersonalEstimate();
@@ -50,12 +53,13 @@ public class AboutMe {
 
 
     public AboutMe(LinkedInProfileFull linkedInProfileFull) {
-
+        this.positionList = this.positionList == null ? new ArrayList<>() : this.positionList;
         if (linkedInProfileFull.getPositions() != null) {
             this.itemList = new ArrayList<>();
             for (org.springframework.social.linkedin.api.Position position : linkedInProfileFull.getPositions()) {
                 Item item = new Item(position);
                 itemList.add(item);
+                this.positionList.add(position);
             }
         }
     }
@@ -111,9 +115,18 @@ public class AboutMe {
     }
 
     public void addPositions(List<Position> positions) {
-        if (this.itemList == null) {
-            itemList = new ArrayList<>();
-        }
+        this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
+        this.positionList = this.positionList == null ? new ArrayList<>() : this.positionList;
         itemList.addAll(positions.stream().map(Item::new).collect(Collectors.toList()));
+        this.positionList.addAll(positions);
     }
+
+    public List<Position> getPositionList() {
+        return positionList;
+    }
+
+    public void setPositionList(List<Position> positionList) {
+        this.positionList = positionList;
+    }
+
 }
