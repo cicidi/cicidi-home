@@ -73,7 +73,7 @@ public class GoogleMapService {
                         geoMap.put(organization.getName(), geoData.getGeometryJson());
                         geoDataRepository.save(geoData);
                         //temp break save google map request limit;
-                        break;
+//                        break;
                     } catch (JsonProcessingException e) {
                         logger.error("error while convert geometry");
                     }

@@ -76,7 +76,9 @@ function addMarkerList(googleMap, geoData) {
 
     for (var key in geoData) {
         if (geoData.hasOwnProperty(key)) {
-            addMarker(googleMap, geoData[key][0], geoData[key][1], key);
+            var geoMetry = JSON.parse(geoData[key]);
+
+            addMarker(googleMap, geoMetry.location.lat, geoMetry.location.lng, key);
         }
     }
 }
