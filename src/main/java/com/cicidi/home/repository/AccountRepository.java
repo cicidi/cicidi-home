@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.cicidi.home.domain.repository;
+package com.cicidi.home.repository;
 
 import com.cicidi.home.domain.account.Account;
 import org.springframework.data.jpa.repository.JpaRepository;

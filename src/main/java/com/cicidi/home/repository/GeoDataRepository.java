@@ -1,4 +1,4 @@
-package com.cicidi.home.domain.repository;
+package com.cicidi.home.repository;
 
 import com.cicidi.home.domain.resume.GeoData;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GeoDataRepository extends JpaRepository<GeoData, Long> {
 
-    @Query(value = "SELECT g from GeoData g where g.company=:company and g.address.city=:city and g.address.state=:state and g.address.country=:country")
-    GeoData findByCompany(@Param("company") String company, @Param("city") String city, @Param("state") String state, @Param("country") String country);
+    @Query(value = "SELECT g from GeoData g inner join g.address a where g.companyName=:companyName and a.city=:city and a.state=:state and a.country=:country")
+    GeoData findByCompany(@Param("companyName") String companyName, @Param("city") String city, @Param("state") String state, @Param("country") String country);
 }

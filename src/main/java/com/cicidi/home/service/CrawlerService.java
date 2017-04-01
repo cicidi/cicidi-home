@@ -31,7 +31,7 @@ public class CrawlerService {
 //        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
 //    }
 
-    @Value("${spring.profile}")
+    @Value("${spring.profiles.active}")
     String profile;
 
     public Elements getPositionElements() {

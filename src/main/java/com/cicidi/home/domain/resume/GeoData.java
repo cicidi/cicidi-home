@@ -1,27 +1,40 @@
 package com.cicidi.home.domain.resume;
 
 import com.cicidi.home.domain.DatabaseEntity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.google.maps.model.Geometry;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created by cicidi on 3/30/2017.
  */
 @Entity
 public class GeoData extends DatabaseEntity {
+
     private String companyName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    @JsonBackReference
+    @XmlTransient
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "geoData", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Address address;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "geometry_id")
-    @JsonBackReference
-    private Geometry geometry;
+    private String geometryJson;
+
+
+    public GeoData() {
+        super();
+    }
+
+    public GeoData(String name, Address address, String geometryJson) {
+        super();
+        this.companyName = name;
+        this.setAddress(address);
+        this.geometryJson = geometryJson;
+    }
 
     public String getCompanyName() {
         return companyName;
@@ -36,14 +49,15 @@ public class GeoData extends DatabaseEntity {
     }
 
     public void setAddress(Address address) {
+        address.setGeoData(this);
         this.address = address;
     }
 
-    public Geometry getGeometry() {
-        return geometry;
+    public String getGeometryJson() {
+        return geometryJson;
     }
 
-    public void setGeometry(Geometry geometry) {
-        this.geometry = geometry;
+    public void setGeometryJson(String geometryJson) {
+        this.geometryJson = geometryJson;
     }
 }

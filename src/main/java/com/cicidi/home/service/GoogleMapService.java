@@ -1,12 +1,14 @@
 package com.cicidi.home.service;
 
-import com.cicidi.home.domain.repository.GeoDataRepository;
 import com.cicidi.home.domain.resume.Address;
 import com.cicidi.home.domain.resume.GeoData;
 import com.cicidi.home.domain.resume.Organization;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.Places;
 import com.cicidi.home.domain.vo.ProfileVo;
+import com.cicidi.home.repository.GeoDataRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.TextSearchRequest;
@@ -38,9 +40,12 @@ public class GoogleMapService {
     @Autowired
     GeoDataRepository geoDataRepository;
 
-    public Map<String, Geometry> getGeoData(Profile profile) {
+    @Autowired
+    ObjectMapper objectMapper;
 
-        Map<String, Geometry> geoMap = new HashMap<>();
+    public Map<String, String> getGeoData(Profile profile) {
+
+        Map<String, String> geoMap = new HashMap<>();
         List<Organization> organizationList = new ArrayList<>();
         organizationList.addAll(profile.getEducationList());
         organizationList.addAll(profile.getWorkExperienceList());
@@ -49,8 +54,8 @@ public class GoogleMapService {
                     organization.getAddress().getCity(), organization.getAddress().getState(),
                     organization.getAddress().getCountry());
             if (geoData != null) {
-                geoDataRepository.save(geoData);
-                geoMap.put(organization.getName(), geoData.getGeometry());
+
+                geoMap.put(organization.getName(), geoData.getGeometryJson());
                 continue;
             } else {
                 Address address = organization.getAddress();
@@ -62,7 +67,16 @@ public class GoogleMapService {
                     logger.error("error while google place : {}", query);
                 }
                 if (placesSearchResponse.results.length > 0) {
-                    geoMap.put(organization.getName(), placesSearchResponse.results[0].geometry);
+                    Geometry geometry = placesSearchResponse.results[0].geometry;
+                    try {
+                        geoData = new GeoData(organization.getName(), address, objectMapper.writeValueAsString(geometry));
+                        geoMap.put(organization.getName(), geoData.getGeometryJson());
+                        geoDataRepository.save(geoData);
+                        //temp break save google map request limit;
+                        break;
+                    } catch (JsonProcessingException e) {
+                        logger.error("error while convert geometry");
+                    }
                 }
             }
         }
@@ -70,8 +84,8 @@ public class GoogleMapService {
         return geoMap;
     }
 
-    private Map getGeoData(ProfileVo profileVo) {
-        Map<String, Geometry> geoMap = new HashMap<>();
+    private Map<String, String> getGeoData(ProfileVo profileVo) {
+        Map<String, String> geoMap = new HashMap<>();
         for (Position position : profileVo.getAboutMe().getPositionList()) {
             Map extraData = position.getExtraData();
             Map location = (extraData != null) ? (Map) extraData.get("location") : null;
@@ -80,8 +94,7 @@ public class GoogleMapService {
             GeoData geoData = geoDataRepository.findByCompany(company, city,
                     null, null);
             if (geoData != null) {
-                geoDataRepository.save(geoData);
-                geoMap.put(position.getCompany().getName(), geoData.getGeometry());
+                geoMap.put(company, geoData.getGeometryJson());
                 continue;
             } else {
                 String query = company + " " + city;
@@ -92,7 +105,16 @@ public class GoogleMapService {
                     logger.error("error while google place : {}", query);
                 }
                 if (placesSearchResponse.results.length > 0) {
-                    geoMap.put(company, placesSearchResponse.results[0].geometry);
+                    Geometry geometry = placesSearchResponse.results[0].geometry;
+                    try {
+                        Address address = new Address();
+                        address.setCity(city);
+                        geoData = new GeoData(company, address, objectMapper.writeValueAsString(geometry));
+                        geoMap.put(company, geoData.getGeometryJson());
+                        geoDataRepository.save(geoData);
+                    } catch (JsonProcessingException e) {
+                        logger.error("error while convert geometry");
+                    }
                 }
             }
         }

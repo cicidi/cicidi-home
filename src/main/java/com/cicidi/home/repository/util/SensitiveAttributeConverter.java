@@ -1,4 +1,4 @@
-package com.cicidi.home.domain.repository.util;
+package com.cicidi.home.repository.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

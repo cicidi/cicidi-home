@@ -1,7 +1,7 @@
 package com.cicidi.home.domain.account;
 
 import com.cicidi.home.domain.DatabaseEntity;
-import com.cicidi.home.domain.repository.util.SensitiveAttributeConverter;
+import com.cicidi.home.repository.util.SensitiveAttributeConverter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

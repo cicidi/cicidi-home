@@ -28,7 +28,6 @@ public class Address extends DatabaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "organization_id")
-
     @XmlTransient
     @JsonBackReference
     private Organization organization;
@@ -39,6 +38,11 @@ public class Address extends DatabaseEntity {
     @JsonBackReference
     private Contact contact;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "geo_data_id")
+    @XmlTransient
+    @JsonBackReference
+    private GeoData geoData;
 
     public Address() {
         super();
@@ -150,6 +154,14 @@ public class Address extends DatabaseEntity {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public GeoData getGeoData() {
+        return geoData;
+    }
+
+    public void setGeoData(GeoData geoData) {
+        this.geoData = geoData;
     }
 }
 

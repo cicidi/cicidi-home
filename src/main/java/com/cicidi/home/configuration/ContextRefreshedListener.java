@@ -1,7 +1,7 @@
 package com.cicidi.home.configuration;
 
-import com.cicidi.home.domain.repository.AccountRepository;
 import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.repository.AccountRepository;
 import com.cicidi.home.service.EntityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package com.cicidi.home.service;
 
 import com.cicidi.home.domain.account.Account;
-import com.cicidi.home.domain.repository.AccountRepository;
+import com.cicidi.home.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
