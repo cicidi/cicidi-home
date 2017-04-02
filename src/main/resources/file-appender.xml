@@ -2,7 +2,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level hostIP=%X{hostIP}
+                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level
                     thread=%thread component=%logger message="%msg"%n%ex
                 </pattern>
             </layout>
@@ -24,7 +24,7 @@
         </triggeringPolicy>
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level hostIP=%X{hostIP}
+                <pattern>%d{"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", GMT} level=%level
                     thread=%thread component=%logger message="%msg"%n%ex
                 </pattern>
             </layout>

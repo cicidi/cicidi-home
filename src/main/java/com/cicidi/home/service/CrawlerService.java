@@ -7,6 +7,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.LinkedInDate;
@@ -25,11 +27,12 @@ import java.util.List;
 @Service
 public class CrawlerService {
 
-//    public static void main(String[] args) {
+    //    public static void main(String[] args) {
 //        CrawlerService c = new CrawlerService();
 //        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
 //        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
 //    }
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Value("${spring.profiles.active}")
     String profile;
@@ -52,9 +55,10 @@ public class CrawlerService {
         try {
             URL url = new URL(path);
             doc = Jsoup.parse(url, 10000);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            logger.info("not able to get profile from path :{}, messge :{} ", path, e.getMessage());
         }
+        if (doc == null) return null;
         Elements elements = doc.select("#experience ul li");
         return elements;
     }
@@ -123,6 +127,7 @@ public class CrawlerService {
             elements = this.getPositionElements(url);
         }
         // start from 1, does not include latest one.
+        if (elements == null) return null;
         for (int i = 1; i < elements.size(); i++) {
             Element element = elements.get(i);
             Company company = new Company(0, this.getCompany(element));

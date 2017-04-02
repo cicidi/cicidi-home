@@ -1,9 +1,6 @@
 package com.cicidi.home.service;
 
-import com.cicidi.home.domain.resume.Address;
-import com.cicidi.home.domain.resume.GeoData;
-import com.cicidi.home.domain.resume.Organization;
-import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.domain.resume.*;
 import com.cicidi.home.domain.vo.Places;
 import com.cicidi.home.domain.vo.ProfileVo;
 import com.cicidi.home.repository.GeoDataRepository;
@@ -20,10 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //import org.slf4j.ext.XLogger;
 //import org.slf4j.ext.XLoggerFactory;
@@ -45,14 +39,24 @@ public class GoogleMapService {
 
     public Map<String, String> getGeoData(Profile profile) {
 
-        Map<String, String> geoMap = new HashMap<>();
+        LinkedHashMap<String, String> geoMap = new LinkedHashMap<>();
         List<Organization> organizationList = new ArrayList<>();
         organizationList.addAll(profile.getEducationList());
         organizationList.addAll(profile.getWorkExperienceList());
         for (Organization organization : organizationList) {
-            GeoData geoData = geoDataRepository.findByCompany(organization.getName(),
-                    organization.getAddress().getCity(), organization.getAddress().getState(),
-                    organization.getAddress().getCountry());
+//            if (true) break;
+            GeoData geoData = null;
+            String city = organization.getAddress().getCity();
+            String state = organization.getAddress().getState();
+            String country = organization.getAddress().getCountry();
+
+            if (country != null && state != null)
+                geoData = geoDataRepository.findByCompanyAddress(organization.getName(),
+                        organization.getAddress().getCity(), organization.getAddress().getState(),
+                        organization.getAddress().getCountry());
+            else
+                geoData = geoDataRepository.findByCompanyAndCity(organization.getName(),
+                        organization.getAddress().getCity());
             if (geoData != null) {
 
                 geoMap.put(organization.getName(), geoData.getGeometryJson());
@@ -87,11 +91,10 @@ public class GoogleMapService {
     private Map<String, String> getGeoData(ProfileVo profileVo) {
         Map<String, String> geoMap = new HashMap<>();
         for (Position position : profileVo.getAboutMe().getPositionList()) {
-            Map extraData = position.getExtraData();
-            Map location = (extraData != null) ? (Map) extraData.get("location") : null;
-            String city = (location != null) ? (String) location.get("name") : null;
+            if (true) break;
+            String city = ProfileUtil.getCity(position);
             String company = position.getCompany().getName();
-            GeoData geoData = geoDataRepository.findByCompany(company, city,
+            GeoData geoData = geoDataRepository.findByCompanyAddress(company, city,
                     null, null);
             if (geoData != null) {
                 geoMap.put(company, geoData.getGeometryJson());

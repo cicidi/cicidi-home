@@ -30,4 +30,8 @@ public class AccountService {
         accountRepository.deleteByUsername(username);
         profileRepository.deleteByUsername(username);
     }
+
+    public Account findAccountByName(String username) {
+        return accountRepository.findAccountByUsername(username);
+    }
 }

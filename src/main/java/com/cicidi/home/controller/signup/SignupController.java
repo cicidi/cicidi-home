@@ -22,12 +22,16 @@ import com.cicidi.home.domain.message.Message;
 import com.cicidi.home.domain.message.MessageType;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.repository.AccountRepository;
-import com.cicidi.home.service.CrawlerService;
 import com.cicidi.home.service.ProfileService;
 import com.cicidi.home.util.UsernameAlreadyInUseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.social.connect.*;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.linkedin.api.LinkedIn;
@@ -38,6 +42,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -52,8 +57,8 @@ public class SignupController {
     @Autowired
     ConnectionRepository connectionRepository;
 
-    @Autowired
-    CrawlerService crawlerService;
+//    @Autowired
+//    CrawlerService crawlerService;
 
     @Autowired
     ProfileService profileService;
@@ -101,7 +106,7 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signup(@Valid SignupForm form, BindingResult formBinding, WebRequest request) {
+    public String signup(@Valid SignupForm form, BindingResult formBinding, WebRequest request, HttpServletRequest httpServletRequest) {
         if (formBinding.hasErrors()) {
             return null;
         }
@@ -115,11 +120,28 @@ public class SignupController {
         if (account != null) {
             SignInUtils.signin(account.getUsername());
             providerSignInUtils.doPostSignUp(account.getUsername(), request);
+            authenticateUserAndSetSession(account, httpServletRequest);
             return "redirect:/home";
         }
         return null;
     }
 
+    @Autowired
+    protected AuthenticationManager authenticationManager;
+
+    private void authenticateUserAndSetSession(Account account, HttpServletRequest request) {
+        String username = account.getUsername();
+        String password = account.getPassword();
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+
+        // generate session if one doesn't exist
+        request.getSession();
+
+        token.setDetails(new WebAuthenticationDetails(request));
+        Authentication authenticatedUser = authenticationManager.authenticate(token);
+
+        SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+    }
     // internal helpers
 
     private Account createAccount(SignupForm form, BindingResult formBinding, WebRequest request) throws UsernameAlreadyInUseException {

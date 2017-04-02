@@ -40,9 +40,9 @@
                         <span th:if="${#httpServletRequest.remoteUser != null}">
                             <h1><span class="ganshaa">Ganshaa</span></h1>
 
-                            <h2 th:if="${linkedInUser}" th:text="${firstName}"></h2>
-                             <h2 th:if="${!linkedInUser}" th:text="${username}"></h2>
-                            <h2 th:text="${#principal}"></h2>
+                            <h2 sec:authorize="hasAuthority('LINKEDINUSER')" th:text="${firstName}"></h2>
+                             <h2 sec:authorize="!hasAuthority('LINKEDINUSER')" th:text="${username}"></h2>
+                            <!--<h2 th:text="${#principal}"></h2>-->
                         </span>
 
                 <div id="btnList">

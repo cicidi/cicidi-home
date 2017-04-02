@@ -115,6 +115,7 @@ public class AboutMe {
     }
 
     public void addPositions(List<Position> positions) {
+        if (positions == null) return;
         this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
         this.positionList = this.positionList == null ? new ArrayList<>() : this.positionList;
         itemList.addAll(positions.stream().map(Item::new).collect(Collectors.toList()));

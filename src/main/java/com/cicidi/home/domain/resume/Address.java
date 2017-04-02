@@ -5,6 +5,7 @@ import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.Location;
+import org.springframework.social.linkedin.api.Position;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
@@ -58,9 +59,14 @@ public class Address extends DatabaseEntity {
         super();
         if (company.getLocations() != null && company.getLocations().size() > 0) {
             this.setCity(company.getLocations().get(0).getAddress().getCity());
-            this.setCity(company.getLocations().get(0).getAddress().getStreet1());
+            this.setStreet(company.getLocations().get(0).getAddress().getStreet1());
             this.setZipCode(company.getLocations().get(0).getAddress().getPostalCode());
         }
+    }
+
+    public Address(Position position) {
+        super();
+        this.setCity(ProfileUtil.getCity(position));
     }
 
     public String getNumber() {

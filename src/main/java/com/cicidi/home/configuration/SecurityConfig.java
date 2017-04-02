@@ -45,27 +45,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     //if no this method, page will redirect to home after login by linkedin
-//    @Autowired
-//    public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
-//                .authoritiesByUsernameQuery("select username from Account where username = ?")
-//                .passwordEncoder(passwordEncoder());
-//    }
+    @Autowired
+    public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
+                .authoritiesByUsernameQuery("select a.username,auth.authority from user_authority auth " +
+                        "inner join account a on a.entity_id=auth.account_entity_id where a.username = ?")
+                .passwordEncoder(passwordEncoder());
+    }
 
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
-                .authoritiesByUsernameQuery("select username from Account where username = ?");
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsServiceetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
+//                .authoritiesByUsernameQuery("select username from Account where username = ?");
 //                .passwordEncoder(passwordEncoder());
-    }
+//    }
 
     @Override
     protected UserDetailsService userDetailsService() {
