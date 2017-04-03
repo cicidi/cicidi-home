@@ -2,6 +2,7 @@ package com.cicidi.home.service;
 
 import com.cicidi.home.util.Constants;
 import com.cicidi.home.util.DateUtil;
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +53,16 @@ public class CrawlerService {
     public Elements getPositionElements(String path) {
         Document doc = null;
         try {
-            URL url = new URL(path);
-            doc = Jsoup.parse(url, 10000);
+//            URL url = new URL(path);
+//           doc = Jsoup.parse(url, 10000);
+            Connection.Response response = Jsoup.connect(path)
+                    .ignoreContentType(true)
+                    .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
+                    .referrer("http://www.google.com")
+                    .timeout(12000)
+                    .followRedirects(true)
+                    .execute();
+            doc = response.parse();
         } catch (Exception e) {
             logger.info("not able to get profile from path :{}, messge :{} ", path, e.getMessage());
         }
@@ -138,5 +146,18 @@ public class CrawlerService {
             positionList.add(position);
         }
         return positionList;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        Connection.Response response = Jsoup.connect("http://www.linkedin.com/in/walter-chen-0b7558122/")
+                .ignoreContentType(true)
+                .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
+                .referrer("http://www.google.com")
+                .timeout(12000)
+                .followRedirects(true)
+                .execute();
+        Document doc = response.parse();
+        System.out.println(doc);
     }
 }
