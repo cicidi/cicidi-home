@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
+                .usersByUsernameQuery("select username, password, enabled from account where username = ?")
                 .authoritiesByUsernameQuery("select a.username,auth.authority from user_authority auth " +
                         "inner join account a on a.entity_id=auth.account_entity_id where a.username = ?")
                 .passwordEncoder(passwordEncoder());

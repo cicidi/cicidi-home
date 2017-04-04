@@ -148,16 +148,16 @@ public class CrawlerService {
         return positionList;
     }
 
-    public static void main(String[] args) throws IOException {
-
-        Connection.Response response = Jsoup.connect("http://www.linkedin.com/in/walter-chen-0b7558122/")
-                .ignoreContentType(true)
-                .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
-                .referrer("http://www.google.com")
-                .timeout(12000)
-                .followRedirects(true)
-                .execute();
-        Document doc = response.parse();
-        System.out.println(doc);
-    }
+//    public static void main(String[] args) throws IOException {
+//
+//        Connection.Response response = Jsoup.connect("http://www.linkedin.com/in/walter-chen-0b7558122/")
+//                .ignoreContentType(true)
+//                .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
+//                .referrer("http://www.google.com")
+//                .timeout(12000)
+//                .followRedirects(true)
+//                .execute();
+//        Document doc = response.parse();
+//        System.out.println(doc);
+//    }
 }
