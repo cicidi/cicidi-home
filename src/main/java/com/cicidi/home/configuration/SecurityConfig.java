@@ -98,6 +98,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .and()
                 .rememberMe();
+        http
+                .headers()
+                .frameOptions()
+                .sameOrigin()
+                .and();
     }
 
     //    @Bean
