@@ -100,9 +100,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe();
         http
                 .headers()
-                .frameOptions()
-                .sameOrigin()
-                .and();
+                .frameOptions().disable();
     }
 
     //    @Bean
