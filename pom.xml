@@ -17,21 +17,21 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>1.1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-access</artifactId>
-                <version>1.1.2</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>ch.qos.logback</groupId>-->
+                <!--<artifactId>logback-classic</artifactId>-->
+                <!--<version>1.1.2</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>ch.qos.logback</groupId>-->
+                <!--<artifactId>logback-core</artifactId>-->
+                <!--<version>1.1.2</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>ch.qos.logback</groupId>-->
+                <!--<artifactId>logback-access</artifactId>-->
+                <!--<version>1.1.2</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -52,12 +52,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-logging</artifactId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,12 +75,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-logging</artifactId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -195,12 +195,12 @@
             </exclusions>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-simple</artifactId>-->
-            <!--<version>1.7.21</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.springframework.social/spring-social-linkedin -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+         <!--https://mvnrepository.com/artifact/org.springframework.social/spring-social-linkedin-->
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-linkedin</artifactId>
@@ -248,15 +248,15 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<filtering>true</filtering>-->
-            <!--</resource>-->
-            <!--<resource>-->
-                <!--<directory>src/test/resources</directory>-->
-                <!--<filtering>true</filtering>-->
-            <!--</resource>-->
-        <!--</resources>-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 </project>

@@ -97,10 +97,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/signout")
                 .deleteCookies("JSESSIONID")
                 .and()
-                .rememberMe();
-        http
-                .headers()
-                .frameOptions().disable();
+                .rememberMe()
+                .and()
+                .headers().frameOptions().disable()
+        ;
     }
 
     //    @Bean
