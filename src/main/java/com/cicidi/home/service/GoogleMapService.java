@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
@@ -41,8 +42,8 @@ public class GoogleMapService {
 
         LinkedHashMap<String, String> geoMap = new LinkedHashMap<>();
         List<Organization> organizationList = new ArrayList<>();
-        organizationList.addAll(profile.getEducationList());
         organizationList.addAll(profile.getWorkExperienceList());
+        organizationList.addAll(profile.getEducationList());
         for (Organization organization : organizationList) {
 //            if (true) break;
             GeoData geoData = null;
@@ -50,13 +51,20 @@ public class GoogleMapService {
             String state = organization.getAddress().getState();
             String country = organization.getAddress().getCountry();
 
-            if (country != null && state != null)
-                geoData = geoDataRepository.findByCompanyAddress(organization.getName(),
+            if (country != null && state != null) {
+                List<GeoData> geoDataList = geoDataRepository.findByCompanyAddress(organization.getName(),
                         organization.getAddress().getCity(), organization.getAddress().getState(),
                         organization.getAddress().getCountry());
-            else
-                geoData = geoDataRepository.findByCompanyAndCity(organization.getName(),
+                if (!CollectionUtils.isEmpty(geoDataList)) {
+                    geoData = geoDataList.get(0);
+                }
+            } else {
+                List<GeoData> geoDataList = geoDataRepository.findByCompanyAndCity(organization.getName(),
                         organization.getAddress().getCity());
+                if (!CollectionUtils.isEmpty(geoDataList)) {
+                    geoData = geoDataList.get(0);
+                }
+            }
             if (geoData != null) {
 
                 geoMap.put(organization.getName(), geoData.getGeometryJson());
@@ -94,8 +102,12 @@ public class GoogleMapService {
             if (true) break;
             String city = ProfileUtil.getCity(position);
             String company = position.getCompany().getName();
-            GeoData geoData = geoDataRepository.findByCompanyAddress(company, city,
+            List<GeoData> geoDataList = geoDataRepository.findByCompanyAddress(company, city,
                     null, null);
+            GeoData geoData = null;
+            if (!CollectionUtils.isEmpty(geoDataList)) {
+                geoData = geoDataList.get(0);
+            }
             if (geoData != null) {
                 geoMap.put(company, geoData.getGeometryJson());
                 continue;

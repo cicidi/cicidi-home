@@ -74,13 +74,14 @@
                                  th:if="${#httpServletRequest.remoteUser == null}">
                             <span id="loginViaBtn">
                                 <!-- <a  href="/login/linkedin" onmouseover="fadeinButton()" onmouseleave="fadeoutButton()"class="smoothScroll btn btn-default">Login via Linkedin</a> -->
-                                <a class="smoothScroll btn btn-default">Login via Linkedin</a>
+                                <a class="smoothScroll btn btn-default">SignIn</a>
                                 <span id="loginOnlyBtn" hidden="true">
-                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn</a>
+                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn / SignUp</a>
                                 </span>
                                 <span id="signupBtn" hidden="true">
-                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn with
-                                        passcode</a>
+                                    <!--<a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn with-->
+                                        <!--passcode(TBD)</a>-->
+                                      <a class="smoothScroll btn btn-default">QR-Code Sign(TBD)</a>
                                 </span>
                             </span>
                             </div>

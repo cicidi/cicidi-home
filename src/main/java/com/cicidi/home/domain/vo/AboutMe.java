@@ -4,18 +4,19 @@ import com.cicidi.home.domain.resume.Education;
 import com.cicidi.home.domain.resume.Link;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.resume.WorkExperience;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.social.linkedin.api.Position;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * Created by wchen00 on 3/8/17.
  */
 public class AboutMe {
-
+    private final Logger logger = LoggerFactory.getLogger(AboutMe.class);
     private String header;
     private String subtitle;
     private String paragraph;
@@ -40,15 +41,17 @@ public class AboutMe {
         List<WorkExperience> workExperienceList = profile.getWorkExperienceList();
 
         if (workExperienceList != null) {
-            this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
+            this.itemList = this.itemList == null ? new LinkedList<>() : this.itemList;
             this.itemList.addAll(workExperienceList.stream().map(Item::new).collect(Collectors.toList()));
         }
-
         List<Education> educationList = profile.getEducationList();
         if (educationList != null) {
-            this.itemList = this.itemList == null ? new ArrayList<>() : this.itemList;
+            this.itemList = this.itemList == null ? new LinkedList<>() : this.itemList;
             this.itemList.addAll(educationList.stream().map(Item::new).collect(Collectors.toList()));
         }
+
+
+        logger.debug(itemList.iterator().next().getTitle());
     }
 
 
@@ -61,6 +64,20 @@ public class AboutMe {
                 itemList.add(item);
                 this.positionList.add(position);
             }
+            Collections.sort(this.positionList, new Comparator<Position>() {
+                @Override
+                public int compare(Position p1, Position p2) {
+                    // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                    if (p1.getIsCurrent())
+                        return 1;
+                    if (p2.getIsCurrent())
+                        return -1;
+                    int p1_month = p1.getStartDate() != null ? p1.getStartDate().getYear() * 12 + p1.getStartDate().getMonth() : 0;
+                    int p2_month = p2.getStartDate() != null ? p2.getStartDate().getYear() * 12 + p2.getEndDate().getMonth() : 0;
+                    return p1_month - p2_month;
+                }
+            });
+            logger.debug(positionList.toString());
         }
     }
 

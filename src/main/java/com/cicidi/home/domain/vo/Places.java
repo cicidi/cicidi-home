@@ -12,8 +12,11 @@ import java.util.Map;
  * Created by wchen00 on 3/8/17.
  */
 public class Places {
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private Map<String, String> geoData;
+
     ObjectMapper objectMapper = new ObjectMapper();
 
     public Places(Map<String, String> geoData) {

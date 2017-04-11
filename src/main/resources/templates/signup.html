@@ -48,19 +48,19 @@
                                     th:text="${#fields.errors('lastName')[0]}">Error</span></label>
                         </div>
                         <div class="group">
-                            <input type="hidden" th:field="*{email}"/>
-                            <input type="hidden" th:field="*{isExist}"/>
-                            <input type="text" class="input" th:field="*{lastName}"/><br/>
+                            <input type="hidden" th:field="*{email}" autocomplete="off"/>
+                            <input type="hidden" th:field="*{isExist}" autocomplete="off"/>
+                            <input type="text" class="input" th:field="*{lastName}" autocomplete="off"/><br/>
                             <label for="username" class="label">Username <span
                                     th:if="${#fields.hasErrors('username')}" class="error"
                                     th:text="${#fields.errors('username')[0]}">Error</span></label>
                         </div>
                         <div class="group">
-                            <input type="text" class="input" th:field="*{username}"/><br/>
+                            <input type="text" class="input" th:field="*{username}" autocomplete="off"/><br/>
                             <label for="password" class="label">Password<br/><span
                                     th:if="${#fields.hasErrors('password')}" class="error"
                                     th:text="${#fields.errors('password')[0]}">Error</span></label>
-                            <input type="password" class="input" th:field="*{password}"/>
+                            <input type="password" class="input" th:field="*{password}" autocomplete="off"/>
                         </div>
                         <br/>
 
