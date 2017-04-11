@@ -40,38 +40,53 @@
                         <span th:if="${#httpServletRequest.remoteUser != null}">
                             <h1><span class="ganshaa">Ganshaa</span></h1>
 
-                            <h2 th:if="${linkedInUser}" th:text="${firstName}"></h2>
-                             <h2 th:if="${!linkedInUser}" th:text="${username}"></h2>
-                            <h2 th:text="${#principal}"></h2>
+                            <h2 sec:authorize="hasAuthority('LINKEDINUSER')" th:text="${firstName}"></h2>
+                             <h2 sec:authorize="!hasAuthority('LINKEDINUSER')" th:text="${username}"></h2>
+                            <!--<h2 th:text="${#principal}"></h2>-->
                         </span>
 
                 <div id="btnList">
 
                     <!--<div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">-->
-                    <div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">
-                        <!--<div id="yourProfileBth" social:connected="linkedin"-->
-                        <a href="/profiles" class="smoothScroll btn btn-default">Your Profile</a>
-                        <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
-                    </div>
-
-
-                    <div id="myProfileBth">
-                        <a href="/profile/walter_chen" class="smoothScroll btn btn-default">My Profile </a>
-                    </div>
-
-
-                    <div id="linkedinBtnContainer" height="300" th:if="${#httpServletRequest.remoteUser == null}">
+                    <tr>
+                        <td>
+                            <div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">
+                                <!--<div id="yourProfileBth" social:connected="linkedin"-->
+                                <a href="/profiles" class="smoothScroll btn btn-default">Your Profile</a>
+                                <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
+                            </div>
+                        </td>
+                        <td>
+                            <div id="myProfileBth">
+                                <a href="/profile/walter_chen" class="smoothScroll btn btn-default">My Profile </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="logOutButton" th:if="${#httpServletRequest.remoteUser != null}">
+                                <form th:action="@{/signout}" method="post" class="smoothScroll btn btn-default">
+                                    <button type="submit" name="signout" class="logOutButton">Sign Out
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="linkedinBtnContainer" height="300"
+                                 th:if="${#httpServletRequest.remoteUser == null}">
                             <span id="loginViaBtn">
                                 <!-- <a  href="/login/linkedin" onmouseover="fadeinButton()" onmouseleave="fadeoutButton()"class="smoothScroll btn btn-default">Login via Linkedin</a> -->
-                                <a class="smoothScroll btn btn-default">Login via Linkedin</a>
+                                <a class="smoothScroll btn btn-default">SignIn</a>
                                 <span id="loginOnlyBtn" hidden="true">
-                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">Login Only</a>
+                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn / SignUp</a>
                                 </span>
                                 <span id="signupBtn" hidden="true">
-                                    <a th:href="@{/signin}" class="smoothScroll btn btn-default">SignUp as admin</a>
+                                    <!--<a th:href="@{/signin}" class="smoothScroll btn btn-default">SignIn with-->
+                                        <!--passcode(TBD)</a>-->
+                                      <a class="smoothScroll btn btn-default">QR-Code Sign(TBD)</a>
                                 </span>
                             </span>
-                    </div>
+                            </div>
+                        </td>
+                    </tr>
                 </div>
             </div>
 

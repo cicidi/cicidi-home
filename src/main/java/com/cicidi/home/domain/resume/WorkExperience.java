@@ -48,7 +48,8 @@ public class WorkExperience extends Organization implements Comparable<WorkExper
         this.setRole(position.getTitle());
         this.setName(position.getCompany().getName());
         this.setIcon(position.getCompany().getLogoUrl());
-        this.setAddress(new Address(position.getCompany()));
+//        this.setAddress(new Address(position.getCompany()));
+        this.setAddress(new Address(position));
         this.present = position.getIsCurrent();
 //        position.get
         if (position.getStartDate() != null) {

@@ -1,8 +1,8 @@
 package com.cicidi.home.service;
 
 import com.cicidi.home.domain.account.Account;
-import com.cicidi.home.domain.repository.AccountRepository;
-import com.cicidi.home.domain.repository.ProfileRepository;
+import com.cicidi.home.repository.AccountRepository;
+import com.cicidi.home.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +29,9 @@ public class AccountService {
     public void deleteAccount(String username) {
         accountRepository.deleteByUsername(username);
         profileRepository.deleteByUsername(username);
+    }
+
+    public Account findAccountByName(String username) {
+        return accountRepository.findAccountByUsername(username);
     }
 }

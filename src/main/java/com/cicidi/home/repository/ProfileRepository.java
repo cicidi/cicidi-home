@@ -1,4 +1,4 @@
-package com.cicidi.home.domain.repository;
+package com.cicidi.home.repository;
 
 import com.cicidi.home.domain.resume.Profile;
 import org.springframework.data.jpa.repository.Lock;

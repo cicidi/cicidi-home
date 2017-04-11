@@ -1,9 +1,9 @@
 package com.cicidi.home.service;
 
 import com.cicidi.home.domain.account.Account;
-import com.cicidi.home.domain.repository.AccountRepository;
-import com.cicidi.home.domain.repository.ProfileRepository;
 import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.repository.AccountRepository;
+import com.cicidi.home.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.linkedin.api.LinkedIn;

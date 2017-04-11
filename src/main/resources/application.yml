@@ -9,17 +9,19 @@ spring:
       show-sql: true
       use-new-id-generator-mappings: true
       dialect: org.hibernate.dialect.MySQL5
-  datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/entityMgt
-      username: root
-      password: password
+#  datasource:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/entityMgt
+#      username: root
+#      password: password
   data.rest.baseUri: data
   social:
       linkedin:
         app-id: 86ys6tl0fl22nn
         app-secret: XitDHnd0wMTEmGEn
 javax.xml.accessExternalSchema : all
+
+
 
 security:
   oauth2:
@@ -50,3 +52,20 @@ logging.level.org.hibernate: ERROR
 #google.api.key=AIzaSyDDZZzlPmd_u9prMkaE8YMmvp6IP9KN72M
 #google.api.key=AIzaSyBdtRny8HaYV4OQmOKEvRBrKH5k4nBDtQ0
 google.api.key: AIzaSyC2WAbfmvicCd7eOKRzCIPS-_TfM4YUxvE
+---
+profiles: dev
+spring:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/entityMgt
+      username: root
+      password: password
+---
+profiles: prod
+spring:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://cicidi-home-db.clkbcosqz5bn.us-west-1.rds.amazonaws.com:3306/entityMgt
+#      url: jdbc:mysql://localhost:3306/entityMgt
+      username: root
+      password: password

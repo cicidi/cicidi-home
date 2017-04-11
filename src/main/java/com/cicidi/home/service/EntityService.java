@@ -1,8 +1,8 @@
 package com.cicidi.home.service;
 
-import com.cicidi.home.domain.repository.ProfileRepository;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.io.XMLReader;
+import com.cicidi.home.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

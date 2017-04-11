@@ -1,9 +1,6 @@
 package com.cicidi.home.domain.vo;
 
-import com.cicidi.home.domain.resume.Bullet;
-import com.cicidi.home.domain.resume.Education;
-import com.cicidi.home.domain.resume.Organization;
-import com.cicidi.home.domain.resume.WorkExperience;
+import com.cicidi.home.domain.resume.*;
 import com.cicidi.home.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.social.linkedin.api.LinkedInDate;
@@ -11,7 +8,6 @@ import org.springframework.social.linkedin.api.Position;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by cicidi on 2/17/2017.
@@ -105,9 +101,7 @@ public class Item {
         if (position.getCompany().getLocations() != null && position.getCompany().getLocations().size() > 0) {
             sb.append(position.getCompany().getLocations().get(0).getAddress().getCity());
         } else {
-            Map extraData = position.getExtraData();
-            Map location = (extraData != null) ? (Map) extraData.get("location") : null;
-            String name = (location != null) ? (String) location.get("name") : null;
+            String name = ProfileUtil.getCity(position);
             if (!StringUtils.isEmpty(name)) {
                 sb.append(name);
             }

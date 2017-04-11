@@ -54,9 +54,9 @@ function initMap() {
     addMarkerList(map, hashMap);
 }
 
-function addMarker(googleMap, long, lat, message) {
+function addMarker(googleMap, lat, long, message, setCenter) {
 
-    var myLatlng = new google.maps.LatLng(long, lat);
+    var myLatlng = new google.maps.LatLng(lat, long);
     var mapOptions = {
         zoom: 13,
         center: myLatlng
@@ -68,15 +68,32 @@ function addMarker(googleMap, long, lat, message) {
         position: myLatlng,
         title: message
     });
+    if (setCenter) {
+        if (googleMap) {
+            //googleMap.setCenter({lat: lat, lng: long})
+            //googleMap.setCenter(new google.maps.LatLng(lat, long));
+            //googleMap.setCenter(new google.maps.LatLng(-34, 151));
+            var latlng = new google.maps.LatLng(lat, long);
+            googleMap.setCenter(latlng);
 
+        }
+    }
 // To add the marker to the map, call setMap();
     marker.setMap(googleMap);
 }
 function addMarkerList(googleMap, geoData) {
-
+    var index = 0;
+    var setCenter;
     for (var key in geoData) {
+        if (index == 0)
+            setCenter = true;
         if (geoData.hasOwnProperty(key)) {
-            addMarker(googleMap, geoData[key][0], geoData[key][1], key);
+            var geoMetry = JSON.parse(geoData[key]);
+
+            addMarker(googleMap, geoMetry.location.lat, geoMetry.location.lng, key, setCenter);
+            index++;
+            setCenter = false;
         }
+
     }
 }

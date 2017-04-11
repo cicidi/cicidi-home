@@ -5,6 +5,7 @@ import com.cicidi.home.util.Constants;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.social.linkedin.api.Company;
 import org.springframework.social.linkedin.api.Location;
+import org.springframework.social.linkedin.api.Position;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
@@ -28,7 +29,6 @@ public class Address extends DatabaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "organization_id")
-
     @XmlTransient
     @JsonBackReference
     private Organization organization;
@@ -39,6 +39,11 @@ public class Address extends DatabaseEntity {
     @JsonBackReference
     private Contact contact;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "geo_data_id")
+    @XmlTransient
+    @JsonBackReference
+    private GeoData geoData;
 
     public Address() {
         super();
@@ -54,9 +59,14 @@ public class Address extends DatabaseEntity {
         super();
         if (company.getLocations() != null && company.getLocations().size() > 0) {
             this.setCity(company.getLocations().get(0).getAddress().getCity());
-            this.setCity(company.getLocations().get(0).getAddress().getStreet1());
+            this.setStreet(company.getLocations().get(0).getAddress().getStreet1());
             this.setZipCode(company.getLocations().get(0).getAddress().getPostalCode());
         }
+    }
+
+    public Address(Position position) {
+        super();
+        this.setCity(ProfileUtil.getCity(position));
     }
 
     public String getNumber() {
@@ -150,6 +160,14 @@ public class Address extends DatabaseEntity {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public GeoData getGeoData() {
+        return geoData;
+    }
+
+    public void setGeoData(GeoData geoData) {
+        this.geoData = geoData;
     }
 }
 
