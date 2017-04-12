@@ -444,8 +444,18 @@
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
                             <span>
-                                   <a th:href="${linkVo.url}">
-                                       <i th:class="${linkVo.icon}" style="background: #504e4e"></i></a></span>
+                                   <!--<a th:href="${linkVo.url}">-->
+                                       <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i></a>-->
+                            <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
+                               sec:authorize="hasAuthority('LINKEDINUSER')"
+                               th:href=" ${linkVo.url}">
+                                <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
+                            </a>
+                            <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
+                               th:href=" ${linkVo.url}">
+                                <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
+                            </a>
+                                </span>
                         </td>
                     </tr>
 
