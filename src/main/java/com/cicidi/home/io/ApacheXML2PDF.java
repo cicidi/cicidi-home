@@ -53,14 +53,14 @@ public class ApacheXML2PDF {
 
             // Setup directories
             File baseDir = new File("src/main/resources");
-            File outDir = new File(baseDir, "src/main/resources");
+            File outDir = new File("/tmp");
             outDir.mkdirs();
 
 
             // Setup input and output files
-            File xmlfile = new File(baseDir, "resume_config/resume_copy.xml");
+            File xmlfile = new File(outDir, "/resume_copy.xml");
             File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
-            File pdffile = new File(baseDir, "resume_config/ResultXML2PDF.pdf");
+            File pdffile = new File(outDir, "/walter_chen_resume.pdf");
             if (!pdffile.exists()) {
                 pdffile.createNewFile();
             }

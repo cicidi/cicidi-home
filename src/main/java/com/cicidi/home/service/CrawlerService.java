@@ -53,12 +53,10 @@ public class CrawlerService {
     public Elements getPositionElements(String path) {
         Document doc = null;
         try {
-//            URL url = new URL(path);
-//           doc = Jsoup.parse(url, 10000);
             Connection.Response response = Jsoup.connect(path)
                     .ignoreContentType(true)
                     .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
-                    .referrer("http://www.google.com")
+                    .referrer("http://walterchen.us")
                     .timeout(12000)
                     .followRedirects(true)
                     .execute();

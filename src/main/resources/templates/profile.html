@@ -74,7 +74,7 @@
                 <p class="nav-text">Menu</p>
                 <ul class="right">
                     <li class="active-item"><a href="#carousel">Experience</a></li>
-                    <li><a href="#about-me">About ME</a></li>
+                    <li><a href="#about-me">About ME &amp;Resume</a></li>
                     <li><a href="#my-exp">Code demo</a></li>
                     <!--<li><a href="#features">TECHNOLOGY</a></li>-->
 
@@ -144,7 +144,8 @@
 
                 <p th:text="${profileVo.aboutMe.subtitle}"></p>
 
-                <div class=" s-12 m-4 l-2 center"><a class="color-btn" href="#contact">Contact Me</a></div>
+                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:href="@{/downloadResume}">Download resume</a>
+                </div>
             </div>
         </div>
         <!--<div class="s-12 m-12 l-3 media-container">-->
@@ -297,7 +298,7 @@
                                     <p>All my personal data (resume) is nothing but a xml file.</p></div>
                                 <img src="/img/info/jee_xml-resume.jpg" alt=""/></a></div>
                             <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
-                                <div class="my-exp-text"><h4>Apache POF</h4>
+                                <div class="my-exp-text"><h4>Apache FOP</h4>
 
                                     <p>I generate a pdf resume from the xml file.You can download it from this page</p>
                                 </div>
@@ -444,10 +445,29 @@
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
                             <span>
-                                   <a th:href="${linkVo.url}">
-                                       <i th:class="${linkVo.icon}" style="background: #504e4e"></i></a></span>
+                                   <!--<a th:href="${linkVo.url}">-->
+                                       <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i></a>-->
+                            <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
+                               sec:authorize="hasAuthority('LINKEDINUSER')"
+                               th:href=" ${linkVo.url}">
+                                <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
+                            </a>
+                            <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
+                               th:href=" ${linkVo.url}">
+                                <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
+                            </a>
+                            </span>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <a th:href="@{/downloadResume}">
+                                    <i class="fa fa-file-pdf-o" style="background: #504e4e"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+
 
                 </div>
                 <div class="s-12 m-12 l-5">

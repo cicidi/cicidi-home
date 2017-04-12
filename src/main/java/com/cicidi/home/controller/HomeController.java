@@ -18,9 +18,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.Principal;
 import java.util.List;
 
@@ -143,10 +149,36 @@ class HomeController {
 //        return "200";
 //    }
 //
-    @GetMapping("/deleteAccount/{username}")
-    @ResponseBody
-    String deletepAccount(@PathVariable String username) {
-        accountService.deleteAccount(username);
-        return "202";
+//    @GetMapping("/deleteAccount/{username}")
+//    @ResponseBody
+//    String deletepAccount(@PathVariable String username) {
+//        accountService.deleteAccount(username);
+//        return "202";
+//    }
+
+    @RequestMapping(value = "/downloadResume", method = RequestMethod.GET)
+    public void getFile(HttpServletResponse response) {
+//        try {
+//            // get your file as InputStream
+//            InputStream is = new FileInputStream(new File("/tmp//walter_chen_resume.pdf"));
+//            // copy it to response's OutputStream
+//            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+//            response.flushBuffer();
+//        } catch (IOException ex) {
+//            logger.info("can not read resume file: {}", ex);
+//            throw new RuntimeException("IOError writing file to output stream");
+//        }
+//        String dataDirectory = "/tmp//walter_chen_resume.pdf";
+        Path file = Paths.get("/tmp/", "walter_chen_resume.pdf");
+        if (Files.exists(file)) {
+            response.setContentType("application/pdf");
+            response.addHeader("Content-Disposition", "attachment; filename=" + "walter_chen_resume.pdf");
+            try {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

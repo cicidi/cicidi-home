@@ -8,19 +8,26 @@
     <objective>
         <title></title>
         <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
-        <interests>I am interest in any kind of new technology</interests>
-        <whyCreateThisPage>As a developer, I am always asking myself how can I make things different, and better. If an
-            idea comes, instead of wasting time thinking if this a smart or stupid idea, I will put my hand on my HHKB and get start.
-            When I interview some candidates, I found it is not as simple as running query to figure out is this candidate a good fit?
-            The same problem to my interviewer. How can I let them know and trust that I can handle the job.
-            I have had work on lots of application, but I never write one for myself, why not create one and post my resume.
+        <interests>I am a good developer , but I want to be excellent</interests>
+        <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
+            fit.
+            The same problem to my interviewer. How can I let them know and trust that
+            I can handle the task. I have had work on lots of application, but I never write one for myself, why not
+            create one and post my resume. As a developer, I am always asking myself how can I make things different,
+            and better.
+            This is reason why I write this website.
             Meanwhile, I get more practice and learn new stuff.
-            2-month spare time afterwork, this is what you are seeing.
+            2-month spare time after work, here is what you are seeing.
             If you have job openings, and looking for a Software engineer, here I am.
-            If you don't find your requirements from my website, please wait a moment. The website shows my skill sets, my work, but not all of me.
-            Especially my enthusiasm and interests in new and fancy technology. In sake of my 2 month work on this web site, Can I get a chance for 5 minute talk ?
+            If you don't find your job requirements from my website, please wait a moment. The website just shows some
+            of my skills and
+            work, but not all. And also not showing my enthusiasm and interests in new and fancy technologies. If your
+            interesting in me, please
+            contact with me.
+
             Thank you for visiting.
-                        - Walter
+
+            - Walter
         </whyCreateThisPage>
         <contentImg>
             /img/resume_photo/plant_2.jpg
@@ -28,7 +35,7 @@
     </objective>
     <contact>
         <phone></phone>
-        <email>cicidi@gmail.com</email>
+        <email>walterchen.ca@gmail.com</email>
         <address>
             <number></number>
             <street></street>
@@ -83,11 +90,11 @@
                 <zipCode></zipCode>
             </address>
             <start>09-2004</start>
-            <end>06-2008</end>
+            <end>08-2008</end>
             <present>false</present>
             <startName>September 2004</startName>
-            <endName>June 2008</endName>
-            <length>3yrs 10mos</length>
+            <endName>August 2008</endName>
+            <length>4yrs</length>
             <photo>/img/resume_photo/DSC_0197.jpg</photo>
             <icon>https://upload.wikimedia.org/wikipedia/en/3/3a/Dalian_Maritime_University_logo.png</icon>
             <major>Business</major>
@@ -106,18 +113,35 @@
                 <zipCode></zipCode>
             </address>
             <start>10-2015</start>
-            <end>03-2017</end>
+            <end>04-2017</end>
             <present>true</present>
             <startName>October 2015</startName>
             <endName>present</endName>
             <length>1yr 7mos</length>
             <photo>/img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
-            <summary>I am good</summary>
-            <role>Senior developer</role>
+            <summary></summary>
+            <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Design implement gift card inventory</content>
+                    <content>Design, implement, test Company Entity Management V2 Framework by Spring Data.</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Research on existing Framework, troubleshoot issues which impact performance.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Design and implement solution for Rational Database support on existing framework,                                which only support non-sql currently</content>
+                        </bullet>
+                        <bullet>
+                            <content>Provide adapter, converter, validator, encryption interface for company                                customizations.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Implement both positive and negative test for above feature.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Design and implement portal and web service to manage gift card inventory</content>
                     <bulletList>
                         <bullet>
                             <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card                                from various external card sources and save the card in database.</content>
@@ -126,18 +150,21 @@
                             <content>Implement inventory dataload service to manage card load status.</content>
                         </bullet>
                         <bullet>
-                            <content>Create protal provide internal user UI to upload gift card data, and manipulte card                                load status by calling various web service.Use thymeleaf, js, Spring MVC, Spring                                Security.</content>
+                            <content>Create portal provide internal user UI tool to upload gift card data, and manage                                card load status by calling various web service. Use thymeleaf, js, Spring MVC, Spring                                Security.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Limit user access base on user roles using Spring security, Spring LDAP.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create dashboard to real time card activation data on Global map</content>
+                    <content>Create dashboard showing real time card activation data on global map</content>
                     <bulletList>
                         <bullet>
-                            <content>The application is to show user realtime transaction on Map,and total                                account compare with last HOUR/DAY/WEEK/YEAR</content>
+                            <content>The application shows user realtime transaction on map, and total                                count compared by HOUR/DAY/WEEK/YEAR</content>
                         </bullet>
                         <bullet>
-                            <content>Create postpone logic to cache real data use Google guava.                                Use lealet to create map on brower, and use google Map API to get geolocation.</content>
+                            <content>Create postpone logic to cache / calculate real time data. The purpose of                                this logic is to release pressure on database query.                                By all configuration settings, the logic provides data which delay time is less then                                1 second or up to 1 hour.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -145,24 +172,21 @@
                     <content>Implement EGift Card Service for Staples.</content>
                     <bulletList>
                         <bullet>
-                            <content>Create project from scratch.</content>
+                            <content>Implement EGift card deliver service use AWS SQS, REST, and internal Email Service                                API</content>
                         </bullet>
                         <bullet>
-                            <content>Implement EGift card deliver service use AWS SQS, REST, and interal Email Service                                API</content>
+                            <content>Use Apache camel to handle message flow.</content>
                         </bullet>
                         <bullet>
-                            <content>Use Apache camel to handle work flow.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Release all features without any defect to production in 3 month.</content>
+                            <content>Release project without any defect to production in 3 month.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Refratory project</content>
+                    <content>Refractory 4 existing project</content>
                     <bulletList>
                         <bullet>
-                            <content>In case of Jnterval Framework issue,I refratory 4 project by myself Use Spring Boot                                + Spring Data + Spring MVC + Mongo + MySQL</content>
+                            <content>Performance improved from 15 transaction per s to 60/s, response time                                reduce from 300+ms to 100+ ms.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -178,45 +202,44 @@
                 <country>US</country>
                 <zipCode></zipCode>
             </address>
-            <start>04-2015</start>
+            <start>05-2015</start>
             <end>10-2015</end>
             <present>false</present>
-            <startName>April 2015</startName>
+            <startName>May 2015</startName>
             <endName>October 2015</endName>
-            <length>7mos</length>
+            <length>6mos</length>
             <photo>
                 /img/resume_photo/Apple_cut_2.jpg
             </photo>
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
             </icon>
-            <summary>I like macbook</summary>
-            <role>Senior developer Apple</role>
+            <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Maintain support.apple.com</content>
+                    <content>Maintain https://support.apple.com/</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defects in Application.</content>
+                            <content>Work on back-end,fix defects in web application.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement data pipeline</content>
+                    <content>Implement data pipelines from various application</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement various tool pull data from Solr search engine, HDFS, and Cassandra DB</content>
+                            <content>Use various APIs to pull data from Solr search engine, HDFS, and Cassandra DB</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Analysis business data</content>
+                    <content>Analyze business big data</content>
                     <bulletList>
                         <bullet>
-                            <content>Use Hadoop MapReduce to analyze the frequency of search query, which in                                support.apple.com</content>
+                            <content>Use Hadoop MapReduce to analyze the frequency of search queries comes from                                support.apple.com</content>
                         </bullet>
                         <bullet>
-                            <content>Implement solution to support multi-line JSON array list, while Hadoop 2.7 only                                support single line Json data</content>
+                            <content>Study from open source and implement solution to support multi-line JSON                                array,while is not supported by Hadoop 2.7 by default.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -224,10 +247,10 @@
                     <content>Data parsing, and formatting</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement solution to validate data.</content>
+                            <content>Implement lots of data validator base on business requirement.</content>
                         </bullet>
                         <bullet>
-                            <content>Use Java/Python to create tool parsing daily log into businees report.</content>
+                            <content>Use Java/Python to create tool parse daily log into business report, formatting                                like excel, pdf.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -253,11 +276,19 @@
                 /img/resume_photo/huawei_cut_2.jpg
             </photo>
             <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
-            <summary>I like macbook</summary>
-            <role>Java developer</role>
+            <summary></summary>
+            <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Develop Eclipse Plugin</content>
+                    <content>Design and develop XML driven application and tool</content>
+                    <bulletList>
+                        <bullet>
+                            <content>The final product of our project is XML driven web application/webservice, which is                                configurable and customizable for different companies.</content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Develop Eclipse Plugins</content>
                     <bulletList>
                         <bullet>
                             <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.</content>
@@ -265,29 +296,26 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Design XML driven application and tool</content>
+                    <content>Develop Eclipse plugin runtime</content>
                     <bulletList>
                         <bullet>
-                            <content>The final product of our project is XML driven application/webservice, Which is                                configurable and customizable.</content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Implement Eclipse plugin runtime</content>
-                    <bulletList>
-                        <bullet>
-                            <content>The runtime is to use configuration then generate source code and deploy                                application automatilly.</content>
+                            <content>The runtime is to read configuration then generate source code and deploy                                application automatically.</content>
                         </bullet>
                         <bullet>
                             <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
                         </bullet>
                         <bullet>
-                            <content>Auto-generate Maven pom, and auto-deploy by jenkins job.</content>
+                            <content>Auto-generate Maven pom, and auto-deploy application by jenkins job.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Use AngularJs, develop POC of Saas tool.</content>
+                    <content>Design and develop POC of SaaS tool.</content>
+                    <bulletList>
+                        <bullet>
+                            <content>Use AngulaJs create cloud based tool and runtime.</content>
+                        </bullet>
+                    </bulletList>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -311,23 +339,23 @@
                 /img/resume_photo/cgi_cut_2 (2017-02-23T07_40_07.889).jpg
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
-            <summary>I like macbook</summary>
+            <summary></summary>
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Work on Property Management Application</content>
+                    <content>Work on Land Property Management Application</content>
                     <bulletList>
                         <bullet>
                             <content>Implement front end use JSF, Primeface, Ajax,JavaScript</content>
                         </bullet>
                         <bullet>
-                            <content>Create webserice use REST,SOAP,Spring web flow.</content>
+                            <content>Create Web service use REST,SOAP,Spring web flow.</content>
                         </bullet>
                         <bullet>
-                            <content>Implement DAO layer use JDBC and hibernate,Orcale</content>
+                            <content>Implement DAO layer use JDBC and hibernate and Oracle</content>
                         </bullet>
                         <bullet>
-                            <content>Used multi thread to handle multiple request.Write Aspect log to handle all                                Exception and error</content>
+                            <content>Use Spring AOP to handle Exception and logs</content>
                         </bullet>
                         <bullet>
                             <content>Implement Unit test and automation test.</content>
@@ -338,10 +366,10 @@
                     <content>Work on Healthcare.gov</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defect in acquiring service</content>
+                            <content>Fix defect in existing web service</content>
                         </bullet>
                         <bullet>
-                            <content>Implement integration testing case..</content>
+                            <content>Implement integration testing case.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -357,23 +385,23 @@
                 <country>US</country>
                 <zipCode></zipCode>
             </address>
-            <start>06-2012</start>
+            <start>05-2012</start>
             <end>05-2013</end>
             <present>false</present>
-            <startName>June 2012</startName>
+            <startName>May 2012</startName>
             <endName>May 2013</endName>
-            <length>1yr</length>
+            <length>1yr 1mo</length>
             <photo>
                 /img/resume_photo/clinpharma.jpg
             </photo>
             <icon>
                 https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
             </icon>
-            <summary>I like macbook</summary>
+            <summary></summary>
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Create various web application using Spring, Hibernate, Struts ,JSF</content>
+                    <content>Create various web application using Spring, Hibernate, Struts, JSF</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -381,7 +409,8 @@
     <skillSets>
         <category>
             <name>Spring</name>
-            <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring Retry, Spring Security, Spring LDAP, Spring
+            <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring Security, Spring
+                LDAP, Spring
                 Web Flow, Spring Batch
             </list>
         </category>
@@ -391,7 +420,7 @@
         </category>
         <category>
             <name>Front End</name>
-            <list>Thymleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML</list>
+            <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS</list>
         </category>
         <category>
             <name>Database</name>
