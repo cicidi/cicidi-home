@@ -74,7 +74,7 @@
                 <p class="nav-text">Menu</p>
                 <ul class="right">
                     <li class="active-item"><a href="#carousel">Experience</a></li>
-                    <li><a href="#about-me">About ME</a></li>
+                    <li><a href="#about-me">About ME &amp;Resume</a></li>
                     <li><a href="#my-exp">Code demo</a></li>
                     <!--<li><a href="#features">TECHNOLOGY</a></li>-->
 
@@ -144,7 +144,8 @@
 
                 <p th:text="${profileVo.aboutMe.subtitle}"></p>
 
-                <div class=" s-12 m-4 l-2 center"><a class="color-btn" href="#contact">Contact Me</a></div>
+                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:href="@{/downloadResume}">Download resume</a>
+                </div>
             </div>
         </div>
         <!--<div class="s-12 m-12 l-3 media-container">-->
@@ -455,9 +456,18 @@
                                th:href=" ${linkVo.url}">
                                 <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
                             </a>
-                                </span>
+                            </span>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <a th:href="@{/downloadResume}">
+                                    <i class="fa fa-file-pdf-o" style="background: #504e4e"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+
 
                 </div>
                 <div class="s-12 m-12 l-5">
