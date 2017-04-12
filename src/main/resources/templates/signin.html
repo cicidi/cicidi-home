@@ -12,116 +12,116 @@
 
 </head>
 
-<body class="parallax-section ">
-<section class="back-ground">
-    <div class="login-wrap">
-        <div class="login-html">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked="true"><label for="tab-1" class="tab">Sign
-            In</label></input>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><a th:href="@{/signup}" for="tab-1" class="tab">Sign
-            Up</a></input>
+<body class="parallax-section back-ground">
+<!--<section class="back-ground"> -->
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked="true"><label for="tab-1" class="tab">Sign
+        In</label></input>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><a th:href="@{/signup}" for="tab-1" class="tab">Sign
+        Up</a></input>
 
-            <div class="login-form">
-                <div class="sign-in-htm">
-                    <form id="signin" th:action="@{/signin/authenticate}" method="post">
-                        <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <form id="signin" th:action="@{/signin/authenticate}" method="post">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
 
-                        <div class="formInfo">
-                            <p font-size="12px" class="error" th:if="${param.error eq 'bad_credentials'}">
-                                Your sign in information was incorrect.
-                                Please try again or <a th:href="@{/signup}">sign up</a>.
-                            </p>
+                    <div class="formInfo">
+                        <p font-size="12px" class="error" th:if="${param.error eq 'bad_credentials'}">
+                            Your sign in information was incorrect.
+                            Please try again or <a th:href="@{/signup}">sign up</a>.
+                        </p>
 
-                            <p font-size="12px" class="error" th:if="${param.error eq 'multiple_users'}">
-                                Multiple local accounts are connected to the provider account.
-                                Try again with a different provider or with your username and password.
-                            </p>
-                            <fieldset>
-                                <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="user" name="username" type="text" class="input" size="25"/>
-                                </div>
-                                <div class="group">
-                                    <label for="pass" class="label">Password</label>
-                                    <input id="pass" name="password" type="password" class="input" data-type="password"
-                                           size="25"/>
-                                </div>
-                                <!-- <div class="group">
-                                    <input id="check" type="checkbox" class="check" checked>
-                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                                </div> -->
-                                <div class="group">
-                                    <button type="submit" class="button" value="Sign In"></button>
-                                </div>
-                                <div class="hr"></div>
-                                <div class="foot-lnk">
-                                    <a href="#forgot">Forgot Password?</a>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </form>
-                </div>
-
-
-                <!--<div class="sign-up-htm">-->
-                <!--<div th:if="${!#strings.isEmpty(message)}"-->
-                <!--th:class="${message.type.cssClass}"-->
-                <!--th:text="${message.text}">error message text-->
-                <!--</div>-->
-                <!--<form name="signup" id="signup" th:action="@{/signup}" th:object="${signupForm}">-->
-                <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
-
-                <!--<div class="formInfo">-->
-                <!--<div class="error" th:if="${#fields.hasErrors('*')}">Unable to sign up. Please fix the errors-->
-                <!--below and resubmit.-->
-                <!--</div>-->
-                <!--</div>-->
-
-                <!--<fieldset class="fieldset" ckass="fieldset">-->
-                <!--<div class="group">-->
-                <!--<label for="firstName" class="label">First Name <span-->
-                <!--th:if="${#fields.hasErrors('firstName')}" class="error"-->
-                <!--th:text="${#fields.errors('firstName')[0]}">Error</span></label>-->
-                <!--</div>-->
-                <!--<div class="group">-->
-                <!--<input type="text" class="input" th:field="*{firstName}"/><br/>-->
-                <!--<label for="lastName" class="label">Last Name <span-->
-                <!--th:if="${#fields.hasErrors('lastName')}" class="error"-->
-                <!--th:text="${#fields.errors('lastName')[0]}">Error</span></label>-->
-                <!--</div>-->
-                <!--<div class="group">-->
-                <!--<input type="text" class="input" th:field="*{lastName}"/><br/>-->
-                <!--<label for="username" class="label">Username <span-->
-                <!--th:if="${#fields.hasErrors('username')}" class="error"-->
-                <!--th:text="${#fields.errors('username')[0]}">Error</span></label>-->
-                <!--</div>-->
-                <!--<div class="group">-->
-                <!--<input type="text" class="input" th:field="*{username}"/><br/>-->
-                <!--<label for="password" class="label">Password<br/><span-->
-                <!--th:if="${#fields.hasErrors('password')}" class="error"-->
-                <!--th:text="${#fields.errors('password')[0]}">Error</span></label>-->
-                <!--<input type="password" class="input" th:field="*{password}"/>-->
-                <!--</div>-->
-                <!--<br/>-->
-
-                <!--<div class="group">-->
-                <!--<button type="submit" class="sign-up-button" style="margin-left: auto;-->
-                <!--margin-right: auto;"></button>-->
-                <!--</div>-->
-                <!--</fieldset>-->
-
-                <!--</form>-->
-                <!--<form name="lk_signin" id="lk_signin" th:action="@{/signin/linkedin}" method="POST">-->
-                <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>-->
-                <!--&lt;!&ndash;<input type="hidden" name="scope" value="read_stream,user_posts,user_photos"></input>&ndash;&gt;-->
-                <!--&lt;!&ndash; <button type="submit"><img th:src="@{/social/linkedin/signupwithlinkedin.png}"></img>-->
-                <!--</button> &ndash;&gt;-->
-                <!--<button type="submit" class="linkedin-button"></button>-->
-                <!--</form>-->
-                <!--</div>-->
+                        <p font-size="12px" class="error" th:if="${param.error eq 'multiple_users'}">
+                            Multiple local accounts are connected to the provider account.
+                            Try again with a different provider or with your username and password.
+                        </p>
+                        <fieldset>
+                            <div class="group">
+                                <label for="user" class="label">Username</label>
+                                <input id="user" name="username" type="text" class="input" size="25"/>
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Password</label>
+                                <input id="pass" name="password" type="password" class="input" data-type="password"
+                                       size="25"/>
+                            </div>
+                            <!-- <div class="group">
+                                <input id="check" type="checkbox" class="check" checked>
+                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            </div> -->
+                            <div class="group">
+                                <button type="submit" class="button" value="Sign In"></button>
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <a href="#forgot">Forgot Password?</a>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
             </div>
+
+
+            <!--<div class="sign-up-htm">-->
+            <!--<div th:if="${!#strings.isEmpty(message)}"-->
+            <!--th:class="${message.type.cssClass}"-->
+            <!--th:text="${message.text}">error message text-->
+            <!--</div>-->
+            <!--<form name="signup" id="signup" th:action="@{/signup}" th:object="${signupForm}">-->
+            <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
+
+            <!--<div class="formInfo">-->
+            <!--<div class="error" th:if="${#fields.hasErrors('*')}">Unable to sign up. Please fix the errors-->
+            <!--below and resubmit.-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<fieldset class="fieldset" ckass="fieldset">-->
+            <!--<div class="group">-->
+            <!--<label for="firstName" class="label">First Name <span-->
+            <!--th:if="${#fields.hasErrors('firstName')}" class="error"-->
+            <!--th:text="${#fields.errors('firstName')[0]}">Error</span></label>-->
+            <!--</div>-->
+            <!--<div class="group">-->
+            <!--<input type="text" class="input" th:field="*{firstName}"/><br/>-->
+            <!--<label for="lastName" class="label">Last Name <span-->
+            <!--th:if="${#fields.hasErrors('lastName')}" class="error"-->
+            <!--th:text="${#fields.errors('lastName')[0]}">Error</span></label>-->
+            <!--</div>-->
+            <!--<div class="group">-->
+            <!--<input type="text" class="input" th:field="*{lastName}"/><br/>-->
+            <!--<label for="username" class="label">Username <span-->
+            <!--th:if="${#fields.hasErrors('username')}" class="error"-->
+            <!--th:text="${#fields.errors('username')[0]}">Error</span></label>-->
+            <!--</div>-->
+            <!--<div class="group">-->
+            <!--<input type="text" class="input" th:field="*{username}"/><br/>-->
+            <!--<label for="password" class="label">Password<br/><span-->
+            <!--th:if="${#fields.hasErrors('password')}" class="error"-->
+            <!--th:text="${#fields.errors('password')[0]}">Error</span></label>-->
+            <!--<input type="password" class="input" th:field="*{password}"/>-->
+            <!--</div>-->
+            <!--<br/>-->
+
+            <!--<div class="group">-->
+            <!--<button type="submit" class="sign-up-button" style="margin-left: auto;-->
+            <!--margin-right: auto;"></button>-->
+            <!--</div>-->
+            <!--</fieldset>-->
+
+            <!--</form>-->
+            <!--<form name="lk_signin" id="lk_signin" th:action="@{/signin/linkedin}" method="POST">-->
+            <!--<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>-->
+            <!--&lt;!&ndash;<input type="hidden" name="scope" value="read_stream,user_posts,user_photos"></input>&ndash;&gt;-->
+            <!--&lt;!&ndash; <button type="submit"><img th:src="@{/social/linkedin/signupwithlinkedin.png}"></img>-->
+            <!--</button> &ndash;&gt;-->
+            <!--<button type="submit" class="linkedin-button"></button>-->
+            <!--</form>-->
+            <!--</div>-->
         </div>
     </div>
-</section>
+</div>
+<!--</section>-->
 </body>
 </html>

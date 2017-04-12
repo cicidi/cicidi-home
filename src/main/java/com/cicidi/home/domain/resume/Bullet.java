@@ -23,6 +23,8 @@ import java.util.List;
 
 public class Bullet extends DatabaseEntity {
     @XmlTransient
+    @Lob
+    @Column(length = 100000)
     private String content;
 
     @XmlTransient

@@ -1,6 +1,7 @@
 package com.cicidi.home.service;
 
 import com.cicidi.home.domain.resume.Profile;
+import com.cicidi.home.io.ApacheXML2PDF;
 import com.cicidi.home.io.XMLReader;
 import com.cicidi.home.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class EntityService {
 
     public Profile loadProfileFromUploadFIle(String path) throws JAXBException {
         Profile profile = xmlReader.parseFile();
+        new ApacheXML2PDF().createPdf();
         return profile;
     }
 
