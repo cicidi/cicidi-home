@@ -47,6 +47,11 @@
         </address>
         <linkList>
             <link>
+                <name>Homepage</name>
+                <url>www.walterchen.us</url>
+                <pic></pic>
+            </link>
+            <link>
                 <name>GitHub</name>
                 <url>https://github.com/cicidi/cicidi-home</url>
                 <pic></pic>
@@ -264,7 +269,7 @@
                         </bullet>
                         <bullet>
                             <content>Study from open source and implement solution to support multi-line JSON
-                                array,while is not supported by Hadoop 2.7 by default.
+                                array,which is not supported by Hadoop 2.7 by default.
                             </content>
                         </bullet>
                     </bulletList>

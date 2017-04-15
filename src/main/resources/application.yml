@@ -43,7 +43,7 @@ linkedin:
 logging.level.org.springframework.web: DEBUG
 logging.level.org.springframework.security: DEBUG
 logging.level.org.hibernate: ERROR
-#  file: cicidiHome.log
+file: cicidiHome.log
 
 
 #google.api.key=AIzaSyDYkdBkPcuYouBruy7DxSERqrunq8pjQIc

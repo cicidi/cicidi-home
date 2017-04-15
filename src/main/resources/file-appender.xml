@@ -11,7 +11,7 @@
 
     <appender name="FileAppender"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/tmp/cicidiHome2.log</file>
+        <file>/tmp/cicidi-home.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
             <fileNamePattern>logs/cicidiHome%i.log.zip</fileNamePattern>
