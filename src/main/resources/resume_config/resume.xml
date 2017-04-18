@@ -9,7 +9,7 @@
     <objective>
         <title></title>
         <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
-        <interests>I am a good developer , but I want to be excellent</interests>
+        <interests>I am a good developer, but I want to be excellent</interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
             The same problem to my interviewer. How can I let them know and trust that
@@ -128,8 +128,8 @@
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Design and implement solution for Rational Database support on existing framework,
-                                which only support non-sql currently
+                            <content>Design and implement a solution for Rational Database support on the existing framework,
+                                which only supports non-SQL currently
                             </content>
                         </bullet>
                         <bullet>
@@ -149,7 +149,7 @@
                     <bulletList>
                         <bullet>
                             <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card
-                                from various external card sources and save the card in database.
+                                from various external card sources and save the card into the database.
                             </content>
                         </bullet>
                         <bullet>
@@ -168,18 +168,18 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create dashboard showing real time card activation data on global map
+                    <content>Create dashboard showing real-time card activation data on a global map
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>The application shows user realtime transaction on map, and total
+                            <content>The application shows user real-time transaction on map, and total
                                 count compared by HOUR/DAY/WEEK/YEAR
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Create postpone logic to cache / calculate real time data. The purpose of
+                            <content>Create postpone logic to cache / calculate real-time data. The purpose of
                                 this logic is to release pressure on database query.
-                                By all configuration settings, the logic provides data which delay time is less then
+                                By all configuration settings, the logic provides data which delay time is less than
                                 1 second or up to 1 hour.
                             </content>
                         </bullet>
@@ -189,7 +189,7 @@
                     <content>Implement EGift Card Service for Staples.</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement EGift card deliver service use AWS SQS, REST, and internal Email Service
+                            <content>Implement EGift card delivery service use AWS SQS, REST, and internal Email Service
                                 API
                             </content>
                         </bullet>
@@ -198,14 +198,14 @@
                         </bullet>
                         <bullet>
                             <content>
-                                Release project without any defect to production in 3 month.
+                                Release project without any defect to production in 3 months.
                             </content>
                         </bullet>
 
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Refractory 4 existing project</content>
+                    <content>Refractory 4 existing projects</content>
                     <bulletList>
                         <bullet>
                             <content>Because of Interval Framework performance issue, I am asked to polish existing code
@@ -245,13 +245,13 @@
                     <content>Maintain https://support.apple.com/</content>
                     <bulletList>
                         <bullet>
-                            <content>Work on back-end,fix defects in web application.
+                            <content>Work on the back-end,fix defects in the web application.
                             </content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement data pipelines from various application</content>
+                    <content>Implement data pipelines from various applications</content>
                     <bulletList>
                         <bullet>
                             <content>Use various APIs to pull data from Solr search engine, HDFS, and Cassandra DB
@@ -268,8 +268,8 @@
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Study from open source and implement solution to support multi-line JSON
-                                array,which is not supported by Hadoop 2.7 by default.
+                            <content>Study from open source and implement a solution to support multi-line JSON
+                                array, which is not supported by Hadoop 2.7 by default.
                             </content>
                         </bullet>
                     </bulletList>
@@ -314,7 +314,7 @@
                     <content>Design and develop XML driven application and tool</content>
                     <bulletList>
                         <bullet>
-                            <content>The final product of our project is XML driven web application/webservice, which is
+                            <content>The final product of our project is XML-driven web application/webservice, which is
                                 configurable and customizable for different companies.
                             </content>
                         </bullet>
@@ -338,10 +338,10 @@
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
+                            <content>Develop Component repository with Maven/FTP server/Nexus repository.</content>
                         </bullet>
                         <bullet>
-                            <content>Auto-generate Maven pom, and auto-deploy application by jenkins job.</content>
+                            <content>Auto-generate Maven pom, and auto-deploy application by Jenkins job.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -349,7 +349,7 @@
                     <content>Design and develop POC of SaaS tool.</content>
                     <bulletList>
                         <bullet>
-                            <content>Use AngulaJs create cloud based tool and runtime.
+                            <content>Use AngulaJs create cloud-based tool and runtime.
                             </content>
                         </bullet>
                     </bulletList>
@@ -381,11 +381,11 @@
                     <content>Work on Land Property Management Application</content>
                     <bulletList>
                         <bullet>
-                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript
+                            <content>Implement front-end use JSF, Prime face, Ajax, JavaScript
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Create Web service use REST,SOAP,Spring web flow.</content>
+                            <content>Create Web service use REST, SOAP, Spring web flow.</content>
                         </bullet>
                         <bullet>
                             <content>Implement DAO layer use JDBC and hibernate and Oracle</content>
@@ -438,7 +438,7 @@
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Create various web application using Spring, Hibernate, Struts, JSF</content>
+                    <content>Create various web applications using Spring, Hibernate, Struts, JSF</content>
                 </bullet>
             </bulletList>
         </workExperience>
