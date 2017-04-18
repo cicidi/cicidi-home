@@ -31,6 +31,23 @@
                       color="#b3b3b3">
                 <xsl:text> This document is dynamically generated using Apache(tm) FOP, for more information or source code, view my website below</xsl:text>
             </fo:block>
+            <fo:block text-align-last="right" font-family="sans-serif" font-size="8pt" color="#b3b3b3">
+                <fo:block>
+                    <xsl:text>Phone: </xsl:text>
+                    <xsl:value-of select="contact/phone"/>
+                </fo:block>
+                <fo:block>
+                    <xsl:text>email: </xsl:text>
+                    <xsl:value-of select="contact/email"/>
+                </fo:block>
+                <xsl:for-each select="contact/linkList/link">
+                    <fo:block font-family="sans-serif" margin-left="3em">
+                        <xsl:value-of select="name"/>
+                        <xsl:text> : </xsl:text>
+                        <xsl:value-of select="url"/>
+                    </fo:block>
+                </xsl:for-each>
+            </fo:block>
             <fo:block text-align-last="center">
                 <fo:external-graphic
                         content-height="scale-to-fit" height="50pt" content-width="50pt"
@@ -45,15 +62,7 @@
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="lastName"/>
             </fo:block>
-            <fo:block text-align-last="center" font-family="sans-serif" font-size="8pt" color="#b3b3b3">
-                <xsl:for-each select="contact/linkList/link">
-                    <fo:block font-family="sans-serif" margin-left="3em">
-                        <xsl:value-of select="name"/>
-                        <xsl:text> : </xsl:text>
-                        <xsl:value-of select="url"/>
-                    </fo:block>
-                </xsl:for-each>
-            </fo:block>
+
             <fo:block text-align-last="center" font-family="Myriad Pro" font-size="12pt">
                 <xsl:text> • </xsl:text>
                 <xsl:value-of select="objective/personalEstimate"/>

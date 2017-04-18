@@ -135,7 +135,7 @@ hr {
 .back-ground {
     -webkit-background-size: cover;
     background-size: cover;
-    background: url('../img/landscape-photos.jpg') repeat-y fixed center;
+    background: url('../img/golden-bridge.jpg') repeat-y fixed center;
     color: #ffffff;
     display: -webkit-box;
     display: -webkit-flex;

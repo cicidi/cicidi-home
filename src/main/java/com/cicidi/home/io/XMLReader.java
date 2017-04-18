@@ -63,4 +63,19 @@ public class XMLReader {
         marshaller.marshal(profile, System.out);
         return profile;
     }
+
+    public Profile parseFileLocal() throws JAXBException {
+        JAXBContext jc = JAXBContext.newInstance(Profile.class);
+
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        Profile profile = (Profile) unmarshaller.unmarshal(new File("src/main/resources/resume_config/resume.xml"));
+        profile.dualDirecction();
+        File out = new File("/tmp/resume_copy.xml");
+//        File out = new File("src/main/resources/resume_config/resume_copy.xml");
+        Marshaller marshaller = jc.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.marshal(profile, out);
+        marshaller.marshal(profile, System.out);
+        return profile;
+    }
 }

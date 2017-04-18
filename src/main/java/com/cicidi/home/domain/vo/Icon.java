@@ -8,7 +8,7 @@ public enum Icon {
 
     FACEBOOK("fa fa-facebook"), LINKEDIN("fa fa-linkedin"), EMAIL("icon-mail"), GITHUB("fa fa-github"), WECHAT("fa fa-weixin"),
 
-    TWITTER("fa-twitter");
+    TWITTER("fa-twitter"), HOMEPAGE("fa fa-home");
 
     private String s;
 
