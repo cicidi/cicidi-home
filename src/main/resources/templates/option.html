@@ -52,13 +52,15 @@
                         <td>
                             <div id="yourProfileBth" sec:authorize="hasAuthority('LINKEDINUSER')">
                                 <!--<div id="yourProfileBth" social:connected="linkedin"-->
-                                <a href="/profiles" class="smoothScroll btn btn-default">Your Profile</a>
+                                <a href="/profiles" class="smoothScroll btn btn-default"
+                                   th:text="${firstName} +'\'s Profile'">Your Profile</a>
                                 <!--<a th:href="@{/linkedin}">Facebook Profile</a>-->
                             </div>
                         </td>
                         <td>
                             <div id="myProfileBth">
-                                <a href="/profile/walter_chen" class="smoothScroll btn btn-default">My Profile </a>
+                                <a href="/profile/walter_chen" class="smoothScroll btn btn-default">Walter's
+                                    Profile </a>
                             </div>
                         </td>
                         <td>

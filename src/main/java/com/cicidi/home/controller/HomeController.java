@@ -16,10 +16,7 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -149,26 +146,21 @@ class HomeController {
 //        return "200";
 //    }
 //
-//    @GetMapping("/deleteAccount/{username}")
-//    @ResponseBody
-//    String deletepAccount(@PathVariable String username) {
-//        accountService.deleteAccount(username);
-//        return "202";
-//    }
+    @GetMapping("/deleteAccount/{username}")
+    @ResponseBody
+    String deletepAccount(@PathVariable String username) {
+        try {
+            accountService.deleteAccount(username);
+            return "202";
+        } catch (Exception e) {
+            logger.error("can not delete account : {} ", username);
+            return "can not delete account : " + username;
+        }
+
+    }
 
     @RequestMapping(value = "/downloadResume", method = RequestMethod.GET)
     public void getFile(HttpServletResponse response) {
-//        try {
-//            // get your file as InputStream
-//            InputStream is = new FileInputStream(new File("/tmp//walter_chen_resume.pdf"));
-//            // copy it to response's OutputStream
-//            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-//            response.flushBuffer();
-//        } catch (IOException ex) {
-//            logger.info("can not read resume file: {}", ex);
-//            throw new RuntimeException("IOError writing file to output stream");
-//        }
-//        String dataDirectory = "/tmp//walter_chen_resume.pdf";
         Path file = Paths.get("/tmp/", "walter_chen_resume.pdf");
         if (Files.exists(file)) {
             response.setContentType("application/pdf");

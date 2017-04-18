@@ -135,14 +135,14 @@ public class Address extends DatabaseEntity {
             sb.append(state);
             sb.append(" ");
         }
-        if (country != null) {
-            sb.append(country);
-            sb.append(" ");
-        }
-        if (zipCode != null) {
-            sb.append(zipCode);
-            sb.append(" ");
-        }
+//        if (country != null) {
+//            sb.append(country);
+//            sb.append(" ");
+//        }
+//        if (zipCode != null) {
+//            sb.append(zipCode);
+//            sb.append(" ");
+//        }
         return sb.toString();
     }
 

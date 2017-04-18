@@ -8,7 +8,7 @@
     </faceImg>
     <objective>
         <title></title>
-        <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
+        <personalEstimate>7 yrs Java Experience, Full stack developer.</personalEstimate>
         <interests>I am a good developer, but I want to be excellent</interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
@@ -35,7 +35,7 @@
         </contentImg>
     </objective>
     <contact>
-        <phone></phone>
+        <phone>872-216-3056</phone>
         <email>walterchen.ca@gmail.com</email>
         <address>
             <number></number>
@@ -48,7 +48,7 @@
         <linkList>
             <link>
                 <name>Homepage</name>
-                <url>www.walterchen.us</url>
+                <url>http://www.walterchen.us</url>
                 <pic></pic>
             </link>
             <link>
@@ -59,7 +59,7 @@
 
             <link>
                 <name>Linkedin</name>
-                <url>https://www.linkedin.com/in/walter-chen-0b7558122/</url>
+                <url>https://www.linkedin.com/in/walter-chen-2017/</url>
                 <pic></pic>
             </link>
         </linkList>
@@ -129,7 +129,7 @@
                         </bullet>
                         <bullet>
                             <content>Design and implement a solution for Rational Database support on the existing framework,
-                                which only supports non-SQL currently
+                                which only supports non-SQL currently.
                             </content>
                         </bullet>
                         <bullet>
@@ -144,7 +144,7 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Design and implement portal and web service to manage gift card inventory
+                    <content>Design and implement portal and web service to manage gift card inventory.
                     </content>
                     <bulletList>
                         <bullet>
@@ -168,12 +168,12 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Create dashboard showing real-time card activation data on a global map
+                    <content>Create dashboard showing real-time card activation data on a global map.
                     </content>
                     <bulletList>
                         <bullet>
                             <content>The application shows user real-time transaction on map, and total
-                                count compared by HOUR/DAY/WEEK/YEAR
+                                count compared by HOUR/DAY/WEEK/YEAR.
                             </content>
                         </bullet>
                         <bullet>
@@ -186,11 +186,11 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement EGift Card Service for Staples.</content>
+                    <content>Implement eGift Card Service for Staples.</content>
                     <bulletList>
                         <bullet>
                             <content>Implement EGift card delivery service use AWS SQS, REST, and internal Email Service
-                                API
+                                API.
                             </content>
                         </bullet>
                         <bullet>
@@ -205,12 +205,12 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Refractory 4 existing projects</content>
+                    <content>Refractory 4 existing projects.</content>
                     <bulletList>
                         <bullet>
                             <content>Because of Interval Framework performance issue, I am asked to polish existing code
                                 and follow business logic behind to refractory 4 projects with
-                                Spring Boot + Spring Data + Spring MVC + Mongo + MySQL
+                                Spring Boot + Spring Data + Spring MVC + Mongo + MySQL.
                             </content>
                             <content>Performance improved from 15 transaction per s to 60/s, response time
                                 reduce from 300+ms to 100+ ms.
@@ -242,7 +242,7 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Maintain https://support.apple.com/</content>
+                    <content>Maintain https://support.apple.com.</content>
                     <bulletList>
                         <bullet>
                             <content>Work on the back-end,fix defects in the web application.
@@ -251,10 +251,10 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Implement data pipelines from various applications</content>
+                    <content>Implement data pipelines from various applications.</content>
                     <bulletList>
                         <bullet>
-                            <content>Use various APIs to pull data from Solr search engine, HDFS, and Cassandra DB
+                            <content>Use various APIs to pull data from Solr search engine, HDFS, and Cassandra DB.
                             </content>
                         </bullet>
                     </bulletList>
@@ -264,7 +264,7 @@
                     <bulletList>
                         <bullet>
                             <content>Use Hadoop MapReduce to analyze the frequency of search queries comes from
-                                support.apple.com
+                                support.apple.com.
                             </content>
                         </bullet>
                         <bullet>
@@ -275,7 +275,7 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Data parsing, and formatting</content>
+                    <content>Data parsing, and formatting.</content>
                     <bulletList>
                         <bullet>
                             <content>Implement lots of data validator base on business requirement.</content>
@@ -311,7 +311,7 @@
             <bulletList>
 
                 <bullet>
-                    <content>Design and develop XML driven application and tool</content>
+                    <content>Design and develop XML driven application and tool.</content>
                     <bulletList>
                         <bullet>
                             <content>The final product of our project is XML-driven web application/webservice, which is
@@ -321,7 +321,7 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Develop Eclipse Plugins</content>
+                    <content>Develop Eclipse Plugins.</content>
                     <bulletList>
                         <bullet>
                             <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.
@@ -330,7 +330,7 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Develop Eclipse plugin runtime</content>
+                    <content>Develop Eclipse plugin runtime.</content>
                     <bulletList>
                         <bullet>
                             <content>The runtime is to read configuration then generate source code and deploy
@@ -366,7 +366,7 @@
                 <country>US</country>
                 <zipCode></zipCode>
             </address>
-            <start>05-2013</start>
+            <start>09-2013</start>
             <end>05-2014</end>
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
@@ -375,7 +375,7 @@
             </photo>
             <icon>https://www.cgi.com/sites/default/files/cgi-logo-430.png</icon>
             <summary></summary>
-            <role>Java Developer</role>
+            <role>Software Engineer</role>
             <bulletList>
                 <bullet>
                     <content>Work on Land Property Management Application</content>
@@ -388,10 +388,10 @@
                             <content>Create Web service use REST, SOAP, Spring web flow.</content>
                         </bullet>
                         <bullet>
-                            <content>Implement DAO layer use JDBC and hibernate and Oracle</content>
+                            <content>Implement DAO layer use JDBC and hibernate and Oracle.</content>
                         </bullet>
                         <bullet>
-                            <content>Use Spring AOP to handle Exception and logs
+                            <content>Use Spring AOP to handle Exception and logs.
                             </content>
                         </bullet>
                         <bullet>
@@ -401,10 +401,10 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Work on Healthcare.gov</content>
+                    <content>Work on Healthcare.gov.</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defect in existing web service
+                            <content>Fix defect in existing web service.
                             </content>
                         </bullet>
                         <bullet>
@@ -415,7 +415,7 @@
             </bulletList>
         </workExperience>
         <workExperience>
-            <name>clinpharma clinical research llc</name>
+            <name>Clinpharma Clinical Research</name>
             <address>
                 <number></number>
                 <street></street>
@@ -425,7 +425,7 @@
                 <zipCode></zipCode>
             </address>
             <start>05-2012</start>
-            <end>05-2013</end>
+            <end>09-2013</end>
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
@@ -435,10 +435,10 @@
                 https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
             </icon>
             <summary></summary>
-            <role>Java Developer</role>
+            <role>Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Create various web applications using Spring, Hibernate, Struts, JSF</content>
+                    <content>Create various web applications using Spring, Hibernate, Struts, JSF.</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -449,28 +449,28 @@
             <name>Spring</name>
             <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring Security, Spring
                 LDAP, Spring
-                Web Flow, Spring Batch
+                Web Flow, Spring Batch.
             </list>
         </category>
         <category>
             <name>J2EE</name>
-            <list>REST, SOAP, JPA, Hibernate, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
+            <list>REST, SOAP, JPA, Hibernate, JAXB, Jackson, Hibernate, Maven, Log4j, Logback.</list>
         </category>
         <category>
             <name>Front End</name>
-            <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS</list>
+            <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS.</list>
         </category>
         <category>
             <name>Database</name>
-            <list>Mysql, Oracle, Mongo</list>
+            <list>Mysql, Oracle, Mongo.</list>
         </category>
         <category>
             <name>BigData</name>
-            <list>Hadoop MapReduce, Hive</list>
+            <list>Hadoop MapReduce, Hive.</list>
         </category>
         <category>
             <name>Other</name>
-            <list>Linux, Unix, AWS, Shell script, python, Jenkins, Git, SVN</list>
+            <list>Linux, Unix, AWS, Shell script, python, Jenkins, Git, SVN.</list>
         </category>
     </skillSets>
 

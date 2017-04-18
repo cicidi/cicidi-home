@@ -46,9 +46,9 @@
             </div>
             <div class="s-12 m-6 l-6">
                 <div class="social right">
-                    <tr>
-                        <td><a th:href="@{/home}"><i class="fa fa-home"></i></a></td>
-                    </tr>
+                    <!--<tr>-->
+                    <!--<td><a th:href="@{/home}"><i class="fa fa-home"></i></a></td>-->
+                    <!--</tr>-->
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
                             <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
@@ -424,7 +424,7 @@
                         <!--<p th:text="${profile.contact.email}"><strong>E-mail:</strong></p>-->
 
                         <p>
-                            <span style="font-weight:bold">Address:</span>
+                            <span style="font-weight:bold">Location:</span>
                             <span th:text="${profileVo.contactMe.fullAddress}"></span>
                         </p>
 
@@ -504,10 +504,10 @@
             <p>Website create by Walter Chen</p>
 
         </div>
-        <div class="s-12 l-6">
-            <a class="right" href="http://www.ganshaa.com" title="cicidi - lightweight responsive framework">Design
-                and coding<br/> Walter Chen</a>
-        </div>
+        <!--<div class="s-12 l-6">-->
+        <!--<a class="right" href="http://www.walterchen.us" title="cicidi - lightweight responsive framework">Design-->
+        <!--and coding<br/> Walter Chen</a>-->
+        <!--</div>-->
     </div>
 </footer>
 <script type="text/javascript" src="/owl-carousel/owl.carousel.js"></script>

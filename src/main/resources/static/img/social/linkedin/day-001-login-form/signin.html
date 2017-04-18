@@ -58,7 +58,7 @@ layout:decorator="layout">
 
 				<div class="sign-up-htm">
 					<div th:if="${!#strings.isEmpty(message)}"
-					th:class="${message.type.cssClass}" 
+					th:class="${message.type.cssClass}"
 					th:text="${message.text}">error message text</div>
 					<form name="lk_signin" id="lk_signin" th:action="@{/signin/linkedin}" method="POST">
 						<input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
@@ -90,7 +90,7 @@ layout:decorator="layout">
 								<div class="group">
 									<input type="text"class="input" th:field="*{username}" /><br/>
 									<label for="password" class="label">Password<br/><span th:if="${#fields.hasErrors('password')}" class="error" th:text="${#fields.errors('password')[0]}">Error</span></label>
-									<input type="password" class="input" th:field="*{password}" /> 
+									<input type="password" class="input" th:field="*{password}" />
 								</div>
 								<br/>
 								<div class="group">
