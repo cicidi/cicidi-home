@@ -18,7 +18,7 @@ public class SensitiveAttributeConverter implements AttributeConverter<String, S
     PasswordEncoder passwordEncoder;
 
     public SensitiveAttributeConverter() {
-        logger.debug("init sensitive converter");
+        logger.info("init sensitive converter");
         passwordEncoder = new BCryptPasswordEncoder();
     }
 

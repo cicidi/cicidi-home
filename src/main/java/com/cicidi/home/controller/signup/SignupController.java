@@ -78,7 +78,7 @@ public class SignupController {
         UserProfile userProfile = connection != null ? connection.fetchUserProfile() : null;
         Object errorMessage = request.getAttribute("message", request.SCOPE_SESSION);
         if (errorMessage != null) {
-            logger.debug("message signupForm.Method.Get {}", errorMessage);
+            logger.info("message signupForm.Method.Get {}", errorMessage);
             request.setAttribute("message", errorMessage, WebRequest.SCOPE_REQUEST);
 
             if (userProfile != null) {

@@ -51,7 +51,7 @@ public class AboutMe {
         }
 
 
-        logger.debug(itemList.iterator().next().getTitle());
+        logger.info(itemList.iterator().next().getTitle());
     }
 
 
@@ -77,7 +77,7 @@ public class AboutMe {
                     return p1_month - p2_month;
                 }
             });
-            logger.debug(positionList.toString());
+            logger.info(positionList.toString());
         }
     }
 

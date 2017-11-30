@@ -39,7 +39,7 @@ public class CrawlerService {
 
     public Elements getPositionElements() {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("tmp/input_2.html").getFile());
+        File file = new File(classLoader.getResource("/tmp/input_2.html").getFile());
         Document doc = null;
         try {
             doc = Jsoup.parse(file, "UTF-8");

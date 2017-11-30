@@ -33,6 +33,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
@@ -44,9 +45,10 @@ public class ApacheXML2PDF {
     /**
      * Main method.
      *
-     * @param args command-line arguments
+     * @param args         command-line arguments
+     * @param resumeConfig
      */
-    public void createPdf() {
+    public void createPdf(String resumeConfig) {
         try {
             System.out.println("FOP xml to pdf\n");
             System.out.println("Preparing...");
@@ -59,14 +61,14 @@ public class ApacheXML2PDF {
 
             // Setup input and output files
             File xmlfile = new File(outDir, "/resume_copy.xml");
-            File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
+//            File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
             File pdffile = new File(outDir, "/walter_chen_resume.pdf");
             if (!pdffile.exists()) {
                 pdffile.createNewFile();
             }
 
-            System.out.println("Input: XML (" + xmlfile + ")");
-            System.out.println("Stylesheet: " + xsltfile);
+//            System.out.println("Input: XML (" + xmlfile + ")");
+//            System.out.println("Stylesheet: " + xsltfile);
             System.out.println("Output: PDF (" + pdffile + ")");
             System.out.println();
             System.out.println("Transforming...");
@@ -86,12 +88,14 @@ public class ApacheXML2PDF {
 
                 // Setup XSLT
                 TransformerFactory factory = TransformerFactory.newInstance();
+                InputStream xsltfile = getClass().getResourceAsStream(resumeConfig + "/resume-xsl-fo.xsl");
                 Transformer transformer = factory.newTransformer(new StreamSource(xsltfile));
 
                 // Set the value of a <param> in the stylesheet
                 transformer.setParameter("versionParam", "2.0");
 
                 // Setup input for XSLT transformation
+//                InputStream xsltfile = getClass().getResourceAsStream(resumeConfig + "resume-xsl-fo.xsl");
                 Source src = new StreamSource(xmlfile);
 
                 // Resulting SAX events (the generated FO) must be piped through to FOP
