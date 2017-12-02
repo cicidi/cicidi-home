@@ -1,6 +1,5 @@
 package com.cicidi.home.controller;
 
-import com.cicidi.home.domain.account.Account;
 import com.cicidi.home.domain.resume.Profile;
 import com.cicidi.home.domain.vo.ProfileVo;
 import com.cicidi.home.service.AccountService;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.social.connect.ConnectionRepository;
-import org.springframework.social.linkedin.api.Position;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +23,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.Principal;
-import java.util.List;
 
 @Controller
-class HomeController {
+class HomeController implements IHomeService {
     private final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 
@@ -37,12 +34,6 @@ class HomeController {
 
     @Autowired
     GitHubService gitHubService;
-
-//    @Autowired
-//    EntityService entityService;
-
-//    @Autowired
-//    CrawlerService crawlerService;
 
     @Autowired
     ConnectionRepository connectionRepository;
@@ -53,15 +44,12 @@ class HomeController {
     @Autowired
     AccountService accountService;
 
-    @Autowired
-    private com.google.common.cache.LoadingCache<String, List<Position>> linkInProfilePositionByUrl;
-
     private final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
 
     public
     // spring data rest use profile as data profile
     @GetMapping("/profile/{username}")
-    String resumeProfile(Model model, @PathVariable String username) throws Exception {
+    String resumeProfile(Model model, @PathVariable String username) {
         Profile profile = profileService.getProfile(username);
         ProfileVo profileVo = new ProfileVo(profile);
         profileVo.setWebLogList(gitHubService.createLog());
@@ -77,36 +65,13 @@ class HomeController {
     }
 
     @GetMapping("/profiles")
-    String resumeProfile(Model model, HttpServletRequest request) throws Exception {
+    public String resumeProfile(Model model, HttpServletRequest request) {
         return "redirect:/profile" + "/" + request.getRemoteUser();
 
     }
 
-    /*
-        @GetMapping("/linkedinProfile")
-        String linkedinProfile(Model model, HttpServletRequest request) throws Exception {
-            ProfileVo profileVo;
-            Connection<LinkedIn> connection = connectionRepository.findPrimaryConnection(LinkedIn.class);
-            if (connection == null) {
-                //if login by username and password,.connection is null
-                Profile profile = profileService.getProfile(request.getRemoteUser());
-                profileVo = profile != null ? new ProfileVo(profile) : null;
-            } else {
-                String url = connection.getApi().profileOperations().getUserProfile().getPublicProfileUrl();
-                LinkedInProfileFull linkedInProfileFull = connection.getApi().profileOperations().getProfileFullByPublicUrl(url);
-                profileVo = new ProfileVo(linkedInProfileFull);
-                profileVo.addPositions(linkInProfilePositionByUrl.get(url));
-            }
-
-            profileVo.setWebLogList(gitHubService.createLog());
-            profileVo.setPlaces(googleMapService.getPlaces(profileVo));
-            model.addAttribute("profileVo", profileVo);
-            return "linkedinProfile";
-
-        }
-    */
     @GetMapping({"/", "/home"})
-    String option(Model model, Principal principal, HttpServletRequest request) throws Exception {
+    public String option(Model model, Principal principal, HttpServletRequest request) {
         String username = null;
         if (principal != null) {
             if (principal instanceof UsernamePasswordAuthenticationToken) {
@@ -114,19 +79,6 @@ class HomeController {
             }
         }
         Profile profile = profileService.getProfile(username);
-        Account account = accountService.findAccountByName(username);
-//        try {
-//            if (account == null) {
-//                principal = null;
-//                return "option";
-//            } else
-//                detailsChecker.check(account);
-//        } catch (AccountStatusException e) {
-//            principal = null;
-//            return "option";
-//        }
-
-
         model.addAttribute("username", username);
         if (profile != null) {
             model.addAttribute("firstName", profile.getFirstName());
@@ -141,14 +93,14 @@ class HomeController {
     //only use for test purpose
     @GetMapping("/deleteProfile/{username}")
     @ResponseBody
-    String delelteProfile(@PathVariable String username) {
+    public String delelteProfile(@PathVariable String username) {
         profileService.delete(username);
         return "200";
     }
 
     @GetMapping("/deleteAccount/{username}")
     @ResponseBody
-    String deletepAccount(@PathVariable String username) {
+    public String deletepAccount(@PathVariable String username) {
         accountService.deleteAccount(username);
         return "202";
     }

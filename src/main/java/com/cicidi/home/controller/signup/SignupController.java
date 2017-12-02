@@ -46,7 +46,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-public class SignupController {
+public class SignupController implements ISignupService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

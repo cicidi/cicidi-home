@@ -73,12 +73,4 @@ public class ServiceConfiguration {
         return new CrawlerService();
     }
 
-
-//    @PersistenceContext
-//    private EntityManager em;
-
-//    @Bean
-//    public SimpleJpaRepository<Profile, Long> simpleJpaRepository() {
-//        return new SimpleJpaRepository<Profile, Long>(Profile.class, em);
-//    }
 }

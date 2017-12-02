@@ -51,8 +51,10 @@
                     </tr>
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
+                            <!--<a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"-->
+                            <!--sec:authorize="hasAuthority('LINKEDINUSER')"-->
+                            <!--th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>-->
                             <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                               sec:authorize="hasAuthority('LINKEDINUSER')"
                                th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
                             <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
                                th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
@@ -78,7 +80,7 @@
                     <li><a href="#my-exp">Code demo</a></li>
                     <!--<li><a href="#features">TECHNOLOGY</a></li>-->
 
-                    <li><a href="#latest-news">Source Code</a></li>
+                    <li><a href="#latest-news">Git update</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#map-block">PLACES</a></li>
                 </ul>
@@ -162,8 +164,11 @@
                 <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                     <!--<div th:if="${#strings.containsIgnoreCase(link.name,'git')}">-->
                     <td>
+                        <!--<div><a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"-->
+                        <!--sec:authorize="hasAuthority('LINKEDINUSER')"-->
+                        <!--th:href=" ${linkVo.url}"-->
+                        <!--th:title="${linkVo.name}">-->
                         <div><a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                                sec:authorize="hasAuthority('LINKEDINUSER')"
                                 th:href=" ${linkVo.url}"
                                 th:title="${linkVo.name}">
                             <i style="margin-right: 0.8em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
@@ -206,7 +211,8 @@
                             <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
                                 <div class="my-exp-text"><h4>Spring security</h4>
 
-                                    <p>Only Linkinedin-Signin user has authority to see my github link icon.</p></div>
+                                    <p>Only Linkinedin-Signin user has authority to see my github link icon.(I disable
+                                        this feature per vistor request, but available in source code)</p></div>
                                 <img src="/img/info/spring_security.jpg" alt=""/></a></div>
                             <div class="s-12 m-6 l-3"><a class="my-exp-container lightbox margin-bottom">
                                 <div class="my-exp-text"><h4>Spring data</h4>
@@ -374,7 +380,7 @@
     <!-- LATEST NEWS -->
     <div id="latest-news">
         <div class="line">
-            <h2 class="section-title" style="color: #FFFFFF">Source Code</h2>
+            <h2 class="section-title" style="color: #FFFFFF">GIT UPDATE</h2>
 
             <div class="margin">
                 <tr th:each="webLog:${profileVo.webLogList}">
@@ -393,7 +399,9 @@
                                 <div class="news-text">
                                     <h4 th:text="${webLog.title}">Git check it</h4>
                                     <!-- only LINKEDINUSER can see my source code-->
-                                    <a sec:authorize="hasAuthority('LINKEDINUSER')" th:href="${webLog.link}">
+                                    <!--<a sec:authorize="hasAuthority('LINKEDINUSER')" th:href="${webLog.link}">-->
+                                    <!--<p th:text="${webLog.message}"></p>-->
+                                    <a th:href="${webLog.link}">
                                         <p th:text="${webLog.message}"></p>
                                     </a>
                                 </div>
@@ -446,9 +454,12 @@
                         <td>
                             <span>
                                    <!--<a th:href="${linkVo.url}">-->
-                                       <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i></a>-->
+                                <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i></a>-->
+                                <!--<a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"-->
+                                <!--sec:authorize="hasAuthority('LINKEDINUSER')"-->
+                                <!--th:href=" ${linkVo.url}">-->
+                                <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i>-->
                             <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                               sec:authorize="hasAuthority('LINKEDINUSER')"
                                th:href=" ${linkVo.url}">
                                 <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
                             </a>

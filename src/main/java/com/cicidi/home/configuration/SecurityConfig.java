@@ -55,22 +55,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsServiceetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .usersByUsernameQuery("select username, password, enabled from Account where username = ?")
-//                .authoritiesByUsernameQuery("select username from Account where username = ?");
-//                .passwordEncoder(passwordEncoder());
-//    }
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     @Override
     protected UserDetailsService userDetailsService() {
-        return userDetailsService;
+        return new UserDetailsService();
     }
 
     @Override
@@ -99,15 +89,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .and()
-                .headers().frameOptions().disable()
-        ;
+                .headers().frameOptions().disable();
     }
 
-    //    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        PasswordEncoder passwordEncoder = NoOpPasswordEncoder.getInstance();
-//        return passwordEncoder;
-//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

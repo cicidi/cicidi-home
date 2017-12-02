@@ -39,7 +39,7 @@ function initMap() {
     // to the map type control.
     var map = new google.maps.Map(document.getElementById('googleMap'), {
         center: {lat: 37.695479, lng: -121.921816},
-        zoom: 11,
+        zoom: 3,
         mapTypeControlOptions: {
             mapTypeIds: ['styled_map', 'roadmap', 'satellite', 'hybrid', 'terrain'
             ]
@@ -55,7 +55,7 @@ function initMap() {
 }
 
 function addMarker(googleMap, lat, long, message, setCenter) {
-
+    // set Center to my latest job
     var myLatlng = new google.maps.LatLng(lat, long);
     var mapOptions = {
         zoom: 13,
@@ -81,6 +81,7 @@ function addMarker(googleMap, lat, long, message, setCenter) {
 // To add the marker to the map, call setMap();
     marker.setMap(googleMap);
 }
+
 function addMarkerList(googleMap, geoData) {
     var index = 0;
     var setCenter;

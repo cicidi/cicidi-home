@@ -21,7 +21,7 @@ public class ProfileVo {
     private Places places;
 
 
-    public ProfileVo(Profile profile) throws Exception {
+    public ProfileVo(Profile profile) {
         this.firstName = profile.getFirstName();
         this.lastName = profile.getLastName();
         this.album = new Album(profile);
