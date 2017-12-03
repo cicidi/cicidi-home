@@ -47,14 +47,18 @@
         </address>
         <linkList>
             <link>
+                <name>WebSite</name>
+                <url>http://walterchen.us</url>
+                <pic></pic>
+            </link>
+            <link>
                 <name>GitHub</name>
                 <url>https://github.com/cicidi</url>
                 <pic></pic>
             </link>
-
             <link>
                 <name>Linkedin</name>
-                <url>https://www.linkedin.com/in/walter-chen-0b7558122/</url>
+                <url>https://www.linkedin.com/in/walter-chen-2017/</url>
                 <pic></pic>
             </link>
         </linkList>
@@ -97,6 +101,80 @@
     </educationList>
     <workExperienceList>
         <workExperience>
+            <name>Walmart Global eCommerce</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Sunnyvale</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>05-2017</start>
+            <end>present</end>
+            <present>true</present>
+            <photo>/img/resume_photo/walmart_labs.jpg</photo>
+            <icon>
+                https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAwqAAAAJDBkZTdhY2FlLWE0ODktNDMyYy04ZTkxLWQyYTVkY2M0NGQ3NA.png
+            </icon>
+            <summary></summary>
+            <role>Senior Software Engineer</role>
+            <bulletList>
+                <bullet>
+                    <content>Implment shipping restriction rule, which is base on state /zip
+                    </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Shipping Restriction is calculated during ingestion base on restriction rules.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Use apache camel to handle large volume of request.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Design and implement E2E regression test case.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Create Spark job migrate data from Oracle to Cassandra.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Keep data in other Oracle and Cassandra.
+                            </content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Maintain site facing and non-site facing service.
+                    </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Production support.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Monitor medusa for site facing service really time performance.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Ensure service response is around 20 ms, without any spike even during thanks
+                                give.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Whenever there is a spike in the response, reason has to be found.</content>
+                        </bullet>
+                        <bullet>
+                            <content>Deploy service using oneOps and loop(Jenkins).
+                            </content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
             <name>Blackhawk network</name>
             <address>
                 <number></number>
@@ -107,8 +185,8 @@
                 <zipCode></zipCode>
             </address>
             <start>10-2015</start>
-            <end>present</end>
-            <present>true</present>
+            <end>05-2017</end>
+            <present>false</present>
             <photo>/img/resume_photo/IMG_4785_cut_2.jpg</photo>
             <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
             <summary></summary>
@@ -443,13 +521,12 @@
         <category>
             <name>Spring</name>
             <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring Security, Spring
-                LDAP, Spring
-                Web Flow, Spring Batch
+                LDAP, Spring Web Flow, Spring Batch
             </list>
         </category>
         <category>
             <name>J2EE</name>
-            <list>REST, SOAP, JPA, Hibernate, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
+            <list>REST, SOAP, JPA, Hibernate, Apache Camel, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
         </category>
         <category>
             <name>Front End</name>
@@ -457,11 +534,11 @@
         </category>
         <category>
             <name>Database</name>
-            <list>Mysql, Oracle, Mongo</list>
+            <list>Cassandra, Mysql, Oracle, Mongo</list>
         </category>
         <category>
             <name>BigData</name>
-            <list>Hadoop MapReduce, Hive</list>
+            <list>Hadoop, Spark, MapReduce, Hive, Python</list>
         </category>
         <category>
             <name>Other</name>

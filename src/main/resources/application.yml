@@ -62,6 +62,7 @@ spring:
       password: password
 resumeConfig: /resume_config
 tmpFolder: /tmp
+env: dev
 
 ---
 spring:
@@ -74,3 +75,4 @@ spring:
       password: password
 resumeConfig: /resume_config
 tmpFolder: /tmp
+env: prod

@@ -40,7 +40,6 @@ public class XMLReader {
 
             jc = JAXBContext.newInstance(Profile.class);
 
-//            "src/main/resources/resume_config/resume.xml"
             Unmarshaller unmarshaller = jc.createUnmarshaller();
             InputStream in = getClass().getResourceAsStream(input);
             Profile profile = (Profile) unmarshaller.unmarshal(in);

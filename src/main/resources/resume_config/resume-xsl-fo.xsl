@@ -29,7 +29,7 @@
         <fo:block font-family="sans-serif">
             <fo:block text-align-last="right" font-family="sans-serif" font-size="8pt" space-after="8pt"
                       color="#b3b3b3">
-                <xsl:text> This document is dynamically generated using Apache(tm) FOP, for more information or source code, view my website below</xsl:text>
+                <xsl:text> This document is generated using Apache(tm) FOP, for source code, visit my github</xsl:text>
             </fo:block>
             <fo:block text-align-last="center">
                 <fo:external-graphic

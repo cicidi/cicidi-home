@@ -21,10 +21,16 @@ package com.cicidi.home.io;
 
 //Java
 
+import com.cicidi.home.service.CrawlerService;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -40,7 +46,9 @@ import java.io.OutputStream;
  * This class demonstrates the conversion of an XML file to PDF using
  * JAXP (XSLT) and FOP (XSL-FO).
  */
+@Component
 public class ApacheXML2PDF {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * Main method.
@@ -48,27 +56,27 @@ public class ApacheXML2PDF {
      * @param args         command-line arguments
      * @param resumeConfig
      */
-    public void createPdf(String resumeConfig) {
+
+    @Value("${env}")
+    private String env;
+
+    public void createPdf() {
         try {
             System.out.println("FOP xml to pdf\n");
             System.out.println("Preparing...");
 
             // Setup directories
-            File baseDir = new File("src/main/resources");
             File outDir = new File("/tmp");
             outDir.mkdirs();
 
 
             // Setup input and output files
             File xmlfile = new File(outDir, "/resume_copy.xml");
-//            File xsltfile = new File(baseDir, "resume_config/resume-xsl-fo.xsl");
             File pdffile = new File(outDir, "/walter_chen_resume.pdf");
             if (!pdffile.exists()) {
                 pdffile.createNewFile();
             }
 
-//            System.out.println("Input: XML (" + xmlfile + ")");
-//            System.out.println("Stylesheet: " + xsltfile);
             System.out.println("Output: PDF (" + pdffile + ")");
             System.out.println();
             System.out.println("Transforming...");
@@ -88,14 +96,23 @@ public class ApacheXML2PDF {
 
                 // Setup XSLT
                 TransformerFactory factory = TransformerFactory.newInstance();
-                InputStream xsltfile = getClass().getResourceAsStream(resumeConfig + "/resume-xsl-fo.xsl");
+//                InputStream xsltfile = getClass().getResourceAsStream(resumeConfig + "/resume-xsl-fo.xsl");
+
+                ClassLoader classLoader = new ApacheXML2PDF().getClass().getClassLoader();
+                String path = null;
+                if (env.equals("dev")) {
+                    path = classLoader.getResource("resume_config/resume-xsl-fo.xsl").getFile();
+                } else if (env.equals("prod")) {
+                    path = "/tmp/resume-xsl-fo.xsl";
+                }
+                File xsltfile = new File(path);
+                logger.info("xls-fo.xsl path :{}", xsltfile.getAbsoluteFile());
                 Transformer transformer = factory.newTransformer(new StreamSource(xsltfile));
 
                 // Set the value of a <param> in the stylesheet
                 transformer.setParameter("versionParam", "2.0");
 
                 // Setup input for XSLT transformation
-//                InputStream xsltfile = getClass().getResourceAsStream(resumeConfig + "resume-xsl-fo.xsl");
                 Source src = new StreamSource(xmlfile);
 
                 // Resulting SAX events (the generated FO) must be piped through to FOP
@@ -108,7 +125,10 @@ public class ApacheXML2PDF {
             }
 
             System.out.println("Success!");
-        } catch (Exception e) {
+        } catch (
+                Exception e)
+
+        {
             e.printStackTrace(System.err);
             System.exit(-1);
         }

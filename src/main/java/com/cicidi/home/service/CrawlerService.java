@@ -29,8 +29,8 @@ public class CrawlerService {
 
     //    public static void main(String[] args) {
 //        CrawlerService c = new CrawlerService();
-//        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
-//        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-0b7558122");
+//        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-2017");
+//        c.fetchByUrl("https://www.linkedin.com/in/walter-chen-2017");
 //    }
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

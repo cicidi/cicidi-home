@@ -32,7 +32,12 @@ public class EntityService {
     @Value("${tmpFolder}")
     private String tmpFolder;
 
+    @Autowired
+    ApacheXML2PDF apacheXML2PDF;
+
+
     private static final String resumePath = "/resume.xml";
+    private static final String resume_Copy_Path = "/resume_copy.xml";
 
     public Profile getProfileFromDB(String username) {
         Profile profile = profileRepository.findByUsername(username);
@@ -40,8 +45,8 @@ public class EntityService {
     }
 
     public Profile loadProfileFromUploadFIle() throws JAXBException {
-        Profile profile = xmlReader.parseFile(resumeConfig + resumePath, tmpFolder + resumePath);
-        new ApacheXML2PDF().createPdf(resumeConfig);
+        Profile profile = xmlReader.parseFile(resumeConfig + resumePath, tmpFolder + resume_Copy_Path);
+        apacheXML2PDF.createPdf();
         return profile;
     }
 
