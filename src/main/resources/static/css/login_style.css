@@ -44,7 +44,7 @@ a {
     height: 100%;
     position: absolute;
     padding: 70px 50px 50px 50px;
-    background: rgba(93, 165, 151, 0.39);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .login-html .sign-in-htm,
@@ -108,7 +108,7 @@ a {
 .login-form .group .input,
 .login-form .group .button {
     width: 70%;
-    color: #000000;
+    color: #FFFFFF;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -128,7 +128,7 @@ a {
 }
 
 .login-form .group .label {
-    color: #000000;
+    color: #ffffff;
     font-size: 12px;
 }
 
