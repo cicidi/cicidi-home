@@ -77,7 +77,7 @@
             <start>08-2010</start>
             <end>04-2012</end>
             <photo>/img/resume_photo/uf_pic.jpg</photo>
-            <icon>https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/008/0b8/03e2d71.png</icon>
+            <icon>https://cdn-payscale.com/content/school_logos/University%20of%20Florida%20(UF)_200px.jpg</icon>
             <major>Information Systems and Operations Management</major>
             <degree>Master</degree>
         </education>
@@ -101,6 +101,32 @@
     </educationList>
     <workExperienceList>
         <workExperience>
+            <name>Byton</name>
+            <address>
+                <number></number>
+                <street></street>
+                <city>Santa Clara</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode></zipCode>
+            </address>
+            <start>05-2018</start>
+            <end>present</end>
+            <present>true</present>
+            <photo>/img/resume_photo/byton_resume.jpg</photo>
+            <icon>
+                https://is3-ssl.mzstatic.com/image/thumb/Purple115/v4/4c/c1/58/4cc158a8-590c-1303-60e7-44d64a48b718/source/512x512bb.jpg
+            </icon>
+            <summary></summary>
+            <role>Senior Software Engineer</role>
+            <bulletList>
+                <bullet>
+                    <content>Working on vehicle backend serivice, which can control the car, and persistent, analysis the data.
+                    </content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
             <name>Walmart Global eCommerce</name>
             <address>
                 <number></number>
@@ -111,11 +137,11 @@
                 <zipCode></zipCode>
             </address>
             <start>05-2017</start>
-            <end>present</end>
+            <end>05-2018</end>
             <present>true</present>
-            <photo>/img/resume_photo/walmart_labs.jpg</photo>
+            <photo>/img/resume_photo/walmart_chris.jpg</photo>
             <icon>
-                https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAwqAAAAJDBkZTdhY2FlLWE0ODktNDMyYy04ZTkxLWQyYTVkY2M0NGQ3NA.png
+                https://www.ariasystems.com/blog/wp-content/uploads/2014/08/walmartlogo.jpg.png
             </icon>
             <summary></summary>
             <role>Senior Software Engineer</role>
@@ -497,7 +523,7 @@
                 <country>US</country>
                 <zipCode></zipCode>
             </address>
-            <start>05-2012</start>
+            <start>12-2012</start>
             <end>09-2013</end>
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->

@@ -50,14 +50,14 @@ logging.level.org.hibernate: ERROR
 #google.api.key=AIzaSyCawS544HTlwRGkBDDjbM2mMj98VwatQRE
 #google.api.key=AIzaSyAKLZ0EOkeqp_Rk9Guh1SsT1MuJM7wdFkw
 #google.api.key=AIzaSyDDZZzlPmd_u9prMkaE8YMmvp6IP9KN72M
-google.api.key: AIzaSyBdtRny8HaYV4OQmOKEvRBrKH5k4nBDtQ0
-#google.api.key: AIzaSyC2WAbfmvicCd7eOKRzCIPS-_TfM4YUxvE
+#google.api.key: AIzaSyBdtRny8HaYV4OQmOKEvRBrKH5k4nBDtQ0
+google.api.key: AIzaSyC2WAbfmvicCd7eOKRzCIPS-_TfM4YUxvE
 ---
 spring:
   profiles: dev
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/entityMgt
+      url: jdbc:mysql://127.0.0.1:3306/entityMgt
       username: root
       password: password
 resumeConfig: /resume_config
