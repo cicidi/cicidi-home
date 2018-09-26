@@ -105,4 +105,8 @@ public class WorkExperience extends Organization implements Comparable<WorkExper
     public int compareTo(WorkExperience o) {
         return 0;
     }
+    @XmlTransient
+    public boolean isTop500() {
+        return true;
+    }
 }

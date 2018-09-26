@@ -113,7 +113,7 @@
             <start>05-2018</start>
             <end>present</end>
             <present>true</present>
-            <photo>/img/resume_photo/byton_resume.jpg</photo>
+            <photo>/img/resume_photo/byton_employee.jpg</photo>
             <icon>
                 https://is3-ssl.mzstatic.com/image/thumb/Purple115/v4/4c/c1/58/4cc158a8-590c-1303-60e7-44d64a48b718/source/512x512bb.jpg
             </icon>
@@ -121,8 +121,23 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Working on vehicle backend serivice, which can control the car, and persistent, analysis the data.
+                    <content>Working on vehicle backend serivice, which controls the car, and persistent, analysis data.
                     </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Log upload from vehicle
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Charging sation search and persistent
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Integrate charging station provider API
+                            </content>
+                        </bullet>
+                    </bulletList>
+
                 </bullet>
             </bulletList>
         </workExperience>
@@ -138,7 +153,7 @@
             </address>
             <start>05-2017</start>
             <end>05-2018</end>
-            <present>true</present>
+            <present>false</present>
             <photo>/img/resume_photo/walmart_chris.jpg</photo>
             <icon>
                 https://www.ariasystems.com/blog/wp-content/uploads/2014/08/walmartlogo.jpg.png
@@ -304,7 +319,7 @@
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content>Refractory 4 existing project</content>
+                    <content>Refractory 4 existing projects</content>
                     <bulletList>
                         <bullet>
                             <content>Because of Interval Framework performance issue, I am asked to polish existing code
@@ -514,7 +529,7 @@
             </bulletList>
         </workExperience>
         <workExperience>
-            <name>clinpharma clinical research llc</name>
+            <name>Clinpharma Clinical Research LLC</name>
             <address>
                 <number></number>
                 <street></street>
@@ -528,7 +543,7 @@
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
-                /img/resume_photo/clinpharma.jpg
+                /img/landscape-photos-2_cut.jpg
             </photo>
             <icon>
                 https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
@@ -545,30 +560,44 @@
 
     <skillSets>
         <category>
+            <name>Programming language and framework</name>
+            <list>Java 8 , Java-reactive, Scala, Akka, Lagom, Python
+            </list>
+        </category>
+        <category>
             <name>Spring</name>
-            <list>Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring Security, Spring
+            <list>Spring WebFlux,Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring
+                Security, Spring
                 LDAP, Spring Web Flow, Spring Batch
             </list>
         </category>
         <category>
             <name>J2EE</name>
-            <list>REST, SOAP, JPA, Hibernate, Apache Camel, JAXB, Jackson, Hibernate, Maven, Log4j, Logback</list>
+            <list>REST, SOAP, JPA, Hibernate, Apache Camel, JAXB, Jackson, Maven, Log4j, Logback</list>
+        </category>
+        <category>
+            <name>Database</name>
+            <list>Cassandra, Mysql, Oracle, Mongo, Postgres, Hibernate, JPA</list>
+        </category>
+        <category>
+            <name>BigData</name>
+            <list>Hadoop, Spark, GraphX, MapReduce, Hive</list>
+        </category>
+        <category>
+            <name>DevOps</name>
+            <list>Linux, Unix, Kubernetes, Helm, AWS, Google Cloud, Shell script, Jenkins</list>
+        </category>
+        <category>
+            <name>Test Tool</name>
+            <list>JUnit, Mockito, Jmeter, Gatling</list>
+        </category>
+        <category>
+            <name>Source Control</name>
+            <list>Git, SVN</list>
         </category>
         <category>
             <name>Front End</name>
             <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS</list>
-        </category>
-        <category>
-            <name>Database</name>
-            <list>Cassandra, Mysql, Oracle, Mongo</list>
-        </category>
-        <category>
-            <name>BigData</name>
-            <list>Hadoop, Spark, MapReduce, Hive, Python</list>
-        </category>
-        <category>
-            <name>Other</name>
-            <list>Linux, Unix, AWS, Shell script, python, Jenkins, Git, SVN</list>
         </category>
     </skillSets>
 

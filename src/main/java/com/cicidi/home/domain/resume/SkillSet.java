@@ -56,4 +56,11 @@ public class SkillSet extends DatabaseEntity {
         this.profile = profile;
     }
 
+    public List<String> getTechnologyList() {
+        return technologyList;
+    }
+
+    public void setTechnologyList(List<String> technologyList) {
+        this.technologyList = technologyList;
+    }
 }

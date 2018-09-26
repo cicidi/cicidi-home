@@ -81,4 +81,9 @@ public class Education extends Organization {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
+    @XmlTransient
+    public boolean isTop50() {
+        return true;
+    }
 }
