@@ -47,7 +47,7 @@
             <div class="s-12 m-6 l-6">
                 <div class="social right">
                     <tr>
-                        <td><a th:href="@{/home}"><i class="fa fa-home"></i></a></td>
+                        <td><a th:href="@{/home}" th:target="_blank"><i class="fa fa-home"></i></a></td>
                     </tr>
                     <tr th:each="linkVo,iterationStatus  : ${profileVo.contactMe.linkVoList}">
                         <td>
@@ -55,9 +55,9 @@
                             <!--sec:authorize="hasAuthority('LINKEDINUSER')"-->
                             <!--th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>-->
                             <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                               th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
+                               th:href="${linkVo.url}" th:target="_blank"><i th:class="${linkVo.icon}"></i> </a>
                             <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
-                               th:href="${linkVo.url}"><i th:class="${linkVo.icon}"></i> </a>
+                               th:href="${linkVo.url}" th:target="_blank"><i th:class="${linkVo.icon}"></i> </a>
                         </td>
                     </tr>
                 </div>
@@ -146,7 +146,7 @@
 
                 <p th:text="${profileVo.aboutMe.subtitle}"></p>
 
-                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:href="@{/downloadResume}">Download resume</a>
+                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:target="_blank" th:href="@{/downloadResume}">Download resume</a>
                 </div>
             </div>
         </div>
@@ -212,11 +212,11 @@
                         <!--th:href=" ${linkVo.url}"-->
                         <!--th:title="${linkVo.name}">-->
                         <div><a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                                th:href=" ${linkVo.url}"
+                                th:href=" ${linkVo.url}" th:target="_blank"
                                 th:title="${linkVo.name}">
                             <i style="margin-right: 0.8em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
                             <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
-                               th:href=" ${linkVo.url}"
+                               th:href=" ${linkVo.url}" th:target="_blank"
                                th:title="${linkVo.name}">
                                 <i style="margin-right: 0.5em; color: #EEEEEE;" th:class="${linkVo.icon}"></i></a>
                         </div>
@@ -444,7 +444,7 @@
                                     <!-- only LINKEDINUSER can see my source code-->
                                     <!--<a sec:authorize="hasAuthority('LINKEDINUSER')" th:href="${webLog.link}">-->
                                     <!--<p th:text="${webLog.message}"></p>-->
-                                    <a th:href="${webLog.link}">
+                                    <a th:href="${webLog.link}" th:target="_blank">
                                         <p th:text="${webLog.message}"></p>
                                     </a>
                                 </div>
@@ -503,11 +503,11 @@
                                 <!--th:href=" ${linkVo.url}">-->
                                 <!--<i th:class="${linkVo.icon}" style="background: #504e4e"></i>-->
                             <a th:if="${linkVo.name!=null AND  #strings.containsIgnoreCase(linkVo.name,'git')}"
-                               th:href=" ${linkVo.url}">
+                               th:href=" ${linkVo.url}" th:target="_blank">
                                 <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
                             </a>
                             <a th:if="${linkVo.name!=null AND !#strings.containsIgnoreCase(linkVo.name,'git')}"
-                               th:href=" ${linkVo.url}">
+                               th:href=" ${linkVo.url}" th:target="_blank">
                                 <i th:class="${linkVo.icon}" style="background: #504e4e"></i>
                             </a>
                             </span>
@@ -516,7 +516,7 @@
                     <tr>
                         <td>
                             <span>
-                                <a th:href="@{/downloadResume}">
+                                <a th:href="@{/downloadResume}" th:target="_blank">
                                     <i class="fa fa-file-pdf-o" style="background: #504e4e"></i></a>
                             </span>
                         </td>
