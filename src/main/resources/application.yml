@@ -56,10 +56,12 @@ google.api.key: AIzaSyC2WAbfmvicCd7eOKRzCIPS-_TfM4YUxvE
 spring:
   profiles: dev
   datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/entityMgt
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/entityMgt
       username: root
       password: password
+  jpa:
+    database: mysql
 resumeConfig: /resume_config
 tmpFolder: /tmp
 env: dev
@@ -68,7 +70,7 @@ env: dev
 spring:
   profiles: prod
   datasource:
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
 #      url: jdbc:mysql://cicidi-home-db.clkbcosqz5bn.us-west-1.rds.amazonaws.com:3306/entityMgt
       url: jdbc:mysql://localhost:3306/entityMgt
       username: root
