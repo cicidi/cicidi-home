@@ -64,6 +64,13 @@ class HomeController implements IHomeService {
         }
     }
 
+    public
+    // spring data rest use profile as data profile
+    @GetMapping("/wedding")
+    String index(Model model, @PathVariable String username) {
+        return "index";
+    }
+
     @GetMapping("/profiles")
     public String resumeProfile(Model model, HttpServletRequest request) {
         return "redirect:/profile" + "/" + request.getRemoteUser();
