@@ -561,7 +561,7 @@
     <skillSets>
         <category>
             <name>Programming language and framework</name>
-            <list>Java 8 , Java-reactive, Scala, Akka, Lagom, Python
+            <list>Java 8 , Java-reactive, Golang, Scala, Akka, Lagom, Python
             </list>
         </category>
         <category>
