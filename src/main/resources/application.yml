@@ -40,8 +40,8 @@ linkedin:
   resource:
     userInfoUri: https://api.linkedin.com/v1/people/~?format=json
 
-logging.level.org.springframework.web: DEBUG
-logging.level.org.springframework.security: DEBUG
+logging.level.org.springframework.web: INFO
+logging.level.org.springframework.security: INFO
 logging.level.org.hibernate: ERROR
 #  file: cicidiHome.log
 
@@ -74,5 +74,5 @@ spring:
       username: root
       password: password
 resumeConfig: /resume_config
-tmpFolder: /tmp
+tmpFolder: /cicidi-home
 env: prod

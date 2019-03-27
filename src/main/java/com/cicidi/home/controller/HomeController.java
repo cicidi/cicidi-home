@@ -9,6 +9,7 @@ import com.cicidi.home.service.ProfileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.social.connect.ConnectionRepository;
@@ -45,6 +46,10 @@ class HomeController implements IHomeService {
     AccountService accountService;
 
     private final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
+
+
+    @Value("${tmpFolder}")
+    private String tmpFolder;
 
     public
     // spring data rest use profile as data profile
@@ -118,7 +123,7 @@ class HomeController implements IHomeService {
 //            throw new RuntimeException("IOError writing file to output stream");
 //        }
 //        String dataDirectory = "/tmp//walter_chen_resume.pdf";
-        Path file = Paths.get("/tmp/", "walter_chen_resume.pdf");
+        Path file = Paths.get(tmpFolder, "walter_chen_resume.pdf");
         if (Files.exists(file)) {
             response.setContentType("application/pdf");
             response.addHeader("Content-Disposition", "attachment; filename=" + "walter_chen_resume.pdf");

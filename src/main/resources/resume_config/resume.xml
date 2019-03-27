@@ -121,19 +121,23 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Working on vehicle backend serivice, which controls the car, and persistent, analysis data.
+                    <content>Use Golang to develop EV charging and vehicle logging APIs flying in the Kubernetes Cloud.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Log upload from vehicle
+                            <content>Lead, architech design, implement Charging cloud API, which communite with Cell phone, Vehicle and charging provider's API using Golang
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Charging sation search and persistent
+                            <content>Implement search engine and data store using Elastic search and Cassandra
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Integrate charging station provider API
+                            <content>Deploy application to kubernete cluster use docker and Helm Chart.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Upload vehicle logs and sensor data to Cloud data warehouse.
                             </content>
                         </bullet>
                     </bulletList>
@@ -419,7 +423,7 @@
             <photo>
                 /img/resume_photo/huawei_cut_2.jpg
             </photo>
-            <icon>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Huawei.svg/150px-Huawei.svg.png</icon>
+            <icon>https://upload.wikimedia.org/wikipedia/en/9/92/Huawei_logo.svg</icon>
             <summary></summary>
             <role>Senior Software Engineer</role>
             <bulletList>
@@ -561,7 +565,7 @@
     <skillSets>
         <category>
             <name>Programming language and framework</name>
-            <list>Java 8 , Java-reactive, Scala, Akka, Lagom, Python
+            <list>Java , Java-reactive, GoLang, Scala, Akka, Lagom, Python
             </list>
         </category>
         <category>

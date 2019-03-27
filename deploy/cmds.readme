@@ -2,6 +2,6 @@ tmux   #run jar on the backend
 ps -ef | grep java
 sudo service mysql start
 /usr/bin/mysql -u root -p
-java -Dspring.profiles.active=dev -jar /tmp/resume-1.0.jar &
-#scp -i /Volumes/WD/aws/KeyPairCCD.pem /Volumes/WD/project/cicidi-home/target/resume-1.0.jar ubuntu@ec2-54-183-9-27.us-west-1.compute.amazonaws.com:/tmp
+java -Dspring.profiles.active=dev -jar /cicidi-home/resume-1.0.jar &
+#scp -i /Volumes/WD/aws/KeyPairCCD.pem /Volumes/WD/project/cicidi-home/target/resume-1.0.jar ubuntu@ec2-54-183-9-27.us-west-1.compute.amazonaws.com:/cicidi-home
 ssh -i /Volumes/WD/aws/KeyPairCCD.pem ubuntu@ec2-54-183-9-27.us-west-1.compute.amazonaws.com

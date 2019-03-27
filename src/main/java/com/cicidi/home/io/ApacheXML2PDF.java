@@ -60,13 +60,16 @@ public class ApacheXML2PDF {
     @Value("${env}")
     private String env;
 
+    @Value("${tmpFolder}")
+    private String tmpFolder;
+
     public void createPdf() {
         try {
             System.out.println("FOP xml to pdf\n");
             System.out.println("Preparing...");
 
             // Setup directories
-            File outDir = new File("/tmp");
+            File outDir = new File(tmpFolder);
             outDir.mkdirs();
 
 
@@ -103,7 +106,7 @@ public class ApacheXML2PDF {
                 if (env.equals("dev")) {
                     path = classLoader.getResource("resume_config/resume-xsl-fo.xsl").getFile();
                 } else if (env.equals("prod")) {
-                    path = "/tmp/resume-xsl-fo.xsl";
+                    path = tmpFolder+"/resume-xsl-fo.xsl";
                 }
                 File xsltfile = new File(path);
                 logger.info("xls-fo.xsl path :{}", xsltfile.getAbsoluteFile());
