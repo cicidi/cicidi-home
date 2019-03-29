@@ -15,7 +15,7 @@ public interface IHomeService {
     String resumeProfile(Model model, HttpServletRequest request);
 
     @GetMapping("/profile/{username}")
-    String resumeProfile(Model model, @PathVariable String username);
+    String resumeProfile(Model model, @PathVariable String username, HttpServletRequest request);
 
     @GetMapping({"/", "/home"})
     String option(Model model, Principal principal, HttpServletRequest request);

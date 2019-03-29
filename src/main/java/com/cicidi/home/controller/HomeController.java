@@ -51,10 +51,15 @@ class HomeController implements IHomeService {
     @Value("${tmpFolder}")
     private String tmpFolder;
 
+    long count;
+
     public
     // spring data rest use profile as data profile
     @GetMapping("/profile/{username}")
-    String resumeProfile(Model model, @PathVariable String username) {
+    String resumeProfile(Model model, @PathVariable String username, HttpServletRequest request) {
+        count++;
+        logger.info("total: " + count);
+        logger.info(request.getRemoteAddr());
         Profile profile = profileService.getProfile(username);
         ProfileVo profileVo = new ProfileVo(profile);
         profileVo.setWebLogList(gitHubService.createLog());
