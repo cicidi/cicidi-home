@@ -42,6 +42,7 @@
                     </fo:block>
 ```
 ##All my profile has been saved to mysql database  [domain model](https://github.com/cicidi/cicidi-home/blob/master/src/main/java/com/cicidi/home/domain/resume/WorkExperience.java)
+
 ##Then display as what you seen  [Front-end ](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/templates/profile.html)page
 
 ##And the site has
@@ -51,7 +52,6 @@
 - **WebCrawler** to grab vistor linkedin profile (only public info). **DISABLED** because of legal concern
 
 ##Others 
-
 
 
 - I start my project by using a seed project from this link  <https://github.com/kolorobot/spring-boot-thymeleaf>
