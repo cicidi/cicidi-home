@@ -1,0 +1,5 @@
+tmux   #run jar on the backend
+ps -ef | grep java
+sudo service mysql start
+/usr/bin/mysql -u root -p
+
