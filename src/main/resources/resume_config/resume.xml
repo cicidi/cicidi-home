@@ -125,7 +125,7 @@
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Lead, architech design, implement Charging cloud API, which communite with Cell phone, Vehicle and charging provider's API using Golang
+                            <content>Lead, architect design, implement Charging API (Graphql), which communicate with cell phone, Vehicle and charging provider's API using Golang
                             </content>
                         </bullet>
                         <bullet>
@@ -133,7 +133,7 @@
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Deploy application to kubernete cluster use docker and Helm Chart.
+                            <content>Deploy application to Kubernetes cluster use docker and Helm Chart.
                             </content>
                         </bullet>
                         <bullet>
@@ -166,7 +166,7 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Implment shipping restriction rule, which is base on state /zip
+                    <content>Implement shipping restriction rule, which is base on state /zip
                     </content>
                     <bulletList>
                         <bullet>
@@ -290,7 +290,7 @@
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>The application shows user realtime transaction on map, and total
+                            <content>The application shows user real-time transaction on map, and total
                                 count compared by HOUR/DAY/WEEK/YEAR
                             </content>
                         </bullet>
@@ -564,19 +564,18 @@
 
     <skillSets>
         <category>
-            <name>Programming language and framework</name>
-            <list>Java , Java-reactive, GoLang, Scala, Akka, Lagom, Python
+            <name>Programming language and frameworks</name>
+            <list>Java, Java-Reactive, GoLang, Scala, Python, Akka, Lagom, Graphql
             </list>
         </category>
         <category>
             <name>Spring</name>
             <list>Spring WebFlux,Spring MVC, Spring AOP, Spring Boot, Spring Data, Spring social, Spring Retry, Spring
-                Security, Spring
-                LDAP, Spring Web Flow, Spring Batch
+                Security, Spring LDAP, Spring Web Flow, Spring Batch
             </list>
         </category>
         <category>
-            <name>J2EE</name>
+            <name>Java library</name>
             <list>REST, SOAP, JPA, Hibernate, Apache Camel, JAXB, Jackson, Maven, Log4j, Logback</list>
         </category>
         <category>
@@ -592,8 +591,8 @@
             <list>Linux, Unix, Kubernetes, Helm, AWS, Google Cloud, Shell script, Jenkins</list>
         </category>
         <category>
-            <name>Test Tool</name>
-            <list>JUnit, Mockito, Jmeter, Gatling</list>
+            <name>Tools</name>
+            <list>JUnit, Mockito, Jmeter, Gatling, prometheus</list>
         </category>
         <category>
             <name>Source Control</name>
@@ -601,7 +600,7 @@
         </category>
         <category>
             <name>Front End</name>
-            <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS</list>
+            <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS, NodeJs</list>
         </category>
     </skillSets>
 
