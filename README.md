@@ -57,4 +57,4 @@
 - I start my project by using a seed project from this link  <https://github.com/kolorobot/spring-boot-thymeleaf>
 - Front end template get from this link  <http://www.free-css.com/free-css-templates>
 - The site is only display my resume but I designed almost everything of a large site with Backend service, Security, Database, etc. 
-- feel free too use my code without any license.
+- feel free to use my code without any license.
