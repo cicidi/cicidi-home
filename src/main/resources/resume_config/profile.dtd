@@ -59,5 +59,10 @@
                         <!ELEMENT technologyList (technology)>
                                 <!ELEMENT technology (#PCDATA)>
 
+        <!ELEMENT projectList (project)>
+        <!ATTLIST project type CDATA #IMPLIED>
+                <!ELEMENT project (name,description, url)>
+                        <!ELEMENT description (#PCDATA)>
+
 
 

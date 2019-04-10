@@ -176,6 +176,48 @@
             <!--<fo:block>-->
             <!--Fig. 3: A Smiling Face-->
             <!--</fo:block>-->
+
+            <fo:block>
+                <fo:block font-weight="bold">
+                    <xsl:text>Projects: </xsl:text>
+                </fo:block>
+
+                <fo:block>
+                    <xsl:for-each select="projectList/project">
+                        <fo:block font-family="sans-serif" font-weight="bold" margin-left="30pt" font-size="12pt">
+                            <xsl:value-of select="name"/>
+                            <!-- easy for use to do config on xml when use pure string-->
+                            <!--<xsl:for-each select="technologyList/technology">-->
+                            <!--<xsl:value-of select="."/>-->
+                            <!--<xsl:text> , </xsl:text>-->
+                            <!--</xsl:for-each>-->
+                        </fo:block>
+
+                        <fo:block font-family="sans-serif" margin-left="40pt" font-size="8pt">
+                            <xsl:value-of select="descritpion"/>
+                            <!-- easy for use to do config on xml when use pure string-->
+                            <!--<xsl:for-each select="technologyList/technology">-->
+                            <!--<xsl:value-of select="."/>-->
+                            <!--<xsl:text> , </xsl:text>-->
+                            <!--</xsl:for-each>-->
+                            <fo:block space-after="1em"></fo:block>
+                        </fo:block>
+                        <fo:block font-family="sans-serif" margin-left="40pt" font-size="5pt"
+                                  text-decoration="underline">
+                            <xsl:value-of select="url"/>
+                            <!-- easy for use to do config on xml when use pure string-->
+                            <!--<xsl:for-each select="technologyList/technology">-->
+                            <!--<xsl:value-of select="."/>-->
+                            <!--<xsl:text> , </xsl:text>-->
+                            <!--</xsl:for-each>-->
+                        </fo:block>
+                        <!--<fo:leader leader-pattern="rule" leader-length="100%" rule-style="solid" color="#D3D3D3"-->
+                        <!--rule-thickness="1pt"/>-->
+                        <fo:block space-after="1em"></fo:block>
+                    </xsl:for-each>
+                </fo:block>
+            </fo:block>
+
             <fo:block>
                 <fo:block font-weight="bold">
                     <xsl:text>Featured Skills: </xsl:text>

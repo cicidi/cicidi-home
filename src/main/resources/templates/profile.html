@@ -146,7 +146,8 @@
 
                 <p th:text="${profileVo.aboutMe.subtitle}"></p>
 
-                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:target="_blank" th:href="@{/downloadResume}">Download resume</a>
+                <div class=" s-12 m-4 l-2 center"><a class="color-btn" th:target="_blank" th:href="@{/downloadResume}">Download
+                    resume</a>
                 </div>
             </div>
         </div>
@@ -158,49 +159,170 @@
             <!--<h2 th:text="${profileVo.aboutMe.header}">Why I create this website</h2>-->
 
             <!--<p th:text="${profileVo.aboutMe.paragraph}"></p>-->
-            <!-- HTML generated using hilite.me --><div style="background: #272822b8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">    public</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">whyChooseMe</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Mono</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Profile</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">SkillSet</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-        <span style="color: #f8f8f2">resumeScan</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span>
-                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnError</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">e</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">reject</span><span style="color: #f92672">((</span><span style="color: #f8f8f2">Exception</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">))</span>
-                <span style="color: #f92672">.</span><span style="color: #a6e22e">map</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">interview</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span>
-                        <span style="color: #f92672">?</span> <span style="color: #f8f8f2">profile</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">Mono</span><span style="color: #f92672">.</span><span style="color: #a6e22e">error</span><span style="color: #f92672">(</span><span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Exception</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;Interview failed&quot;</span><span style="color: #f92672">)))</span>
-                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnError</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">e</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">reject</span><span style="color: #f92672">((</span><span style="color: #f8f8f2">Exception</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">))</span>
-                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnSuccess</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">sendOffer</span><span style="color: #f92672">((</span><span style="color: #f8f8f2">Profile</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">))</span>
-                <span style="color: #f92672">.</span><span style="color: #a6e22e">subscribe</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">System</span><span style="color: #f92672">.</span><span style="color: #a6e22e">out</span><span style="color: #f92672">.</span><span style="color: #a6e22e">println</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;done&quot;</span><span style="color: #f92672">));</span>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #272822b8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><pre
+                    style="margin: 0; line-height: 125%"><span style="color: #66d9ef">    public</span> <span
+                    style="color: #66d9ef">void</span> <span style="color: #a6e22e">whyChooseMe</span><span
+                    style="color: #f92672">(</span><span style="color: #f8f8f2">Mono</span><span style="color: #f92672">&lt;</span><span
+                    style="color: #f8f8f2">Profile</span><span style="color: #f92672">&gt;</span> <span
+                    style="color: #f8f8f2">myProfile</span><span style="color: #f92672">,</span> <span
+                    style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span
+                    style="color: #f8f8f2">SkillSet</span><span style="color: #f92672">&gt;</span> <span
+                    style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span
+                    style="color: #f92672">{</span>
+        <span style="color: #f8f8f2">resumeScan</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">myProfile</span><span
+                        style="color: #f92672">,</span> <span style="color: #f8f8f2">requiredSkillSets</span><span
+                        style="color: #f92672">)</span>
+                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnError</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">e</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">reject</span><span
+                        style="color: #f92672">((</span><span style="color: #f8f8f2">Exception</span><span
+                        style="color: #f92672">)</span> <span style="color: #f8f8f2">e</span><span
+                        style="color: #f92672">))</span>
+                <span style="color: #f92672">.</span><span style="color: #a6e22e">map</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">interview</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">,</span> <span style="color: #f8f8f2">requiredSkillSets</span><span
+                        style="color: #f92672">)</span>
+                        <span style="color: #f92672">?</span> <span style="color: #f8f8f2">profile</span> <span
+                        style="color: #f92672">:</span> <span style="color: #f8f8f2">Mono</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">error</span><span
+                        style="color: #f92672">(</span><span style="color: #66d9ef">new</span> <span
+                        style="color: #f8f8f2">Exception</span><span style="color: #f92672">(</span><span
+                        style="color: #e6db74">&quot;Interview failed&quot;</span><span
+                        style="color: #f92672">)))</span>
+                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnError</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">e</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">reject</span><span
+                        style="color: #f92672">((</span><span style="color: #f8f8f2">Exception</span><span
+                        style="color: #f92672">)</span> <span style="color: #f8f8f2">e</span><span
+                        style="color: #f92672">))</span>
+                <span style="color: #f92672">.</span><span style="color: #a6e22e">doOnSuccess</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">sendOffer</span><span
+                        style="color: #f92672">((</span><span style="color: #f8f8f2">Profile</span><span
+                        style="color: #f92672">)</span> <span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">))</span>
+                <span style="color: #f92672">.</span><span style="color: #a6e22e">subscribe</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">p</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">System</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">out</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">println</span><span
+                        style="color: #f92672">(</span><span style="color: #e6db74">&quot;done&quot;</span><span
+                        style="color: #f92672">));</span>
     <span style="color: #f92672">}</span>
 
-    <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Mono</span> <span style="color: #a6e22e">resumeScan</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Mono</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Profile</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">SkillSet</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">map</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f92672">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getSkillSets</span><span style="color: #f92672">().</span><span style="color: #a6e22e">containsAll</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span>
-                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getEducationList</span><span style="color: #f92672">().</span><span style="color: #a6e22e">stream</span><span style="color: #f92672">().</span><span style="color: #a6e22e">allMatch</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">education</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">education</span><span style="color: #f92672">.</span><span style="color: #a6e22e">isTop50</span><span style="color: #f92672">())</span>
-                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getWorkExperienceList</span><span style="color: #f92672">().</span><span style="color: #a6e22e">stream</span><span style="color: #f92672">().</span><span style="color: #a6e22e">allMatch</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">workExperience</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">workExperience</span><span style="color: #f92672">.</span><span style="color: #a6e22e">isTop500</span><span style="color: #f92672">())</span>
-                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getObjective</span><span style="color: #f92672">().</span><span style="color: #a6e22e">getPersonalEstimate</span><span style="color: #f92672">().</span><span style="color: #a6e22e">contains</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;hard working&quot;</span><span style="color: #f92672">))</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">;</span>
+    <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Mono</span> <span style="color: #a6e22e">resumeScan</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">Mono</span><span
+                        style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Profile</span><span
+                        style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">myProfile</span><span
+                        style="color: #f92672">,</span> <span style="color: #f8f8f2">List</span><span
+                        style="color: #f92672">&lt;</span><span style="color: #f8f8f2">SkillSet</span><span
+                        style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">requiredSkillSets</span><span
+                        style="color: #f92672">)</span> <span style="color: #f92672">{</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">myProfile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">map</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f92672">{</span>
+            <span style="color: #66d9ef">if</span> <span style="color: #f92672">(</span><span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getSkillSets</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">containsAll</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">requiredSkillSets</span><span
+                        style="color: #f92672">)</span>
+                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getEducationList</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">stream</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">allMatch</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">education</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">education</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">isTop50</span><span
+                        style="color: #f92672">())</span>
+                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getWorkExperienceList</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">stream</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">allMatch</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">workExperience</span> <span
+                        style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">workExperience</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">isTop500</span><span
+                        style="color: #f92672">())</span>
+                    <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getObjective</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">getPersonalEstimate</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">contains</span><span
+                        style="color: #f92672">(</span><span style="color: #e6db74">&quot;hard working&quot;</span><span
+                        style="color: #f92672">))</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">profile</span><span
+                        style="color: #f92672">;</span>
             <span style="color: #66d9ef">else</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">Mono</span><span style="color: #f92672">.</span><span style="color: #a6e22e">error</span><span style="color: #f92672">(</span><span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Exception</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;Resume scan failed&quot;</span><span style="color: #f92672">));</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">Mono</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">error</span><span
+                        style="color: #f92672">(</span><span style="color: #66d9ef">new</span> <span
+                        style="color: #f8f8f2">Exception</span><span style="color: #f92672">(</span><span
+                        style="color: #e6db74">&quot;Resume scan failed&quot;</span><span
+                        style="color: #f92672">));</span>
         <span style="color: #f92672">});</span>
     <span style="color: #f92672">}</span>
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">interview</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Object</span> <span style="color: #f8f8f2">obj</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">SkillSet</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f92672">(</span><span style="color: #f8f8f2">obj</span> <span style="color: #66d9ef">instanceof</span> <span style="color: #f8f8f2">Profile</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-            <span style="color: #f8f8f2">Profile</span> <span style="color: #f8f8f2">myProfile</span> <span style="color: #f92672">=</span> <span style="color: #f92672">(</span><span style="color: #f8f8f2">Profile</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">obj</span><span style="color: #f92672">;</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getSkillSets</span><span style="color: #f92672">().</span><span style="color: #a6e22e">containsAll</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">cultureFit</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">myProfile</span><span style="color: #f92672">);</span>
+    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">interview</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">Object</span> <span
+                        style="color: #f8f8f2">obj</span><span style="color: #f92672">,</span> <span
+                        style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span
+                        style="color: #f8f8f2">SkillSet</span><span style="color: #f92672">&gt;</span> <span
+                        style="color: #f8f8f2">requiredSkillSets</span><span style="color: #f92672">)</span> <span
+                        style="color: #f92672">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f92672">(</span><span
+                        style="color: #f8f8f2">obj</span> <span style="color: #66d9ef">instanceof</span> <span
+                        style="color: #f8f8f2">Profile</span><span style="color: #f92672">)</span> <span
+                        style="color: #f92672">{</span>
+            <span style="color: #f8f8f2">Profile</span> <span style="color: #f8f8f2">myProfile</span> <span
+                        style="color: #f92672">=</span> <span style="color: #f92672">(</span><span
+                        style="color: #f8f8f2">Profile</span><span style="color: #f92672">)</span> <span
+                        style="color: #f8f8f2">obj</span><span style="color: #f92672">;</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">myProfile</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getSkillSets</span><span
+                        style="color: #f92672">().</span><span style="color: #a6e22e">containsAll</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">requiredSkillSets</span><span
+                        style="color: #f92672">)</span> <span style="color: #f92672">&amp;</span> <span
+                        style="color: #f8f8f2">cultureFit</span><span style="color: #f92672">(</span><span
+                        style="color: #f8f8f2">myProfile</span><span style="color: #f92672">);</span>
         <span style="color: #f92672">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f92672">;</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span
+                        style="color: #f92672">;</span>
     <span style="color: #f92672">}</span>
 
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">cultureFit</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Profile</span> <span style="color: #f8f8f2">candidate</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
+    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">boolean</span> <span
+                        style="color: #a6e22e">cultureFit</span><span style="color: #f92672">(</span><span
+                        style="color: #f8f8f2">Profile</span> <span style="color: #f8f8f2">candidate</span><span
+                        style="color: #f92672">)</span> <span style="color: #f92672">{</span>
         <span style="color: #75715e">// implement by Company &amp; interviewer</span>
         <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">true</span><span style="color: #f92672">;</span>
     <span style="color: #f92672">}</span>
 
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">sendOffer</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Profile</span> <span style="color: #f8f8f2">profile</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-        <span style="color: #f8f8f2">System</span><span style="color: #f92672">.</span><span style="color: #a6e22e">out</span><span style="color: #f92672">.</span><span style="color: #a6e22e">println</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;LOL&quot;</span><span style="color: #f92672">);</span>
+    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">sendOffer</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">Profile</span> <span
+                        style="color: #f8f8f2">profile</span><span style="color: #f92672">)</span> <span
+                        style="color: #f92672">{</span>
+        <span style="color: #f8f8f2">System</span><span style="color: #f92672">.</span><span
+                        style="color: #a6e22e">out</span><span style="color: #f92672">.</span><span
+                        style="color: #a6e22e">println</span><span style="color: #f92672">(</span><span
+                        style="color: #e6db74">&quot;LOL&quot;</span><span style="color: #f92672">);</span>
     <span style="color: #f92672">}</span>
 
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">reject</span><span style="color: #f92672">(</span><span style="color: #f8f8f2">Throwable</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">)</span> <span style="color: #f92672">{</span>
-        <span style="color: #f8f8f2">System</span><span style="color: #f92672">.</span><span style="color: #a6e22e">out</span><span style="color: #f92672">.</span><span style="color: #a6e22e">println</span><span style="color: #f92672">(</span><span style="color: #e6db74">&quot;You are rejected because of : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">.</span><span style="color: #a6e22e">getMessage</span><span style="color: #f92672">());</span>
+    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">reject</span><span
+                        style="color: #f92672">(</span><span style="color: #f8f8f2">Throwable</span> <span
+                        style="color: #f8f8f2">e</span><span style="color: #f92672">)</span> <span
+                        style="color: #f92672">{</span>
+        <span style="color: #f8f8f2">System</span><span style="color: #f92672">.</span><span
+                        style="color: #a6e22e">out</span><span style="color: #f92672">.</span><span
+                        style="color: #a6e22e">println</span><span style="color: #f92672">(</span><span
+                        style="color: #e6db74">&quot;You are rejected because of : &quot;</span> <span
+                        style="color: #f92672">+</span> <span style="color: #f8f8f2">e</span><span
+                        style="color: #f92672">.</span><span style="color: #a6e22e">getMessage</span><span
+                        style="color: #f92672">());</span>
     <span style="color: #f92672">}</span>
-</pre></div>
+</pre>
+            </div>
 
             <div class=" about-me-icons">
                 <h3>Follow me : </h3>
@@ -234,7 +356,7 @@
 
             <div class="tabs">
                 <div class="tab-item tab-active">
-                    <a class="tab-label active-btn">Spring Framework</a>
+                    <a class="tab-label active-btn">Anything In Java</a>
 
                     <div class="tab-content">
                         <div class="margin">
@@ -266,7 +388,7 @@
                     </div>
                 </div>
                 <div class="tab-item">
-                    <a class="tab-label">Domain and Database</a>
+                    <a class="tab-label">SQL and NoSQL DB</a>
 
                     <div class="tab-content">
                         <div class="margin">
@@ -294,7 +416,7 @@
                     </div>
                 </div>
                 <div class="tab-item">
-                    <a class="tab-label">Front End and DevOps</a>
+                    <a class="tab-label">Golang kubernetes Docker</a>
 
                     <div class="tab-content">
                         <div class="margin">
@@ -323,7 +445,7 @@
                     </div>
                 </div>
                 <div class="tab-item">
-                    <a class="tab-label">Other Technologies</a>
+                    <a class="tab-label">Big Data Spark</a>
 
                     <div class="tab-content">
                         <div class="margin">

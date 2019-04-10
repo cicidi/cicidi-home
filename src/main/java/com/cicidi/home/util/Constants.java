@@ -69,5 +69,8 @@ public class Constants {
     public static final String pic = "pic";
     public static final String email = "email";
     public static final String present = "present";
+    public static final String project = "project";
+    public static final String descritpion = " descritpion";
+    public static final String projectList = "projectList";
 }
 

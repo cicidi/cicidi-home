@@ -8,7 +8,7 @@
     </faceImg>
     <objective>
         <title></title>
-        <personalEstimate>7 yrs Java Experience, Full stack developer</personalEstimate>
+        <personalEstimate>7 yrs of Java + 6 months of Golang Exp</personalEstimate>
         <interests>I am a good developer , but I want to be excellent</interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
@@ -40,7 +40,7 @@
         <address>
             <number></number>
             <street></street>
-            <city>Fremont</city>
+            <city>Santa Clara</city>
             <state>CA</state>
             <country>US</country>
             <zipCode></zipCode>
@@ -125,7 +125,8 @@
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Lead, architect design, implement Charging API (Graphql), which communicate with cell phone, Vehicle and charging provider's API using Golang
+                            <content>Lead, architect design, implement Charging API (Graphql), which communicate with
+                                cell phone, Vehicle and charging provider's API using Golang
                             </content>
                         </bullet>
                         <bullet>
@@ -580,7 +581,7 @@
         </category>
         <category>
             <name>Database</name>
-            <list>Cassandra, Mysql, Oracle, Mongo, Postgres, Hibernate, JPA</list>
+            <list>Cassandra, Mysql, Oracle, Mongo, PostgreSQL, Hibernate, JPA, memcahed, Couchbase, Redis</list>
         </category>
         <category>
             <name>BigData</name>
@@ -588,7 +589,7 @@
         </category>
         <category>
             <name>DevOps</name>
-            <list>Linux, Unix, Kubernetes, Helm, AWS, Google Cloud, Shell script, Jenkins</list>
+            <list>Linux, Unix, Kubernetes, Helm, Docker, Amazon Web Services, Google Cloud, Shell script, Jenkins</list>
         </category>
         <category>
             <name>Tools</name>
@@ -602,7 +603,41 @@
             <name>Front End</name>
             <list>Thymeleaf, Javascript, JSF, AngularJS, JQuery, Ajax, HTML,CSS, NodeJs</list>
         </category>
+        <category>
+            <name>Machine Code for Linkedin / Computer to scan my resume, not for interviewer</name>
+            <list>NoSQL, SQL, Go, API, AWS, GCE, cloud platforms, cache</list>
+        </category>
     </skillSets>
+
+    <projectList>
+        <project>
+            <name>go-orm-compare</name>
+            <descritpion>This project is written in Golang. I am trying to compare the performance between 3 database
+                libraries: database/sql , github.com/jmoiron/sqlx , and github.com/jinzhu/gorm. Meanwhile, I create an
+                field to column mapper for sqlx
+            </descritpion>
+            <url>https://github.com/cicidi/go-orm-compare</url>
+        </project>
+        <project>
+            <name>Big dota</name>
+            <descritpion>Dota is a my favorite computer game, I am trying to analyze game replay to improve my win rate.
+                3-node Cassandra cluster
+                3-node 12-core CPU Spark Cluster,
+                5 million game replays, totally E(5,(i=1,j=1)) [C(i,100),C(j,100-i)] => 2 billion hero combinations.
+                Find the best hero combination by playerid, heroid, dota version, game mode... etc
+            </descritpion>
+            <url>https://github.com/cicidi/bigdota</url>
+        </project>
+        <project>
+            <name>My website</name>
+            <descritpion>This application is pulling my profile from Linkedin by Api and web crawler. Then
+                convert to xml file and persistent data into relational DB. In the
+                backend, spring controller + Thymleaf is populating my profile to the frontend. It also integrate Google
+                map API, Github api to show more information in map and history view.
+            </descritpion>
+            <url>www.walterchen.us</url>
+        </project>
+    </projectList>
 
 </profile>
 

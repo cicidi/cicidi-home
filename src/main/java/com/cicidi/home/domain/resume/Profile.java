@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 //@XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
 //        Constants.educationList, Constants.workExperienceList, Constants.skillSets})
 @XmlType(propOrder = {Constants.firstName, Constants.lastName, Constants.faceImg, Constants.objective, Constants.contact,
-        Constants.educationList, Constants.workExperienceList, Constants.skillSets})
+        Constants.educationList, Constants.workExperienceList, Constants.skillSets, Constants.projectList})
 public class Profile extends DatabaseEntity {
 
     @XmlTransient
@@ -59,6 +59,11 @@ public class Profile extends DatabaseEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<SkillSet> skillSets;
+
+    @XmlTransient
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Constants.profile, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Project> projectList;
 
     @XmlTransient
     @Transient
@@ -142,6 +147,19 @@ public class Profile extends DatabaseEntity {
         this.skillSets = skillSets;
     }
 
+    @XmlElementWrapper(name = Constants.projectList)
+    @XmlElement(name = Constants.project)
+    public List<Project> getProjectList() {
+        return projectList;
+    }
+
+    public void setProjectList(List<Project> projectList) {
+        for (Project project : projectList) {
+            project.setProfile(this);
+        }
+        this.projectList = projectList;
+    }
+
     @XmlElement
     public String getFaceImg() {
         return faceImg;
@@ -157,6 +175,7 @@ public class Profile extends DatabaseEntity {
         this.setEducationList(this.educationList);
         this.setWorkExperienceList(this.workExperienceList);
         this.contact.setLinkList(this.contact.getLinkList());
+        this.setProjectList(this.projectList);
         for (Education education : this.educationList) {
             education.getAddress().setOrganization(education);
         }
