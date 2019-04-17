@@ -1,7 +1,7 @@
-#Source code of  [http://watlerchen.us](http://walterchen.us)
+# Source code of  [http://watlerchen.us](http://walterchen.us)
 
 
-##My Resume is nothing but a [resume.xml](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/resume_config/resume.xml)
+## My Resume is nothing but a [resume.xml](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/resume_config/resume.xml)
 ```xml
            <bulletList>
                 <bullet>
@@ -29,7 +29,7 @@
                 </bullet>
             </bulletList>
 ```
-##Converted to PDF by Apache FOP from[ resume.schema](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/resume_config/resume-xsl-fo.xsl)
+## Converted to PDF by Apache FOP from[ resume.schema](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/resume_config/resume-xsl-fo.xsl)
 ```xml
                    <fo:block font-family="sans-serif" space-before="0.5em" color="#666666">
                         <xsl:for-each select="bulletList/bullet">
@@ -41,17 +41,17 @@
                         </xsl:for-each>
                     </fo:block>
 ```
-##All my profile has been saved to mysql database  [domain model](https://github.com/cicidi/cicidi-home/blob/master/src/main/java/com/cicidi/home/domain/resume/WorkExperience.java)
+## All my profile has been saved to mysql database  [domain model](https://github.com/cicidi/cicidi-home/blob/master/src/main/java/com/cicidi/home/domain/resume/WorkExperience.java)
 
-##Then display as what you seen  [Front-end ](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/templates/profile.html)page
+## Then display as what you seen  [Front-end ](https://github.com/cicidi/cicidi-home/blob/master/src/main/resources/templates/profile.html)page
 
-##And the site has
+## And the site has
 - **Gooogle Map API** to search and display all my job location
 - **GitHub API**  to show my updates on portal
 - **LinkedIn Api** to allow user login via Linked account.  **DISABLED** because of legal concern
 - **WebCrawler** to grab vistor linkedin profile (only public info). **DISABLED** because of legal concern
 
-##Others 
+## Others 
 
 
 - I start my project by using a seed project from this link  <https://github.com/kolorobot/spring-boot-thymeleaf>
