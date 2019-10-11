@@ -8,8 +8,8 @@
     </faceImg>
     <objective>
         <title></title>
-        <personalEstimate>7 yrs of Java + 6 months of Golang Exp</personalEstimate>
-        <interests>I am a good developer , but I want to be excellent</interests>
+        <personalEstimate>7 yrs industry Exp, I am a good developer, but I want to be excellent</personalEstimate>
+        <interests> I spend more than 40 hours prepare this resume: create the web site, sample project. please just give me a 5 minute call. Thanks </interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
             The same problem to my interviewer. How can I let them know and trust that
@@ -121,26 +121,28 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Use Golang to develop EV charging and vehicle logging APIs flying in the Kubernetes Cloud.
+                    <content>Vehicle charging API, vehicle real-time data streaming pipeline, Byton Identity Service.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Lead, architect design, implement Charging API (Graphql), which communicate with
-                                cell phone, Vehicle and charging provider's API using Golang
+                            <content>handle more than 1k/s StatusOfChange charging event.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Implement search engine and data store using Elastic search and Cassandra
+                            <content>pass GBT/32960 certificate (China national vehicle platform test) .
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Deploy application to Kubernetes cluster use docker and Helm Chart.
+                            <content>handle vehicle heartbeat. Up to 100k vehicle, 10Gb large file upload.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Upload vehicle logs and sensor data to Cloud data warehouse.
+                            <content>Tech: Go, Java, Scala, Akka, Elixir, Google Cloud, AliCloud, Kubernetes, Helm,
+                                Docker, Gitlab
+                                MQTT, Kafka, Cassandra, ElasticSearch, Postgres, Ory, Oauth2. REST API, Graphql
                             </content>
                         </bullet>
+
                     </bulletList>
 
                 </bullet>
@@ -167,53 +169,21 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Implement shipping restriction rule, which is base on state /zip
+                    <content>Implement Shipping service calculating ship method and shipping restriction.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Shipping Restriction is calculated during ingestion base on restriction rules.
+                            <content>handler >500k request/per min everyday, > 500k transaction per minute during the
+                                thanks giving.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Use apache camel to handle large volume of request.
+                            <content>Clean spikes, make sure the above services returns in 20ms(read side), 500ms (write
+                                side).
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Design and implement E2E regression test case.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Create Spark job migrate data from Oracle to Cassandra.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Keep data in other Oracle and Cassandra.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Maintain site facing and non-site facing service.
-                    </content>
-                    <bulletList>
-                        <bullet>
-                            <content>Production support.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Monitor medusa for site facing service really time performance.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Ensure service response is around 20 ms, without any spike even during thanks
-                                give.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Whenever there is a spike in the response, reason has to be found.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Deploy service using oneOps and loop(Jenkins).
+                            <content>Tech: Java, REST, Spring, Cassandra, Oracle, Spark, Scala, angularJs, nodeJs
                             </content>
                         </bullet>
                     </bulletList>
@@ -239,105 +209,15 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Design, implement, test Company Entity Management V2 Framework by Spring Data.
+                    <content>Build 2 million gift cards inventory.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Research on existing Framework, troubleshoot issues which impact performance.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Design and implement solution for Rational Database support on existing framework,
-                                which only support non-sql currently
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Provide adapter, converter, validator, encryption interface for company
-                                customizations.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Implement both positive and negative test for above feature.
+                            <content>Tech: Java, Spring, MySQL, Cache
                             </content>
                         </bullet>
                     </bulletList>
                 </bullet>
-                <bullet>
-                    <content>Design and implement portal and web service to manage gift card inventory
-                    </content>
-                    <bulletList>
-                        <bullet>
-                            <content>Use REST, Spring data, Spring Boot to create inventory processing service pull card
-                                from various external card sources and save the card in database.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Implement inventory dataload service to manage card load status.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Create portal provide internal user UI tool to upload gift card data, and manage
-                                card load status by calling various web service. Use thymeleaf, js, Spring MVC, Spring
-                                Security.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Limit user access base on user roles using Spring security, Spring LDAP.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Create dashboard showing real time card activation data on global map
-                    </content>
-                    <bulletList>
-                        <bullet>
-                            <content>The application shows user real-time transaction on map, and total
-                                count compared by HOUR/DAY/WEEK/YEAR
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Create postpone logic to cache / calculate real time data. The purpose of
-                                this logic is to release pressure on database query.
-                                By all configuration settings, the logic provides data which delay time is less then
-                                1 second or up to 1 hour.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Implement EGift Card Service for Staples.</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Implement EGift card deliver service use AWS SQS, REST, and internal Email Service
-                                API
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Use Apache camel to handle message flow.</content>
-                        </bullet>
-                        <bullet>
-                            <content>
-                                Release project without any defect to production in 3 month.
-                            </content>
-                        </bullet>
-
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Refractory 4 existing projects</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Because of Interval Framework performance issue, I am asked to polish existing code
-                                and follow business logic behind to refractory 4 projects with
-                                Spring Boot + Spring Data + Spring MVC + Mongo + MySQL
-                            </content>
-                            <content>Performance improved from 15 transaction per s to 60/s, response time
-                                reduce from 300+ms to 100+ ms.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-
             </bulletList>
         </workExperience>
         <workExperience>
@@ -361,47 +241,14 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Maintain https://support.apple.com/</content>
+                    <content>Build logging analyze tool, analyze user searching keyword.</content>
                     <bulletList>
                         <bullet>
-                            <content>Work on back-end,fix defects in web application.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Implement data pipelines from various application</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Use various APIs to pull data from Solr search engine, HDFS, and Cassandra DB
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Analyze business big data</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Use Hadoop MapReduce to analyze the frequency of search queries comes from
-                                support.apple.com
+                            <content>pull logs from Solr, clean data, get useful info, feed to Machine learning model.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Study from open source and implement solution to support multi-line JSON
-                                array,while is not supported by Hadoop 2.7 by default.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Data parsing, and formatting</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Implement lots of data validator base on business requirement.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Use Java/Python to create tool parse daily log into business report, formatting
-                                like excel, pdf.
+                            <content>Tech: Python, Java, Solr, MapReduce.
                             </content>
                         </bullet>
                     </bulletList>
@@ -428,47 +275,11 @@
             <summary></summary>
             <role>Senior Software Engineer</role>
             <bulletList>
-
                 <bullet>
-                    <content>Design and develop XML driven application and tool</content>
+                    <content>Build Eclipse plugin to generate/deploy micro service.</content>
                     <bulletList>
                         <bullet>
-                            <content>The final product of our project is XML driven web application/webservice, which is
-                                configurable and customizable for different companies.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Develop Eclipse Plugins</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Develop Eclipse Plugin UI using open source framework, such as EMF, JFace.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Develop Eclipse plugin runtime</content>
-                    <bulletList>
-                        <bullet>
-                            <content>The runtime is to read configuration then generate source code and deploy
-                                application automatically.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Develop Component repository with Maven/FTP server/Nexas repository.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Auto-generate Maven pom, and auto-deploy application by jenkins job.</content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
-                    <content>Design and develop POC of SaaS tool.</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Use AngulaJs create cloud based tool and runtime.
+                            <content>Rest, JAXB, Java, Eclipse, Maven, Artifactory
                             </content>
                         </bullet>
                     </bulletList>
@@ -497,37 +308,11 @@
             <role>Java Developer</role>
             <bulletList>
                 <bullet>
-                    <content>Work on Land Property Management Application</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Implement front end use JSF, Primeface, Ajax,JavaScript
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Create Web service use REST,SOAP,Spring web flow.</content>
-                        </bullet>
-                        <bullet>
-                            <content>Implement DAO layer use JDBC and hibernate and Oracle</content>
-                        </bullet>
-                        <bullet>
-                            <content>Use Spring AOP to handle Exception and logs
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Implement Unit test and automation test.
-                            </content>
-                        </bullet>
-                    </bulletList>
-                </bullet>
-                <bullet>
                     <content>Work on Healthcare.gov</content>
                     <bulletList>
                         <bullet>
-                            <content>Fix defect in existing web service
+                            <content>Tech: Java, Spring, JSF, HTML.
                             </content>
-                        </bullet>
-                        <bullet>
-                            <content>Implement integration testing case.</content>
                         </bullet>
                     </bulletList>
                 </bullet>
@@ -554,7 +339,7 @@
                 https://media.glassdoor.com/sqls/612279/clinpharma-clinical-research-llc-squarelogo-1441971934749.png
             </icon>
             <summary></summary>
-            <role>Java Developer</role>
+            <role>Contractor</role>
             <bulletList>
                 <bullet>
                     <content>Create various web application using Spring, Hibernate, Struts, JSF</content>
@@ -566,7 +351,7 @@
     <skillSets>
         <category>
             <name>Programming language and frameworks</name>
-            <list>Java, Java-Reactive, GoLang, Scala, Python, Akka, Lagom, Graphql
+            <list>Java, Reactive, GoLang, Scala, Python, Akka, Lagom, Graphql
             </list>
         </category>
         <category>
@@ -585,7 +370,7 @@
         </category>
         <category>
             <name>BigData</name>
-            <list>Hadoop, Spark, GraphX, MapReduce, Hive</list>
+            <list>Hadoop, Spark, Kafka, GraphX, MapReduce, Hive</list>
         </category>
         <category>
             <name>DevOps</name>
@@ -611,10 +396,17 @@
 
     <projectList>
         <project>
+            <name>Tello</name>
+            <descritpion>
+                Control Dji Tello Drone by PlayStation wireless controller
+            </descritpion>
+            <url>https://www.youtube.com/watch?v=WId8eJ22bAA%26t=7s</url>
+        </project>
+        <project>
             <name>go-orm-compare</name>
-            <descritpion>This project is written in Golang. I am trying to compare the performance between 3 database
-                libraries: database/sql , github.com/jmoiron/sqlx , and github.com/jinzhu/gorm. Meanwhile, I create an
-                field to column mapper for sqlx
+            <descritpion>Database object mapper, Written in Golang. Also compare the performance between 3 golang
+                database
+                libraries: database/sql , github.com/jmoiron/sqlx , and github.com/jinzhu/gorm.
             </descritpion>
             <url>https://github.com/cicidi/go-orm-compare</url>
         </project>
@@ -630,10 +422,7 @@
         </project>
         <project>
             <name>My website</name>
-            <descritpion>This application is pulling my profile from Linkedin by Api and web crawler. Then
-                convert to xml file and persistent data into relational DB. In the
-                backend, spring controller + Thymleaf is populating my profile to the frontend. It also integrate Google
-                map API, Github api to show more information in map and history view.
+            <descritpion>Pull my profile from Linkedin, generate resume, and update web site dynamically
             </descritpion>
             <url>www.walterchen.us</url>
         </project>
