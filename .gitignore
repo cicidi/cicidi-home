@@ -14,3 +14,4 @@
 **/*.data
 **/*.redo
 **/logs/**
+**/application.yml
