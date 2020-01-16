@@ -29,17 +29,17 @@
         <fo:block font-family="sans-serif">
             <fo:block text-align-last="right" font-family="sans-serif" font-size="8pt" space-after="8pt"
                       color="#b3b3b3">
-                <xsl:text> This document is generated using Apache(tm) FOP, for source code, visit my github</xsl:text>
+                <xsl:text> This document is generated using Apache(tm) FOP, for source code, visit my github https://github.com/cicidi</xsl:text>
             </fo:block>
-            <fo:block text-align-last="center">
-                <fo:external-graphic
-                        content-height="scale-to-fit" height="50pt" content-width="50pt"
-                        scaling="non-uniform">
-                    <xsl:attribute name="src">
-                        <xsl:value-of select="faceImg"/>
-                    </xsl:attribute>
-                </fo:external-graphic>
-            </fo:block>
+<!--            <fo:block text-align-last="center">-->
+<!--                <fo:external-graphic-->
+<!--                        content-height="scale-to-fit" height="50pt" content-width="50pt"-->
+<!--                        scaling="non-uniform">-->
+<!--                    <xsl:attribute name="src">-->
+<!--                        <xsl:value-of select="faceImg"/>-->
+<!--                    </xsl:attribute>-->
+<!--                </fo:external-graphic>-->
+<!--            </fo:block>-->
             <fo:block text-align-last="center" font-family="Myriad Pro" font-size="24pt">
                 <xsl:value-of select="firstName"/>
                 <xsl:text> </xsl:text>
@@ -202,7 +202,7 @@
                             <!--</xsl:for-each>-->
                             <fo:block space-after="1em"></fo:block>
                         </fo:block>
-                        <fo:block font-family="sans-serif" margin-left="40pt" font-size="5pt"
+                        <fo:block font-family="sans-serif" margin-left="40pt" font-size="8pt"
                                   text-decoration="underline">
                             <xsl:value-of select="url"/>
                             <!-- easy for use to do config on xml when use pure string-->

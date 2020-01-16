@@ -4,12 +4,14 @@
     <firstName>Walter</firstName>
     <lastName>Chen</lastName>
     <faceImg>
-        https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAnyAAAAJGNjNDI4ODFlLTNmZWUtNDcyYS1iODc1LWQxZGEwMGNkMmU4Mg.jpg
+        https://media.licdn.com/dms/image/C5103AQHiWi7oRIn9vw/profile-displayphoto-shrink_200_200/0?e=1576108800%26v=beta%26t=htUKHYtJY0cnuO1BqFkVquTS5Ha4VgVMka0Epil8iCc
     </faceImg>
     <objective>
         <title></title>
-        <personalEstimate>7 yrs industry Exp, I am a good developer, but I want to be excellent</personalEstimate>
-        <interests> I spend more than 40 hours prepare this resume: create the web site, sample project. please just give me a 5 minute call. Thanks </interests>
+        <personalEstimate>7 yrs industry Exp, I am a good developer, But I want to be excellent.
+        </personalEstimate>
+        <interests> I am interest in building data pipeline behind screen. Looking for a senior software engineer role in big data analysis, or IoT project / company.
+        </interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
             The same problem to my interviewer. How can I let them know and trust that
@@ -74,8 +76,8 @@
                 <country>US</country>
                 <zipCode></zipCode>
             </address>
-            <start>08-2010</start>
-            <end>04-2012</end>
+            <start>12-2010</start>
+            <end>12-2012</end>
             <photo>/img/resume_photo/uf_pic.jpg</photo>
             <icon>https://cdn-payscale.com/content/school_logos/University%20of%20Florida%20(UF)_200px.jpg</icon>
             <major>Information Systems and Operations Management</major>
@@ -101,6 +103,55 @@
     </educationList>
     <workExperienceList>
         <workExperience>
+            <name>WeWork</name>
+            <address>
+                <number>415</number>
+                <street>Mission St</street>
+                <city>San Francisco</city>
+                <state>CA</state>
+                <country>US</country>
+                <zipCode>94105</zipCode>
+            </address>
+            <start>09-2019</start>
+            <end>present</end>
+            <present>true</present>
+            <photo>/img/resume_photo/wework2.jpg</photo>
+            <icon>
+                https://cdn.theorg.com/74693ee3-9e07-45b2-90d8-506b76cdeb42_medium.jpg
+            </icon>
+            <summary></summary>
+            <role>Senior Software Engineer</role>
+            <bulletList>
+                <bullet>
+                    <content>Build the data pipeline to collect various sensor data.
+                    </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Capture Lutron lighting control sensor data via BACnet , aka Building Automation and Control (BAC)
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Integrate Elsys occupancy sensor via LoRa network, aka  low-power wide-area network technology.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Build ETL data pipeline to process and store the above sensor data
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content>Use Elastic Search to generate building occupancy/utilization report.
+                            </content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Tech: Go, Java, Docker, Kafka, AWS, Kubernetes, Helm, MQTT, BACnet, LoRa network, Elastic
+                        Search.
+                    </content>
+                </bullet>
+            </bulletList>
+        </workExperience>
+        <workExperience>
             <name>Byton</name>
             <address>
                 <number></number>
@@ -111,8 +162,8 @@
                 <zipCode></zipCode>
             </address>
             <start>05-2018</start>
-            <end>present</end>
-            <present>true</present>
+            <end>09-2019</end>
+            <present>false</present>
             <photo>/img/resume_photo/byton_employee.jpg</photo>
             <icon>
                 https://is3-ssl.mzstatic.com/image/thumb/Purple115/v4/4c/c1/58/4cc158a8-590c-1303-60e7-44d64a48b718/source/512x512bb.jpg
@@ -125,26 +176,30 @@
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>handle more than 1k/s StatusOfChange charging event.
+                            <content>Handle more than 1k/s StatusOfChange charging event.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>pass GBT/32960 certificate (China national vehicle platform test) .
+                            <content>Pass GBT/32960 certificate (China national vehicle platform test) .
                             </content>
                         </bullet>
                         <bullet>
-                            <content>handle vehicle heartbeat. Up to 100k vehicle, 10Gb large file upload.
+                            <content>Handle vehicle heartbeat. Up to 100k vehicle, 10Gb large file upload.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Tech: Go, Java, Scala, Akka, Elixir, Google Cloud, AliCloud, Kubernetes, Helm,
-                                Docker, Gitlab
-                                MQTT, Kafka, Cassandra, ElasticSearch, Postgres, Ory, Oauth2. REST API, Graphql
+                            <content>Byton Identity Service(Oath 2) = Ory Hydra + User management service + Open Policy
+                                Agent
                             </content>
                         </bullet>
-
                     </bulletList>
-
+                </bullet>
+                <bullet>
+                    <content>Tech: Go, Java, Scala, Akka, Elixir, Google Cloud, AliCloud, Kubernetes, Helm,
+                        Docker, Gitlab
+                        MQTT, Kafka, Cassandra, ElasticSearch, Postgres, Ory, Oauth2. REST API, Graphql, CQRS, Event
+                        Driven
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -169,24 +224,26 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Implement Shipping service calculating ship method and shipping restriction.
+                    <content>Walmart.com Shipping service calculating ship method and shipping restriction.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>handler >500k request/per min everyday, > 500k transaction per minute during the
+                            <content>Handle >500k request/per min everyday, > 500k transaction per minute during the
                                 thanks giving.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Clean spikes, make sure the above services returns in 20ms(read side), 500ms (write
+                            <content>Clean spikes, make sure the above services response in 20ms(read side), 500ms
+                                (write
                                 side).
                             </content>
                         </bullet>
-                        <bullet>
-                            <content>Tech: Java, REST, Spring, Cassandra, Oracle, Spark, Scala, angularJs, nodeJs
-                            </content>
-                        </bullet>
+
                     </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Tech: Java, REST, Spring, Cassandra, Oracle, Spark, Scala, angularJs, nodeJs
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -204,19 +261,17 @@
             <end>05-2017</end>
             <present>false</present>
             <photo>/img/resume_photo/IMG_4785_cut_2.jpg</photo>
-            <icon>https://pbs.twimg.com/profile_images/438113203432595456/rBS9OH2u_400x400.png</icon>
+            <icon>https://pbs.twimg.com/profile_images/846404322447388672/eAegWrF5_400x400.jpg</icon>
             <summary></summary>
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Build 2 million gift cards inventory.
+                    <content>Build inventory of 2 million gift cards.
                     </content>
-                    <bulletList>
-                        <bullet>
-                            <content>Tech: Java, Spring, MySQL, Cache
-                            </content>
-                        </bullet>
-                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Tech: Java, Spring,REST, MySQL, DB2, Mongo, Cache
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -238,20 +293,22 @@
             <icon>
                 https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201701231950
             </icon>
-            <role>Senior Software Engineer</role>
+            <role>Software Engineer</role>
             <bulletList>
                 <bullet>
                     <content>Build logging analyze tool, analyze user searching keyword.</content>
                     <bulletList>
                         <bullet>
-                            <content>pull logs from Solr, clean data, get useful info, feed to Machine learning model.
-                            </content>
-                        </bullet>
-                        <bullet>
-                            <content>Tech: Python, Java, Solr, MapReduce.
+                            <content>For example "My iphone4 cannot power on, cannot charge, might be battery dead" ->
+                                "iphone + 4 + battery + dead" -> Machine learning -> give user solution and notify
+                                engineering team
                             </content>
                         </bullet>
                     </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Tech: Python, Java, Solr, Hadoop, MapReduce.
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -271,18 +328,16 @@
             <photo>
                 /img/resume_photo/huawei_cut_2.jpg
             </photo>
-            <icon>https://upload.wikimedia.org/wikipedia/en/9/92/Huawei_logo.svg</icon>
+            <icon>https://ih0.redbubble.net/image.831044306.5788/flat,1000x1000,075,f.u2.jpg</icon>
             <summary></summary>
-            <role>Senior Software Engineer</role>
+            <role>Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Build Eclipse plugin to generate/deploy micro service.</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Rest, JAXB, Java, Eclipse, Maven, Artifactory
-                            </content>
-                        </bullet>
-                    </bulletList>
+                    <content>Build Eclipse plugin to auto-generate/deploy micro service.</content>
+                </bullet>
+                <bullet>
+                    <content>Tech: REST, JAXB, Java, Eclipse, Maven, Artifactory
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -309,12 +364,10 @@
             <bulletList>
                 <bullet>
                     <content>Work on Healthcare.gov</content>
-                    <bulletList>
-                        <bullet>
-                            <content>Tech: Java, Spring, JSF, HTML.
-                            </content>
-                        </bullet>
-                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content>Tech: Java, Spring, JSF, HTML.
+                    </content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -329,7 +382,7 @@
                 <zipCode></zipCode>
             </address>
             <start>12-2012</start>
-            <end>09-2013</end>
+            <end>05-2018</end>
             <!--<length></length>-->
             <!--<photo>img/River-Reuss-Lucerne-Switzerland-Images_CWu2VTq.jpg</photo>-->
             <photo>
@@ -342,7 +395,7 @@
             <role>Contractor</role>
             <bulletList>
                 <bullet>
-                    <content>Create various web application using Spring, Hibernate, Struts, JSF</content>
+                    <content>Work as contractor on client site</content>
                 </bullet>
             </bulletList>
         </workExperience>
@@ -351,7 +404,7 @@
     <skillSets>
         <category>
             <name>Programming language and frameworks</name>
-            <list>Java, Reactive, GoLang, Scala, Python, Akka, Lagom, Graphql
+            <list>Java, Reactive, GoLang, Scala, Python, Elixir, Akka, Lagom, Graphql, Commanded
             </list>
         </category>
         <category>
@@ -412,11 +465,11 @@
         </project>
         <project>
             <name>Big dota</name>
-            <descritpion>Dota is a my favorite computer game, I am trying to analyze game replay to improve my win rate.
+            <descritpion>Dota is a my favorite computer game, I analyze game replay to improve my win rate.
                 3-node Cassandra cluster
                 3-node 12-core CPU Spark Cluster,
                 5 million game replays, totally E(5,(i=1,j=1)) [C(i,100),C(j,100-i)] => 2 billion hero combinations.
-                Find the best hero combination by playerid, heroid, dota version, game mode... etc
+                Find the best hero combination filter by playerid, heroid, game version, game mode... etc
             </descritpion>
             <url>https://github.com/cicidi/bigdota</url>
         </project>
