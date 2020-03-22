@@ -50,7 +50,7 @@
         <linkList>
             <link>
                 <name>WebSite</name>
-                <url>http://walterchen.us</url>
+                <url>http://walter-chen.com</url>
                 <pic></pic>
             </link>
             <link>
@@ -106,7 +106,6 @@
             <name>WeWork</name>
             <address>
                 <number>415</number>
-                <street>Mission St</street>
                 <city>San Francisco</city>
                 <state>CA</state>
                 <country>US</country>
@@ -115,7 +114,7 @@
             <start>09-2019</start>
             <end>present</end>
             <present>true</present>
-            <photo>/img/resume_photo/wework.jpg</photo>
+            <photo>/img/resume_photo/wework_team.jpg</photo>
             <icon>
                 https://cdn.theorg.com/74693ee3-9e07-45b2-90d8-506b76cdeb42_medium.jpg
             </icon>
@@ -123,11 +122,25 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Build the data pipeline to collect various sensor data.
+                    <content>WeWork has more than 500+ buildings, we are implementing a system to give user more flexible building access base on company, user role, access level, building zones and time range.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Capture Lutron lighting control sensor data via BACnet , aka Building Automation and Control (BAC)
+                            <content> Implementing PACman service, which is consuming source of true and update into S2 security system.
+                            </content>
+                        </bullet>
+                        <bullet>
+                            <content> Lead, design and implement access auditing service, which audit, tracking and monitor all access change into our access control system.
+                            </content>
+                        </bullet>
+                    </bulletList>
+                </bullet>
+                <bullet>
+                    <content> We are using update to data technology to monitor building, office, and meeting occupancy and utilization.
+                    </content>
+                    <bulletList>
+                        <bullet>
+                            <content>Capture Lutron lighting control sensor data, which is occupancy boolean record, via BACnet , aka Building Automation and Control (BAC)
                             </content>
                         </bullet>
                         <bullet>
@@ -218,7 +231,7 @@
             <present>false</present>
             <photo>/img/resume_photo/walmart_chris.jpg</photo>
             <icon>
-                https://www.ariasystems.com/blog/wp-content/uploads/2014/08/walmartlogo.jpg.png
+                https://www.freeiconspng.com/uploads/walmart-logo-png-22.png
             </icon>
             <summary></summary>
             <role>Senior Software Engineer</role>
@@ -477,7 +490,7 @@
             <name>My website</name>
             <descritpion>Pull my profile from Linkedin, generate resume, and update web site dynamically
             </descritpion>
-            <url>www.walterchen.us</url>
+            <url>www.walter-chen.com</url>
         </project>
     </projectList>
 
