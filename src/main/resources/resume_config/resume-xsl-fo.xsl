@@ -45,6 +45,14 @@
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="lastName"/>
             </fo:block>
+            <fo:block text-align-last="center" font-family="Myriad Pro" font-size="8pt" color="#b3b3b3">
+                <xsl:text> email </xsl:text>
+                <xsl:value-of select="contact/email"/>
+            </fo:block>
+            <fo:block text-align-last="center" font-family="Myriad Pro" font-size="8pt" color="#b3b3b3">
+                <xsl:text> phone </xsl:text>
+                <xsl:value-of select="contact/phone"/>
+            </fo:block>
             <fo:block text-align-last="center" font-family="sans-serif" font-size="8pt" color="#b3b3b3">
                 <xsl:for-each select="contact/linkList/link">
                     <fo:block font-family="sans-serif" margin-left="3em">

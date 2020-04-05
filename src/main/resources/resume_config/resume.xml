@@ -10,7 +10,8 @@
         <title></title>
         <personalEstimate>7 yrs industry Exp, I am a good developer, But I want to be excellent.
         </personalEstimate>
-        <interests> I am interest in building data pipeline behind screen. Looking for a senior software engineer role in big data analysis, or IoT project / company.
+        <interests>I am interested in building a data pipeline behind the screen. Looking for a senior software engineer
+            role in big data analysis, or IoT project/company.
         </interests>
         <whyCreateThisPage>When I interview new candidates, I found it is not as simple as running a query to get best
             fit.
@@ -18,7 +19,7 @@
             I can handle the task. I have had work on lots of application, but I never write one for myself, why not
             create one and post my resume. As a developer, I am always asking myself how can I make things different,
             and better.
-            This is reason why I write this website.
+            This is the reason why I write this website.
             Meanwhile, I get more practice and learn new stuff.
             2-month spare time after work, here is what you are seeing.
             If you have job openings, and looking for a Software engineer, here I am.
@@ -37,7 +38,7 @@
         </contentImg>
     </objective>
     <contact>
-        <phone></phone>
+        <phone>872-216-3056</phone>
         <email>walterchen.ca@gmail.com</email>
         <address>
             <number></number>
@@ -50,7 +51,7 @@
         <linkList>
             <link>
                 <name>WebSite</name>
-                <url>http://walter-chen.com</url>
+                <url>http://walter-chen.site</url>
                 <pic></pic>
             </link>
             <link>
@@ -122,29 +123,35 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>WeWork has more than 500+ buildings, we are implementing a system to give user more flexible building access base on company, user role, access level, building zones and time range.
+                    <content>WeWork has more than 500+ buildings and more than 600k membership. My team and I are
+                        solving a problem which is how to give or allow our client to give user access to a particular
+                        building or zone, base on user identity, role, access level, and time.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content> Implementing PACman service, which is consuming source of true and update into S2 security system.
+                            <content>Implementing database pipepline, collecting user identity, permission, resource
+                                data and update to our security system.
                             </content>
                         </bullet>
                         <bullet>
-                            <content> Lead, design and implement access auditing service, which audit, tracking and monitor all access change into our access control system.
+                            <content>Lead access auditing service, which audit, tracking and monitor all access mutation
+                                into our access control system.
                             </content>
                         </bullet>
                     </bulletList>
                 </bullet>
                 <bullet>
-                    <content> We are using update to data technology to monitor building, office, and meeting occupancy and utilization.
+                    <content>Use IoT techonology monitoring building, office, and meeting occupancy and utilization.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Capture Lutron lighting control sensor data, which is occupancy boolean record, via BACnet , aka Building Automation and Control (BAC)
+                            <content>Capture Lutron lighting control sensor occupancy data via BACnet , aka Building
+                                Automation and Control (BAC)
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Integrate Elsys occupancy sensor via LoRa network, aka  low-power wide-area network technology.
+                            <content>Integrate Elsys occupancy sensor via LoRa network, aka low-power wide-area network
+                                technology.
                             </content>
                         </bullet>
                         <bullet>
@@ -159,7 +166,7 @@
                 </bullet>
                 <bullet>
                     <content>Tech: Go, Java, Docker, Kafka, AWS, Kubernetes, Helm, MQTT, BACnet, LoRa network, Elastic
-                        Search.
+                        Search, REST, Microservice.
                     </content>
                 </bullet>
             </bulletList>
@@ -185,19 +192,19 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Vehicle charging API, vehicle real-time data streaming pipeline, Byton Identity Service.
+                    <content>Charging Station Service & Vehicle real-time data streaming pipeline & Byton Identity Service.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Handle more than 1k/s StatusOfChange charging event.
+                            <content>Handle more than 1k request per second StatusOfChange event.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Pass GBT/32960 certificate (China national vehicle platform test) .
+                            <content>Lead team achieve GBT/32960 certificate (China national vehicle platform test) .
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Handle vehicle heartbeat. Up to 100k vehicle, 10Gb large file upload.
+                            <content>Handle vehicle heartbeat. Up to 10k request per minute. Handle update 10Gb large file upload.
                             </content>
                         </bullet>
                         <bullet>
@@ -209,7 +216,7 @@
                 </bullet>
                 <bullet>
                     <content>Tech: Go, Java, Scala, Akka, Elixir, Google Cloud, AliCloud, Kubernetes, Helm,
-                        Docker, Gitlab
+                        Docker, Gitlab, Web Socket
                         MQTT, Kafka, Cassandra, ElasticSearch, Postgres, Ory, Oauth2. REST API, Graphql, CQRS, Event
                         Driven
                     </content>
@@ -237,18 +244,17 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Walmart.com Shipping service calculating ship method and shipping restriction.
+                    <content>Work on Walmart.com backend shipping service, calculating ship method and shipping restriction.
                     </content>
                     <bulletList>
                         <bullet>
-                            <content>Handle >500k request/per min everyday, > 500k transaction per minute during the
+                            <content>Handle more 500k request/per min everyday, more than 100k transaction per minute during the
                                 thanks giving.
                             </content>
                         </bullet>
                         <bullet>
-                            <content>Clean spikes, make sure the above services response in 20ms(read side), 500ms
-                                (write
-                                side).
+                            <content>Clean spikes, make sure the above service's response in 20ms on read service, 500ms
+                                on write service.
                             </content>
                         </bullet>
 
@@ -279,7 +285,7 @@
             <role>Senior Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Build inventory of 2 million gift cards.
+                    <content>Build inventory of 2 million gift cards and build system monitoring card processing status.
                     </content>
                 </bullet>
                 <bullet>
@@ -309,7 +315,7 @@
             <role>Software Engineer</role>
             <bulletList>
                 <bullet>
-                    <content>Build logging analyze tool, analyze user searching keyword.</content>
+                    <content>Build logging analyze tool, analyze user search keyword.</content>
                     <bulletList>
                         <bullet>
                             <content>For example "My iphone4 cannot power on, cannot charge, might be battery dead" ->
@@ -490,7 +496,7 @@
             <name>My website</name>
             <descritpion>Pull my profile from Linkedin, generate resume, and update web site dynamically
             </descritpion>
-            <url>www.walter-chen.com</url>
+            <url>www.walter-chen.site</url>
         </project>
     </projectList>
 
